@@ -135,3 +135,8 @@ Una sesión importante deja un registro breve y operativo con el siguiente forma
 - **PRUEBA:** revisión de código confirmó que `idm-actividades` sigue `enabled:false`, `permission:pending`, `adapter:pending-parser`; no hubo ingesta real ni nueva publicación.
 - **SIGUIENTE:** verificar acceso permitido + HTML/feed de la IDM, construir adaptador con fixture real y tests, probar un flujo end-to-end completo en ONDA Lab. Mantener Radar separado de publicación automática hasta confirmar escritura programada y procedencia.
 - **RIESGO:** un cron verde no indica captura de datos; una fuente institucional visible tampoco equivale a acceso automático autorizado.
+
+### 2026-11-08 · ChatGPT · Prueba del puente programado Radar → GitHub
+- **HECHO:** se abrió [issue #5](https://github.com/Waltbron/Onda-/issues/5), con definición verificable de escritura desatendida, validación de Action y plan alternativo si la tarea ChatGPT carece de conector en su ejecución.
+- **PENDIENTE:** ejecutar y observar una próxima corrida programada sin intervención del chat; registrar commit real o fallo. No se declara puente operativo hasta comprobarlo.
+- **RIESGO:** la ejecución cron de GitHub Actions se ejecuta sobre rama por defecto (`main`), mientras el Radar usa `chore/instalar-motor-v3-1`; no confundir ambos caminos.
