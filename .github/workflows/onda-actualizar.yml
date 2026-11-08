@@ -41,6 +41,8 @@ jobs:
         run: |
           npm test
           npm run check
+      - name: Revisar señales del radar (sin publicación)
+        run: npm run radar:review
       - name: Ejecución de ejemplo, sin publicación
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.modo == 'ensayo') || vars.ONDA_AUTOMATION_ENABLED != 'true' }}
         run: npm run preview
@@ -86,4 +88,5 @@ jobs:
           path: |
             data/reports/latest.json
             output/fixture-report.json
+            data/reports/radar-review.json
           retention-days: 14
