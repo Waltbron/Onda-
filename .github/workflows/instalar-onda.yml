@@ -1,0 +1,89 @@
+name: "ONDA | Instalar motor V3.1 en rama de prueba"
+
+on:
+  push:
+    branches: [chore/instalar-motor-v3-1]
+    paths:
+      - '.github/workflows/instalar-onda.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onda-instalacion-v3
+  cancel-in-progress: false
+
+jobs:
+  instalar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+      - name: Verificar ZIP y extraer motor
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PYINSTALL'
+          import hashlib
+          from pathlib import Path
+          from zipfile import ZipFile
+          import shutil
+          archive=Path('ONDA_V3_1_MOTOR_COMPLETO_GITHUB.zip')
+          if not archive.is_file():
+              raise SystemExit('Falta el ZIP original')
+          expected_hash='5a97edc94da543fcd560374753dcc93116e8ffa9a1b5a566019867943534fdb3'
+          if hashlib.sha256(archive.read_bytes()).hexdigest()!=expected_hash:
+              raise SystemExit('ZIP distinto del paquete verificado')
+          with ZipFile(archive) as z:
+              entries=[i for i in z.infolist() if not i.is_dir()]
+              if len(entries)!=46: raise SystemExit('Se esperaban 46 archivos')
+              prefix='ONDA_AUTO_V3/'
+              paths=set()
+              for i in entries:
+                  name=i.filename
+                  if (not name.startswith(prefix) or name[len(prefix):]=='' or
+                      name.startswith('/') or '\\' in name or
+                      '..' in Path(name).parts or i.file_size>5_000_000 or
+                      (i.external_attr >> 16) & 0o170000 == 0o120000):
+                      raise SystemExit('Ruta no permitida: '+name)
+                  relative=name[len(prefix):]
+                  if relative in paths: raise SystemExit('Archivo duplicado: '+relative)
+                  paths.add(relative)
+              for needed in ('.github/workflows/onda-actualizar.yml','package.json','data/sources.json'):
+                  if needed not in paths: raise SystemExit('Falta '+needed)
+              for i in entries:
+                  dest=Path(i.filename[len(prefix):])
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  with z.open(i) as source, dest.open('wb') as target:
+                      shutil.copyfileobj(source,target)
+              print('Motor ONDA instalado en rama de ensayo:',len(entries),'archivos')
+          PYINSTALL
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar motor
+        run: |
+          npm test
+          npm run check
+          npm run demo
+      - name: Guardar instalacion SOLO en rama de ensayo
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/instalar-onda.yml
+          git config user.name 'ONDA installer'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'Instalar ONDA V3.1 en rama de prueba [skip netlify]'
+            git push origin HEAD:chore/instalar-motor-v3-1
+          fi
+      - name: Resumen
+        if: always()
+        shell: bash
+        run: |
+          echo '## Instalacion ONDA V3.1' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Sin lectura de fuentes reales ni cambios en rama main o Netlify.' >> "$GITHUB_STEP_SUMMARY"
