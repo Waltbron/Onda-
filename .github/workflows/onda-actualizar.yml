@@ -40,6 +40,7 @@ jobs:
       - name: Comprobar integridad
         run: |
           npm test
+          node --check site/app.js
           npm run check
       - name: Revisar señales del radar (sin publicación)
         run: npm run radar:review
