@@ -1,0 +1,89 @@
+name: ONDA · Actualización de eventos
+
+on:
+  push:
+    branches: [chore/instalar-motor-v3-1]
+    paths:
+      - '.github/workflows/onda-actualizar.yml'
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: 'Ensayo sin publicar / producción solo con fuentes aprobadas'
+        type: choice
+        required: true
+        default: ensayo
+        options: [ensayo, produccion]
+  schedule:
+    # GitHub cron usa UTC: Uruguay 08:30 y 20:30.
+    - cron: '30 11,23 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onda-ingestion
+  cancel-in-progress: false
+
+jobs:
+  ingesta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Código
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar integridad
+        run: |
+          npm test
+          npm run check
+      - name: Ejecución de ejemplo, sin publicación
+        if: ${{ (github.event_name == 'workflow_dispatch' && inputs.modo == 'ensayo') || vars.ONDA_AUTOMATION_ENABLED != 'true' }}
+        run: npm run preview
+      - name: Captura + publicación autorizada
+        if: ${{ vars.ONDA_AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.modo == 'produccion') }}
+        env:
+          ONDA_AUTOMATION_ENABLED: ${{ vars.ONDA_AUTOMATION_ENABLED }}
+          ONDA_CONTACT_EMAIL: ${{ vars.ONDA_CONTACT_EMAIL }}
+        run: npm run ingest:publish
+      - name: Revalidar archivos publicados
+        run: npm run check
+      - name: Subir cambios si existen y pasan validación
+        if: ${{ vars.ONDA_AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.modo == 'produccion') }}
+        run: |
+          git config user.name 'ONDA automation'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'ONDA: actualizar eventos verificados y estado del motor'
+            git push
+          else
+            echo 'Sin cambios de archivos para publicar'
+          fi
+      - name: Alerta ante fuentes degradadas
+        if: ${{ vars.ONDA_AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.modo == 'produccion') }}
+        run: node scripts/health.mjs
+      - name: Informe en GitHub
+        if: always()
+        run: |
+          echo '### ONDA · Estado del motor' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Las fuentes no aprobadas permanecen desactivadas. Una prueba offline nunca modifica la agenda.' >> "$GITHUB_STEP_SUMMARY"
+          if test -f data/reports/latest.json; then
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            head -c 10000 data/reports/latest.json >> "$GITHUB_STEP_SUMMARY"
+            echo >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Guardar informes incluso en error
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: onda-informe
+          path: |
+            data/reports/latest.json
+            output/fixture-report.json
+          retention-days: 14
