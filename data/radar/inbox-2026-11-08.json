@@ -5,7 +5,7 @@
   "generatedFrom": "automatizacion-existente-Fiesta-early-bird-Punta",
   "ingestionStatus": "review-only",
   "published": false,
-  "notes": "Pistas recuperadas del último reporte de una tarea programada; NO se verificaron independientemente en esta operación ni se autoriza su publicación. Validar nombre, fecha, lugar, vigencia y URL primaria antes de promover. La selección personal no determina cobertura editorial.",
+  "notes": "Pistas recuperadas del último reporte de una tarea programada; NO se verificaron independientemente en esta operación ni se autoriza su publicación. Validar nombre, fecha, lugar, vigencia y URL primaria antes de promover. La selección personal no determina cobertura editorial. Ensayo del 08/11/2026: se agregaron señales verificadas por consulta pública en la conversación y quedaron en revisión; la tarea desatendida aún NO demostró escritura por sí sola. No se autoriza publicar sin promoción/validación.",
   "candidates": [
     {
       "key": "radar-massano-2027-01-31",
@@ -48,6 +48,28 @@
       "city": "Punta del Este",
       "category": "Fiestas",
       "sourceUrl": "https://www.passline.com/eventos/801-my-tribe-closing-you-are-my-tribe",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "radar-moonlight-de-la-calle-2026-11-14",
+      "title": "De la Calle en vivo · Moonlight Disco",
+      "date": "2026-11-14",
+      "venue": "Moonlight Disco",
+      "city": "Punta del Este",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.passline.com/eventos/de-la-calle-en-vivo-moonlightdisco",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "radar-jazz-en-el-bosque-2026-11-21",
+      "title": "Jazz en el Bosque 2026",
+      "date": "2026-11-21",
+      "venue": "Bosque de Sauce de Portezuelo",
+      "city": "Sauce de Portezuelo",
+      "category": "Música",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/sauce-portezuelo-recibira-una-nueva-edicion-jazz-bosque",
       "verificationStatus": "descubierto",
       "publicationAllowed": false
     }
