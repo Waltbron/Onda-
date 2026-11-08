@@ -1,0 +1,39 @@
+name: ONDA · Verificación de identidad visual
+
+on:
+  push:
+    branches: [feature/onda-editorial-assets]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pruebas originales y consistencia del catálogo
+        run: |
+          npm test
+          npm run check
+      - name: Sintaxis del frontend
+        run: |
+          node --check site/app.js
+          node --check site/event-time.js
+      - name: Imágenes editoriales originales
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          names=['onda_gastronomia_03','onda_gastronomia_04','onda_gastronomia_05','onda_gastronomia_06','onda_musica_01','onda_musica_02','onda_musica_03','onda_musica_04','onda_arte_cultura_01','onda_arte_cultura_02','onda_arte_cultura_03','onda_arte_cultura_04','onda_naturaleza_01']
+          for name in names:
+              p=Path('site/assets/editorial')/(name+'.webp')
+              b=p.read_bytes()
+              assert len(b)>15000 and b[:4]==b'RIFF' and b[8:12]==b'WEBP',(name,len(b))
+          print('WebP válidos:',len(names))
+          PY
