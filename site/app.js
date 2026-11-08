@@ -3,7 +3,7 @@
 const $ = id => document.getElementById(id);
 const ET = globalThis.ONDAEventTime;
 if (!ET) throw new Error('ONDAEventTime no disponible: cargar event-time.js antes de app.js');
-const state = {lastDataSync:null,events:[],when:'finde',mood:'todos',zone:'todos',category:'todos',free:false,query:'',shown:9,modal:null};
+const state = {lastDataSync:null,events:[],when:'todos',mood:'todos',zone:'todos',category:'todos',free:false,query:'',shown:9,modal:null};
 const escapeHtml = x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = x=>{try{const u=new URL(x);return u.protocol==='https:'?escapeHtml(u.href):'#'}catch{return '#'}};
 const uyToday=()=>ET.uyDate();
