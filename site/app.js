@@ -21,6 +21,21 @@ const COLORS={
   'Aire libre':['#d3e8df','#193d4a','#85b8cd'],'Deporte':['#d8e5fc','#142b51','#f2ab83'],
   'Bienestar':['#e5e1fb','#312961','#a39cc8'],'Encuentros':['#f5e2c3','#463325','#e1a362']
 };
+// Recursos aprobados en Drive: decorativos, no fotografías del evento.
+// La variante depende de un ID estable, de modo que una actualización no reordena imágenes.
+const EDITORIAL_VARIANTS = {
+  'Música':['onda_musica_01.webp','onda_musica_02.webp','onda_musica_03.webp','onda_musica_04.webp'],
+  'Cultura':['onda_arte_cultura_01.webp','onda_arte_cultura_02.webp','onda_arte_cultura_03.webp','onda_arte_cultura_04.webp'],
+  'Gastronomía':['onda_gastronomia_03.webp','onda_gastronomia_04.webp','onda_gastronomia_05.webp','onda_gastronomia_06.webp'],
+  'Aire libre':['onda_naturaleza_01.webp']
+};
+function editorialArt(e){
+  const imgs=EDITORIAL_VARIANTS[e.category];
+  if(!imgs?.length)return '';
+  const key=String(e.id||e.title||'');
+  let h=0;for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;
+  return './assets/editorial/'+imgs[h%imgs.length];
+}
 function colors(e){const a=COLORS[e.category]||['#eae3d8','#182436','#f86959'];return `--poster-bg:${a[0]};--poster-ink:${a[1]};--poster-shape:${a[2]}`}
 function dateLabel(e){return e.kind==='exposicion'&&e.endDate?`Hasta el ${fmtDate(e.endDate)}`:!e.endDate||e.date===e.endDate?fmtCompact(e.date):`${fmtCompact(e.date)} al ${fmtDate(e.endDate)}`}
 function whereLabel(e){return `${e.place} · ${e.city}`}
@@ -41,8 +56,8 @@ function selectRecs(){
  if(out.length<3)for(const item of scored){if(!out.some(e=>e.id===item.e.id)){out.push(item.e);if(out.length===3)break}}
  return out;
 }
-function recCard(e,i){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();return `<article class="rec-card">
-  <div class="rec-poster" style="${colors(e)}"><span class="tag">${escapeHtml(t)}</span><span class="poster-head">${escapeHtml(e.city)}</span><span class="poster-index">ONDA / ${index}</span></div>
+function recCard(e,i){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'rec-poster has-art':'rec-poster';return `<article class="rec-card">
+  <div class="${visualClass}" style="${colors(e)}">${cover}<span class="tag">${escapeHtml(t)}</span><span class="poster-head">${escapeHtml(e.city)}</span><span class="poster-index">ONDA / ${index}</span></div>
   <div class="rec-body"><div class="rec-overline">SELECCIÓN ${index} · ${escapeHtml(dateLabel(e))}</div><h3>${title}</h3><div class="rec-meta">⌖ ${escapeHtml(whereLabel(e))}</div>
   <div class="editor-note"><strong>LA MIRADA DE ONDA</strong>${escapeHtml(reason(e))}</div>
   <div class="rec-buttons"><button class="card-action detail-btn" data-id="${escapeHtml(e.id)}" type="button">Ver el plan →</button><a class="card-action link" target="_blank" rel="noopener noreferrer" href="${safeUrl(e.sourceUrl)}">Fuente ↗</a></div></div>
@@ -51,7 +66,7 @@ function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!a
  $('recs-summary').textContent=x.length?`${x.length} ${x.length===1?'idea':'ideas'} reales para tu búsqueda. Elegidas por fecha, zona y categoría.`:'No encontramos propuestas confirmadas con estos filtros.';
  area.innerHTML=x.length?x.map(recCard).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
-function eventCard(e){const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="event-visual" style="${colors(e)}"><div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(e.cost||'Consultar detalles')}</div><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles y fuente →</button></div></article>`}
+function eventCard(e){const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'event-visual has-art':'event-visual';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(e.cost||'Consultar detalles')}</div><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles y fuente →</button></div></article>`}
 function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
 function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; $('eventGrid').innerHTML=all.slice(0,state.shown).map(eventCard).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
