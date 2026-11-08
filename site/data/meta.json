@@ -1,0 +1,11 @@
+{
+  "project": "ONDA",
+  "version": "3.0 preparado",
+  "catalogType": "manually-reviewed-static",
+  "catalogReviewedAt": "2026-11-08",
+  "automaticIngestionEnabled": false,
+  "activeConnectors": 0,
+  "lastSuccessfulRunAt": null,
+  "timezone": "America/Montevideo",
+  "notice": "Catálogo curado parcialmente el 8/11/2026. Las fuentes automáticas aún no están activas; confirmá posibles cambios en la fuente."
+}

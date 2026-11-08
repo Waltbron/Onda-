@@ -1,0 +1,18 @@
+{
+  "name": "onda-automatizacion-eventos",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test engine/tests/*.test.mjs",
+    "demo": "node scripts/run.mjs --mode=fixture",
+    "preview": "node scripts/run.mjs --mode=fixture --write-preview",
+    "ingest": "node scripts/run.mjs --mode=live",
+    "ingest:publish": "node scripts/run.mjs --mode=live --publish",
+    "check": "node scripts/check.mjs",
+    "radar:review": "node scripts/radar-review.mjs"
+  }
+}

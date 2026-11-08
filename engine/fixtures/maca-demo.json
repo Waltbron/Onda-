@@ -1,0 +1,4 @@
+[
+  {"sourceId":"maca-agenda-demo","sourceUrl":"https://example.org/maca-demo/eventos/cine-festival","title":"Ejemplo para prueba: cine en MACA","date":"2026-10-10","endDate":"2026-10-10","time":"16:00","endTime":"17:30","category":"Cultura","city":"Manantiales","place":"Sala de ensayo","evidence":[{"field":"date","text":"10 de octubre de 2026"},{"field":"time","text":"16:00–17:30"}]},
+  {"sourceId":"maca-agenda-demo","sourceUrl":"https://example.org/maca-demo/eventos/concierto","title":"Ejemplo para prueba: concierto","date":"2026-10-11","time":"16:30","category":"Música","city":"Manantiales","evidence":[{"field":"date","text":"11 de octubre de 2026"}]}
+]

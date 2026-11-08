@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ONDA radar candidate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "kind",
+    "title",
+    "observed_at",
+    "source_url",
+    "verification_status"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]{5,120}$"
+    },
+    "kind": {
+      "enum": [
+        "event",
+        "recurring",
+        "experience",
+        "offer"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 250
+    },
+    "category": {
+      "enum": [
+        "Cultura",
+        "Música",
+        "Gastronomía",
+        "Fiestas",
+        "Aire libre",
+        "Deporte",
+        "Bienestar",
+        "Encuentros",
+        "Otra"
+      ]
+    },
+    "start_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "end_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "timezone": {
+      "const": "America/Montevideo"
+    },
+    "venue": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 200
+    },
+    "locality": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "official_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_status": {
+      "enum": [
+        "unverified",
+        "corroborated",
+        "official-verified",
+        "rejected"
+      ]
+    },
+    "price_text": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 150
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1200
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "source_kind": {
+      "enum": [
+        "official",
+        "ticketing",
+        "aggregator",
+        "media",
+        "social",
+        "other"
+      ]
+    },
+    "evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
+    "discovered_by": {
+      "enum": [
+        "github-source",
+        "chatgpt-radar",
+        "manual",
+        "other"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "pending-review",
+        "approved",
+        "rejected",
+        "needs-verification"
+      ]
+    },
+    "review_reason": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    }
+  }
+}

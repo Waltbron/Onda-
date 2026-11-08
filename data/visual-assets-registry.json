@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-11-08",
+  "authority": "Google Drive / ONDA · Figuras editoriales / onda_assets_manifest.json",
+  "source_drive_folder": "https://drive.google.com/drive/folders/1CD-3bDJRX4eujSznyH9cmx_IE2HLRjPK",
+  "source_manifest_version": "1.3.0",
+  "usage": "Arte conceptual. No implica fotografías del evento ni cesión de derechos de imágenes de terceros. Sobreimpresos de título, fecha y etiquetas se hacen con HTML/CSS.",
+  "selection_rule": "Para una categoría, seleccionar variante estable mediante hash de event.id sobre lista de variantes disponibles. No repetir consecutivamente si hay más de una. Nunca inventar archivo no cargado en /site/assets/onda.",
+  "categories": [
+    {
+      "key": "Cultura",
+      "library": "Arte y cultura",
+      "approved": [
+        "onda_arte_cultura_01",
+        "onda_arte_cultura_02",
+        "onda_arte_cultura_03",
+        "onda_arte_cultura_04"
+      ],
+      "pending": []
+    },
+    {
+      "key": "Música",
+      "library": "Música",
+      "approved": [
+        "onda_musica_01",
+        "onda_musica_02",
+        "onda_musica_03",
+        "onda_musica_04"
+      ],
+      "pending": []
+    },
+    {
+      "key": "Gastronomía",
+      "library": "Gastronomía",
+      "approved": [
+        "onda_gastronomia_03",
+        "onda_gastronomia_04",
+        "onda_gastronomia_05",
+        "onda_gastronomia_06"
+      ],
+      "historical_unlocated": [
+        "onda_gastronomia_01",
+        "onda_gastronomia_02"
+      ],
+      "pending": []
+    },
+    {
+      "key": "Aire libre",
+      "library": "Naturaleza",
+      "approved": [
+        "onda_naturaleza_01"
+      ],
+      "pending": [
+        "onda_naturaleza_02",
+        "onda_naturaleza_03",
+        "onda_naturaleza_04"
+      ]
+    },
+    {
+      "key": "Bienestar",
+      "library": "Bienestar",
+      "approved": [],
+      "pending": [
+        "onda_bienestar_01",
+        "onda_bienestar_02",
+        "onda_bienestar_03",
+        "onda_bienestar_04"
+      ]
+    },
+    {
+      "key": "Fiestas",
+      "library": "Vida nocturna",
+      "approved": [],
+      "pending": [
+        "onda_vida_nocturna_01",
+        "onda_vida_nocturna_02",
+        "onda_vida_nocturna_03",
+        "onda_vida_nocturna_04"
+      ]
+    },
+    {
+      "key": "Deporte",
+      "library": null,
+      "approved": [],
+      "pending": [],
+      "fallback": "Gradiente gráfico actual hasta contar con ilustración aprobada"
+    },
+    {
+      "key": "Encuentros",
+      "library": null,
+      "approved": [],
+      "pending": [],
+      "fallback": "Gradiente gráfico actual hasta contar con ilustración aprobada"
+    }
+  ],
+  "statuses": {
+    "approved_files": 13,
+    "prior_approvals_missing_originals": 2,
+    "pending_illustrations": 11
+  },
+  "migration_state": "Registro preparado; los WebP aprobados todavía no están empaquetados en site/assets. Mantener los gradientes CSS actuales hasta completar la importación y prueba visual."
+}
