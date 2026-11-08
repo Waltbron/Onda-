@@ -73,10 +73,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -f .github/workflows/instalar-onda.yml
+          # El instalador se conserva hasta la revision final; no alterar workflows via Actions
           git config user.name 'ONDA installer'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add -A -- . ':(exclude).github/workflows/**'
           if ! git diff --cached --quiet; then
             git commit -m 'Instalar ONDA V3.1 en rama de prueba [skip netlify]'
             git push origin HEAD:chore/instalar-motor-v3-1
