@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "auditDate": "2026-11-08",
+  "auditedEnvironment": "onda-lab-hormiga",
+  "scope": "Muestra de cuatro eventos en agenda oficial IDM, no auditoría exhaustiva de toda la región",
+  "source": "https://maldonado.gub.uy/actividades",
+  "method": "Comparación manual entre la lista oficial de actividades y el catálogo de 29 fichas de ONDA antes de la corrección. Fuentes oficiales individuales abiertas. No se midió cuándo publicó la IDM cada evento.",
+  "catalogBefore": 29,
+  "catalogAfter": 33,
+  "verifiedOfficialEvents": 4,
+  "missingBefore": 4,
+  "correctedByManualIngestion": 4,
+  "correctedByAutomaticIngestion": 0,
+  "activeConnectors": 0,
+  "confirmedSystemGap": "La agenda oficial /actividades no figura como conector habilitado; IDM Noticias y MACA figuran deshabilitadas en data/sources.json",
+  "evidence": [
+    {
+      "id": "idm-fiesta-churrinche-pueblo-eden-2026",
+      "event": "Tercera Fiesta del Churrinche en Pueblo Edén",
+      "date": "2026-11-08",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/tercera-fiesta-del-churrinche-pueblo-eden",
+      "wasMissing": true,
+      "nowInLab": true
+    },
+    {
+      "id": "idm-jornadas-carolinas-2026",
+      "event": "Jornadas Carolinas",
+      "date": "2026-11-10",
+      "endDate": "2026-11-15",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/jornadas-carolinas",
+      "wasMissing": true,
+      "nowInLab": true
+    },
+    {
+      "id": "idm-euforia-libro-2026",
+      "event": "Euforia del Libro · segunda edición",
+      "date": "2026-11-12",
+      "endDate": "2026-11-21",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/vuelve-euforia-del-libro-su-segunda-edicion",
+      "wasMissing": true,
+      "nowInLab": true
+    },
+    {
+      "id": "idm-exposicion-la-luz-guillermo-molina-2026",
+      "event": "«La luz» · Guillermo Molina",
+      "date": "2026-11-07",
+      "endDate": "2026-12-04",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/exposicion-luz-museo-regional-francisco-mazzoni",
+      "wasMissing": true,
+      "nowInLab": true
+    }
+  ],
+  "hypotheses": [
+    "Falta un conector automatizado que lea la lista /actividades y la convierta a datos del motor",
+    "El filtro de fuentes priorizó inicialmente /noticias, que no equivale a la agenda de actividades"
+  ],
+  "notEstablished": [
+    "No se verificó si el sitio permite extracción periódica automatizada",
+    "No se puede calcular la tasa de cobertura general usando una muestra seleccionada",
+    "No se sabe cuándo estuvo cada evento disponible antes del 8/11"
+  ],
+  "correctiveAction": "Incorporar IDM /actividades al inventario como primera fuente candidata; comprobar condiciones de uso y parser de HTML real; mantener publicación automática desactivada hasta superar pruebas."
+}
