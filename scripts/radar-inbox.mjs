@@ -36,7 +36,7 @@ function validate(c){
   if (!c.source_name || typeof c.source_name !== 'string') problems.push('source_name ausente');
   if (!urlKey(c.source_url)) problems.push('source_url debe ser HTTPS');
   if (!validCategories.has(c.category)) problems.push('category inválida');
-  if (!allowedCities.has(clean(c.city))) problems.push('ciudad fuera de cobertura o desconocida');
+  if (!c.city || typeof c.city !== 'string' || !c.city.trim()) problems.push('city ausente');
   if (c.date!=null && !validLocalDate(c.date)) problems.push('date inválida');
   if (!c.observed_at || Number.isNaN(Date.parse(c.observed_at))) problems.push('observed_at inválido');
   if (!validStatuses.has(c.verification_status)) problems.push('verification_status inválido');
@@ -60,6 +60,7 @@ export function triageRadar(candidates, existing=[], now = new Date()){
     if(c.date && c.date<today || c.verification_status==='expired') return {candidate_id:cId,decision:'expired',reasons:['evento vencido']};
     const caveats=[];
     if(!c.date) caveats.push('fecha del evento no confirmada');
+    if(!allowedCities.has(clean(c.city))) caveats.push('localidad fuera de las zonas iniciales; confirmar cobertura');
     if(c.verification_status!=='verified') caveats.push('validación pendiente');
     if(!domainKinds.has(c.source_kind)) caveats.push('fuente primaria no confirmada');
     if(c.date && !c.evidence.some(e=>/fecha|date|programa|horario|schedule|día|dia/i.test(e.assertion))) caveats.push('evidencia explícita de fecha insuficiente');
