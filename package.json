@@ -13,6 +13,7 @@
     "ingest": "node scripts/run.mjs --mode=live",
     "ingest:publish": "node scripts/run.mjs --mode=live --publish",
     "check": "node scripts/check.mjs",
-    "radar:review": "node scripts/radar-review.mjs"
+    "radar:review": "node scripts/radar-review.mjs",
+    "audit:coverage": "node scripts/coverage-audit.mjs"
   }
 }
