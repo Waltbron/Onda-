@@ -5,7 +5,7 @@
   "generatedFrom": "automatizacion-existente-Fiesta-early-bird-Punta",
   "ingestionStatus": "review-only",
   "published": false,
-  "notes": "Pistas recuperadas del último reporte de una tarea programada; NO se verificaron independientemente en esta operación ni se autoriza su publicación. Validar nombre, fecha, lugar, vigencia y URL primaria antes de promover. La selección personal no determina cobertura editorial. Ensayo del 08/11/2026: se agregaron señales verificadas por consulta pública en la conversación y quedaron en revisión; la tarea desatendida aún NO demostró escritura por sí sola. No se autoriza publicar sin promoción/validación.",
+  "notes": "Pistas recuperadas del último reporte de una tarea programada; NO se verificaron independientemente en esta operación ni se autoriza su publicación. Validar nombre, fecha, lugar, vigencia y URL primaria antes de promover. La selección personal no determina cobertura editorial. Ensayo del 08/11/2026: se agregaron señales verificadas por consulta pública en la conversación y quedaron en revisión; la tarea desatendida aún NO demostró escritura por sí sola. No se autoriza publicar sin promoción/validación. Nuevos hallazgos MACA 8/11/2026: fecha/título corroborados en agenda institucional; siguen en revisión de publicación.",
   "candidates": [
     {
       "key": "radar-massano-2027-01-31",
@@ -70,6 +70,61 @@
       "city": "Sauce de Portezuelo",
       "category": "Música",
       "sourceUrl": "https://www.maldonado.gub.uy/noticias/sauce-portezuelo-recibira-una-nueva-edicion-jazz-bosque",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "maca-cine-un-dia-y-los-hijos-20261112",
+      "title": "Cine: Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-12",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "maca-cine-atchugarry-monumental-20261113",
+      "title": "Cine: Atchugarry Monumental",
+      "date": "2026-11-13",
+      "venue": "MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "maca-teatro-diario-del-lunes-20261114",
+      "title": "Teatro: El diario del lunes",
+      "date": "2026-11-14",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "maca-poetica-marina-de-la-riva-20261115",
+      "title": "POÉTICA: concierto de Marina de la Riva",
+      "date": "2026-11-15",
+      "venue": "Sala 1 de MACA",
+      "city": "Manantiales",
+      "category": "Música",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "maca-masterclass-nadia-mara-20261121",
+      "title": "Clase abierta y masterclass de ballet con Nadia Mara",
+      "date": "2026-11-21",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
       "verificationStatus": "descubierto",
       "publicationAllowed": false
     }
