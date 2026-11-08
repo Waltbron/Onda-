@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ONDA Radar Candidate v0.1 (not a publish command)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "candidate_id",
+    "source_name",
+    "source_url",
+    "title",
+    "date",
+    "city",
+    "category",
+    "observed_at",
+    "verification_status",
+    "evidence"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 180,
+      "description": "stable identifier; not positional index"
+    },
+    "source_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "source_kind": {
+      "enum": [
+        "official",
+        "ticketing",
+        "municipal",
+        "venue",
+        "aggregator",
+        "social",
+        "media",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "end_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+    },
+    "city": {
+      "type": "string",
+      "minLength": 2
+    },
+    "place": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "category": {
+      "enum": [
+        "Cultura",
+        "Música",
+        "Gastronomía",
+        "Fiestas",
+        "Aire libre",
+        "Deporte",
+        "Bienestar",
+        "Encuentros",
+        "Otros"
+      ]
+    },
+    "ticket_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "currency": {
+      "enum": [
+        "UYU",
+        "USD",
+        null
+      ]
+    },
+    "price_min": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "price_max": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_status": {
+      "enum": [
+        "discovered",
+        "needs_review",
+        "verified",
+        "rejected",
+        "expired",
+        "cancelled"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "assertion"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "assertion": {
+            "type": "string"
+          },
+          "checked_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "editorial_note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "duplicate_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "image_asset_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "approved editorial illustration only"
+    }
+  }
+}
