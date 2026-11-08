@@ -36,7 +36,7 @@ export function inspectRadarBatch(batch,{now=new Date().toISOString()}={}){
     if(!category||!CATEGORIES.has(category))issues.push('Categoría desconocida');
     if(!discoveredAt||!Number.isFinite(Date.parse(discoveredAt)))issues.push('Fecha de descubrimiento inválida');
     if(issues.length){rejected.push({index,issues});return}
-    const key=[clean(title),date,clean(city)].join('|');
+    const key=[clean(title),date,clean(city),clean(place),time||''].join('|');
     if(seen.has(key)){rejected.push({index,issues:['Duplicado dentro del lote']});return}
     seen.add(key);
     const sources=Array.isArray(raw.evidence)?raw.evidence.filter(e=>e&&httpsUrl(e.url)&&trim(e.field)&&trim(e.excerpt)).slice(0,8):[];
