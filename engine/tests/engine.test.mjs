@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {reconcile,validateCandidate} from '../src/engine.mjs';
+const sample={sourceId:'maca-agenda-demo',sourceUrl:'https://example.org/demo/a',title:'Actividad de ensayo',date:'2026-10-10',time:'23:55',category:'Música',city:'Manantiales',evidence:[{field:'date',text:'sábado 10 de octubre'}]};
+test('nueva ficha marcada pendiente y demo: no publicada',()=>{let r=reconcile([],[sample]);assert.equal(r.report.new,1);assert.equal(r.events[0].status,'dudoso');assert.equal(r.events[0].demo,true)});
+test('mismo URL y nueva hora preserva ID y deja diff',()=>{const one=reconcile([],[sample]);const two=reconcile(one.events,[{...sample,time:'00:15',date:'2026-10-11'}]);assert.equal(two.events.length,1);assert.equal(two.events[0].id,one.events[0].id);assert.equal(two.report.updated,1);assert.equal(two.changes[0].changes.time.before,'23:55')});
+test('idempotencia',()=>{const one=reconcile([],[sample]);const two=reconcile(one.events,[sample]);assert.equal(two.report.unchanged,1);assert.equal(two.changes.length,0)});
+test('corrida vacía conserva íntegro catálogo',()=>{const one=reconcile([],[sample]);const two=reconcile(one.events,[]);assert.deepEqual(two.events,one.events);assert.equal(two.report.degraded,true)});
+test('dato sin evidencia no reemplaza información',()=>{const one=reconcile([],[sample]);const x=reconcile(one.events,[{...sample,evidence:[]}]);assert.equal(x.report.degraded,true);assert.deepEqual(x.events,one.events)});
+test('URL repetida dispara seguridad',()=>{const x=reconcile([], [sample,{...sample,title:'Duplicada'}]);assert.equal(x.report.degraded,true);assert.equal(x.events.length,0)});
+test('fuente ausente no marca cancelación',()=>{const one=reconcile([],[sample,{...sample,sourceUrl:'https://example.org/demo/b',title:'Segundo evento'}]);const two=reconcile(one.events,[sample]);assert.equal(two.events.length,2);assert.equal(two.report.notSeenIsNotCancellation,true)});
+test('UTC no sustituye fecha local',()=>{const one=reconcile([],[sample]);assert.equal(one.events[0].date,'2026-10-10');assert.equal(one.events[0].timezone,'America/Montevideo')});
+test('rechaza hora inválida',()=>{assert.throws(()=>validateCandidate({...sample,time:'25:99'}))});
+test('no se puede introducir HTTP en el pipeline',()=>{assert.throws(()=>validateCandidate({...sample,sourceUrl:'http://example.org/a'}))});

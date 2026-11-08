@@ -1,0 +1,22 @@
+ONDA · MOTOR DE EVENTOS V3 · 15/10/2026
+
+01 — WEB LISTA PARA NETLIFY
+Arrastrá la carpeta "site" del paquete a Netlify Drop para probar la web.
+
+02 — MOTOR CON ACTUALIZACIONES PROGRAMADAS
+Subí el contenido COMPLETO de este paquete a un repositorio PRIVADO de GitHub.
+Conectá el repositorio a un sitio de prueba Netlify (publish: site).
+La tarea programada ya está escrita para las 08:30 y 20:30 de Uruguay.
+
+03 — ESTADO REAL
+55 pruebas locales de captura simulada, validación, cambios, permisos y caídas pasan.
+29 fichas originales, 0 fuentes reales conectadas.
+Todavía NO modifica agendapde.netlify.app.
+La automatización SOLO empieza a leer fuentes y publicar cuando se aprueban y habilitan.
+
+04 — DETALLES
+Leer docs/INSTALACION_PASO_A_PASO.md para activar la primera fuente.
+
+IMPORTANTE
+No confundir tener una programación de GitHub Actions dentro del ZIP con tenerla instalada en GitHub.
+El plugin de GitHub devolvió 403 al intentar escribir en el repositorio existente.

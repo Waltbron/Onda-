@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f9f6ef" />
+  <meta name="description" content="ONDA · Afuera pasan cosas. Descubrí qué hacer en Punta del Este, Maldonado y alrededores. Tres buenas ideas, cerca y sin vueltas." />
+  <title>ONDA — Afuera pasan cosas · El Este</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div class="app-shell">
+  <header class="site-header" id="inicio">
+    <a href="#inicio" class="wordmark" aria-label="ONDA, inicio">ONDA<span class="mark-dot">.</span></a>
+    <span class="location"><span class="location-pulse"></span> EL ESTE · URUGUAY</span>
+    <nav aria-label="Navegación principal" class="header-nav">
+      <a href="#descubrir" class="nav-link">Descubrir</a>
+      <a href="#agenda" class="nav-link">Agenda</a>
+      <a href="#nosotros" class="nav-link">La idea</a>
+    </nav>
+    <a class="mobile-nav" href="#agenda" aria-label="Ir a la agenda">☷</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="overline"><span class="overline-rule"></span> UNA NUEVA FORMA DE SALIR EN EL ESTE</div>
+        <h1 id="hero-title">Afuera<br/>pasan<br/><span>cosas.</span></h1>
+        <p class="hero-lead">No hace falta saber qué buscar. Decinos qué te pinta y encontrá un buen plan, hoy y cerca.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#descubrir">Dame una idea <span aria-hidden="true">↗</span></a>
+          <a class="button-secondary" href="#agenda">Explorar la agenda <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-footnote"><span class="disc"></span> Actividades reales · Sin registro · Fuentes a un toque</div>
+      </div>
+      <div class="hero-visual" aria-label="Collage gráfico de cultura, gastronomía, naturaleza y encuentros en el Este">
+        <div class="visual-top">CULTURA <span>·</span> PLANES <span>·</span> MÚSICA <span>·</span> MÁS</div>
+        <div class="visual-blue"></div>
+        <div class="visual-coral"></div>
+        <div class="visual-photo" role="img" aria-label="Ambiente ilustrativo de reunión en una terraza; no corresponde a un evento publicado"></div>
+        <div class="visual-waterline" aria-hidden="true"></div>
+        <div class="visual-stamp">EL ESTE<br/><strong>TE LLAMA.</strong></div>
+        <div class="visual-caption">Imagen conceptual · beta visual</div>
+      </div>
+    </section>
+
+    <section class="decision" id="descubrir" aria-labelledby="decision-title">
+      <div class="section-intro"><div><div class="overline">MENOS SCROLL, MÁS SALIR</div><h2 id="decision-title">¿Qué onda <em>para hoy?</em></h2></div><p>Dos o tres pistas. Y nosotros hacemos el resto.</p></div>
+      <div class="decision-panel">
+        <div class="field-head"><span class="field-index">01</span><h3>¿Cuándo?</h3></div>
+        <div id="whenChoices" class="choice-list" role="group" aria-label="Elegí cuándo"><button class="choice active" type="button" data-time="finde" aria-pressed="true">Este finde</button><button class="choice" type="button" data-time="hoy" aria-pressed="false">Hoy</button><button class="choice" type="button" data-time="manana" aria-pressed="false">Mañana</button><button class="choice" type="button" data-time="todos" aria-pressed="false">Próximos días</button></div>
+        <div class="decision-divider"></div>
+        <div class="field-head"><span class="field-index">02</span><h3>¿Qué te pinta?</h3></div>
+        <div id="moodChoices" class="choice-list mood-list" role="group" aria-label="Elegí un interés"><button class="choice active" type="button" data-mood="todos" aria-pressed="true">Sorprendeme ✳</button><button class="choice" type="button" data-mood="cultura" aria-pressed="false">Arte & cultura</button><button class="choice" type="button" data-mood="musica" aria-pressed="false">Música</button><button class="choice" type="button" data-mood="gastro" aria-pressed="false">Comer algo</button><button class="choice" type="button" data-mood="aire" aria-pressed="false">Aire libre</button><button class="choice" type="button" data-mood="noche" aria-pressed="false">Salir de noche</button></div>
+        <div class="decision-bottom"><label class="zone-label" for="zoneSelect"><span>03</span> ¿Por dónde? <select id="zoneSelect"><option value="todos">Todo el Este</option></select></label><button class="decision-submit" id="recommendBtn" type="button">Encontrá mi onda <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="recs" id="recomendaciones" aria-labelledby="recs-title">
+      <div class="section-intro recs-head"><div><div class="overline">EDICIÓN ONDA · SELECCIÓN EXPERIMENTAL</div><h2 id="recs-title">Tres para <em>vos.</em></h2></div><p id="recs-summary" aria-live="polite">Basado en cuándo y qué te pinta. Siempre con fuentes.</p></div>
+      <div id="recommendations" class="recs-grid" aria-live="polite"><div class="loading">Buscando buenas ideas…</div></div>
+      <div class="recs-footer"><span>La selección usa reglas de fecha, zona e interés. No inventa eventos ni reseñas.</span><a href="#agenda">Prefiero explorar todo <span aria-hidden="true">→</span></a></div>
+    </section>
+
+    <section class="agenda" id="agenda" aria-labelledby="agenda-title">
+      <div class="section-intro"><div><div class="overline">PLANES REALES, FUENTES REALES</div><h2 id="agenda-title">La agenda, <em>sin vueltas.</em></h2></div><p>Para cuando preferís elegir por tu cuenta.</p></div>
+      <div class="agenda-toolbar"><label class="agenda-search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Artista, lugar, actividad…" aria-label="Buscar eventos" /></label><label class="agenda-filter" for="categorySelect">Tipo <select id="categorySelect"><option value="todos">Todos los planes</option></select></label><label class="agenda-free"><input type="checkbox" id="freeOnly"/> Gratis</label></div>
+      <div class="agenda-results"><p id="resultCount" role="status">Cargando propuestas…</p><span class="source-label"><span class="source-dot"></span> Fichas con fuente</span></div>
+      <div id="eventGrid" class="event-grid" aria-live="polite"></div>
+      <div class="empty hidden" id="empty"><h3>Por acá, nada que coincida.</h3><p>Preferimos mostrar menos propuestas antes que inventarte un evento. Probá ampliando las opciones.</p><button type="button" id="resetFilters" class="button-secondary">Ver todos los próximos →</button></div>
+      <button class="load-more hidden" id="loadMore" type="button">Ver más actividades ↓</button>
+    </section>
+
+    <section class="manifesto" id="nosotros"><div><div class="overline">NUESTRA FORMA DE VER EL ESTE</div><h2>Elegir un plan<br/>también puede ser<br/><em>un buen plan.</em></h2></div><div class="manifesto-copy"><p>Hay muchísimas cosas pasando. Lo difícil no siempre es encontrarlas: es decidir cuál tiene sentido para vos. ONDA prueba otra manera: pocas ideas, buen contexto y enlaces a la fuente original.</p><p class="muted">Esta es una beta. El nombre y las imágenes de ambientación son provisionales. La curaduría es experimental, no una recomendación humana basada en haber asistido.</p><a href="https://www.inumet.gub.uy/" target="_blank" rel="noopener noreferrer">Consultá el pronóstico oficial antes de salir ↗</a></div></section>
+  </main>
+  <footer><div class="footer-brand">ONDA<span>.</span></div><div>Hecho para descubrir el Este.<br/><small id="dataStatus" role="status">Una prueba de Hormiga · consultá la fuente original para confirmar cambios.</small></div><a href="#inicio">Volver arriba ↑</a></footer>
+</div>
+<div class="overlay hidden" id="overlay" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close" type="button" id="closeModal" aria-label="Cerrar detalle">×</button><div id="modalBody"></div></div></div>
+<script src="./event-time.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>

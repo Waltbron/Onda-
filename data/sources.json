@@ -1,0 +1,30 @@
+[
+  {
+    "id": "maca-agenda",
+    "name": "MACA · Agenda pública de actividades",
+    "url": "https://macamuseo.org/eventosmaca",
+    "city": "Manantiales",
+    "adapter": "jsonld-event-html",
+    "minItems": 1,
+    "enabled": false,
+    "permission": "pending",
+    "permissionEvidence": null,
+    "publicationPolicy": "review",
+    "expectedHost": "macamuseo.org",
+    "notes": "No consultar entradas.macamuseo.org. Falta validar HTML real y condiciones de uso; el parser solo admite Event JSON-LD."
+  },
+  {
+    "id": "idm-noticias",
+    "name": "Intendencia de Maldonado · Noticias",
+    "url": "https://www.maldonado.gub.uy/listado-noticias",
+    "city": "Maldonado",
+    "adapter": "pending-parser",
+    "minItems": 1,
+    "enabled": false,
+    "permission": "pending",
+    "permissionEvidence": null,
+    "publicationPolicy": "review",
+    "expectedHost": "www.maldonado.gub.uy",
+    "notes": "Fecha de publicación distinta de fecha del evento; nunca inferir fecha del evento a partir de metadatos de noticias."
+  }
+]
