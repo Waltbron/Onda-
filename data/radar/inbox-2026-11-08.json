@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-08T10:14:20-03:00",
+  "generatedFrom": "automatizacion-existente-Fiesta-early-bird-Punta",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "notes": "Pistas recuperadas del último reporte de una tarea programada; NO se verificaron independientemente en esta operación ni se autoriza su publicación. Validar nombre, fecha, lugar, vigencia y URL primaria antes de promover. La selección personal no determina cobertura editorial.",
+  "candidates": [
+    {
+      "key": "radar-massano-2027-01-31",
+      "title": "Massano",
+      "date": "2027-01-31",
+      "venue": "Open Park",
+      "city": "Punta del Este",
+      "category": "Fiestas",
+      "sourceUrl": "https://app.entraste.com/events/key-mood-wmassano-more",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "radar-colyn-2026-12-27",
+      "title": "Colyn",
+      "date": "2026-12-27",
+      "venue": "Roll and Rock Beach House",
+      "city": "Punta del Este",
+      "category": "Fiestas",
+      "sourceUrl": "https://venti.live/evento/colyn-27-de-diciembre-en-pde",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "radar-arcana-2027-01-03",
+      "title": "ARCANA Experience",
+      "date": "2027-01-03",
+      "venue": "MACA",
+      "city": "Maldonado",
+      "category": "Fiestas",
+      "sourceUrl": "https://venti.live/evento/arcana-experience-3-de-enero-en-punta-del-este",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    },
+    {
+      "key": "radar-my-tribe-2027-01-08",
+      "title": "MY TRIBE Closing",
+      "date": "2027-01-08",
+      "venue": "Narbona",
+      "city": "Punta del Este",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.passline.com/eventos/801-my-tribe-closing-you-are-my-tribe",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false
+    }
+  ]
+}
