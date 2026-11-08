@@ -127,3 +127,11 @@ Una sesión importante deja un registro breve y operativo con el siguiente forma
 - **PRUEBA:** hay GitHub Actions con ejecuciones exitosas, 38 fichas en laboratorio y 11 candidatos en bandeja; sigue sin confirmarse un conector de captura real ni la transferencia desatendida del Radar.
 - **PENDIENTE:** verificar el primer conector con evidencia y la primera escritura realmente autónoma desde la tarea programada; actualizar aquí el resultado de cada prueba.
 - **RIESGO:** creer que «task activa», «Action verde» y «web publicada» implican actualización end-to-end. No es así.
+
+### 2026-11-08 · ChatGPT · Primera etapa de autonomía ejecutable
+- **DECISIÓN OPERATIVA PROPUESTA:** evitar un agente único con permisos irrestrictos; usar motor estructurado en GitHub Actions, Radar como investigador/auditor y barreras de validación previas a Netlify.
+- **HECHO:** se abrió el issue P0 [#4 · Primer conector IDM](https://github.com/Waltbron/Onda-/issues/4) con tareas, límites, casos de prueba y criterio de aceptación completo.
+- **EVIDENCIA EXTERNA:** agenda oficial [IDM /actividades](https://maldonado.gub.uy/actividades) contiene actividades próximas con fechas y lugares; falta validar formato HTML auténtico, automatización permitida y adaptador específico.
+- **PRUEBA:** revisión de código confirmó que `idm-actividades` sigue `enabled:false`, `permission:pending`, `adapter:pending-parser`; no hubo ingesta real ni nueva publicación.
+- **SIGUIENTE:** verificar acceso permitido + HTML/feed de la IDM, construir adaptador con fixture real y tests, probar un flujo end-to-end completo en ONDA Lab. Mantener Radar separado de publicación automática hasta confirmar escritura programada y procedencia.
+- **RIESGO:** un cron verde no indica captura de datos; una fuente institucional visible tampoco equivale a acceso automático autorizado.
