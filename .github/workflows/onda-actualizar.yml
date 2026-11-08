@@ -86,6 +86,9 @@ jobs:
       - name: Alerta ante fuentes degradadas
         if: ${{ vars.ONDA_AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.modo == 'produccion') }}
         run: node scripts/health.mjs
+      - name: Auditoría ligera de calidad de catálogo (sin IA ni publicación)
+        if: always()
+        run: npm run audit:quality
       - name: Informe en GitHub
         if: always()
         run: |
@@ -107,4 +110,5 @@ jobs:
             output/fixture-report.json
             data/reports/radar-review.json
             data/reports/coverage-audit.json
+            data/reports/quality-audit.json
           retention-days: 14
