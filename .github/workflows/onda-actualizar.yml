@@ -58,6 +58,8 @@ jobs:
           npm run check
       - name: Revisar señales del radar (sin publicación)
         run: npm run radar:review
+      - name: Auditoría de cobertura (sin publicación)
+        run: npm run audit:coverage
       - name: Ejecución de ejemplo, sin publicación
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.modo == 'ensayo') || vars.ONDA_AUTOMATION_ENABLED != 'true' }}
         run: npm run preview
@@ -104,4 +106,5 @@ jobs:
             data/reports/latest.json
             output/fixture-report.json
             data/reports/radar-review.json
+            data/reports/coverage-audit.json
           retention-days: 14

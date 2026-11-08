@@ -26,5 +26,19 @@
     "publicationPolicy": "review",
     "expectedHost": "www.maldonado.gub.uy",
     "notes": "Fecha de publicación distinta de fecha del evento; nunca inferir fecha del evento a partir de metadatos de noticias."
+  },
+  {
+    "id": "idm-actividades",
+    "name": "IDM · Agenda oficial de actividades",
+    "url": "https://maldonado.gub.uy/actividades",
+    "city": "Maldonado",
+    "adapter": "pending-parser",
+    "minItems": 1,
+    "enabled": false,
+    "permission": "pending",
+    "permissionEvidence": "https://maldonado.gub.uy/terminos-uso",
+    "publicationPolicy": "review",
+    "expectedHost": "maldonado.gub.uy",
+    "notes": "Fuente prioritaria tras auditoría 8/11/2026: 4 omisiones verificadas. Los términos permiten uso de información con cita y exceptúan obras de terceros, pero faltan prueba de robots, HTML real, parser e identificación de duplicados. No activar ni copiar imágenes/textos íntegros."
   }
 ]
