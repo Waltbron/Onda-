@@ -2,7 +2,7 @@
 
 Versión preparada el 15/10/2026. **No hay conectores reales activos todavía.**
 
-Esta carpeta reúne el sitio ONDA, su catálogo revisado de 29 eventos, el motor de ingesta, los controles de seguridad y las tareas automáticas de GitHub. **No afirma que el HTML público del MACA tenga Event JSON-LD**; el adaptador deberá comprobarse contra su HTML auténtico antes de habilitarlo.
+Esta carpeta reúne el sitio ONDA, su catálogo histórico revisado de 29 eventos (no implica que sigan vigentes en noviembre de 2026), el motor de ingesta, los controles de seguridad y las tareas automáticas de GitHub. **No afirma que el HTML público del MACA tenga Event JSON-LD**; el adaptador deberá comprobarse contra su HTML auténtico antes de habilitarlo.
 
 ## Para empezar rápido
 
@@ -33,10 +33,10 @@ La web filtra caducidad con `America/Montevideo`. Si una fuente falla, conserva 
 
 ## Estados y honestidad
 
-- Motor implementado y probado: **sí**.
+- Motor implementado y probado: **sí**, 55/55 pruebas locales y en GitHub Actions (08/11/2026).
 - Fuente MACA conectada y validada contra HTML real: **no**.
 - Permisos de scraping/automatización aprobados: **no verificados**.
-- GitHub Actions instalado en repositorio: **no**; la conexión GitHub desde ChatGPT devolvió 403 y no registró instalación utilizable.
+- GitHub Actions instalado en **rama de ensayo**: **sí**, con pruebas exitosas el 08/11/2026; pendiente de revisión y fusión a `main`.
 - Netlify actualizado o enlazado a este repositorio: **no**.
 - Eventos autónomos publicados: **0**.
 
