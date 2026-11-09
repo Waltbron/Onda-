@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-09T09:55:19-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "jornadas-carolinas-2026",
+      "title": "Jornadas Carolinas",
+      "date": "2026-11-10",
+      "venue": "Plaza Artigas de San Carlos",
+      "city": "San Carlos",
+      "category": "Música",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/jornadas-carolinas",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "10–15/11; actuaciones desde las 18:00."
+    },
+    {
+      "key": "euforia-libro-2026",
+      "title": "Vuelve “Euforia del Libro” con su segunda edición",
+      "date": "2026-11-12",
+      "venue": "Espacios de todos los municipios de Maldonado",
+      "city": "Maldonado",
+      "category": "Cultura",
+      "sourceUrl": "https://www.maldonado.gub.uy/actividades/vuelve-euforia-del-libro-su-segunda-edicion",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "12–21/11; evento multisede; cada actividad requiere ficha específica."
+    },
+    {
+      "key": "festival-chivito-2026",
+      "title": "FESTIVAL DEL CHIVITO",
+      "date": "2026-11-15",
+      "venue": "Estacionamiento Punta Shopping",
+      "city": "Punta del Este",
+      "category": "Gastronomía",
+      "sourceUrl": "https://www.mientrada.com.uy/evento/festival-del-chivito-30713",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Apertura 12:30; música en vivo y teatro."
+    },
+    {
+      "key": "copa-mercosur-golf-2026",
+      "title": "Torneo Internacional Senior de Golf Copa Mercosur",
+      "date": "2026-11-09",
+      "venue": "Cantegril Country Club",
+      "city": "Punta del Este",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/turismo-deportivo",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "9–14/11; condiciones de asistencia no confirmadas."
+    },
+    {
+      "key": "epica-gravel-2026",
+      "title": "ÉPICA Gravel Cuarta Edición",
+      "date": "2026-11-21",
+      "venue": "Épica Punta del Este",
+      "city": "Punta del Este",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/turismo-deportivo",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Ubicación precisa y condiciones de inscripción a verificar."
+    },
+    {
+      "key": "expo-moto-salon-2027",
+      "title": "Expo Moto Salón 2027",
+      "date": "2027-02-19",
+      "venue": "Centro de Convenciones de Punta del Este",
+      "city": "Punta del Este",
+      "category": "Encuentros",
+      "sourceUrl": "https://www.maldonado.gub.uy/eventos",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "19–21/02; 11:00–21:00; fuera de ventana 90 días, relevante temporada."
+    }
+  ]
+}
