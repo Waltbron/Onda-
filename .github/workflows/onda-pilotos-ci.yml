@@ -1,0 +1,28 @@
+name: ONDA · CI aislada de pilotos
+on:
+  push:
+    branches: [feature/onda-pilotos-aislados-20261108]
+    paths:
+      - 'engine/**'
+      - '.github/workflows/onda-pilotos-ci.yml'
+  pull_request:
+    branches: [chore/instalar-motor-v3-1]
+    paths:
+      - 'engine/**'
+      - '.github/workflows/onda-pilotos-ci.yml'
+permissions:
+  contents: read
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar pruebas existentes y aislamiento por fuente
+        run: |
+          npm test
+          npm run check
+          node --check site/app.js
