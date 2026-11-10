@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-10T10:31:55-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maca-cine-dia-sonar-hijos-montana-2026-11-11",
+      "title": "CINE: Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-11",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "11/11 15:30; mismo programa ya catalogado para 12/11, esta es una función adicional. Entrada gratuita sin inscripción previa según agenda oficial."
+    },
+    {
+      "key": "maca-cine-dia-sonar-2026-11-13",
+      "title": "CINE: Un día para soñar",
+      "date": "2026-11-13",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "13/11 15:30. La cartelera también muestra Atchugarry Monumental a las 16:00; revisar diferencias con catálogo existente y horarios antes de aprobar."
+    },
+    {
+      "key": "maca-waksman-proyeccion-2026-11-15",
+      "title": "Proyección + encuentro con Andrés Waksman",
+      "date": "2026-11-15",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "15/11 14:00–17:00. Documental Dios es una palabra y encuentro de creación; verificar inscripción."
+    },
+    {
+      "key": "maca-octavio-podesta-escala-2026",
+      "title": "Octavio Podestá: La escala Podestá",
+      "date": "2026-11-14",
+      "venue": "Pabellón 1, MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Exposición del 14/11 al 14/12; fecha corresponde a inicio de exhibición, no a función única."
+    },
+    {
+      "key": "maca-las-rodetts-mas-que-jazz-2026",
+      "title": "Más que jazz de Las Rodetts",
+      "date": "2026-11-28",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Música",
+      "sourceUrl": "https://entradas.macamuseo.org/evento/las-rodetts",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "28/11 18:30; entrada libre con reserva previa y confirmación por correo para QR."
+    }
+  ]
+}
