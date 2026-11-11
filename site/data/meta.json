@@ -2,10 +2,12 @@
   "project": "ONDA",
   "version": "3.0 preparado",
   "catalogType": "manually-reviewed-static",
-  "catalogReviewedAt": "2026-11-08",
+  "catalogReviewedAt": "2026-11-11",
   "automaticIngestionEnabled": false,
   "activeConnectors": 0,
   "lastSuccessfulRunAt": null,
   "timezone": "America/Montevideo",
-  "notice": "Catálogo curado parcialmente el 8/11/2026. Las fuentes automáticas aún no están activas; confirmá posibles cambios en la fuente."
+  "notice": "Agenda MACA ampliada con fuentes consultadas el 11/11/2026; otras fichas conservan su fecha de comprobación. Ingesta automática desactivada. Ilustraciones conceptuales, no fotos de cada evento.",
+  "visualLibraryUpdatedAt": "2026-11-11",
+  "visualLibraryApprovedFiles": 28
 }

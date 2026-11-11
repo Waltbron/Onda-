@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-11",
   "authority": "Google Drive / ONDA · Figuras editoriales / onda_assets_manifest.json",
   "source_drive_folder": "https://drive.google.com/drive/folders/1CD-3bDJRX4eujSznyH9cmx_IE2HLRjPK",
   "source_manifest_version": "1.3.0",
@@ -94,9 +94,37 @@
     }
   ],
   "statuses": {
-    "approved_files": 13,
+    "approved_files": 28,
     "prior_approvals_missing_originals": 2,
-    "pending_illustrations": 11
+    "pending_illustrations": 11,
+    "new_approved_lab": 15
   },
-  "migration_state": "Registro preparado; los WebP aprobados todavía no están empaquetados en site/assets. Mantener los gradientes CSS actuales hasta completar la importación y prueba visual."
+  "migration_state": "Integración de 15 nuevos WebP optimizados en ONDA Lab sin reemplazar los 13 históricos; confirmar estado de deploy y representación visual en vivo.",
+  "lab_visual_update": {
+    "date": "2026-11-11",
+    "legacyWebp": 13,
+    "additionalApprovedWebp": 15,
+    "totalWebp": 28,
+    "location": "site/assets/editorial",
+    "status": "ONDA Lab only",
+    "new_approved_assets": [
+      "onda_naturaleza_kayak_laguna_garzon_01",
+      "onda_deporte_skate_la_barra_01",
+      "onda_deporte_rollers_rambla_01",
+      "onda_familias_pan_azucar_carpincho_01",
+      "onda_naturaleza_chajas_laguna_diario_01",
+      "onda_deporte_vela_laguna_sauce_01",
+      "onda_musica_dj_casapueblo_01",
+      "onda_familias_jaguel_trepa_01",
+      "onda_cultura_maca_esculturas_01",
+      "onda_musica_acustico_jardin_01",
+      "onda_musica_portal_jam_01",
+      "onda_familias_cometa_playa_mansa_01",
+      "onda_deporte_tenis_ultimo_punto_01",
+      "onda_deporte_sup_puente_barra_01",
+      "onda_bienestar_paseo_perro_mansa_01"
+    ],
+    "source": "Imágenes aprobadas en conversación Hormiga; versiones originales también en ChatGPT Library",
+    "disclaimer": "Ilustraciones conceptuales, no fotos de eventos puntuales; no modificar fuentes históricas sin aprobación"
+  }
 }

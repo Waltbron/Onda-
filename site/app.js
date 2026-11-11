@@ -24,17 +24,121 @@ const COLORS={
 // Recursos aprobados en Drive: decorativos, no fotografías del evento.
 // La variante depende de un ID estable, de modo que una actualización no reordena imágenes.
 const EDITORIAL_VARIANTS = {
-  'Música':['onda_musica_01.webp','onda_musica_02.webp','onda_musica_03.webp','onda_musica_04.webp'],
-  'Cultura':['onda_arte_cultura_01.webp','onda_arte_cultura_02.webp','onda_arte_cultura_03.webp','onda_arte_cultura_04.webp'],
+  'Música':['onda_musica_01.webp','onda_musica_02.webp','onda_musica_03.webp','onda_musica_04.webp','onda_musica_dj_casapueblo_01.webp','onda_musica_acustico_jardin_01.webp','onda_musica_portal_jam_01.webp'],
+  'Cultura':['onda_arte_cultura_01.webp','onda_arte_cultura_02.webp','onda_arte_cultura_03.webp','onda_arte_cultura_04.webp','onda_cultura_maca_esculturas_01.webp'],
   'Gastronomía':['onda_gastronomia_03.webp','onda_gastronomia_04.webp','onda_gastronomia_05.webp','onda_gastronomia_06.webp'],
-  'Aire libre':['onda_naturaleza_01.webp']
+  'Aire libre':['onda_naturaleza_01.webp','onda_naturaleza_kayak_laguna_garzon_01.webp','onda_naturaleza_chajas_laguna_diario_01.webp','onda_deporte_vela_laguna_sauce_01.webp','onda_familias_pan_azucar_carpincho_01.webp'],
+  'Deporte':['onda_deporte_skate_la_barra_01.webp','onda_deporte_rollers_rambla_01.webp','onda_deporte_tenis_ultimo_punto_01.webp','onda_deporte_sup_puente_barra_01.webp','onda_deporte_vela_laguna_sauce_01.webp'],
+  'Bienestar':['onda_bienestar_paseo_perro_mansa_01.webp','onda_familias_cometa_playa_mansa_01.webp','onda_deporte_rollers_rambla_01.webp'],
+  'Fiestas':['onda_musica_portal_jam_01.webp','onda_musica_dj_casapueblo_01.webp'],
+  'Encuentros':['onda_familias_cometa_playa_mansa_01.webp','onda_familias_jaguel_trepa_01.webp','onda_bienestar_paseo_perro_mansa_01.webp']
 };
+const EDITORIAL_STORIES = [
+  {
+    "title": "Kayak en Laguna Garzón",
+    "category": "Naturaleza · Laguna Garzón",
+    "src": "./assets/editorial/onda_naturaleza_kayak_laguna_garzon_01.webp"
+  },
+  {
+    "title": "Una tarde de skate",
+    "category": "Deporte · La Barra",
+    "src": "./assets/editorial/onda_deporte_skate_la_barra_01.webp"
+  },
+  {
+    "title": "Rollers por la rambla",
+    "category": "Deporte · Punta del Este",
+    "src": "./assets/editorial/onda_deporte_rollers_rambla_01.webp"
+  },
+  {
+    "title": "Descubriendo al carpincho",
+    "category": "Familias · Cerro Pan de Azúcar",
+    "src": "./assets/editorial/onda_familias_pan_azucar_carpincho_01.webp"
+  },
+  {
+    "title": "Familia de chajás",
+    "category": "Naturaleza · Laguna del Diario",
+    "src": "./assets/editorial/onda_naturaleza_chajas_laguna_diario_01.webp"
+  },
+  {
+    "title": "Aprender a navegar",
+    "category": "Deporte · Laguna del Sauce",
+    "src": "./assets/editorial/onda_deporte_vela_laguna_sauce_01.webp"
+  },
+  {
+    "title": "Un sunset distinto",
+    "category": "Música · Casapueblo (escena conceptual)",
+    "src": "./assets/editorial/onda_musica_dj_casapueblo_01.webp"
+  },
+  {
+    "title": "Yo puedo sola",
+    "category": "Familias · Parque El Jagüel",
+    "src": "./assets/editorial/onda_familias_jaguel_trepa_01.webp"
+  },
+  {
+    "title": "Mirar el arte de cerca",
+    "category": "Cultura · MACA",
+    "src": "./assets/editorial/onda_cultura_maca_esculturas_01.webp"
+  },
+  {
+    "title": "Música en el jardín",
+    "category": "Música · Jardín cultural (conceptual)",
+    "src": "./assets/editorial/onda_musica_acustico_jardin_01.webp"
+  },
+  {
+    "title": "La noche improvisa",
+    "category": "Música · Portal Bosque Jam",
+    "src": "./assets/editorial/onda_musica_portal_jam_01.webp"
+  },
+  {
+    "title": "La cometa",
+    "category": "Familias · Playa Mansa",
+    "src": "./assets/editorial/onda_familias_cometa_playa_mansa_01.webp"
+  },
+  {
+    "title": "El último punto",
+    "category": "Deporte · Cancha entre pinos",
+    "src": "./assets/editorial/onda_deporte_tenis_ultimo_punto_01.webp"
+  },
+  {
+    "title": "Remar sobre el arroyo",
+    "category": "Deporte · Puente de La Barra",
+    "src": "./assets/editorial/onda_deporte_sup_puente_barra_01.webp"
+  },
+  {
+    "title": "El paseo es de los dos",
+    "category": "Bienestar · Playa Mansa",
+    "src": "./assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp"
+  }
+];
 function editorialArt(e){
   const imgs=EDITORIAL_VARIANTS[e.category];
   if(!imgs?.length)return '';
-  const key=String(e.id||e.title||'');
-  let h=0;for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;
-  return './assets/editorial/'+imgs[h%imgs.length];
+  const cues=[e.title,e.place,e.city,e.description].join(' ').toLocaleLowerCase('es-UY');
+  // Referencias específicas son editoriales; no significan que el evento ocurra en la ilustración.
+  let chosen;
+  if(e.category==='Cultura' && /maca|atchugarry|escultur/.test(cues))chosen='onda_cultura_maca_esculturas_01.webp';
+  else if(e.category==='Música' && /portal|jam|bosque/.test(cues))chosen='onda_musica_portal_jam_01.webp';
+  else if(e.category==='Música' && /maca|acústic|poética|cámara|chelo|jazz/.test(cues))chosen='onda_musica_acustico_jardin_01.webp';
+  else if(e.category==='Deporte' && /tenis|raqueta/.test(cues))chosen='onda_deporte_tenis_ultimo_punto_01.webp';
+  else if(e.category==='Deporte' && /skate|patín/.test(cues))chosen='onda_deporte_skate_la_barra_01.webp';
+  else if(e.category==='Deporte' && /vela|nautic|navega/.test(cues))chosen='onda_deporte_vela_laguna_sauce_01.webp';
+  else if(e.category==='Aire libre' && /ave|laguna|humedal/.test(cues))chosen='onda_naturaleza_chajas_laguna_diario_01.webp';
+  else if(e.category==='Bienestar' && /perro|mascota|paseo/.test(cues))chosen='onda_bienestar_paseo_perro_mansa_01.webp';
+  if(!chosen){const key=String(e.id||e.title||'');let h=0;for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;chosen=imgs[h%imgs.length]}
+  return './assets/editorial/'+chosen;
+}
+function renderVisualStories(){
+  const grid=$('storyGrid'),toggle=$('storiesToggle');
+  if(!grid||!toggle)return;
+  let expanded=false;
+  function draw(){
+    const displayed=expanded?EDITORIAL_STORIES:EDITORIAL_STORIES.slice(0,6);
+    grid.innerHTML=displayed.map(s=>'<figure class="story-card"><img src="'+escapeHtml(s.src)+'" alt="" loading="lazy" decoding="async"><figcaption><strong>'+escapeHtml(s.title)+'</strong><span>'+escapeHtml(s.category)+'</span></figcaption></figure>').join('');
+    toggle.textContent=expanded?'Ver menos ↑':'Ver las 15 escenas ↓';
+    toggle.setAttribute('aria-expanded',String(expanded));
+  }
+  toggle.addEventListener('click',()=>{expanded=!expanded;draw()});
+  draw();
 }
 function colors(e){const a=COLORS[e.category]||['#eae3d8','#182436','#f86959'];return `--poster-bg:${a[0]};--poster-ink:${a[1]};--poster-shape:${a[2]}`}
 function dateLabel(e){return e.kind==='exposicion'&&e.endDate?`Hasta el ${fmtDate(e.endDate)}`:!e.endDate||e.date===e.endDate?fmtCompact(e.date):`${fmtCompact(e.date)} al ${fmtDate(e.endDate)}`}
@@ -126,7 +230,7 @@ async function refreshCatalog() {
   lastClockSignature='';refreshTimeSensitiveUI();
  }catch(error){console.warn('ONDA: no fue posible comprobar actualizaciones; se conserva el último catálogo válido',error)}
 }
-async function start(){init();try{const embedded=document.getElementById('embedded-events');let data;if(embedded){data=JSON.parse(embedded.textContent)}else{const res=await fetch('./data/events.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);data=await res.json()};if(!Array.isArray(data))throw Error('Formato inesperado');state.events=data;const cities=[...new Set(data.map(e=>e.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const city of cities){const o=document.createElement('option');o.value=city;o.textContent=city;$('zoneSelect').append(o)}const cats=[...new Set(data.map(e=>e.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const cat of cats){const o=document.createElement('option');o.value=cat;o.textContent=cat;$('categorySelect').append(o)}refreshTimeSensitiveUI();if(embedded){showDataStatus({automaticIngestionEnabled:false})}else{refreshCatalog()}}catch(err){$('recommendations').innerHTML='<div class="loading">No pudimos cargar la agenda. Revisá la conexión e intentá de nuevo.</div>';$('eventGrid').innerHTML='';$('resultCount').textContent='Agenda no disponible';console.error('ONDA: error cargando agenda',err)}}
+async function start(){init();renderVisualStories();try{const embedded=document.getElementById('embedded-events');let data;if(embedded){data=JSON.parse(embedded.textContent)}else{const res=await fetch('./data/events.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);data=await res.json()};if(!Array.isArray(data))throw Error('Formato inesperado');state.events=data;const cities=[...new Set(data.map(e=>e.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const city of cities){const o=document.createElement('option');o.value=city;o.textContent=city;$('zoneSelect').append(o)}const cats=[...new Set(data.map(e=>e.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const cat of cats){const o=document.createElement('option');o.value=cat;o.textContent=cat;$('categorySelect').append(o)}refreshTimeSensitiveUI();if(embedded){showDataStatus({automaticIngestionEnabled:false})}else{refreshCatalog()}}catch(err){$('recommendations').innerHTML='<div class="loading">No pudimos cargar la agenda. Revisá la conexión e intentá de nuevo.</div>';$('eventGrid').innerHTML='';$('resultCount').textContent='Agenda no disponible';console.error('ONDA: error cargando agenda',err)}}
 start();
 // Mantener vigente la vista aunque el usuario deje ONDA abierta toda la noche.
 setInterval(refreshTimeSensitiveUI, 60*1000);
