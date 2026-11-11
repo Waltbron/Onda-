@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-11T10:03:31-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maca-mi-nueva-forma-de-ver-2026-11-15",
+      "title": "Mi nueva forma de ver",
+      "date": "2026-11-15",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Domingo 15/11, 16:00–17:30. Documental de Lucía Gaviglio Salkind y Andrés Varela; corroborar acceso y posible superposición con encuentro Waksman 14:00–17:00."
+    },
+    {
+      "key": "maca-cortos-infancias-2026-11-29",
+      "title": "CINE: CORTOS PARA INFANCIAS",
+      "date": "2026-11-29",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Domingo 29/11 16:00–17:00 según agenda oficial. Existe ficha de cortos infantiles para 22/11: verificar si son funciones diferentes, no sobrescribir."
+    }
+  ]
+}
