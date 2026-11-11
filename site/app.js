@@ -113,19 +113,60 @@ const EDITORIAL_STORIES = [
 function editorialArt(e){
   const imgs=EDITORIAL_VARIANTS[e.category];
   if(!imgs?.length)return '';
-  const cues=[e.title,e.place,e.city,e.description].join(' ').toLocaleLowerCase('es-UY');
-  // Referencias específicas son editoriales; no significan que el evento ocurra en la ilustración.
-  let chosen;
-  if(e.category==='Cultura' && /maca|atchugarry|escultur/.test(cues))chosen='onda_cultura_maca_esculturas_01.webp';
-  else if(e.category==='Música' && /portal|jam|bosque/.test(cues))chosen='onda_musica_portal_jam_01.webp';
-  else if(e.category==='Música' && /maca|acústic|poética|cámara|chelo|jazz/.test(cues))chosen='onda_musica_acustico_jardin_01.webp';
-  else if(e.category==='Deporte' && /tenis|raqueta/.test(cues))chosen='onda_deporte_tenis_ultimo_punto_01.webp';
-  else if(e.category==='Deporte' && /skate|patín/.test(cues))chosen='onda_deporte_skate_la_barra_01.webp';
-  else if(e.category==='Deporte' && /vela|nautic|navega/.test(cues))chosen='onda_deporte_vela_laguna_sauce_01.webp';
-  else if(e.category==='Aire libre' && /ave|laguna|humedal/.test(cues))chosen='onda_naturaleza_chajas_laguna_diario_01.webp';
-  else if(e.category==='Bienestar' && /perro|mascota|paseo/.test(cues))chosen='onda_bienestar_paseo_perro_mansa_01.webp';
-  if(!chosen){const key=String(e.id||e.title||'');let h=0;for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;chosen=imgs[h%imgs.length]}
-  return './assets/editorial/'+chosen;
+  const title=String(e.title||'').toLocaleLowerCase('es-UY');
+  const venue=String(e.place||'').toLocaleLowerCase('es-UY');
+  const desc=String(e.description||'').toLocaleLowerCase('es-UY');
+  const cues=[title,desc].join(' ');
+
+  // Música: no adjudicar la imagen de DJ a un recital, un festival o una jam.
+  // Solo usar un lugar ilustrado cuando coincide con el lugar del evento.
+  if(e.category==='Música'){
+    let chosen='onda_musica_02.webp'; // Banda en vivo, recurso editorial genérico.
+    if(/\bdj\b|disc[ -]?jockey|música electrónica|techno|house|set electrónico/.test(cues)){
+      chosen=venue.includes('casapueblo')?'onda_musica_dj_casapueblo_01.webp':'onda_musica_04.webp';
+    }else if(/portal\s*(bosque|jam)/.test(venue+' '+title) && /jam|improvisa/.test(cues)){
+      chosen='onda_musica_portal_jam_01.webp';
+    }else if(/maca/.test(venue) && /cantante|canciones|poética|acústic|jazz/.test(cues)){
+      chosen='onda_musica_acustico_jardin_01.webp';
+    }else if(/chelo|violonchelo|sinfon|orquesta|música de cámara|cuarteto de cuerdas/.test(cues)){
+      return ''; // No ilustrar un instrumento que no está representado en biblioteca.
+    }else if(/folclore|folklore|guitarra acústica|guitarra sola|ronda de canto/.test(cues)){
+      chosen='onda_musica_03.webp';
+    }else if(/solista|cantautor|cantante/.test(cues) && !/banda|grupo|orquesta/.test(cues)){
+      chosen='onda_musica_01.webp';
+    }
+    return './assets/editorial/'+chosen;
+  }
+
+  if(e.category==='Fiestas'){
+    if(/cumbia|banda en vivo|show en vivo|música en vivo/.test(cues))return './assets/editorial/onda_musica_02.webp';
+    if(/\bdj\b|discoteca|disco|electr[oó]nic|techno|house/.test(cues))return './assets/editorial/onda_musica_04.webp';
+    return '';
+  }
+  if(e.category==='Deporte'){
+    if(/tenis|raqueta/.test(cues))return './assets/editorial/onda_deporte_tenis_ultimo_punto_01.webp';
+    if(/skate|patín/.test(cues))return './assets/editorial/onda_deporte_skate_la_barra_01.webp';
+    if(/vela|náutica|navega/.test(cues))return './assets/editorial/onda_deporte_vela_laguna_sauce_01.webp';
+    if(/paddle|remo de pie/.test(cues) && /la barra/.test(venue+' '+String(e.city||'').toLowerCase()))return './assets/editorial/onda_deporte_sup_puente_barra_01.webp';
+    return '';
+  }
+  if(e.category==='Bienestar'){
+    if(/perro|mascota/.test(cues))return './assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp';
+    if(/caminata|paseo|sendero/.test(cues))return './assets/editorial/onda_naturaleza_01.webp';
+    return '';
+  }
+  if(e.category==='Cultura' && /maca/.test(venue) && /escultur|exposici[oó]n|muestra de arte/.test(cues))return './assets/editorial/onda_cultura_maca_esculturas_01.webp';
+  if(e.category==='Cultura' && /cine|película|documental|teatro|función/.test(cues))return '';
+  if(e.category==='Aire libre'){
+    if(/ave|chajá|avistamiento de aves/.test(cues))return './assets/editorial/onda_naturaleza_chajas_laguna_diario_01.webp';
+    if(/kayak/.test(cues) && /garz[oó]n/.test(venue+' '+String(e.city||'').toLowerCase()))return './assets/editorial/onda_naturaleza_kayak_laguna_garzon_01.webp';
+    return './assets/editorial/onda_naturaleza_01.webp';
+  }
+  if(e.category==='Encuentros')return '';
+  // Categorías con ilustraciones generales: variantes estables.
+  const key=String(e.id||e.title||'');let h=0;
+  for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;
+  return './assets/editorial/'+imgs[h%imgs.length];
 }
 function renderVisualStories(){
   const grid=$('storyGrid'),toggle=$('storiesToggle');
