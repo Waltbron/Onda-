@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-12T10:07:47-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "piriapolis-correcaminata-liceo-invernizzi-2026-11-13",
+      "title": "Correcaminata benéfica del Liceo José Luis Invernizzi",
+      "date": "2026-11-13",
+      "venue": "Hotel Colón (largada)",
+      "city": "Piriápolis",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/correcaminata-motorshow-nautica-piriapolis",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00; 10 km adultos y 5 km niños; inscripción UYU 200. Fuente institucional; verificar cupos."
+    },
+    {
+      "key": "encuentro-nautico-piriapolis-2026-11-14",
+      "title": "Encuentro Náutico de Piriápolis",
+      "date": "2026-11-14",
+      "venue": "Playa La Rinconada",
+      "city": "Piriápolis",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/correcaminata-motorshow-nautica-piriapolis",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "09:00–18:00; charlas, regatas y talleres gratuitos de kayak, paddle surf y surf; organizado por estudiantes UTU Arrayanes."
+    },
+    {
+      "key": "arboretum-lussich-gallardo-alvi-2026-11-14",
+      "title": "Espectáculo musical gratuito en Arboretum Lussich",
+      "date": "2026-11-14",
+      "venue": "Salón Don Antonio, Arboretum Lussich",
+      "city": "Punta Ballena",
+      "category": "Música",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/espectaculo-musical-gratuito-este-sabado-14-noviembre-arboretum-lussich",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "17:30; Luciano Gallardo y Álvaro Alvi del Mar; entrada libre."
+    },
+    {
+      "key": "vida-social-del-900-punta-este-2026-11-13",
+      "title": "Conferencia sobre “La vida social del 900”",
+      "date": "2026-11-13",
+      "venue": "Municipio de Punta del Este, Av. Gorlero y Calle 30",
+      "city": "Punta del Este",
+      "category": "Cultura",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/conferencia-sobre-vida-social-del-900-se-realizara-municipio-punta-del-este",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:30; charla de Fernando Cairo, entrada libre."
+    },
+    {
+      "key": "muestra-emae-maquillaje-vestuario-2026",
+      "title": "Estudiantes y docentes de la EMAE exhiben sus trabajos finales de Maquillaje y Vestuario",
+      "date": "2026-11-10",
+      "venue": "Foyer María Emma Núñez, Teatro de la Casa de la Cultura",
+      "city": "Maldonado",
+      "category": "Cultura",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/estudiantes-docentes-emae-exhiben-sus-trabajos-finales-maquillaje-vestuario",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Exposición vigente hasta 30/11; lunes a sábado 09:00–18:00; entrada libre. Fecha de inicio 10/11 según publicación; confirmar inauguración si se necesita."
+    },
+    {
+      "key": "museo-mazzoni-la-luz-guillermo-molina-2026",
+      "title": "Exposición “La luz” en el Museo Regional Francisco Mazzoni",
+      "date": "2026-11-07",
+      "venue": "Museo Regional Francisco Mazzoni",
+      "city": "Maldonado",
+      "category": "Cultura",
+      "sourceUrl": "https://www.maldonado.gub.uy/actividades/exposicion-luz-museo-regional-francisco-mazzoni",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Muestra de Guillermo Molina, del 07/11 al 04/12; martes a sábado 10:00–18:00; gratuita. Fecha es inicio de exposición."
+    },
+    {
+      "key": "maca-cine-hijos-montana-2026-11-18",
+      "title": "CINE: Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-18",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Miércoles 18/11 15:30–16:40 según cabecera oficial; ingreso gratuito sin inscripción; posible inconsistencia con duración detallada de filmes."
+    },
+    {
+      "key": "maca-cine-atchugarry-monumental-2026-11-20",
+      "title": "CINE: ATCHUGARRY MONUMENTAL",
+      "date": "2026-11-20",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cultura",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Viernes 20/11 16:00–18:00; función diferente a la catalogada del 13/11."
+    },
+    {
+      "key": "refugio-municipal-visita-2026-11-14",
+      "title": "Jornada de visita al refugio municipal",
+      "date": "2026-11-14",
+      "venue": "Refugio municipal, Ruta 39 km 11.500",
+      "city": "Maldonado",
+      "category": "Encuentros",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/promueven-jornada-visita-refugio-municipal",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "12:00–15:00; organiza ONG Amores Perros; consultar condiciones de acceso."
+    }
+  ]
+}
