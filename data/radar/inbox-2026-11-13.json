@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-13T10:13:14-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maldonado-newcom-campus-2026-11-14",
+      "title": "Encuentro recreativo de Newcom",
+      "date": "2026-11-14",
+      "venue": "Frontón del Campus",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "07:00–14:00; consultar acceso público."
+    },
+    {
+      "key": "maldonado-natacion-artistica-2026-11-14",
+      "title": "Campeonato nacional de natación artística",
+      "date": "2026-11-14",
+      "venue": "Piscina olímpica Profesor Wilfredo Raymondo, Campus",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "08:00–19:00; consultar acceso público."
+    },
+    {
+      "key": "maldonado-basquet-3x3-san-martin-2026-11-14",
+      "title": "Básquetbol 3x3",
+      "date": "2026-11-14",
+      "venue": "Polideportivo San Martín",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "13:00–17:00; consultar acceso público."
+    },
+    {
+      "key": "piriapolis-atletismo-aebu-2026-11-14",
+      "title": "Encuentro departamental de atletismo",
+      "date": "2026-11-14",
+      "venue": "Camping AEBU",
+      "city": "Piriápolis",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Desde 09:00; consultar acceso público."
+    },
+    {
+      "key": "maldonado-natacion-federal-2026-11-15",
+      "title": "Campeonato Federal de Natación",
+      "date": "2026-11-15",
+      "venue": "Piscina olímpica del Campus",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Desde 19:30; consultar acceso público."
+    },
+    {
+      "key": "la-juanita-cierre-canto-2026-11-13",
+      "title": "Cierre de curso de Canto",
+      "date": "2026-11-13",
+      "venue": "Comunal La Juanita",
+      "city": "La Juanita",
+      "category": "Cultura",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/cierran-cursos-intendencia-garzon",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:00; acto de clausura, no se confirma si admite público externo."
+    },
+    {
+      "key": "garzon-cierre-cursos-2026-11-16",
+      "title": "Cierre de cursos de Torta y Postres, Crochet y Tejido y Lana Rústica",
+      "date": "2026-11-16",
+      "venue": "Casa de la Cultura de Garzón",
+      "city": "Garzón",
+      "category": "Talleres",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/cierran-cursos-intendencia-garzon",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "10:30; clausuras de cursos, no nuevas inscripciones; acceso público sin confirmar."
+    },
+    {
+      "key": "punta-este-naf-travesia-gorriti-2026-11-22",
+      "title": "NAF Maldonado Travesía Isla Gorriti ida y vuelta",
+      "date": "2026-11-22",
+      "venue": "Isla Gorriti / costa de Punta del Este",
+      "city": "Punta del Este",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/turismo-deportivo",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "A beneficio de ADES Punta del Este; horario y condiciones de participación no informados."
+    },
+    {
+      "key": "punta-este-tenis-otto-hauser-2026-11-23",
+      "title": "Torneo Internacional de tenis MT 400 Copa Otto Hauser",
+      "date": "2026-11-23",
+      "venue": "Cantegril Country Club",
+      "city": "Punta del Este",
+      "category": "Deporte",
+      "sourceUrl": "https://maldonado.gub.uy/turismo-deportivo",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Del 23 al 28 de noviembre; categoría máster +30 a +80, singles y dobles; consultar acceso."
+    },
+    {
+      "key": "maldonado-vibe-fiesta-brasilera-2026-11-14",
+      "title": "VIBE FIESTA BRASILERA 🇧🇷",
+      "date": "2026-11-14",
+      "venue": "Sala Maldonado",
+      "city": "Maldonado",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.passline.com/eventos/vibe-fiesta-brasilera",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "19:30; UYU 500. Ticketera marca +12 pero descripción indica 12–15 años; verificar restricción antes de promover."
+    }
+  ]
+}
