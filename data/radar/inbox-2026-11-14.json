@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-14T10:32:14-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "pde-peligro-vol12-m2-2026-11-14",
+      "title": "PELIGRO Vol.12 (+21)",
+      "date": "2026-11-14",
+      "venue": "M2, Rambla General Artigas 650",
+      "city": "Punta del Este",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.passline.com/eventos/peligro-vol12",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "23:30; CZERNIAK, KAMINE VOX y LUCIANO BERNINI. Lote 2 UYU 900 al consultar 14/11; preventa y lote 1 agotados. +21. Verificar vigencia antes de promover."
+    },
+    {
+      "key": "maca-taller-mosaicos-2026-11-15",
+      "title": "Taller de mosaicos",
+      "date": "2026-11-15",
+      "venue": "Fundación Pablo Atchugarry / MACA",
+      "city": "Manantiales",
+      "category": "Talleres",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "15:00–16:30; Paloma Szkope; adultos desde 16 años; reserva requerida. Disponibilidad no comprobada."
+    },
+    {
+      "key": "maca-natalio-faingold-ameli-2026-11-27",
+      "title": "Concierto de Natalio Faingold y Amelí — Canciones desnudas de la cordillera al mar",
+      "date": "2026-11-27",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Música",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:00; música original de Natalio Faingold con Amelí; entrada libre con reserva previa en entradas.macamuseo.org. Cupos no comprobados."
+    }
+  ]
+}
