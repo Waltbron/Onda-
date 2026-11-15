@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-15T10:27:53-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maca-clase-lenguajes-personajes-2026-11-17",
+      "title": "Clase abierta de la Clínica, los 5 lenguajes para crear personajes",
+      "date": "2026-11-17",
+      "venue": "Teatro MACA / Fundación Pablo Atchugarry",
+      "city": "Manantiales",
+      "category": "Talleres",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "14:00–15:00. Docentes Alejandra Weigle y Eduardo Migliónico; reserva en entradas.macamuseo.org. Fuente oficial consultada 2026-11-15 10:27 UYT."
+    },
+    {
+      "key": "maca-embutidos-ibargoyen-varela-2026-11-19",
+      "title": "Embutidos Ibargoyen Varela",
+      "date": "2026-11-19",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Teatro",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:00. Compañía Ordinaria, dirección Shumi Gauto. Función 19/11; también 26/11 y 04/12. Reserva requerida. Consultado 2026-11-15 10:27 UYT."
+    },
+    {
+      "key": "maca-embutidos-ibargoyen-varela-2026-11-26",
+      "title": "Embutidos Ibargoyen Varela",
+      "date": "2026-11-26",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Teatro",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:00. Función distinta del 19/11 y 04/12. Consultado 2026-11-15 10:27 UYT."
+    },
+    {
+      "key": "maca-embutidos-ibargoyen-varela-2026-12-04",
+      "title": "Embutidos Ibargoyen Varela",
+      "date": "2026-12-04",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Teatro",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:00. Función distinta del 19/11 y 26/11. Consultado 2026-11-15 10:27 UYT."
+    },
+    {
+      "key": "maca-nadia-mara-ballet-2026-11-21",
+      "title": "Clase abierta a todo público y Masterclass de Ballet con Nadia Mara",
+      "date": "2026-11-21",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Danza",
+      "sourceUrl": "https://entradas.macamuseo.org/evento/clase-abierta-a-todo-publico-y-masterclass",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "11:00 clase abierta con conocimientos previos; 14:00 masterclass para nivel intermedio/avanzado y edad 10–25 según agenda. Dos reservas separadas. Consultado 2026-11-15 10:27 UYT."
+    },
+    {
+      "key": "pde-euforia-libro-isla-gorriti-2026-11-28",
+      "title": "Euforia del Libro: salida a Isla Gorriti",
+      "date": "2026-11-28",
+      "venue": "Puerto de Punta del Este (punto de encuentro)",
+      "city": "Punta del Este",
+      "category": "Cultura",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/euforia-del-libro-cambio-fecha-salida-isla-gorriti",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "REPROGRAMADO desde 14/11 por pronóstico meteorológico. Encuentro 09:15; salida 09:30. Gratis, reservas 4223 1786 de lunes a viernes 09:15–14:45. Consultado 2026-11-15 10:27 UYT."
+    }
+  ]
+}
