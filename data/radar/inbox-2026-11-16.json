@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-16T12:00:00-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "cierre-ninos-en-bici-20261118",
+      "title": "Cierre del programa Niños en Bici",
+      "date": "2026-11-18",
+      "venue": "Pista de ciclismo Walter Moyano",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18/11 10:00–12:00; cierre de programa, acceso público no confirmado"
+    },
+    {
+      "key": "muestra-habilidades-gimnasticas-20261120",
+      "title": "Muestra de habilidades gimnásticas",
+      "date": "2026-11-20",
+      "venue": "Polideportivo San Martín",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20/11 18:00–20:00; acceso público no confirmado"
+    },
+    {
+      "key": "cierre-planteles-voley-20261120",
+      "title": "Cierre de planteles de vóley",
+      "date": "2026-11-20",
+      "venue": "Frontón del Campus de Maldonado",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20/11 19:00–21:00; acceso público no confirmado"
+    },
+    {
+      "key": "campeonato-absoluto-natacion-20261120",
+      "title": "Campeonato Absoluto de Natación Nacional",
+      "date": "2026-11-20",
+      "venue": "Piscina olímpica del Campus de Maldonado",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20/11 09:00–17:00; acceso público no confirmado"
+    },
+    {
+      "key": "aniversario-polideportivo-cerro-pelado-20261121",
+      "title": "15.º aniversario del Polideportivo de Cerro Pelado",
+      "date": "2026-11-21",
+      "venue": "Gimnasio principal del Polideportivo de Cerro Pelado",
+      "city": "Maldonado",
+      "category": "Encuentros",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "21/11 14:00–17:00; celebración, acceso público no confirmado"
+    },
+    {
+      "key": "master-nacional-natacion-20261127",
+      "title": "Máster Nacional de Natación",
+      "date": "2026-11-27",
+      "venue": "Piscina olímpica del Campus de Maldonado",
+      "city": "Maldonado",
+      "category": "Deporte",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/amplia-propuesta-actividades-centros-deportivos-municipales",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "27–29/11 08:00–22:00 cada día; evento multidiario, verificar acceso"
+    }
+  ]
+}
