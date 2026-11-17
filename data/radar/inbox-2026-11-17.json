@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-17T12:00:00-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maldonado-me-encanta-semifinal-2026-11-21",
+      "title": "La semifinal de “Me EnCanta Maldonado”",
+      "date": "2026-11-21",
+      "venue": "Teatro de la Casa de la Cultura",
+      "city": "Maldonado",
+      "category": "Música",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/semifinal-me-encanta-maldonado-se-hara-este-sabado-teatro-casa-cultura",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00. Acceso libre y gratuito. 35 participantes. Fuente primaria IDM publicada 16/11/2026; consulta 17/11/2026."
+    }
+  ]
+}
