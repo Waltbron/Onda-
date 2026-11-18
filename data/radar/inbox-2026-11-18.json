@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-18T13:13:37.853Z",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "maca-el-coleccionista-de-cuentos-2026-11-22",
+      "title": "El coleccionista de cuentos",
+      "date": "2026-11-22",
+      "venue": "Teatro MACA",
+      "city": "Manantiales",
+      "category": "Teatro",
+      "sourceUrl": "https://macamuseo.org/eventosmaca",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00. Grupo Los Winnis (Paysandú), obra familiar de Eugenio Pozzolo. Reserva en entradas.macamuseo.org."
+    },
+    {
+      "key": "maca-cine-un-dia-hijos-montana-2026-11-25",
+      "title": "CINE: Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-25",
+      "venue": "Cine MACA",
+      "city": "Manantiales",
+      "category": "Cine",
+      "sourceUrl": "https://macamuseo.org/eventosmaca/33f76mg7at8eamm5w34a9spk9rm6ma-xyerf-nwj96-rblpn-d2eaw",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "15:30–16:40 anunciado (duraciones de las películas sugieren revisar hora final). Entrada gratuita, sin inscripción, por orden de llegada."
+    },
+    {
+      "key": "la-barra-tartot-ecstatic-dance-2026-12-05",
+      "title": "Tartot & Ecstatic Dance",
+      "date": "2026-12-05",
+      "venue": "El Templo del Tesoro",
+      "city": "La Barra",
+      "category": "Bienestar",
+      "sourceUrl": "https://www.passline.com/eventos/tartot-ecstatic-dance",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "17:00–22:00, +18. Tarot 17:00–19:30 y Ecstatic Dance 19:30–21:30. UYU 2.200 por actividad, UYU 3.600 ambas; precios sujetos a cambios. La ticketera titula Tartot."
+    },
+    {
+      "key": "narbona-la-tm-new-years-eve-2026-12-31",
+      "title": "LA TM - NEW YEARS EVE - PDE NARBONA 31.12",
+      "date": "2026-12-31",
+      "venue": "Narbona PDE",
+      "city": "Manantiales",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.passline.com/eventos/la-tm-new-years-eve-pde-narbona-3112",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "23:55, +25, Camino de la Vid, Pueblo Mío. Tommy Muñoz, Puli Demaria, Ale Schultz. Early bird general UYU 3.280, VIP UYU 6.560; no es recomendación personal de compra."
+    }
+  ]
+}
