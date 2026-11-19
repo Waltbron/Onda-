@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-19T12:00:00-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "arboretum-artemisa-2026-11-21",
+      "title": "Artemisa — Ciclo de música en vivo en Arboretum Lussich",
+      "date": "2026-11-21",
+      "venue": "Salón Don Antonio, Arboretum Lussich",
+      "city": "Punta Ballena",
+      "category": "Música en vivo",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/continua-ciclo-musica-vivo-arboretum-lussich",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00, entrada gratuita; no se suspende por lluvia."
+    },
+    {
+      "key": "piriapolis-exposicion-la-pasiva-2026-11-28",
+      "title": "Exposición en el Paseo de La Pasiva",
+      "date": "2026-11-28",
+      "venue": "Patio exterior del Paseo de La Pasiva",
+      "city": "Piriápolis",
+      "category": "Feria y exposición",
+      "sourceUrl": "https://www.maldonado.gub.uy/noticias/convocatoria-exponer-pasiva",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "10:00–20:00. Convocatoria abierta a expositores; no se confirma programa ni acceso."
+    },
+    {
+      "key": "piriapolis-monumento-paella-2026-11-28",
+      "title": "Inauguración: Monumento a Piriápolis Capital Nacional de la Paella",
+      "date": "2026-11-28",
+      "venue": "Rambla de los Argentinos entre Lázaro Gadea y Edgardo Mondelo",
+      "city": "Piriápolis",
+      "category": "Patrimonio y cultura",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/inauguracion-monumento-piriapolis-capital-nacional-paella",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:30; actuación de la Orquesta Departamental. No confundir con festival gastronómico ni degustación."
+    },
+    {
+      "key": "punta-este-navidad-grand-hotel-2026-12-24",
+      "title": "Navidad en The Grand Hotel",
+      "date": "2026-12-24",
+      "venue": "The Grand Hotel Punta del Este",
+      "city": "Punta del Este",
+      "category": "Gastronomía y celebración",
+      "sourceUrl": "https://www.passline.com/eventos/navidad-en-the-grand-hotel",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:30; entradas general UYU 10.400 y menores de 12 UYU 5.200 según Passline; contenido gastronómico específico no comprobado."
+    },
+    {
+      "key": "punta-este-ano-nuevo-grand-hotel-2026-12-31",
+      "title": "Año Nuevo en The Grand Hotel",
+      "date": "2026-12-31",
+      "venue": "The Grand Center - The Grand Hotel",
+      "city": "Punta del Este",
+      "category": "Celebración",
+      "sourceUrl": "https://www.passline.com/eventos/ano-nuevo-en-the-grand-hotel",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "20:30; entrada general UYU 23.800 y menores de 12 UYU 11.800 según Passline."
+    }
+  ]
+}
