@@ -2,6 +2,7 @@
 import {mayFetch} from './robots-policy.mjs';
 import {parseJSONLDEvents} from './html-adapter.mjs';
 import {fetchOpenSports} from './open-sports.mjs';
+import {fetchPartnerTicketera} from './ticketera-feed.mjs';
 const WAIT=1000;
 async function read(url, contact, max=2_000_000) {
   const res=await fetch(url,{headers:{'User-Agent':`ONDA-Hormiga/1.0 (+mailto:${contact})`,'Accept':'text/html,text/plain;q=0.8'},signal:AbortSignal.timeout(12000),redirect:'error'});
@@ -15,6 +16,7 @@ export async function fetchSource(source,env=process.env){
   if(!source.enabled||source.permission!=='approved')return {sourceId:source.id,ok:false,error:'fuente no habilitada o sin permiso'};
   if(!source.permissionEvidence) return {sourceId:source.id,ok:false,error:'falta evidencia de la revisión de acceso'};
   if(source.adapter==='github-open-sports-yaml')return await fetchOpenSports(source,env);
+  if(source.adapter==='partner-ticket-feed-json')return await fetchPartnerTicketera(source,env);
   if(source.adapter!=='jsonld-event-html')return {sourceId:source.id,ok:false,error:'parser no implementado'};
   if(!/^https:$/.test(base.protocol)||base.hostname!==source.expectedHost||base.username||base.password) return {sourceId:source.id,ok:false,error:'destino no autorizado'};
   const contact=env.ONDA_CONTACT_EMAIL||'';
