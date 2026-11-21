@@ -127,3 +127,19 @@
 .event-visual .brand-lettering{font-size:clamp(25px,3.7vw,50px);transform:rotate(-90deg)}
 .event-visual .brand-signature{display:none}
 .rec-poster .brand-lettering{font-size:clamp(55px,8vw,103px)}
+
+
+/* v5.2 · Las 3 serigrafías aprobadas reemplazan gradientes tipográficos de emergencia. */
+.rec-poster.has-brand,.event-visual.has-brand{background:#102a46}
+.rec-poster.has-brand::before,.rec-poster.has-brand::after,
+.event-visual.has-brand::before,.event-visual.has-brand::after{display:none}
+.rec-poster.has-brand .editorial-art,.event-visual.has-brand .editorial-art{
+ object-fit:cover;object-position:center;filter:none
+}
+.rec-poster.has-brand .tag,.rec-poster.has-brand .poster-head,.rec-poster.has-brand .poster-index,
+.event-visual.has-brand .ev-category,.event-visual.has-brand .ev-date{
+ z-index:4;background:rgba(255,247,231,.93);color:#142c42;border-radius:5px;padding:4px 6px
+}
+.rec-poster.has-brand .visual-disclaimer,.event-visual.has-brand .visual-disclaimer{
+ background:rgba(255,247,231,.95);color:#142c42
+}

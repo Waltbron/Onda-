@@ -58,12 +58,13 @@ function activeVisualPlan(section){
  return VISUALS.allocate(cards,{columns});
 }
 function editorialCover(e,visual){
- if(visual.src)return '<img class="editorial-art" src="'+escapeHtml(visual.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async"><span class="visual-disclaimer">Ilustración ONDA</span>';
+ const alt=globalThis.ONDAVisual.fallback(e,new Set([visual.id]));
+ if(visual.src)return '<img class="editorial-art event-art-img'+(visual.scope==='identidad'?' brand-fallback':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(alt.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async"><span class="visual-disclaimer">'+(visual.scope==='identidad'?'Identidad ONDA':'Ilustración ONDA')+'</span>';
  if(visual.scope==='identidad')return '<span class="editorial-cover brand-cover '+escapeHtml(visual.variant)+'" role="img" aria-label="Portada gráfica ONDA; no representa al evento"><span class="brand-echo" aria-hidden="true">ONDA ONDA ONDA</span><span class="brand-lettering" aria-hidden="true">ONDA</span><span class="brand-signature" aria-hidden="true">EL ESTE TE LLAMA</span></span>';
   const symbol={'Cultura':'✳','Música':'♫','Deporte':'◉','Gastronomía':'✺','Fiestas':'✹','Aire libre':'❋','Bienestar':'☀','Encuentros':'✦'}[e.category]||'✦';
  return '<span class="editorial-cover" role="img" aria-label="Portada tipográfica editorial del evento: '+escapeHtml(e.title)+'"><span class="editorial-symbol" aria-hidden="true">'+escapeHtml(symbol)+'</span><span class="editorial-word">ONDA / '+escapeHtml(e.category)+'</span></span>';
 }
-function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?'rec-poster has-art':'rec-poster has-editorial';return `<article class="rec-card">
+function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('rec-poster has-art'+(visual.scope==='identidad'?' has-brand':'')):'rec-poster has-editorial';return `<article class="rec-card">
   <div class="${visualClass}" style="${colors(e)}">${cover}<span class="tag">${escapeHtml(t)}</span><span class="poster-head">${escapeHtml(e.city)}</span><span class="poster-index">ONDA / ${index}</span></div>
   <div class="rec-body"><div class="rec-overline">SELECCIÓN ${index} · ${escapeHtml(dateLabel(e))}</div><h3>${title}</h3><div class="rec-meta">⌖ ${escapeHtml(whereLabel(e))}</div>
   <div class="editor-note"><strong>LA MIRADA DE ONDA</strong>${escapeHtml(reason(e))}</div>
@@ -74,16 +75,17 @@ function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!a
  const assigned=activeVisualPlan('recommendations');
  area.innerHTML=x.length?x.map((e,i)=>recCard(e,i,assigned.get(e.id))).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
-function eventCard(e,visualOverride){const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?'event-visual has-art':'event-visual has-editorial';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions"><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">Compartir WhatsApp ↗</a></div></div></article>`}
+function eventCard(e,visualOverride){const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('event-visual has-art'+(visual.scope==='identidad'?' has-brand':'')):'event-visual has-editorial';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions"><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">Compartir WhatsApp ↗</a></div></div></article>`}
 function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description,e.category,e.sourceName,e.ticketera,e.cost,...(Array.isArray(e.tags)?e.tags:[])].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
 function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; const assigned=activeVisualPlan('agenda');$('eventGrid').innerHTML=all.slice(0,state.shown).map(e=>eventCard(e,assigned.get(e.id))).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
 let focusBefore=null;
 function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.activeElement;state.modal=id;const t=e.ticketUrl?`<a href="${safeUrl(e.ticketUrl)}" class="primary" target="_blank" rel="noopener noreferrer">${e.priceTier==='gratis'?'Reservar':'Ver entradas'} ↗</a>`:'';
  const visual=activeVisualPlan('recommendations').get(e.id)||activeVisualPlan('agenda').get(e.id)||VISUALS.forEvent(e);
+ const brandBackup=globalThis.ONDAVisual.fallback(e,new Set([visual.id]));
  const gmaps=ONDAShare.directions(e);
  const startedNote=ET.timingNote(e);
- $('modalBody').innerHTML=`${visual.src?'<figure class="modal-visual"><img src="'+escapeHtml(visual.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>Ilustración ONDA · no es el afiche del evento</figcaption></figure>':'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>'}<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
+ $('modalBody').innerHTML=`${visual.src?'<figure class="modal-visual"><img class="event-art-img" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(brandBackup.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+(visual.scope==='identidad'?'Identidad ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento')+'</figcaption></figure>':'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>'}<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
  ${startedNote?`<div class="modal-note"><strong>Horario:</strong> ${escapeHtml(startedNote)}</div>`:''}<div class="modal-note"><strong>Antes de salir:</strong> ${escapeHtml(e.note||'Comprobá posibles cambios de horario y disponibilidad en la fuente.')}${e.weatherSensitive?' · Si es al aire libre, consultá el pronóstico.':''}</div>
  <div class="modal-links">${t}<a class="wa-share-link" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}">Compartir por WhatsApp ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(gmaps)}">Cómo llegar ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(e.sourceUrl)}">Fuente original ↗</a></div><p>Fuente: ${escapeHtml(e.sourceName)} · Ticketera: ${escapeHtml(e.ticketera||e.ticketingPlatform||'no informada')} · ${escapeHtml(freshnessLabel(e))} · Estado: ${escapeHtml(e.status||'a confirmar')}.</p><p><small>La publicación original es la referencia para reprogramaciones, suspensión o cambios de precio. ONDA no vende entradas.</small></p>`;
  const overlay=$('overlay');overlay.classList.remove('hidden');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('closeModal').focus();
@@ -139,6 +141,34 @@ async function refreshCatalog() {
  }catch(error){console.warn('ONDA: no fue posible comprobar actualizaciones; se conserva el último catálogo válido',error)}
 }
 async function start(){init();try{const embedded=document.getElementById('embedded-events');let data;if(embedded){data=JSON.parse(embedded.textContent)}else{const res=await fetch('./data/events.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);data=await res.json()};if(!Array.isArray(data))throw Error('Formato inesperado');state.events=data;const cities=[...new Set(data.map(e=>e.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const city of cities){const o=document.createElement('option');o.value=city;o.textContent=city;$('zoneSelect').append(o)}const cats=[...new Set(data.map(e=>e.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const cat of cats){const o=document.createElement('option');o.value=cat;o.textContent=cat;$('categorySelect').append(o)}refreshTimeSensitiveUI();const linkedPlan=new URLSearchParams(window.location.search).get('plan');if(linkedPlan&&findEvent(linkedPlan))openDetail(linkedPlan);if(embedded){showDataStatus({automaticIngestionEnabled:false})}else{refreshCatalog()}}catch(err){$('recommendations').innerHTML='<div class="loading">No pudimos cargar la agenda. Revisá la conexión e intentá de nuevo.</div>';$('eventGrid').innerHTML='';$('resultCount').textContent='Agenda no disponible';console.error('ONDA: error cargando agenda',err)}}
+// Recorte móvil/escritorio: si cambia la cantidad de columnas, se recalculan vecinos.
+let visualLayout=window.innerWidth<=720?1:window.innerWidth<=1050?2:3;
+window.addEventListener('resize',()=>{
+ const layout=window.innerWidth<=720?1:window.innerWidth<=1050?2:3;
+ if(layout===visualLayout)return;
+ visualLayout=layout;
+ if(state.events.length){renderRecs();renderAgenda()}
+});
+// Ilustración que no carga: cambiar a serigrafía ONDA aprobada. Si ambas fallan, marca CSS local.
+document.addEventListener('error',ev=>{
+ const img=ev.target;
+ if(!img?.classList?.contains('event-art-img'))return;
+ const backup=img.dataset.fallbackSrc;
+ if(img.dataset.backupAttempted!=='1' && backup && backup!==img.getAttribute('src')){
+  img.dataset.backupAttempted='1';
+  img.src=backup;img.alt='Portada de identidad ONDA; no representa el evento.';
+  const badge=img.parentElement?.querySelector('.visual-disclaimer');
+  if(badge)badge.textContent='Identidad ONDA';
+  const caption=img.parentElement?.querySelector('figcaption');
+  if(caption)caption.textContent='Identidad ONDA · no es el afiche oficial';
+ }else{
+  const tile=document.createElement('span');
+  tile.className='editorial-cover brand-cover fb-01';
+  tile.setAttribute('role','img');tile.setAttribute('aria-label','Identidad ONDA');
+  tile.innerHTML='<span class="brand-lettering" aria-hidden="true">ONDA</span>';
+  img.replaceWith(tile);
+ }
+},true);
 start();
 // Mantener vigente la vista aunque el usuario deje ONDA abierta toda la noche.
 setInterval(refreshTimeSensitiveUI, 60*1000);

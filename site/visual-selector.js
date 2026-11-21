@@ -95,16 +95,16 @@ function candidates(e){
 }
 
 const BRANDS=Object.freeze([
- {id:'onda-fallback-01',variant:'fb-01',about:'Azul tinta, naranja y marfil'},
- {id:'onda-fallback-02',variant:'fb-02',about:'Azul tinta, fucsia y naranja'},
- {id:'onda-fallback-03',variant:'fb-03',about:'Lima, violeta y naranja'}
+ {id:'onda_fallback_serigrafia_01_azul_naranja',variant:'fb-01',about:'Azul tinta, naranja y marfil'},
+ {id:'onda_fallback_serigrafia_02_fucsia_naranja',variant:'fb-02',about:'Azul tinta, fucsia y naranja'},
+ {id:'onda_fallback_serigrafia_03_lima_violeta',variant:'fb-03',about:'Lima, violeta y naranja'}
 ]);
 function stableHash(input){let hash=2166136261;for(const ch of String(input??''))hash=Math.imul(hash^ch.charCodeAt(0),16777619)>>>0;return hash}
 function fallback(e,blocked=new Set()){
  const shift=stableHash(e.id)%BRANDS.length;
  const choices=BRANDS.map((_,i)=>BRANDS[(shift+i)%BRANDS.length]);
  const brand=choices.find(x=>!blocked.has(x.id))||choices[0];
- return {id:brand.id,src:null,scope:'identidad',usage:'evento',score:0,variant:brand.variant,contextual:false,
+ return {id:brand.id,src:'./assets/editorial/'+brand.id+'.webp',scope:'identidad',usage:'evento',score:0,variant:brand.variant,contextual:false,
  about:brand.about,caption:'Identidad gráfica ONDA; no representa el evento, el artista ni la sede.'};
 }
 function select(e){return candidates(e)[0]||fallback(e)}

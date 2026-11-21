@@ -70,3 +70,16 @@ test('experiencias todavía sin relatos editoriales no aparecen en la página p�
  assert.ok(!app.includes('renderVisualStories'));
  assert.match(app,/activeVisualPlan/);
 });
+
+test('las tres identidades serigráficas aprobadas están disponibles como WebP de reserva',()=>{
+ const names=['onda_fallback_serigrafia_01_azul_naranja','onda_fallback_serigrafia_02_fucsia_naranja','onda_fallback_serigrafia_03_lima_violeta'];
+ const seen=new Set();
+ for(let i=0;i<150;i++){
+  const img=select({...e('Actividad sin portada','Música','Lugar ficticio'),id:'unknown-'+i});
+  assert.equal(img.scope,'identidad');
+  assert.ok(names.includes(img.id),img.id);
+  assert.ok(existsSync(new URL('../../site/'+img.src.slice(2),import.meta.url)));
+  seen.add(img.id);
+ }
+ assert.equal(seen.size,3);
+});
