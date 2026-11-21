@@ -1,1 +1,102 @@
-{"version":"3.0","mode":"not-run","status":"not-connected","at":null,"sources":[],"publishedChanges":0,"automaticUpdatesEnabled":false,"notice":"Conectores inactivos hasta autorizar y probar fuentes reales."}
+{
+  "version": "3.0",
+  "at": "2026-11-21T21:54:30.154Z",
+  "mode": "live",
+  "status": "ok",
+  "activeConnectors": 1,
+  "automaticUpdatesEnabled": true,
+  "publishedChanges": 15,
+  "publicItems": 71,
+  "sources": [
+    {
+      "sourceId": "events-uy-deportes",
+      "name": "events.uy contributors · Deportes (CC BY 4.0)",
+      "status": "ok",
+      "found": 15,
+      "new": 15,
+      "modified": 0,
+      "duplicates": 0,
+      "held": 0,
+      "error": null
+    }
+  ],
+  "issues": [],
+  "changes": [
+    {
+      "type": "new",
+      "id": "onda-9fb37288a1cc0795",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-34f124cdac4a06bd",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-175f03eb6b6c2515",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-27baf5653b1eb9e9",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-851575597b773ff5",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-bbe3311eda18b646",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-79d5821e92f23bd3",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-ca4ceb9d731bce49",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-8e4ce3fed1ceab93",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-04d1e57587a6c2a7",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-10df1fdc7203c9ab",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-8dc5567306f788a9",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-2b3828f8767fc75a",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-1696ef81c9099ed9",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-e21cf01c28645218",
+      "sourceId": "events-uy-deportes"
+    }
+  ],
+  "notSeenIsNotCancellation": true
+}

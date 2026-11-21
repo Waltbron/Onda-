@@ -1,1 +1,15 @@
-{"schema":1,"sources":{},"lastSuccessfulRunAt":null}
+{
+  "schema": 1,
+  "sources": {
+    "events-uy-deportes": {
+      "successes": 1,
+      "failures": 0,
+      "lastAttemptAt": "2026-11-21T21:54:30.154Z",
+      "lastSuccessAt": "2026-11-21T21:54:30.154Z",
+      "status": "ok",
+      "lastError": null,
+      "lastFound": 15
+    }
+  },
+  "lastSuccessfulRunAt": "2026-11-21T21:54:30.154Z"
+}
