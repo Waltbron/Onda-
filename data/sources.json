@@ -40,5 +40,19 @@
     "publicationPolicy": "review",
     "expectedHost": "maldonado.gub.uy",
     "notes": "Fuente prioritaria tras auditoría 8/11/2026: 4 omisiones verificadas. Los términos permiten uso de información con cita y exceptúan obras de terceros, pero faltan prueba de robots, HTML real, parser e identificación de duplicados. No activar ni copiar imágenes/textos íntegros."
+  },
+  {
+    "id": "events-uy-deportes",
+    "name": "events.uy contributors · Deportes (CC BY 4.0)",
+    "url": "https://github.com/suzrik/data.events.uy",
+    "city": "Maldonado",
+    "adapter": "github-open-sports-yaml",
+    "minItems": 1,
+    "enabled": true,
+    "permission": "approved",
+    "permissionEvidence": "https://github.com/suzrik/data.events.uy/blob/main/LICENSE",
+    "publicationPolicy": "automatic",
+    "expectedHost": "github.com",
+    "notes": "Datos de eventos deportivos abiertos CC BY 4.0; atribución visible al origen; solo ciudades del corredor Maldonado/Rocha; sin fechas tentativas ni imprecisas. GitHub API pública, no scraping. No habilita ninguna ticketera."
   }
 ]
