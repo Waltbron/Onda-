@@ -17,7 +17,7 @@ test('publica solo fecha completa y confirmada, conserva atribución y organizad
 test('fecha imprecisa, ciudad extraña y fecha tentativa quedan excluidas',()=>{
  assert.equal(sportsCandidate({...file,content:file.content.replace('2027-03-14','2027-03')},source,'2026-11-21T21:00:00Z'),null);
  assert.equal(sportsCandidate({...file,content:file.content+'\nstatus: tentative'},source,'2026-11-21T21:00:00Z'),null);
- assert.equal(sportsCandidate({...file,content:file.content.replace('Punta del Este','Montevideo')},source,'2026-11-21T21:00:00Z'),null);
+ assert.equal(sportsCandidate({...file,content:file.content.replace('city: Punta del Este','city: Montevideo')},source,'2026-11-21T21:00:00Z'),null);
 });
 test('acota rutas a zonas y años seleccionados; no recorre todo Uruguay',()=>{
  const t={tree:[{path:file.path,type:'blob',sha:'a'.repeat(40)},{path:'events/2027/montevideo.yaml',type:'blob',sha:'b'.repeat(40)},{path:'events/2025/piriapolis.yaml',type:'blob',sha:'c'.repeat(40)}]};
