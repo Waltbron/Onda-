@@ -1,5 +1,6 @@
 // ONDA: validación pura de pistas descubiertas por un radar de investigación.
 // NUNCA convierte ni publica eventos; sólo produce una bandeja de revisión.
+import {classifyRadarLead} from './radar-taxonomy.mjs';
 const text = v => String(v ?? '').trim();
 const folded = v => text(v).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 function validDate(s) {
@@ -18,7 +19,8 @@ export function evaluateRadarInboxes({inboxes,manual=[],automatic=[],now=new Dat
   if(!Array.isArray(inboxes)||!Array.isArray(manual)||!Array.isArray(automatic))throw Error('Datos inválidos');
   const day=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Montevideo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
   const existing=new Set([...manual,...automatic].map(signature));
-  const seenKeys=new Set(), seenSignals=new Set();
+  const existingUrls=new Set([...manual,...automatic].filter(e=>e.sourceUrl&&e.date).map(e=>{try{return new URL(e.sourceUrl).origin+new URL(e.sourceUrl).pathname.replace(/\/$/,'')+'|'+e.date}catch{return null}}).filter(Boolean));
+  const seenKeys=new Set(), seenSignals=new Set(),seenSignatures=new Set();
   const issues=[],leads=[];
   for(const batch of inboxes){
     const file=text(batch.file||'sin-archivo');
@@ -40,9 +42,9 @@ export function evaluateRadarInboxes({inboxes,manual=[],automatic=[],now=new Dat
       const dedupeKey=url.split('?')[0]+'|'+date;
       let status='pendiente-de-verificar';
       if(date<day)status='vencido';
-      else if(existing.has(signature(c)) || seenKeys.has(key) || seenSignals.has(dedupeKey))status='posible-duplicado';
-      seenKeys.add(key);seenSignals.add(dedupeKey);
-      leads.push({key,title,date,city,venue:text(c.venue),category:text(c.category),sourceUrl:url,status,sourceFile:file});
+      else if(existing.has(signature(c)) || existingUrls.has(dedupeKey) || seenKeys.has(key) || seenSignals.has(dedupeKey) || seenSignatures.has(signature(c)))status='posible-duplicado';
+      seenKeys.add(key);seenSignals.add(dedupeKey);seenSignatures.add(signature(c));
+      leads.push({key,title,date,city,venue:text(c.venue),category:text(c.category),sourceUrl:url,status,sourceFile:file,...classifyRadarLead({...c,sourceUrl:url})});
     }
   }
   return {
