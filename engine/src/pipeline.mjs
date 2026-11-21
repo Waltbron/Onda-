@@ -7,7 +7,7 @@ const string = x => String(x ?? '');
 const clean = s => string(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const same = (a,b) => clean(a) === clean(b);
 const isoDay = timestamp => new Intl.DateTimeFormat('en-CA',{timeZone:'America/Montevideo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(timestamp));
-const fields = ['title','date','endDate','time','endTime','place','city','category','sourceUrl','externalStatus'];
+const fields = ['title','date','endDate','time','endTime','place','city','category','sourceUrl','externalStatus','ticketUrl','organizerUrl','tags','description'];
 const historyDiff = (a,b) => Object.fromEntries(fields.filter(k => JSON.stringify(a[k] ?? null)!==JSON.stringify(b[k] ?? null)).map(k => [k,{before:a[k]??null,after:b[k]??null}]));
 const hash = s => createHash('sha256').update(s).digest('hex').slice(0,16);
 const fingerprint = c => `${c.sourceId}|${c.sourceItemId || canonicalUrl(c.sourceUrl)}`;
@@ -37,11 +37,11 @@ export function convertCandidate(c, now, source) {
     sourceUrl:v.sourceUrl,sourceName:source.name,title:v.title,kind:v.kind||'evento',
     category:v.category,date:v.date,endDate:v.endDate,time:v.time,endTime:v.endTime,
     place:v.place,city:v.city,address:v.address??'',cost:'Consultar en fuente',
-    priceTier:'sin-informar',description:'',note:'Consultá posibles cambios en el enlace oficial.',
-    weatherSensitive:false,tags:[],ticketUrl:null,imageUrl:null,
-    timezone:'America/Montevideo',confidence:'A',status:'verificado',
+    priceTier:'sin-informar',description:v.description??'',note:v.note??'Consultá posibles cambios en el enlace oficial.',
+    weatherSensitive:false,tags:Array.isArray(v.tags)?v.tags:[],ticketUrl:v.ticketUrl??null,organizerUrl:v.organizerUrl??null,imageUrl:null,
+    timezone:'America/Montevideo',confidence:v.confidence??'A',status:'verificado',
     checkedAt:now.slice(0,10),lastSeenAt:now,evidence:v.evidence,
-    externalStatus:c.externalStatus||'',sourceVerification:'jsonld-structured'
+    externalStatus:c.externalStatus||'',sourceVerification:v.sourceVerification??'jsonld-structured'
   };
   if(c.externalStatus==='cancelled')base.status='cancelado';
   if(c.externalStatus==='postponed')base.status='dudoso';
