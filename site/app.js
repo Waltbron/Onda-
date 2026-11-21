@@ -153,6 +153,11 @@ const EDITORIAL_STORIES = [
     "title": "Una tarde en José Ignacio",
     "category": "Paseos · José Ignacio",
     "src": "./assets/editorial/onda_lifestyle_paseo_jose_ignacio_01.webp"
+  },
+  {
+    "title": "Una más y nos vamos",
+    "category": "Encuentros · La Barra",
+    "src": "./assets/editorial/onda_lifestyle_patio_nocturno_la_barra_01.webp"
   }
 ];
 function editorialArt(e){
@@ -166,6 +171,9 @@ function editorialArt(e){
   const local=[venue,String(e.city||''),String(e.address||'')].join(' ').toLocaleLowerCase('es-UY');
   const venueSpecific=(pattern)=>pattern.test(local);
   const art=(id)=>'./assets/editorial/'+id+'.webp';
+  // Variante 02: El Popu, emblema decorativo no certificado como logo.
+  if(['Encuentros','Gastronomía','Fiestas'].includes(e.category) && /\bel popu\b|\bpopu\b/i.test(local))
+    return art('onda_lifestyle_patio_nocturno_la_barra_01');
   // ONDA v3: relación semántica y geográfica; nunca asociar una imagen de un sitio específico a otro lugar.
   if((e.category==='Música'||e.category==='Fiestas') &&
      venueSpecific(/casapueblo|punta ballena/) &&

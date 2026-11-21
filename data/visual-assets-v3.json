@@ -5,8 +5,8 @@
   "site_env": "ONDA Lab (pruebas, no main)",
   "baseline_lab_webp_count": 28,
   "approved_generated_images_in_this_batch": 10,
-  "publishable_this_batch": 9,
-  "withheld_this_batch": 1,
+  "publishable_this_batch": 10,
+  "withheld_this_batch": 0,
   "composition_only_no_image": [
     {
       "scene": "08",
@@ -269,22 +269,24 @@
         "salida tranquila",
         "vida nocturna"
       ],
-      "approval": "aprobada_visual",
-      "deployment": "retener_por_marca_no_verificada",
-      "source_original": "04_revision/onda_lifestyle_patio_nocturno_la_barra_01.png",
-      "webp": null,
-      "original_sha256": "516e45d30e3da7194449d38d6cd13d1c9486555a21ee233667f3511246c22998",
-      "original_bytes": 3595095,
+      "approval": "aprobada_visual_variante_02",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_lifestyle_patio_nocturno_la_barra_01.png",
+      "webp": "02_webp_para_lab/onda_lifestyle_patio_nocturno_la_barra_01.webp",
+      "original_sha256": "4b144f53d7b7ad85965beb3f4a2b890371973e195879b1a4f7773ca8aced1ffe",
+      "original_bytes": 3609015,
       "dimensions": [
         1448,
         1086
       ],
-      "experience_note": "Aprobada la escena, pero el letrero textual fue objetado y variantes posteriores muestran símbolo de marca no verificado. NO PUBLICAR hasta revisión final de versión sin marca.",
+      "experience_note": "Patio de conversación nocturna inspirado en El Popu, La Barra. Variante 02 aprobada por usuario, con símbolo entrelazado decorativo no verificado como logotipo oficial. No utilizar para publicidad del local.",
       "territorial_reference": "foto_real_revisada",
       "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
       "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
-      "version": "v1",
-      "created_record": "2026-11-21"
+      "version": "v2",
+      "created_record": "2026-11-21",
+      "approved_variant": "alternativa_02",
+      "brand_accuracy": "símbolo artístico no verificado: no afirmar que reproduce marca oficial"
     },
     {
       "scene": "11",

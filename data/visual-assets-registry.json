@@ -94,7 +94,7 @@
     }
   ],
   "statuses": {
-    "approved_files": 37,
+    "approved_files": 38,
     "prior_approvals_missing_originals": 2,
     "pending_illustrations": 11,
     "new_approved_lab": 15
@@ -130,14 +130,13 @@
   "v3_release": {
     "date": "2026-11-21",
     "baselineWebp": 28,
-    "additionalReleasedWebp": 9,
-    "totalReleasedWebp": 37,
-    "sourceDriveManifest": "https://drive.google.com/file/d/1mx_CE3paiDOn3jG4dpla2Vs9K6OHuVf0/view",
+    "additionalReleasedWebp": 10,
+    "totalReleasedWebp": 38,
+    "sourceDriveManifest": "https://drive.google.com/file/d/1ZZK19oI4nolN6tR7gg0Uio5V7WXsUdyq/view",
     "manual": "docs/ONDA_Manual_Visual_v0.1.md",
     "state": "Lab only",
     "pending": [
-      "escena 08: sin imagen",
-      "escena 10: logo/local no verificado"
+      "escena 08: composición aprobada, imagen por generar"
     ],
     "new_assets": [
       "onda_musica_sunset_casapueblo_publico_01.webp",
@@ -148,8 +147,14 @@
       "onda_musica_arboretum_lussich_intimo_01.webp",
       "onda_cultura_feria_libro_paseo_san_fernando_01.webp",
       "onda_cultura_feria_rural_pueblo_gaucho_01.webp",
-      "onda_lifestyle_paseo_jose_ignacio_01.webp"
+      "onda_lifestyle_paseo_jose_ignacio_01.webp",
+      "onda_lifestyle_patio_nocturno_la_barra_01.webp"
     ],
-    "not_photos_of_events": true
+    "not_photos_of_events": true,
+    "popu": {
+      "approvedVariant": "02",
+      "status": "aprobada_visual_para_lab",
+      "note": "Emblema decorativo no verificado como logo oficial de El Popu."
+    }
   }
 }
