@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA Lab",
+  "date": "2026-11-21",
+  "method": "semi-automatic-with-editorial-verification",
+  "origin": "Radar ONDA y nuevas búsquedas contra fuentes oficiales; sin scraping recurrente",
+  "new": [
+    {
+      "id": "redtickets-narakan-jam-20261122",
+      "title": "Narakan Jam Session · 22 de noviembre",
+      "date": "2026-11-22",
+      "sourceUrl": "https://redtickets.uy/evento/NARAKAN-JAM-SESSION--22-de-Noviembre/34703/",
+      "verification": "primary-source-checked-2026-11-21"
+    },
+    {
+      "id": "redtickets-hilda-lizarazu-maldonado-20261122",
+      "title": "Hilda Lizarazu en Maldonado",
+      "date": "2026-11-22",
+      "sourceUrl": "https://redtickets.uy/evento/Hilda-Lizarazu-en-MALDONADO/32434/",
+      "verification": "primary-source-checked-2026-11-21"
+    },
+    {
+      "id": "idm-feria-turismo-rural-natural-20261124",
+      "title": "Feria de Turismo Rural y Natural · Pueblo Gaucho",
+      "date": "2026-11-24",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/feria-turismo-rural-natural",
+      "verification": "primary-source-checked-2026-11-21"
+    },
+    {
+      "id": "idm-inauguracion-monumento-paella-20261128",
+      "title": "Inauguración del monumento a Piriápolis, Capital Nacional de la Paella",
+      "date": "2026-11-28",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/inauguracion-monumento-piriapolis-capital-nacional-paella",
+      "verification": "primary-source-checked-2026-11-21"
+    }
+  ],
+  "updated": [
+    "maca-mas-que-jazz-las-rodetts-20261128",
+    "maca-cortos-infancias-20261129"
+  ],
+  "total": 79,
+  "manual": 64,
+  "automatic": 15,
+  "restrictedAutomatedSourcesStillDisabled": true
+}
