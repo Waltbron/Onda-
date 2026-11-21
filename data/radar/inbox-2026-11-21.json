@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-21T13:13:07.510Z",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "sancarlos-cierre-cursos-municipales-2026-11-24",
+      "title": "Cierre de Cursos Municipales del Departamento de Desarrollo e Integración Social dictados en San Carlos",
+      "date": "2026-11-24",
+      "venue": "Rural de San Carlos",
+      "city": "San Carlos",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://www.maldonado.gub.uy/actividades/cierre-cursos-municipales-del-departamento-desarrollo-integracion-social-dictados-san",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00 a 21:00; acceso público no confirmado"
+    },
+    {
+      "key": "balneario-buenos-aires-cierre-cursos-comunales-2026-11-27",
+      "title": "Cierre de Cursos Municipales del Departamento de Desarrollo e Integración Social dictados en Comunales de la Costa",
+      "date": "2026-11-27",
+      "venue": "Comunal del Balneario Bs As.",
+      "city": "Balneario Buenos Aires",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://maldonado.gub.uy/actividades/cierre-cursos-municipales-del-departamento-desarrollo-integracion-social-dictados",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00 a 21:00; acceso público no confirmado"
+    }
+  ]
+}
