@@ -1,0 +1,106 @@
+{
+  "schema": "ONDA.experience-editorial.v1",
+  "status": "borrador_interno_no_publicar",
+  "purpose": "Una experiencia es un relato curado y una decisión concreta, nunca una galería de arte aislada.",
+  "publication_rules": [
+    "Relato editorial original, no promocional, con momento y conflicto/deseo reconocible.",
+    "Promesa concreta: qué hará la persona y qué se lleva de la experiencia.",
+    "Piques accionables con fuentes verificables, condiciones de acceso y fecha de comprobación.",
+    "Asset aprobado que representa actividad y localización, sin implicar evento confirmado.",
+    "Revisión editorial humana, fuente, fecha y approval_status=aprobado_publicacion antes de exponer."
+  ],
+  "card_schema": {
+    "id": "string estable",
+    "title": "string",
+    "tagline": "string",
+    "asset_id": "WebP aprobado",
+    "category": "string",
+    "place_id": "string",
+    "narrative": "texto 70-140 palabras",
+    "why_go": "valor específico",
+    "ideal_for": "a quién le suma",
+    "best_moment": "hora/clima/temporada si verificable",
+    "what_to_do": [
+      "paso uno",
+      "paso dos"
+    ],
+    "tips": [
+      "acciones verificadas"
+    ],
+    "source_urls": [],
+    "verified_at": null,
+    "approval_status": "borrador",
+    "publish": false
+  },
+  "drafts": [
+    {
+      "id": "exp-jose-ignacio-a-pie",
+      "title": "Una tarde sin apuro en José Ignacio",
+      "tagline": "Salir sin itinerario también puede ser un plan",
+      "asset_id": "onda_lifestyle_paseo_jose_ignacio_01",
+      "category": "Paseos",
+      "place_id": "jose-ignacio",
+      "narrative": "Hay tardes en las que el plan no necesita reservarse ni cumplir horarios. José Ignacio invita a caminar más lento, mirar la luz sobre las casas bajas y elegir una calle distinta porque sí. La idea no es tachar puntos de una lista: es regalarse un rato de paseo, parar cuando aparece algo interesante y dejar que el mar marque el ritmo. ONDA propone ir con tiempo, calzado cómodo y ninguna obligación de llegar primero.",
+      "why_go": "Un paseo sencillo que cambia el ritmo del día",
+      "ideal_for": "Salir solo, en pareja o con alguien con ganas de conversar",
+      "best_moment": "A definir tras verificar acceso y recorrido",
+      "what_to_do": [
+        "Elegir un tramo caminable del pueblo",
+        "Caminar sin apuro, observar y detenerse"
+      ],
+      "tips": [
+        "Comprobar acceso, estacionamiento y condiciones del tiempo antes de publicar"
+      ],
+      "source_urls": [],
+      "verified_at": null,
+      "approval_status": "borrador",
+      "publish": false
+    },
+    {
+      "id": "exp-maca-mirar-arte",
+      "title": "Mirar una obra hasta que aparezca otra",
+      "tagline": "El arte también es aprender a quedarse",
+      "asset_id": "onda_cultura_maca_esculturas_01",
+      "category": "Cultura",
+      "place_id": "maca",
+      "narrative": "A veces recorremos un museo como si hubiera una meta al final. Esta experiencia propone lo contrario: elegir algunas obras, detenerse frente a ellas y dejar que la mirada cambie. En el entorno del MACA, la escala del arte y el paisaje pueden convertirse en una excusa para conversar o para estar un rato en silencio. No hace falta saber de arte para tener una opinión propia; alcanza con hacerse una pregunta y mirar de nuevo.",
+      "why_go": "Convertir una visita cultural en una experiencia personal y no en un recorrido de casilleros",
+      "ideal_for": "Curiosos, parejas y personas que disfrutan la contemplación",
+      "best_moment": "A definir según horarios verificados",
+      "what_to_do": [
+        "Consultar la programación y el acceso vigente",
+        "Elegir pocas obras y observarlas sin apuro"
+      ],
+      "tips": [
+        "Validar los horarios y las condiciones de ingreso del MACA en la fuente oficial"
+      ],
+      "source_urls": [],
+      "verified_at": null,
+      "approval_status": "borrador",
+      "publish": false
+    },
+    {
+      "id": "exp-kayak-garzon",
+      "title": "El agua cambia la perspectiva",
+      "tagline": "Una salida desde el silencio de la laguna",
+      "asset_id": "onda_naturaleza_kayak_laguna_garzon_01",
+      "category": "Naturaleza",
+      "place_id": "laguna-garzon",
+      "narrative": "Desde la orilla todo parece quieto. Una experiencia de kayak, cuando las condiciones lo permiten, ofrece otro punto de vista: el paisaje deja de ser fondo y empieza a rodearte. El atractivo no está en recorrer kilómetros ni competir, sino en escuchar el agua, prestar atención al viento y descubrir la escala distinta del lugar. La experiencia requiere una actividad habilitada y condiciones seguras; la imagen es una invitación conceptual, no una promesa de alquiler disponible.",
+      "why_go": "Acercarse al paisaje de Laguna Garzón con otra perspectiva",
+      "ideal_for": "Personas interesadas en naturaleza y actividades acuáticas",
+      "best_moment": "No publicar sin validar clima, acceso y prestador responsable",
+      "what_to_do": [
+        "Confirmar prestador habilitado y equipo de seguridad",
+        "Consultar condiciones meteorológicas y navegación antes de salir"
+      ],
+      "tips": [
+        "No recomendar ingresar al agua sin verificar permisos, equipo y condiciones"
+      ],
+      "source_urls": [],
+      "verified_at": null,
+      "approval_status": "borrador",
+      "publish": false
+    }
+  ]
+}

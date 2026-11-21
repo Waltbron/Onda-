@@ -91,3 +91,23 @@
 .modal-visual figcaption{position:absolute;bottom:8px;left:8px;padding:5px 9px;border-radius:7px;background:rgba(249,247,240,.94);color:#183344;font:800 10px/1.2 var(--sans)}
 .visual-disclaimer{max-width:82%;font-size:9px;padding:4px 7px}
 @media(max-width:450px){.modal-visual img{aspect-ratio:4/3}.modal-visual figcaption{max-width:90%;font-size:9px}}
+
+
+/* ONDA v5: portadas tipográficas pertinentes en lugar de imágenes prestadas de otros lugares. */
+.rec-poster.has-editorial,.event-visual.has-editorial{isolation:isolate}
+.rec-poster.has-editorial::before,.event-visual.has-editorial::before{opacity:.15}
+.editorial-cover{position:absolute;inset:0;z-index:1;display:flex;justify-content:center;align-items:center;overflow:hidden;background:linear-gradient(135deg,var(--poster-bg),color-mix(in srgb,var(--poster-bg),var(--poster-shape) 23%))}
+.editorial-cover::before{content:"";position:absolute;left:-35%;top:-57%;width:170%;aspect-ratio:1;border:20px solid var(--poster-shape);border-radius:49%;transform:rotate(-25deg);opacity:.26}
+.editorial-cover::after{content:"";position:absolute;bottom:-46%;right:-12%;width:90%;aspect-ratio:1;background:var(--poster-shape);border-radius:50%;opacity:.25}
+.editorial-symbol{position:relative;z-index:1;font:400 72px/1 var(--serif);color:var(--poster-ink);opacity:.7}
+.editorial-word{position:absolute;z-index:2;left:10px;bottom:10px;font:900 9px/1.2 var(--sans);letter-spacing:1px;text-transform:uppercase;color:var(--poster-ink)}
+.rec-poster.has-editorial .poster-head,.rec-poster.has-editorial .tag,.rec-poster.has-editorial .poster-index{z-index:4}
+.rec-poster.has-editorial .editorial-word{bottom:60px;left:18px}
+.event-visual.has-editorial .ev-category,.event-visual.has-editorial .ev-date{background:rgba(250,247,239,.91);color:#14233c;padding:5px 6px;border-radius:5px;z-index:4;align-self:flex-start}
+.event-visual.has-editorial .editorial-symbol{font-size:46px}
+.event-visual.has-editorial .editorial-word{bottom:47%;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:7px}
+.modal-editorial{min-height:210px;display:flex;flex-direction:column;justify-content:space-between;padding:22px 26px;color:var(--poster-ink);background:linear-gradient(130deg,var(--poster-bg),var(--poster-shape))}
+.modal-editorial span{font:900 11px var(--sans);letter-spacing:2px}
+.modal-editorial strong{font:400 clamp(25px,5vw,40px)/1.05 var(--serif);max-width:90%}
+.modal-editorial small{font:800 10px var(--sans)}
+@media(max-width:650px){.event-visual.has-editorial .editorial-symbol{font-size:38px}.editorial-word{font-size:7px}}

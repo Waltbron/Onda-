@@ -3,30 +3,57 @@ import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 const ctx={};ctx.globalThis=ctx;
-runInNewContext(readFileSync(new URL('../../site/visual-selector.js',import.meta.url),'utf8'),ctx);
-const select=ctx.ONDAVisual.select;
-function event(title,category='Cultura',place='Museo MACA',tags=[],description=''){return {title,category,place,city:'Maldonado',tags,description};}
-test('cine documental usa la nueva portada aprobada, sin confundir con teatro MACA',()=>{const r=select(event('Cine MACA · Cortos para infancias'));assert.equal(r.id,'onda_evento_cine_proyeccion_generica_01');assert.equal(r.scope,'formato');});
-test('portadas nuevas diferenciadas para danza, jazz, charla y running',()=>{
- assert.equal(select(event('Clase abierta de ballet y masterclass')).id,'onda_evento_ballet_danza_clase_01');
- assert.equal(select(event('Más que Jazz · Las Rodetts','Música')).id,'onda_evento_jazz_ensamble_vivo_01');
- assert.equal(select(event('Charla y conferencia cultural')).id,'onda_evento_charla_conferencia_generica_01');
- assert.equal(select(event('INJU5K Piriápolis','Deporte','Plaza Artigas',['running'])).id,'onda_evento_running_carrera_popular_01');
+for(const f of ['visual-selector.js','visuals.js'])runInNewContext(readFileSync(new URL('../../site/'+f,import.meta.url),'utf8'),ctx);
+const V=ctx.ONDAVisuals,select=ctx.ONDAVisual.select;
+const events=JSON.parse(readFileSync(new URL('../../site/data/events.json',import.meta.url),'utf8'));
+const e=(title,category='Cultura',place='Museo MACA',tags=[])=>({id:title,title,category,place,city:'Maldonado',tags,description:''});
+test('37 ilustraciones aprobadas con permisos de uso evento, experiencia o ambos',()=>{
+ assert.equal(V.catalog.length,37);
+ assert.equal(new Set(Array.from(V.catalog.map(x=>x.id))).size,37);
+ assert.ok(V.catalog.every(x=>['evento','experiencia','ambos'].includes(x.usage)));
+ for(const x of V.catalog)assert.ok(existsSync(new URL('../../site/'+x.src.slice(2),import.meta.url)));
 });
-test('la nueva presentación literaria no se aplica a una función teatral de cuentos',()=>{
- assert.equal(select(event('Presentación de libro con autor')).id,'onda_evento_presentacion_libro_autor_01');
- assert.equal(select(event('El coleccionista de cuentos · Teatro MACA')).id,'onda_cultura_teatro_maca_funcion_01');
+test('cine no es teatro MACA, teatro fuera de MACA no usa esa sede',()=>{
+ assert.equal(select(e('Cine MACA · Cortos para infancias')).id,'onda_evento_cine_proyeccion_generica_01');
+ assert.equal(select(e('El coleccionista de cuentos · Teatro MACA')).id,'onda_cultura_teatro_maca_funcion_01');
+ assert.notEqual(select(e('Obra teatral','Cultura','Teatro de San Carlos')).id,'onda_cultura_teatro_maca_funcion_01');
 });
-test('distingue ciclismo de running y representación parcial de triatlón',()=>{
- assert.equal(select(event('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).id,'onda_naturaleza_bicicleta_sendero_lussich_01');
- const t=select(event('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon']));assert.equal(t.scope,'ambiente');assert.match(t.about,/disciplina/);
+test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
+ assert.equal(select(e('Clase abierta de ballet y masterclass')).id,'onda_evento_ballet_danza_clase_01');
+ assert.equal(select(e('Más que Jazz · Las Rodetts','Música')).id,'onda_evento_jazz_ensamble_vivo_01');
+ assert.equal(select(e('Charla y conferencia cultural')).id,'onda_evento_charla_conferencia_generica_01');
+ assert.equal(select(e('INJU5K Piriápolis','Deporte','Plaza Artigas',['running'])).id,'onda_evento_running_carrera_popular_01');
 });
-test('guitarra no se representa con chelo y piano ni el monumento como cocina paella',()=>{
- const g=select(event('Festival internacional de Guitarra','Música','Maldonado'));assert.equal(g.scope,'ambiente');assert.ok(!/camara_chelo/.test(g.id));
- const p=select(event('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis'));assert.equal(p.scope,'ambiente');assert.ok(!/paella_gigante/.test(p.id));
+test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
+ assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'editorial');
+ assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'editorial');
+ assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).scope,'editorial');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'editorial');
 });
-test('todo el catálogo tiene imagen aprobada física, jamás WebP genérico descartado',()=>{
- const catalog=JSON.parse(readFileSync(new URL('../../site/data/events.json',import.meta.url)));
- assert.ok(catalog.length>=70);
- for(const e of catalog){const a=select(e);assert.ok(a.src);assert.ok(existsSync(new URL('../../site/'+a.src.replace('./',''),import.meta.url)),e.id+' no tiene WebP');assert.ok(!/\/onda_(musica_0[1-4]|gastronomia_0[3-6]|arte_cultura_0[1-4])\.webp$/.test(a.src),e.id+' usa un recurso genérico antiguo');}
+test('ningún par de eventos distintos visibles comparte recurso; el mismo evento se reutiliza',()=>{
+ const a={...e('Festival de jazz','Música'),id:'uno'};
+ const b={...e('Concierto de jazz','Música'),id:'dos'};
+ const c={...e('Carrera 5K','Deporte','Maldonado',['running']),id:'tres'};
+ const out=V.allocate([a,b,c,a]);
+ assert.equal(out.size,3);
+ const ids=Array.from(out.values()).filter(x=>x.id).map(x=>x.id);
+ assert.equal(new Set(ids).size,ids.length);
+ assert.ok(out.get('uno').scope==='editorial'||out.get('dos').scope==='editorial');
+});
+test('cada evento del catálogo obtiene imagen compatible real o portada editorial sin archivo falso',()=>{
+ assert.ok(events.length>=79);
+ for(const x of V.allocate(events).values()){
+  assert.ok(x);
+  if(x.src){assert.ok(existsSync(new URL('../../site/'+x.src.slice(2),import.meta.url)));assert.notEqual(x.usage,'experiencia')}
+  else assert.equal(x.scope,'editorial');
+ }
+});
+test('experiencias todavía sin relatos editoriales no aparecen en la página pública',()=>{
+ const html=readFileSync(new URL('../../site/index.html',import.meta.url),'utf8');
+ const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
+ assert.ok(!html.includes('id="vivencias"'));
+ assert.ok(!html.includes('id="storyGrid"'));
+ assert.ok(!html.includes('href="#vivencias"'));
+ assert.ok(!app.includes('renderVisualStories'));
+ assert.match(app,/activeVisualPlan/);
 });

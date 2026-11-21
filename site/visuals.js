@@ -263,12 +263,9 @@
     "src": "./assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp"
   }
 ].map(x=>Object.freeze(x)));
-  function forEvent(e){
-    if(!root.ONDAVisual)throw Error('Falta cargar visual-selector.js antes de visuals.js');
-    const item=root.ONDAVisual.select(e);
-    return {...item,contextual:item.scope==='sede',caption:item.scope==='ambiente'
-      ?item.about+'. Imagen ilustrativa de ONDA, NO es fotografía ni ubicación del evento.'
-      :item.about+'. Ilustración conceptual; NO representa artistas ni fotografías del evento.'};
-  }
-  root.ONDAVisuals=Object.freeze({catalog,forEvent});
+  if(!root.ONDAVisual)throw Error('Falta cargar visual-selector.js antes de visuals.js');
+  const published=Object.freeze(catalog.map(x=>Object.freeze({...x,usage:root.ONDAVisual.usage(x.id)})));
+  function forEvent(e){return root.ONDAVisual.select(e);}
+  function allocate(events){return root.ONDAVisual.allocate(events);}
+  root.ONDAVisuals=Object.freeze({catalog:published,forEvent,allocate});
 })(globalThis);
