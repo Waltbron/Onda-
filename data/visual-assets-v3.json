@@ -1,0 +1,331 @@
+{
+  "project": "Hormiga / ONDA",
+  "edition": "Biblioteca Visual v3",
+  "snapshot_at": "2026-11-21",
+  "site_env": "ONDA Lab (pruebas, no main)",
+  "baseline_lab_webp_count": 28,
+  "approved_generated_images_in_this_batch": 10,
+  "publishable_this_batch": 9,
+  "withheld_this_batch": 1,
+  "composition_only_no_image": [
+    {
+      "scene": "08",
+      "title": "Manos a la obra",
+      "state": "composición aprobada; sin ilustración generada"
+    }
+  ],
+  "assets": [
+    {
+      "scene": "01",
+      "id": "onda_musica_sunset_casapueblo_publico_01",
+      "title": "Sunset electrónico en Casapueblo",
+      "category": "Música",
+      "place": "Punta Ballena / Casapueblo",
+      "tags": [
+        "electrónica",
+        "sunset",
+        "dj",
+        "fiesta",
+        "baile",
+        "costa"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_musica_sunset_casapueblo_publico_01.png",
+      "webp": "02_webp_para_lab/onda_musica_sunset_casapueblo_publico_01.webp",
+      "original_sha256": "a5d0c6a1fa993bd04897fc501e46c00a80b71aab91870a57ef9676594cb26239",
+      "original_bytes": 2678843,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "La gente baila ante el mar con DJ a la izquierda; terraza y arquitectura inspiradas en Casapueblo, sin logotipo de evento.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "02",
+      "id": "onda_musica_recital_plaza_san_carlos_01",
+      "title": "La plaza también canta",
+      "category": "Música",
+      "place": "Plaza Artigas, San Carlos",
+      "tags": [
+        "recital",
+        "música en vivo",
+        "festival",
+        "plaza",
+        "comunidad"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_musica_recital_plaza_san_carlos_01.png",
+      "webp": "02_webp_para_lab/onda_musica_recital_plaza_san_carlos_01.webp",
+      "original_sha256": "8bc3d0fa645354d5d7ac1449e87cdb393e8b17e4d18b8cc86f877d27d9846c29",
+      "original_bytes": 3387402,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Banda y público multigeneracional frente a fachada de la iglesia de San Carlos; escena editorial, no evento documental.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "03",
+      "id": "onda_cultura_teatro_maca_funcion_01",
+      "title": "Que empiece la función",
+      "category": "Cultura",
+      "place": "Teatro MACA, Manantiales",
+      "tags": [
+        "teatro",
+        "obra",
+        "actores",
+        "cultura",
+        "sala"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_cultura_teatro_maca_funcion_01.png",
+      "webp": "02_webp_para_lab/onda_cultura_teatro_maca_funcion_01.webp",
+      "original_sha256": "6d20ded09ea22c15f6d3269619563689d534f87e5ccadd0f4deceacfec201310",
+      "original_bytes": 3175746,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Actores ficticios durante función vistos desde platea. Basada en fotografías aportadas por el usuario del Teatro MACA, no del Cine MACA.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "04",
+      "id": "onda_gastronomia_feria_rambla_piriapolis_01",
+      "title": "Algo rico en la rambla",
+      "category": "Gastronomía",
+      "place": "Rambla de los Argentinos, Piriápolis",
+      "tags": [
+        "feria",
+        "gastronomía",
+        "food trucks",
+        "gazebos",
+        "familias"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_gastronomia_feria_rambla_piriapolis_01.png",
+      "webp": "02_webp_para_lab/onda_gastronomia_feria_rambla_piriapolis_01.webp",
+      "original_sha256": "f252db083ffab974f2c45251e82daf75d2792894a974553b765b83dfc8749445",
+      "original_bytes": 3581367,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Feria de gazebos blancos; productores, visitantes y bahía de Piriápolis; no es edición documental específica.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "05",
+      "id": "onda_gastronomia_paella_gigante_piriapolis_01",
+      "title": "La paella nos reúne",
+      "category": "Gastronomía",
+      "place": "Piriápolis / puerto",
+      "tags": [
+        "paella gigante",
+        "gastronomía",
+        "tradición",
+        "familias",
+        "cocina comunitaria"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_gastronomia_paella_gigante_piriapolis_01.png",
+      "webp": "02_webp_para_lab/onda_gastronomia_paella_gigante_piriapolis_01.webp",
+      "original_sha256": "fba5c8b4e1401b9b919922d90e7950c5a823235db9a3b7033a1181e601b6c308",
+      "original_bytes": 3777876,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Gran paellera y cocineros con público; inspirada en Paella Gigante tradicional; no certifica edición exacta.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "06",
+      "id": "onda_musica_arboretum_lussich_intimo_01",
+      "title": "Música entre árboles",
+      "category": "Música",
+      "place": "Arboretum Lussich, Punta Ballena",
+      "tags": [
+        "acústico",
+        "música en vivo",
+        "bosque",
+        "cantautores",
+        "recital íntimo"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_musica_arboretum_lussich_intimo_01.png",
+      "webp": "02_webp_para_lab/onda_musica_arboretum_lussich_intimo_01.webp",
+      "original_sha256": "4146180f376b0dbfa53f33b70484e4e92afc6567f71704bc69aa6361eba4f461",
+      "original_bytes": 3634277,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Presentación de música acústica con cantantes, contrabajo y público; terracota y vegetación, basada en fotos del usuario.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "07",
+      "id": "onda_cultura_feria_libro_paseo_san_fernando_01",
+      "title": "Paseo entre libros",
+      "category": "Cultura",
+      "place": "Paseo San Fernando, Maldonado",
+      "tags": [
+        "libros",
+        "feria del libro",
+        "literatura",
+        "lectura",
+        "familias"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_cultura_feria_libro_paseo_san_fernando_01.png",
+      "webp": "02_webp_para_lab/onda_cultura_feria_libro_paseo_san_fernando_01.webp",
+      "original_sha256": "e3e05d09e1765a10135dbec406683e53158bdcfee16149ffc535724a30e9d2b8",
+      "original_bytes": 3767329,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Feria del libro interpretada en galería de arcos; no afirma representar la disposición de Euforia del Libro 2026.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "09",
+      "id": "onda_cultura_feria_rural_pueblo_gaucho_01",
+      "title": "Tarde de feria en Pueblo Gaucho",
+      "category": "Cultura",
+      "place": "Pueblo Gaucho, Maldonado",
+      "tags": [
+        "feria rural",
+        "artesanía",
+        "turismo rural",
+        "conservas",
+        "comunidad"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_cultura_feria_rural_pueblo_gaucho_01.png",
+      "webp": "02_webp_para_lab/onda_cultura_feria_rural_pueblo_gaucho_01.webp",
+      "original_sha256": "5ec29673603c1e5450fa255c333759bbcaa8a88c3835f53c517c112449fe8a46",
+      "original_bytes": 3808184,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Productora rural ofrece conservas; piedra, teja y paja de Pueblo Gaucho. Evento ilustrativo, no foto documental.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "10",
+      "id": "onda_lifestyle_patio_nocturno_la_barra_01",
+      "title": "Una más y nos vamos",
+      "category": "Encuentros",
+      "place": "El Popu, La Barra",
+      "tags": [
+        "bar",
+        "conversación",
+        "amigos",
+        "salida tranquila",
+        "vida nocturna"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "retener_por_marca_no_verificada",
+      "source_original": "04_revision/onda_lifestyle_patio_nocturno_la_barra_01.png",
+      "webp": null,
+      "original_sha256": "516e45d30e3da7194449d38d6cd13d1c9486555a21ee233667f3511246c22998",
+      "original_bytes": 3595095,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Aprobada la escena, pero el letrero textual fue objetado y variantes posteriores muestran símbolo de marca no verificado. NO PUBLICAR hasta revisión final de versión sin marca.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    },
+    {
+      "scene": "11",
+      "id": "onda_lifestyle_paseo_jose_ignacio_01",
+      "title": "Una tarde en José Ignacio",
+      "category": "Aire libre",
+      "place": "José Ignacio",
+      "tags": [
+        "bicicleta",
+        "helado",
+        "paseo",
+        "juventud",
+        "lifestyle"
+      ],
+      "approval": "aprobada_visual",
+      "deployment": "lista_para_lab",
+      "source_original": "01_originales_aprobados/onda_lifestyle_paseo_jose_ignacio_01.png",
+      "webp": "02_webp_para_lab/onda_lifestyle_paseo_jose_ignacio_01.webp",
+      "original_sha256": "b0f6c6c6cffcf954d69c261c658d6ae09d2d7d5a8731497babebb451ca6d3a91",
+      "original_bytes": 3933271,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "experience_note": "Jóvenes caminando y llevando bicicleta por calle comercial de José Ignacio; sin faro ficticio ni calle atribuida como exacta.",
+      "territorial_reference": "foto_real_revisada",
+      "provenance": "ilustración IA aprobada en conversación Hormiga, no fotografía",
+      "rights": "ilustración generada; revisar marcas / derechos de referencias al usar comercialmente",
+      "version": "v1",
+      "created_record": "2026-11-21"
+    }
+  ],
+  "visual_rules": [
+    "Experiencia humana antes que postal monumental",
+    "Ubicación real y perspectiva verosímil",
+    "Gestos diferentes: no todas las personas sonríen ni posan",
+    "Casting diverso; evitar repetir rostros y peinados",
+    "Estilo serigrafía editorial con textura; marfil, azul tinta, coral, ocre y verdes/azules apagados",
+    "No usar logo ni marca sin referencia real y autorización",
+    "No atribuir eventos concretos a imágenes conceptuales",
+    "Para tarjetas de evento: foto oficial autorizada > arte de experiencia compatible > composición tipográfica neutra",
+    "No cambiar producción sin revisión del Lab"
+  ]
+}

@@ -108,6 +108,51 @@ const EDITORIAL_STORIES = [
     "title": "El paseo es de los dos",
     "category": "Bienestar · Playa Mansa",
     "src": "./assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp"
+  },
+  {
+    "title": "Sunset electrónico en Casapueblo",
+    "category": "Música · Punta Ballena",
+    "src": "./assets/editorial/onda_musica_sunset_casapueblo_publico_01.webp"
+  },
+  {
+    "title": "La plaza también canta",
+    "category": "Música · San Carlos",
+    "src": "./assets/editorial/onda_musica_recital_plaza_san_carlos_01.webp"
+  },
+  {
+    "title": "Que empiece la función",
+    "category": "Cultura · Teatro MACA",
+    "src": "./assets/editorial/onda_cultura_teatro_maca_funcion_01.webp"
+  },
+  {
+    "title": "Algo rico en la rambla",
+    "category": "Gastronomía · Piriápolis",
+    "src": "./assets/editorial/onda_gastronomia_feria_rambla_piriapolis_01.webp"
+  },
+  {
+    "title": "La paella nos reúne",
+    "category": "Gastronomía · Piriápolis",
+    "src": "./assets/editorial/onda_gastronomia_paella_gigante_piriapolis_01.webp"
+  },
+  {
+    "title": "Música entre árboles",
+    "category": "Música · Arboretum Lussich",
+    "src": "./assets/editorial/onda_musica_arboretum_lussich_intimo_01.webp"
+  },
+  {
+    "title": "Paseo entre libros",
+    "category": "Cultura · Maldonado",
+    "src": "./assets/editorial/onda_cultura_feria_libro_paseo_san_fernando_01.webp"
+  },
+  {
+    "title": "Tarde de feria en Pueblo Gaucho",
+    "category": "Turismo rural · Maldonado",
+    "src": "./assets/editorial/onda_cultura_feria_rural_pueblo_gaucho_01.webp"
+  },
+  {
+    "title": "Una tarde en José Ignacio",
+    "category": "Paseos · José Ignacio",
+    "src": "./assets/editorial/onda_lifestyle_paseo_jose_ignacio_01.webp"
   }
 ];
 function editorialArt(e){
@@ -117,6 +162,42 @@ function editorialArt(e){
   const venue=String(e.place||'').toLocaleLowerCase('es-UY');
   const desc=String(e.description||'').toLocaleLowerCase('es-UY');
   const cues=[title,desc].join(' ');
+
+  const local=[venue,String(e.city||''),String(e.address||'')].join(' ').toLocaleLowerCase('es-UY');
+  const venueSpecific=(pattern)=>pattern.test(local);
+  const art=(id)=>'./assets/editorial/'+id+'.webp';
+  // ONDA v3: relación semántica y geográfica; nunca asociar una imagen de un sitio específico a otro lugar.
+  if((e.category==='Música'||e.category==='Fiestas') &&
+     venueSpecific(/casapueblo|punta ballena/) &&
+     /\bdj\b|electr[oó]nic|techno|house|sun rave|sunset electrónico/i.test(cues))
+     return art('onda_musica_sunset_casapueblo_publico_01');
+  if(e.category==='Música' && /jornadas carolinas/.test(title) &&
+     venueSpecific(/san carlos|plaza artigas/))
+     return art('onda_musica_recital_plaza_san_carlos_01');
+  if(e.category==='Música' && venueSpecific(/arboretum|lussich/) &&
+     /acústic|música en vivo|recital|concierto|canto|cantante|jazz/i.test(cues))
+     return art('onda_musica_arboretum_lussich_intimo_01');
+  if(e.category==='Cultura' && venueSpecific(/maca|atchugarry/) &&
+     /teatro|comedia|puesta en escena|obra teatral|dram[aá]tica/i.test(cues) &&
+     !/cine|película|documental|proyección/i.test(cues))
+     return art('onda_cultura_teatro_maca_funcion_01');
+  if((e.category==='Gastronomía'||e.category==='Cultura') &&
+     venueSpecific(/piri[aá]polis/) && /paella/i.test(cues))
+     return art('onda_gastronomia_paella_gigante_piriapolis_01');
+  if(e.category==='Gastronomía' && venueSpecific(/piri[aá]polis/) &&
+     /feria gastronómica|festival gastron[oó]mico|puestos de comida|food truck|mercado de sabores/i.test(cues))
+     return art('onda_gastronomia_feria_rambla_piriapolis_01');
+  if(e.category==='Cultura' && venueSpecific(/paseo san fernando/) &&
+     /feria del libro|lectura|libro|literatura/.test(cues))
+     return art('onda_cultura_feria_libro_paseo_san_fernando_01');
+  if(e.category==='Cultura' && venueSpecific(/pueblo gaucho/) &&
+     /feria|artesan|rural|turismo|productores/i.test(cues))
+     return art('onda_cultura_feria_rural_pueblo_gaucho_01');
+  if(['Aire libre','Bienestar','Encuentros'].includes(e.category) &&
+     venueSpecific(/jos[eé] ignacio/) &&
+     /bicicleta|paseo por el pueblo|ciclismo recreativo|helado/.test(cues))
+     return art('onda_lifestyle_paseo_jose_ignacio_01');
+
 
   // Música: no adjudicar la imagen de DJ a un recital, un festival o una jam.
   // Solo usar un lugar ilustrado cuando coincide con el lugar del evento.
@@ -175,7 +256,7 @@ function renderVisualStories(){
   function draw(){
     const displayed=expanded?EDITORIAL_STORIES:EDITORIAL_STORIES.slice(0,6);
     grid.innerHTML=displayed.map(s=>'<figure class="story-card"><img src="'+escapeHtml(s.src)+'" alt="" loading="lazy" decoding="async"><figcaption><strong>'+escapeHtml(s.title)+'</strong><span>'+escapeHtml(s.category)+'</span></figcaption></figure>').join('');
-    toggle.textContent=expanded?'Ver menos ↑':'Ver las 15 escenas ↓';
+    toggle.textContent=expanded?'Ver menos ↑':`Ver las ${EDITORIAL_STORIES.length} escenas ↓`;
     toggle.setAttribute('aria-expanded',String(expanded));
   }
   toggle.addEventListener('click',()=>{expanded=!expanded;draw()});

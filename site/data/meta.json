@@ -8,6 +8,8 @@
   "lastSuccessfulRunAt": null,
   "timezone": "America/Montevideo",
   "notice": "Agenda MACA ampliada con fuentes consultadas el 11/11/2026; otras fichas conservan su fecha de comprobación. Ingesta automática desactivada. Ilustraciones conceptuales, no fotos de cada evento.",
-  "visualLibraryUpdatedAt": "2026-11-11",
-  "visualLibraryApprovedFiles": 28
+  "visualLibraryUpdatedAt": "2026-11-21",
+  "visualLibraryApprovedFiles": 37,
+  "visualLibraryState": "28 WebP anteriores + 9 WebP nuevos aptos para Lab; 1 escena El Popu retenida, 1 composición sin imagen",
+  "visualManifest": "data/visual-assets-v3.json"
 }
