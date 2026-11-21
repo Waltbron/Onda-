@@ -18,3 +18,11 @@ test('solamente habilita estado activo con permiso explícito, activación y pol
  assert.equal(planSources(inventory,[{...cfg,permission:'approved'}]).active,1);
 });
 test('bloquea IDs duplicados en inventario',()=>assert.throws(()=>planSources({sources:[inventory.sources[0],inventory.sources[0]]}),/duplicado/));
+
+test('varias agendas del mismo dominio requieren conectores independientes',()=>{
+ const custom={sources:[{...inventory.sources[0],id:'redtickets-otro',url:'https://redtickets.uy/agenda-distinta'}]};
+ const connector={id:'redtickets',url:'https://redtickets.uy/',enabled:true,permission:'approved',publicationPolicy:'automatic'};
+ const plan=planSources(custom,[connector]);
+ assert.equal(plan.active,0);
+ assert.equal(plan.sources[0].connectionFound,false);
+});
