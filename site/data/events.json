@@ -1863,803 +1863,6 @@
     "description": "Selección de cortometrajes de animación para público infantil, entre ellos Los carpinchos y Dos pajaritos."
   },
   {
-    "id": "onda-9fb37288a1cc0795",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2026/inju5k-piriapolis.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/inju5k-piriapolis.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "INJU5K, Piriápolis",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2026-11-21",
-    "endDate": "2026-11-21",
-    "time": "17:00",
-    "endTime": null,
-    "place": "Plaza Artigas",
-    "city": "Piriápolis",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 5K. Organiza: Instituto Nacional de la Juventud (INJU).",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": "https://formularios.mides.gub.uy/228484/",
-    "organizerUrl": "https://www.gub.uy/ministerio-desarrollo-social/comunicacion/comunicados/inju5k-2026-violencia-corre",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2026-11-21",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "INJU5K, Piriápolis",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://www.gub.uy/ministerio-desarrollo-social/comunicacion/comunicados/inju5k-2026-violencia-corre",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-34f124cdac4a06bd",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2026/rocha-corre-rocha.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/rocha-corre-rocha.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Rocha Corre, etapa Rocha",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2026-11-21",
-    "endDate": "2026-11-21",
-    "time": "17:30",
-    "endTime": null,
-    "place": "Polideportivo de Rocha",
-    "city": "Rocha",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 10K, 5K. Organiza: Intendencia de Rocha.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": "https://lolograste.uy/rocha-corre-2627-fecha-4",
-    "organizerUrl": "https://rochacorre.uy/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2026-11-21",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Rocha Corre, etapa Rocha",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://rochacorre.uy/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-175f03eb6b6c2515",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2026/recorre-maldonado-maldonado.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/recorre-maldonado-maldonado.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Recorre Maldonado, etapa Maldonado",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2026-11-28",
-    "endDate": "2026-11-28",
-    "time": "18:00",
-    "endTime": null,
-    "place": "Maldonado",
-    "city": "Maldonado",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 10K, 5K. Organiza: Suca Sports.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": "https://recorremaldonado.com/inscripciones/",
-    "organizerUrl": "https://recorremaldonado.com/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2026-11-28",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Recorre Maldonado, etapa Maldonado",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://recorremaldonado.com/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-27baf5653b1eb9e9",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2026/urban-race-piriapolis.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/urban-race-piriapolis.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Urban Race",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2026-12-05",
-    "endDate": "2026-12-05",
-    "time": "20:00",
-    "endTime": null,
-    "place": "Avda. Piria y Rambla de los Ingleses, frente a Prefectura",
-    "city": "Piriápolis",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 5 km, \"9,6 km\". Organiza: RS Eventos Deportivos.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": "https://www.rseventosdeportivos.com/inscripcion-urbanrace",
-    "organizerUrl": "https://www.rseventosdeportivos.com/urbanrace2026",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2026-12-05",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Urban Race",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://www.rseventosdeportivos.com/urbanrace2026",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-851575597b773ff5",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2026/tour-uruguay-gran-fondo-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/tour-uruguay-gran-fondo-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Tour Uruguay Gran Fondo Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2026-12-06",
-    "endDate": "2026-12-06",
-    "time": "07:00",
-    "endTime": null,
-    "place": "Rambla Claudio Williman",
-    "city": "Punta del Este",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 110 km, 60 km. Organiza: eSport.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo",
-      "mountain-bike"
-    ],
-    "ticketUrl": "https://lolograste.uy/gran-fondo-punta-del-este",
-    "organizerUrl": "https://toururuguay.uy/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2026-12-06",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Tour Uruguay Gran Fondo Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://toururuguay.uy/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-bbe3311eda18b646",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/brevets-200-300-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/brevets-200-300-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Brevets y Randos Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-01-09",
-    "endDate": "2027-01-10",
-    "time": null,
-    "endTime": null,
-    "place": "Punta del Este",
-    "city": "Punta del Este",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 300 km, 200 km, 100 km. Organiza: Randonneurs Uruguay.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo",
-      "gravel"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://rando.uy/calendario/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-01-09",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Brevets y Randos Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://rando.uy/calendario/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-79d5821e92f23bd3",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/gran-fondo-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/gran-fondo-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Gran Fondo Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-01-10",
-    "endDate": "2027-01-10",
-    "time": "07:00",
-    "endTime": null,
-    "place": "Museo de Arte Contemporáneo Atchugarry (MACA), Ruta 104 km 4,5",
-    "city": "Manantiales",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 115 km, 62 km. Organiza: Gran Fondo Argentina.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo"
-    ],
-    "ticketUrl": "https://go.granfondoargentina.com/",
-    "organizerUrl": "https://granfondoargentina.com/pde/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-01-10",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Gran Fondo Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://granfondoargentina.com/pde/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-ca4ceb9d731bce49",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/101k-san-carlos.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/101k-san-carlos.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "101k San Carlos",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-01-24",
-    "endDate": "2027-01-24",
-    "time": null,
-    "endTime": null,
-    "place": "San Carlos",
-    "city": "San Carlos",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Organiza: Club Ciclistas Carolinos.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "mountain-bike"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://federacionciclista.com.uy/mountain-bike/RXFK7HSHRL/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-01-24",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "101k San Carlos",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://federacionciclista.com.uy/mountain-bike/RXFK7HSHRL/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-8e4ce3fed1ceab93",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/tour-de-san-carlos.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/tour-de-san-carlos.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Tour de San Carlos",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-01-29",
-    "endDate": "2027-01-31",
-    "time": null,
-    "endTime": null,
-    "place": "San Carlos",
-    "city": "San Carlos",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Organiza: Club Ciclistas Carolinos.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://federacionciclista.com.uy/ruta/QYGA4W58XW/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-01-29",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Tour de San Carlos",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://federacionciclista.com.uy/ruta/QYGA4W58XW/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-04d1e57587a6c2a7",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/rocha-corre-la-paloma.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/rocha-corre-la-paloma.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Rocha Corre, etapa La Paloma",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-02-06",
-    "endDate": "2027-02-06",
-    "time": null,
-    "endTime": null,
-    "place": "La Paloma",
-    "city": "La Paloma",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 10K, 5K. Organiza: Intendencia de Rocha.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://rochacorre.uy/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-02-06",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Rocha Corre, etapa La Paloma",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://rochacorre.uy/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-10df1fdc7203c9ab",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/campeonato-nacional-de-triatlon-piriapolis.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/campeonato-nacional-de-triatlon-piriapolis.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Campeonato Nacional de Triatlón, fecha Piriápolis",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-02-28",
-    "endDate": "2027-02-28",
-    "time": null,
-    "endTime": null,
-    "place": "Piriápolis",
-    "city": "Piriápolis",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: Sprint, Promocional.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "triatlon"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://ticketfacil.uy/event/Campeonato-Nacional-de-Triatlon-2026-2027-28-de-Febrero-Piriapolis",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-02-28",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Campeonato Nacional de Triatlón, fecha Piriápolis",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://ticketfacil.uy/event/Campeonato-Nacional-de-Triatlon-2026-2027-28-de-Febrero-Piriapolis",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-8dc5567306f788a9",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/ironman-70-3-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/ironman-70-3-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "IRONMAN 70.3 Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-03-07",
-    "endDate": "2027-03-07",
-    "time": "07:00",
-    "endTime": null,
-    "place": "OVO Beach, frente al hotel Enjoy Punta del Este",
-    "city": "Punta del Este",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: Half.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "triatlon"
-    ],
-    "ticketUrl": "https://www.ironman.com/races/im703-punta-del-este/register",
-    "organizerUrl": "https://www.ironman.com/races/im703-punta-del-este",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-03-07",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "IRONMAN 70.3 Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://www.ironman.com/races/im703-punta-del-este",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-2b3828f8767fc75a",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/gfny-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/gfny-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "GFNY Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-03-14",
-    "endDate": "2027-03-14",
-    "time": null,
-    "endTime": null,
-    "place": "Punta del Este",
-    "city": "Punta del Este",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 146 km, 86 km.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo"
-    ],
-    "ticketUrl": "https://puntadeleste.gfny.com/register/?lang=en",
-    "organizerUrl": "https://puntadeleste.gfny.com/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-03-14",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "GFNY Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://puntadeleste.gfny.com/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-1696ef81c9099ed9",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/media-maraton-de-piriapolis.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/media-maraton-de-piriapolis.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Media Maratón de Piriápolis",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-04-11",
-    "endDate": "2027-04-11",
-    "time": null,
-    "endTime": null,
-    "place": "Piriápolis",
-    "city": "Piriápolis",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 5K, 10K, 21K. Organiza: RS Eventos Deportivos.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "running"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-04-11",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Media Maratón de Piriápolis",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
-    "id": "onda-e21cf01c28645218",
-    "sourceId": "events-uy-deportes",
-    "sourceItemId": "events/2027/brevets-200-300-400-600-punta-del-este.yaml",
-    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/brevets-200-300-400-600-punta-del-este.yaml",
-    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
-    "title": "Brevets 200, 300, 400 y 600 km Punta del Este",
-    "kind": "evento",
-    "category": "Deporte",
-    "date": "2027-05-01",
-    "endDate": "2027-05-01",
-    "time": null,
-    "endTime": null,
-    "place": "Punta del Este",
-    "city": "Punta del Este",
-    "address": "",
-    "cost": "Consultar en fuente",
-    "priceTier": "sin-informar",
-    "description": "Modalidades/distancias: 200 km, 300 km, 400 km, 600 km. Organiza: Randonneurs Uruguay.",
-    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
-    "weatherSensitive": false,
-    "tags": [
-      "deporte",
-      "ciclismo"
-    ],
-    "ticketUrl": null,
-    "organizerUrl": "https://rando.uy/calendario/",
-    "imageUrl": null,
-    "timezone": "America/Montevideo",
-    "confidence": "B",
-    "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:55:26.353Z",
-    "evidence": [
-      {
-        "field": "date",
-        "text": "2027-05-01",
-        "origin": "events.uy YAML con licencia CC BY 4.0"
-      },
-      {
-        "field": "title",
-        "text": "Brevets 200, 300, 400 y 600 km Punta del Este",
-        "origin": "events.uy YAML"
-      },
-      {
-        "field": "organizer",
-        "text": "https://rando.uy/calendario/",
-        "origin": "enlace declarado por la fuente"
-      }
-    ],
-    "externalStatus": "",
-    "sourceVerification": "upstream-reviewed-cc-by-4.0"
-  },
-  {
     "id": "idm-festival-guitarra-maldonado-20261126",
     "title": "Festival Internacional de Guitarra de Maldonado",
     "kind": "evento",
@@ -2795,5 +1998,802 @@
     "status": "verificado",
     "imageUrl": null,
     "timezone": "America/Montevideo"
+  },
+  {
+    "id": "onda-9fb37288a1cc0795",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/inju5k-piriapolis.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/inju5k-piriapolis.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "INJU5K, Piriápolis",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-11-21",
+    "endDate": "2026-11-21",
+    "time": "17:00",
+    "endTime": null,
+    "place": "Plaza Artigas",
+    "city": "Piriápolis",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 5K. Organiza: Instituto Nacional de la Juventud (INJU).",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": "https://formularios.mides.gub.uy/228484/",
+    "organizerUrl": "https://www.gub.uy/ministerio-desarrollo-social/comunicacion/comunicados/inju5k-2026-violencia-corre",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-11-21",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "INJU5K, Piriápolis",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.gub.uy/ministerio-desarrollo-social/comunicacion/comunicados/inju5k-2026-violencia-corre",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-34f124cdac4a06bd",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/rocha-corre-rocha.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/rocha-corre-rocha.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Rocha Corre, etapa Rocha",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-11-21",
+    "endDate": "2026-11-21",
+    "time": "17:30",
+    "endTime": null,
+    "place": "Polideportivo de Rocha",
+    "city": "Rocha",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 10K, 5K. Organiza: Intendencia de Rocha.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": "https://lolograste.uy/rocha-corre-2627-fecha-4",
+    "organizerUrl": "https://rochacorre.uy/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-11-21",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Rocha Corre, etapa Rocha",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://rochacorre.uy/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-175f03eb6b6c2515",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/recorre-maldonado-maldonado.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/recorre-maldonado-maldonado.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Recorre Maldonado, etapa Maldonado",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-11-28",
+    "endDate": "2026-11-28",
+    "time": "18:00",
+    "endTime": null,
+    "place": "Maldonado",
+    "city": "Maldonado",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 10K, 5K. Organiza: Suca Sports.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": "https://recorremaldonado.com/inscripciones/",
+    "organizerUrl": "https://recorremaldonado.com/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-11-28",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Recorre Maldonado, etapa Maldonado",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://recorremaldonado.com/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-27baf5653b1eb9e9",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/urban-race-piriapolis.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/urban-race-piriapolis.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Urban Race",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-12-05",
+    "endDate": "2026-12-05",
+    "time": "20:00",
+    "endTime": null,
+    "place": "Avda. Piria y Rambla de los Ingleses, frente a Prefectura",
+    "city": "Piriápolis",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 5 km, \"9,6 km\". Organiza: RS Eventos Deportivos.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": "https://www.rseventosdeportivos.com/inscripcion-urbanrace",
+    "organizerUrl": "https://www.rseventosdeportivos.com/urbanrace2026",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-12-05",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Urban Race",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.rseventosdeportivos.com/urbanrace2026",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-851575597b773ff5",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/tour-uruguay-gran-fondo-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/tour-uruguay-gran-fondo-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Tour Uruguay Gran Fondo Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-12-06",
+    "endDate": "2026-12-06",
+    "time": "07:00",
+    "endTime": null,
+    "place": "Rambla Claudio Williman",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 110 km, 60 km. Organiza: eSport.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo",
+      "mountain-bike"
+    ],
+    "ticketUrl": "https://lolograste.uy/gran-fondo-punta-del-este",
+    "organizerUrl": "https://toururuguay.uy/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-12-06",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Tour Uruguay Gran Fondo Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://toururuguay.uy/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-bbe3311eda18b646",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/brevets-200-300-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/brevets-200-300-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Brevets y Randos Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-01-09",
+    "endDate": "2027-01-10",
+    "time": null,
+    "endTime": null,
+    "place": "Punta del Este",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 300 km, 200 km, 100 km. Organiza: Randonneurs Uruguay.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo",
+      "gravel"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://rando.uy/calendario/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-01-09",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Brevets y Randos Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://rando.uy/calendario/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-79d5821e92f23bd3",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/gran-fondo-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/gran-fondo-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Gran Fondo Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-01-10",
+    "endDate": "2027-01-10",
+    "time": "07:00",
+    "endTime": null,
+    "place": "Museo de Arte Contemporáneo Atchugarry (MACA), Ruta 104 km 4,5",
+    "city": "Manantiales",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 115 km, 62 km. Organiza: Gran Fondo Argentina.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo"
+    ],
+    "ticketUrl": "https://go.granfondoargentina.com/",
+    "organizerUrl": "https://granfondoargentina.com/pde/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-01-10",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Gran Fondo Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://granfondoargentina.com/pde/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-ca4ceb9d731bce49",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/101k-san-carlos.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/101k-san-carlos.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "101k San Carlos",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-01-24",
+    "endDate": "2027-01-24",
+    "time": null,
+    "endTime": null,
+    "place": "San Carlos",
+    "city": "San Carlos",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Organiza: Club Ciclistas Carolinos.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "mountain-bike"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://federacionciclista.com.uy/mountain-bike/RXFK7HSHRL/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-01-24",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "101k San Carlos",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://federacionciclista.com.uy/mountain-bike/RXFK7HSHRL/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-8e4ce3fed1ceab93",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/tour-de-san-carlos.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/tour-de-san-carlos.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Tour de San Carlos",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-01-29",
+    "endDate": "2027-01-31",
+    "time": null,
+    "endTime": null,
+    "place": "San Carlos",
+    "city": "San Carlos",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Organiza: Club Ciclistas Carolinos.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://federacionciclista.com.uy/ruta/QYGA4W58XW/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-01-29",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Tour de San Carlos",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://federacionciclista.com.uy/ruta/QYGA4W58XW/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-04d1e57587a6c2a7",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/rocha-corre-la-paloma.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/rocha-corre-la-paloma.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Rocha Corre, etapa La Paloma",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-02-06",
+    "endDate": "2027-02-06",
+    "time": null,
+    "endTime": null,
+    "place": "La Paloma",
+    "city": "La Paloma",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 10K, 5K. Organiza: Intendencia de Rocha.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://rochacorre.uy/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-02-06",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Rocha Corre, etapa La Paloma",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://rochacorre.uy/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-10df1fdc7203c9ab",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/campeonato-nacional-de-triatlon-piriapolis.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/campeonato-nacional-de-triatlon-piriapolis.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Campeonato Nacional de Triatlón, fecha Piriápolis",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-02-28",
+    "endDate": "2027-02-28",
+    "time": null,
+    "endTime": null,
+    "place": "Piriápolis",
+    "city": "Piriápolis",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: Sprint, Promocional.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "triatlon"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://ticketfacil.uy/event/Campeonato-Nacional-de-Triatlon-2026-2027-28-de-Febrero-Piriapolis",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-02-28",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Campeonato Nacional de Triatlón, fecha Piriápolis",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://ticketfacil.uy/event/Campeonato-Nacional-de-Triatlon-2026-2027-28-de-Febrero-Piriapolis",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-8dc5567306f788a9",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/ironman-70-3-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/ironman-70-3-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "IRONMAN 70.3 Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-03-07",
+    "endDate": "2027-03-07",
+    "time": "07:00",
+    "endTime": null,
+    "place": "OVO Beach, frente al hotel Enjoy Punta del Este",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: Half.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "triatlon"
+    ],
+    "ticketUrl": "https://www.ironman.com/races/im703-punta-del-este/register",
+    "organizerUrl": "https://www.ironman.com/races/im703-punta-del-este",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-03-07",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "IRONMAN 70.3 Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.ironman.com/races/im703-punta-del-este",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-2b3828f8767fc75a",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/gfny-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/gfny-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "GFNY Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-03-14",
+    "endDate": "2027-03-14",
+    "time": null,
+    "endTime": null,
+    "place": "Punta del Este",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 146 km, 86 km.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo"
+    ],
+    "ticketUrl": "https://puntadeleste.gfny.com/register/?lang=en",
+    "organizerUrl": "https://puntadeleste.gfny.com/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-03-14",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "GFNY Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://puntadeleste.gfny.com/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-1696ef81c9099ed9",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/media-maraton-de-piriapolis.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/media-maraton-de-piriapolis.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Media Maratón de Piriápolis",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-04-11",
+    "endDate": "2027-04-11",
+    "time": null,
+    "endTime": null,
+    "place": "Piriápolis",
+    "city": "Piriápolis",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 5K, 10K, 21K. Organiza: RS Eventos Deportivos.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "running"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-04-11",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Media Maratón de Piriápolis",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-e21cf01c28645218",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/brevets-200-300-400-600-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/brevets-200-300-400-600-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Brevets 200, 300, 400 y 600 km Punta del Este",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-05-01",
+    "endDate": "2027-05-01",
+    "time": null,
+    "endTime": null,
+    "place": "Punta del Este",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "description": "Modalidades/distancias: 200 km, 300 km, 400 km, 600 km. Organiza: Randonneurs Uruguay.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "ciclismo"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://rando.uy/calendario/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-21",
+    "lastSeenAt": "2026-11-21T21:57:01.317Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-05-01",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Brevets 200, 300, 400 y 600 km Punta del Este",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://rando.uy/calendario/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
   }
 ]
