@@ -1,0 +1,39 @@
+{
+  "schema": "onda.visual-brand-fallbacks.v1",
+  "approvedAt": "2026-11-21",
+  "status": "approved",
+  "purpose": "Identidad serigráfica neutra cuando no existe ilustración semánticamente compatible sin conflicto de vecindad",
+  "doNotRepresent": "No representa artistas, espectáculos, sedes ni eventos reales",
+  "assets": [
+    {
+      "id": "onda_fallback_serigrafia_01_azul_naranja",
+      "approval_status": "approved",
+      "type": "brand_fallback",
+      "png_original": "https://drive.google.com/file/d/12X1ut0vXWPNhBpxaai4JdWPyZtaOguqi/view",
+      "optimized_webp": "https://drive.google.com/file/d/19PJp0SBtM2N0p8OTdg14awWa8fvqgdKU/view",
+      "github_path": "site/assets/editorial/onda_fallback_serigrafia_01_azul_naranja.webp",
+      "git_blob_sha": "06e00123bdb9e243c9cd4cdc7e679523c4068cc2",
+      "bytes": 504954
+    },
+    {
+      "id": "onda_fallback_serigrafia_02_fucsia_naranja",
+      "approval_status": "approved",
+      "type": "brand_fallback",
+      "png_original": "https://drive.google.com/file/d/1hPCoknnEymhY7OzVKMHH6z729o2YGG98/view",
+      "optimized_webp": "https://drive.google.com/file/d/13EAFrOu1E57r4GT22KeJroQeBVbALui3/view",
+      "github_path": "site/assets/editorial/onda_fallback_serigrafia_02_fucsia_naranja.webp",
+      "git_blob_sha": "2bac7c38f998cb06a32d043e3cffeb3630c95699",
+      "bytes": 460282
+    },
+    {
+      "id": "onda_fallback_serigrafia_03_lima_violeta",
+      "approval_status": "approved",
+      "type": "brand_fallback",
+      "png_original": "https://drive.google.com/file/d/1sgeKAh_OhU2PtzR4rZo27huJyl_RtiS1/view",
+      "optimized_webp": "https://drive.google.com/file/d/16n4cTA-uBwWuPgX-CaL4PbSkpZ0RghUe/view",
+      "github_path": "site/assets/editorial/onda_fallback_serigrafia_03_lima_violeta.webp",
+      "git_blob_sha": "633cfb2ff57e40fea0c64af77c61c94298128e40",
+      "bytes": 527754
+    }
+  ]
+}
