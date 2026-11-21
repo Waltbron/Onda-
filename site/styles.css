@@ -84,3 +84,10 @@
 .story-card img{background:#203e52}
 .event-visual.has-art .editorial-art,.rec-poster.has-art .editorial-art{filter:saturate(.91);object-fit:cover}
 @media(max-width:450px){.event-visual .visual-disclaimer{right:3px;top:4px;padding:2px 3px;font-size:7px;max-width:80%}}
+
+/* Biblioteca visual v4 · portada también en el detalle, con procedencia explícita. */
+.modal-visual{position:relative;margin:0 0 18px;border-radius:14px;overflow:hidden;background:#233b50;max-height:265px}
+.modal-visual img{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:center}
+.modal-visual figcaption{position:absolute;bottom:8px;left:8px;padding:5px 9px;border-radius:7px;background:rgba(249,247,240,.94);color:#183344;font:800 10px/1.2 var(--sans)}
+.visual-disclaimer{max-width:82%;font-size:9px;padding:4px 7px}
+@media(max-width:450px){.modal-visual img{aspect-ratio:4/3}.modal-visual figcaption{max-width:90%;font-size:9px}}
