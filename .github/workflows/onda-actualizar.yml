@@ -60,12 +60,6 @@ jobs:
         run: npm run radar:review
       - name: Auditoría de cobertura (sin publicación)
         run: npm run audit:coverage
-      - name: Piloto real de datos abiertos en ONDA Lab
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/chore/instalar-motor-v3-1' && github.actor != 'github-actions[bot]' }}
-        env:
-          ONDA_AUTOMATION_ENABLED: 'true'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run ingest:publish
       - name: Ejecución de ejemplo, sin publicación
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.modo == 'ensayo') || vars.ONDA_AUTOMATION_ENABLED != 'true' }}
         run: npm run preview
@@ -77,18 +71,6 @@ jobs:
         run: npm run ingest:publish
       - name: Revalidar archivos publicados
         run: npm run check
-      - name: Actualizar catálogo ONDA Lab sin modificar main
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/chore/instalar-motor-v3-1' && github.actor != 'github-actions[bot]' }}
-        run: |
-          git config user.name 'ONDA Lab automation'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'ONDA Lab: sincronizar fuente abierta verificada [skip ci]'
-            git push origin HEAD:chore/instalar-motor-v3-1
-          else
-            echo 'Sin novedades que publicar'
-          fi
       - name: Subir cambios si existen y pasan validación
         if: ${{ vars.ONDA_AUTOMATION_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.modo == 'produccion') }}
         run: |
