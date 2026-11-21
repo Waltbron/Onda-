@@ -25,223 +25,10 @@ const COLORS={
 };
 // Recursos aprobados en Drive: decorativos, no fotografías del evento.
 // La variante depende de un ID estable, de modo que una actualización no reordena imágenes.
-const EDITORIAL_VARIANTS = {
-  'Música':['onda_musica_01.webp','onda_musica_02.webp','onda_musica_03.webp','onda_musica_04.webp','onda_musica_dj_casapueblo_01.webp','onda_musica_acustico_jardin_01.webp','onda_musica_portal_jam_01.webp'],
-  'Cultura':['onda_arte_cultura_01.webp','onda_arte_cultura_02.webp','onda_arte_cultura_03.webp','onda_arte_cultura_04.webp','onda_cultura_maca_esculturas_01.webp'],
-  'Gastronomía':['onda_gastronomia_03.webp','onda_gastronomia_04.webp','onda_gastronomia_05.webp','onda_gastronomia_06.webp'],
-  'Aire libre':['onda_naturaleza_01.webp','onda_naturaleza_kayak_laguna_garzon_01.webp','onda_naturaleza_chajas_laguna_diario_01.webp','onda_deporte_vela_laguna_sauce_01.webp','onda_familias_pan_azucar_carpincho_01.webp'],
-  'Deporte':['onda_deporte_skate_la_barra_01.webp','onda_deporte_rollers_rambla_01.webp','onda_deporte_tenis_ultimo_punto_01.webp','onda_deporte_sup_puente_barra_01.webp','onda_deporte_vela_laguna_sauce_01.webp'],
-  'Bienestar':['onda_bienestar_paseo_perro_mansa_01.webp','onda_familias_cometa_playa_mansa_01.webp','onda_deporte_rollers_rambla_01.webp'],
-  'Fiestas':['onda_musica_portal_jam_01.webp','onda_musica_dj_casapueblo_01.webp'],
-  'Encuentros':['onda_familias_cometa_playa_mansa_01.webp','onda_familias_jaguel_trepa_01.webp','onda_bienestar_paseo_perro_mansa_01.webp']
-};
-const EDITORIAL_STORIES = [
-  {
-    "title": "Una tarde en José Ignacio",
-    "category": "Paseos · José Ignacio",
-    "src": "./assets/editorial/onda_lifestyle_paseo_jose_ignacio_01.webp"
-  },
-  {
-    "title": "Sunset electrónico en Casapueblo",
-    "category": "Música · Punta Ballena",
-    "src": "./assets/editorial/onda_musica_sunset_casapueblo_publico_01.webp"
-  },
-  {
-    "title": "Música entre árboles",
-    "category": "Música · Arboretum Lussich",
-    "src": "./assets/editorial/onda_musica_arboretum_lussich_intimo_01.webp"
-  },
-  {
-    "title": "Una más y nos vamos",
-    "category": "Encuentros · La Barra",
-    "src": "./assets/editorial/onda_lifestyle_patio_nocturno_la_barra_01.webp"
-  },
-  {
-    "title": "Kayak en Laguna Garzón",
-    "category": "Naturaleza · Laguna Garzón",
-    "src": "./assets/editorial/onda_naturaleza_kayak_laguna_garzon_01.webp"
-  },
-  {
-    "title": "Mirar el arte de cerca",
-    "category": "Cultura · MACA",
-    "src": "./assets/editorial/onda_cultura_maca_esculturas_01.webp"
-  },
-  {
-    "title": "Una tarde de skate",
-    "category": "Deporte · La Barra",
-    "src": "./assets/editorial/onda_deporte_skate_la_barra_01.webp"
-  },
-  {
-    "title": "Rollers por la rambla",
-    "category": "Deporte · Punta del Este",
-    "src": "./assets/editorial/onda_deporte_rollers_rambla_01.webp"
-  },
-  {
-    "title": "Descubriendo al carpincho",
-    "category": "Familias · Cerro Pan de Azúcar",
-    "src": "./assets/editorial/onda_familias_pan_azucar_carpincho_01.webp"
-  },
-  {
-    "title": "Familia de chajás",
-    "category": "Naturaleza · Laguna del Diario",
-    "src": "./assets/editorial/onda_naturaleza_chajas_laguna_diario_01.webp"
-  },
-  {
-    "title": "Aprender a navegar",
-    "category": "Deporte · Laguna del Sauce",
-    "src": "./assets/editorial/onda_deporte_vela_laguna_sauce_01.webp"
-  },
-  {
-    "title": "Un sunset distinto",
-    "category": "Música · Casapueblo (escena conceptual)",
-    "src": "./assets/editorial/onda_musica_dj_casapueblo_01.webp"
-  },
-  {
-    "title": "Yo puedo sola",
-    "category": "Familias · Parque El Jagüel",
-    "src": "./assets/editorial/onda_familias_jaguel_trepa_01.webp"
-  },
-  {
-    "title": "Música en el jardín",
-    "category": "Música · Jardín cultural (conceptual)",
-    "src": "./assets/editorial/onda_musica_acustico_jardin_01.webp"
-  },
-  {
-    "title": "La noche improvisa",
-    "category": "Música · Portal Bosque Jam",
-    "src": "./assets/editorial/onda_musica_portal_jam_01.webp"
-  },
-  {
-    "title": "La cometa",
-    "category": "Familias · Playa Mansa",
-    "src": "./assets/editorial/onda_familias_cometa_playa_mansa_01.webp"
-  },
-  {
-    "title": "El último punto",
-    "category": "Deporte · Cancha entre pinos",
-    "src": "./assets/editorial/onda_deporte_tenis_ultimo_punto_01.webp"
-  },
-  {
-    "title": "Remar sobre el arroyo",
-    "category": "Deporte · Puente de La Barra",
-    "src": "./assets/editorial/onda_deporte_sup_puente_barra_01.webp"
-  },
-  {
-    "title": "El paseo es de los dos",
-    "category": "Bienestar · Playa Mansa",
-    "src": "./assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp"
-  },
-  {
-    "title": "La plaza también canta",
-    "category": "Música · San Carlos",
-    "src": "./assets/editorial/onda_musica_recital_plaza_san_carlos_01.webp"
-  },
-  {
-    "title": "Que empiece la función",
-    "category": "Cultura · Teatro MACA",
-    "src": "./assets/editorial/onda_cultura_teatro_maca_funcion_01.webp"
-  },
-  {
-    "title": "Algo rico en la rambla",
-    "category": "Gastronomía · Piriápolis",
-    "src": "./assets/editorial/onda_gastronomia_feria_rambla_piriapolis_01.webp"
-  },
-  {
-    "title": "La paella nos reúne",
-    "category": "Gastronomía · Piriápolis",
-    "src": "./assets/editorial/onda_gastronomia_paella_gigante_piriapolis_01.webp"
-  },
-  {
-    "title": "Paseo entre libros",
-    "category": "Cultura · Maldonado",
-    "src": "./assets/editorial/onda_cultura_feria_libro_paseo_san_fernando_01.webp"
-  },
-  {
-    "title": "Tarde de feria en Pueblo Gaucho",
-    "category": "Turismo rural · Maldonado",
-    "src": "./assets/editorial/onda_cultura_feria_rural_pueblo_gaucho_01.webp"
-  }
-];
-function editorialArt(e){
-  const imgs=EDITORIAL_VARIANTS[e.category];
-  if(!imgs?.length)return '';
-  const title=String(e.title||'').toLocaleLowerCase('es-UY');
-  const venue=String(e.place||'').toLocaleLowerCase('es-UY');
-  const desc=String(e.description||'').toLocaleLowerCase('es-UY');
-  const cues=[title,desc].join(' ');
-
-  const local=[venue,String(e.city||''),String(e.address||'')].join(' ').toLocaleLowerCase('es-UY');
-  const venueSpecific=(pattern)=>pattern.test(local);
-  const art=(id)=>'./assets/editorial/'+id+'.webp';
-  // Variante 02: El Popu, emblema decorativo no certificado como logo.
-  if(['Encuentros','Gastronomía','Fiestas'].includes(e.category) && /\bel popu\b|\bpopu\b/i.test(local))
-    return art('onda_lifestyle_patio_nocturno_la_barra_01');
-  // ONDA v3: relación semántica y geográfica; nunca asociar una imagen de un sitio específico a otro lugar.
-  if((e.category==='Música'||e.category==='Fiestas') &&
-     venueSpecific(/casapueblo|punta ballena/) &&
-     /\bdj\b|electr[oó]nic|techno|house|sun rave|sunset electrónico/i.test(cues))
-     return art('onda_musica_sunset_casapueblo_publico_01');
-  if(e.category==='Música' && /jornadas carolinas/.test(title) &&
-     venueSpecific(/san carlos|plaza artigas/))
-     return art('onda_musica_recital_plaza_san_carlos_01');
-  if(e.category==='Música' && venueSpecific(/arboretum|lussich/) &&
-     /acústic|música en vivo|recital|concierto|canto|cantante|jazz/i.test(cues))
-     return art('onda_musica_arboretum_lussich_intimo_01');
-  if(e.category==='Cultura' && venueSpecific(/maca|atchugarry/) &&
-     /teatro|comedia|puesta en escena|obra teatral|dram[aá]tica/i.test(cues) &&
-     !/cine|película|documental|proyección/i.test(cues))
-     return art('onda_cultura_teatro_maca_funcion_01');
-  if((e.category==='Gastronomía'||e.category==='Cultura') &&
-     venueSpecific(/piri[aá]polis/) && /paella/i.test(cues))
-     return art('onda_gastronomia_paella_gigante_piriapolis_01');
-  if(e.category==='Gastronomía' && venueSpecific(/piri[aá]polis/) &&
-     /feria gastronómica|festival gastron[oó]mico|puestos de comida|food truck|mercado de sabores/i.test(cues))
-     return art('onda_gastronomia_feria_rambla_piriapolis_01');
-  if(e.category==='Cultura' && venueSpecific(/paseo san fernando/) &&
-     /feria del libro|lectura|libro|literatura/.test(cues))
-     return art('onda_cultura_feria_libro_paseo_san_fernando_01');
-  if(e.category==='Cultura' && venueSpecific(/pueblo gaucho/) &&
-     /feria|artesan|rural|turismo|productores/i.test(cues))
-     return art('onda_cultura_feria_rural_pueblo_gaucho_01');
-  if(['Aire libre','Bienestar','Encuentros'].includes(e.category) &&
-     venueSpecific(/jos[eé] ignacio/) &&
-     /bicicleta|paseo por el pueblo|ciclismo recreativo|helado/.test(cues))
-     return art('onda_lifestyle_paseo_jose_ignacio_01');
-
-
-
-  // Edición visual v3.2: sin ilustración genérica para recitales, fiestas
-  // o artistas no representados. La tarjeta usa composición gráfica neutra.
-  if(e.category==='Música'){
-    if(/portal\s*(bosque|jam)/.test(venue+' '+title) && /jam|improvisa/.test(cues))
-      return art('onda_musica_portal_jam_01');
-    return '';
-  }
-  if(e.category==='Fiestas')return '';
-  if(e.category==='Deporte'){
-    if(/tenis|raqueta/.test(cues))return './assets/editorial/onda_deporte_tenis_ultimo_punto_01.webp';
-    if(/skate|patín/.test(cues))return './assets/editorial/onda_deporte_skate_la_barra_01.webp';
-    if(/vela|náutica|navega/.test(cues))return './assets/editorial/onda_deporte_vela_laguna_sauce_01.webp';
-    if(/paddle|remo de pie/.test(cues) && /la barra/.test(venue+' '+String(e.city||'').toLowerCase()))return './assets/editorial/onda_deporte_sup_puente_barra_01.webp';
-    return '';
-  }
-  if(e.category==='Bienestar'){
-    if(/perro|mascota/.test(cues))return './assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp';
-    if(/caminata|paseo|sendero/.test(cues))return './assets/editorial/onda_naturaleza_01.webp';
-    return '';
-  }
-  if(e.category==='Cultura' && /maca/.test(venue) && /escultur|exposici[oó]n|muestra de arte/.test(cues))return './assets/editorial/onda_cultura_maca_esculturas_01.webp';
-  if(e.category==='Cultura' && /cine|película|documental|teatro|función/.test(cues))return '';
-  if(e.category==='Aire libre'){
-    if(/ave|chajá|avistamiento de aves/.test(cues))return './assets/editorial/onda_naturaleza_chajas_laguna_diario_01.webp';
-    if(/kayak/.test(cues) && /garz[oó]n/.test(venue+' '+String(e.city||'').toLowerCase()))return './assets/editorial/onda_naturaleza_kayak_laguna_garzon_01.webp';
-    return ''; // Ningún paisaje genérico atribuido a una actividad específica.
-  }
-  if(e.category==='Encuentros')return '';
-  // Si no hay coincidencia semántica segura, usar composición gráfica neutra.
-  // Evita mostrar un lugar ilustrado como si fuera otra sede o evento.
-  return '';
-}
+const VISUALS=globalThis.ONDAVisuals;
+if (!VISUALS) throw new Error('ONDAVisuals no disponible: cargar visuals.js antes de app.js');
+const EDITORIAL_STORIES=VISUALS.catalog.map(({title,category,place,src})=>({title,category:category+' · '+place,src}));
+function editorialArt(e){return VISUALS.forEvent(e).src}
 function renderVisualStories(){
   const grid=$('storyGrid'),toggle=$('storiesToggle');
   if(!grid||!toggle)return;
@@ -277,7 +64,7 @@ function selectRecs(){
  if(out.length<3)for(const item of scored){if(!out.some(e=>e.id===item.e.id)){out.push(item.e);if(out.length===3)break}}
  return out;
 }
-function recCard(e,i){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'rec-poster has-art':'rec-poster';return `<article class="rec-card">
+function recCard(e,i){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const art=editorialArt(e);const cover='<img class="editorial-art" src="'+art+'" alt="Ilustración editorial de ONDA. No es una fotografía del evento." loading="lazy" decoding="async"><span class="visual-disclaimer">Ilustración ONDA</span>';const visualClass='rec-poster has-art';return `<article class="rec-card">
   <div class="${visualClass}" style="${colors(e)}">${cover}<span class="tag">${escapeHtml(t)}</span><span class="poster-head">${escapeHtml(e.city)}</span><span class="poster-index">ONDA / ${index}</span></div>
   <div class="rec-body"><div class="rec-overline">SELECCIÓN ${index} · ${escapeHtml(dateLabel(e))}</div><h3>${title}</h3><div class="rec-meta">⌖ ${escapeHtml(whereLabel(e))}</div>
   <div class="editor-note"><strong>LA MIRADA DE ONDA</strong>${escapeHtml(reason(e))}</div>
@@ -287,7 +74,7 @@ function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!a
  $('recs-summary').textContent=x.length?`${x.length} ${x.length===1?'idea':'ideas'} reales para tu búsqueda. Elegidas por fecha, zona y categoría.`:'No encontramos propuestas confirmadas con estos filtros.';
  area.innerHTML=x.length?x.map(recCard).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
-function eventCard(e){const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'event-visual has-art':'event-visual';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions"><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">Compartir WhatsApp ↗</a></div></div></article>`}
+function eventCard(e){const art=editorialArt(e);const cover='<img class="editorial-art" src="'+art+'" alt="Ilustración editorial de ONDA. No es una fotografía del evento." loading="lazy" decoding="async"><span class="visual-disclaimer">Ilustración ONDA</span>';const visualClass='event-visual has-art';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions"><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">Compartir WhatsApp ↗</a></div></div></article>`}
 function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description,e.category,e.sourceName,e.ticketera,e.cost,...(Array.isArray(e.tags)?e.tags:[])].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
 function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; $('eventGrid').innerHTML=all.slice(0,state.shown).map(eventCard).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
