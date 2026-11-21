@@ -1,0 +1,73 @@
+name: ONDA Lab · Motor de fuente abierta
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/onda-lab-catalogo.yml']
+  workflow_dispatch:
+  schedule:
+    # 08:30 y 20:30 Uruguay (UTC-3). Solo fuente abierta CC BY 4.0.
+    - cron: '30 11,23 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onda-lab-catalogo
+  cancel-in-progress: false
+
+jobs:
+  sincronizar-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Obtener rama aislada de ONDA Lab
+        uses: actions/checkout@v4
+        with:
+          ref: chore/instalar-motor-v3-1
+          persist-credentials: true
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validación previa obligatoria
+        run: |
+          npm test
+          node --check site/app.js
+          npm run check
+      - name: Leer únicamente la fuente de datos deportivos abierta y autorizada
+        env:
+          ONDA_AUTOMATION_ENABLED: 'true'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run ingest:publish
+      - name: Validación posterior
+        run: npm run check
+      - name: Publicar solo en rama Lab si hubo cambios
+        run: |
+          git config user.name 'ONDA Lab automation'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'ONDA Lab: actualización de fuente deportiva abierta [skip ci]'
+            git push origin HEAD:chore/instalar-motor-v3-1
+          else
+            echo 'Sin cambios en el catálogo de Lab'
+          fi
+      - name: Informe en historial de GitHub
+        if: always()
+        run: |
+          echo '## ONDA Lab · fuente abierta CC BY 4.0' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Nunca afecta main ni habilita ticketeras sin permisos.' >> "$GITHUB_STEP_SUMMARY"
+          if test -f data/reports/latest.json; then
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            head -c 10000 data/reports/latest.json >> "$GITHUB_STEP_SUMMARY"
+            echo >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Conservar diagnóstico aun cuando falle una fuente
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: onda-lab-fuente-abierta
+          path: data/reports/latest.json
+          retention-days: 14
