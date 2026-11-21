@@ -266,6 +266,6 @@
   if(!root.ONDAVisual)throw Error('Falta cargar visual-selector.js antes de visuals.js');
   const published=Object.freeze(catalog.map(x=>Object.freeze({...x,usage:root.ONDAVisual.usage(x.id)})));
   function forEvent(e){return root.ONDAVisual.select(e);}
-  function allocate(events){return root.ONDAVisual.allocate(events);}
+  function allocate(events,options){return root.ONDAVisual.allocate(events,options);}
   root.ONDAVisuals=Object.freeze({catalog:published,forEvent,allocate});
 })(globalThis);

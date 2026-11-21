@@ -25,27 +25,27 @@ test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
  assert.equal(select(e('INJU5K Piriápolis','Deporte','Plaza Artigas',['running'])).id,'onda_evento_running_carrera_popular_01');
 });
 test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
- assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'editorial');
- assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'editorial');
- assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).scope,'editorial');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'editorial');
+ assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
+ assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
+ assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
 });
-test('ningún par de eventos distintos visibles comparte recurso; el mismo evento se reutiliza',()=>{
- const a={...e('Festival de jazz','Música'),id:'uno'};
- const b={...e('Concierto de jazz','Música'),id:'dos'};
- const c={...e('Carrera 5K','Deporte','Maldonado',['running']),id:'tres'};
- const out=V.allocate([a,b,c,a]);
- assert.equal(out.size,3);
- const ids=Array.from(out.values()).filter(x=>x.id).map(x=>x.id);
- assert.equal(new Set(ids).size,ids.length);
- assert.ok(out.get('uno').scope==='editorial'||out.get('dos').scope==='editorial');
+test('reutilización semántica y separación entre vecinos en vez de exclusividad total',()=>{
+ const jazz=i=>({...e('Concierto de jazz','Música'),id:'jazz-'+i});
+ const running={...e('Carrera 5K','Deporte','Maldonado',['running']),id:'running'};
+ const out=V.allocate([jazz(1),jazz(2),running,jazz(3),jazz(1)],{columns:1});
+ assert.equal(out.size,4);
+ assert.equal(out.get('jazz-1').id,'onda_evento_jazz_ensamble_vivo_01');
+ assert.equal(out.get('jazz-3').id,'onda_evento_jazz_ensamble_vivo_01');
+ assert.notEqual(out.get('jazz-1').id,out.get('jazz-2').id);
+ assert.equal(out.get('jazz-2').scope,'identidad');
 });
 test('cada evento del catálogo obtiene imagen compatible real o portada editorial sin archivo falso',()=>{
  assert.ok(events.length>=79);
  for(const x of V.allocate(events).values()){
   assert.ok(x);
   if(x.src){assert.ok(existsSync(new URL('../../site/'+x.src.slice(2),import.meta.url)));assert.notEqual(x.usage,'experiencia')}
-  else assert.equal(x.scope,'editorial');
+  else {assert.equal(x.scope,'identidad');assert.ok(x.variant);}
  }
 });
 test('experiencias todavía sin relatos editoriales no aparecen en la página pública',()=>{
