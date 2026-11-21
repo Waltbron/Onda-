@@ -27,7 +27,7 @@ export function sportsCandidate(file,source,now){
   const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Montevideo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now));
   const ceiling=new Date(now);ceiling.setUTCDate(ceiling.getUTCDate()+400);
   if(!ymd(date)||!ymd(endDate)||endDate<today||date>ceiling.toISOString().slice(0,10))return null;
-  if(fold(item.status)==='tentative'||!LOCAL.has(fold(item.city)))return null;
+  if(!['','confirmed'].includes(fold(item.status))||!LOCAL.has(fold(item.city)))return null;
   const name=String(item.name||'').trim();
   const tags=sportList(item.sport).map(x=>sportTags[x]).filter(Boolean);
   if(name.length<5||!tags.length)return null;
