@@ -59,7 +59,9 @@ function activeVisualPlan(section){
 }
 function editorialCover(e,visual){
  const alt=globalThis.ONDAVisual.fallback(e,new Set([visual.id]));
- if(visual.src)return '<img class="editorial-art event-art-img'+(visual.scope==='identidad'?' brand-fallback':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(alt.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async"><span class="visual-disclaimer">'+(visual.scope==='identidad'?'Identidad ONDA':'Ilustración ONDA')+'</span>';
+ // Los fondos de marca se explican por sí mismos: no mostrar badges internos de «Identidad ONDA».
+ const badge=visual.scope==='identidad'?'':'<span class="visual-disclaimer">Ilustración ONDA</span>';
+ if(visual.src)return '<img class="editorial-art event-art-img'+(visual.scope==='identidad'?' brand-fallback':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(alt.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async">'+badge;
  if(visual.scope==='identidad')return '<span class="editorial-cover brand-cover '+escapeHtml(visual.variant)+'" role="img" aria-label="Portada gráfica ONDA; no representa al evento"><span class="brand-echo" aria-hidden="true">ONDA ONDA ONDA</span><span class="brand-lettering" aria-hidden="true">ONDA</span><span class="brand-signature" aria-hidden="true">EL ESTE TE LLAMA</span></span>';
   const symbol={'Cultura':'✳','Música':'♫','Deporte':'◉','Gastronomía':'✺','Fiestas':'✹','Aire libre':'❋','Bienestar':'☀','Encuentros':'✦'}[e.category]||'✦';
  return '<span class="editorial-cover" role="img" aria-label="Portada tipográfica editorial del evento: '+escapeHtml(e.title)+'"><span class="editorial-symbol" aria-hidden="true">'+escapeHtml(symbol)+'</span><span class="editorial-word">ONDA / '+escapeHtml(e.category)+'</span></span>';
@@ -85,7 +87,7 @@ function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.
  const brandBackup=globalThis.ONDAVisual.fallback(e,new Set([visual.id]));
  const gmaps=ONDAShare.directions(e);
  const startedNote=ET.timingNote(e);
- $('modalBody').innerHTML=`${visual.src?'<figure class="modal-visual"><img class="event-art-img" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(brandBackup.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+(visual.scope==='identidad'?'Identidad ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento')+'</figcaption></figure>':'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>'}<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
+ $('modalBody').innerHTML=`${visual.src?'<figure class="modal-visual"><img class="event-art-img" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(brandBackup.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+(visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento')+'</figcaption></figure>':'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>'}<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
  ${startedNote?`<div class="modal-note"><strong>Horario:</strong> ${escapeHtml(startedNote)}</div>`:''}<div class="modal-note"><strong>Antes de salir:</strong> ${escapeHtml(e.note||'Comprobá posibles cambios de horario y disponibilidad en la fuente.')}${e.weatherSensitive?' · Si es al aire libre, consultá el pronóstico.':''}</div>
  <div class="modal-links">${t}<a class="wa-share-link" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}">Compartir por WhatsApp ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(gmaps)}">Cómo llegar ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(e.sourceUrl)}">Fuente original ↗</a></div><p>Fuente: ${escapeHtml(e.sourceName)} · Ticketera: ${escapeHtml(e.ticketera||e.ticketingPlatform||'no informada')} · ${escapeHtml(freshnessLabel(e))} · Estado: ${escapeHtml(e.status||'a confirmar')}.</p><p><small>La publicación original es la referencia para reprogramaciones, suspensión o cambios de precio. ONDA no vende entradas.</small></p>`;
  const overlay=$('overlay');overlay.classList.remove('hidden');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('closeModal').focus();
@@ -158,9 +160,9 @@ document.addEventListener('error',ev=>{
   img.dataset.backupAttempted='1';
   img.src=backup;img.alt='Portada de identidad ONDA; no representa el evento.';
   const badge=img.parentElement?.querySelector('.visual-disclaimer');
-  if(badge)badge.textContent='Identidad ONDA';
+  if(badge)badge.remove();
   const caption=img.parentElement?.querySelector('figcaption');
-  if(caption)caption.textContent='Identidad ONDA · no es el afiche oficial';
+  if(caption)caption.textContent='Portada ONDA · no es el afiche oficial';
  }else{
   const tile=document.createElement('span');
   tile.className='editorial-cover brand-cover fb-01';
