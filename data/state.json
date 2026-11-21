@@ -2,14 +2,14 @@
   "schema": 1,
   "sources": {
     "events-uy-deportes": {
-      "successes": 3,
+      "successes": 4,
       "failures": 0,
-      "lastAttemptAt": "2026-11-21T21:57:01.317Z",
-      "lastSuccessAt": "2026-11-21T21:57:01.317Z",
+      "lastAttemptAt": "2026-11-21T21:58:04.177Z",
+      "lastSuccessAt": "2026-11-21T21:58:04.177Z",
       "status": "ok",
       "lastError": null,
       "lastFound": 15
     }
   },
-  "lastSuccessfulRunAt": "2026-11-21T21:57:01.317Z"
+  "lastSuccessfulRunAt": "2026-11-21T21:58:04.177Z"
 }
