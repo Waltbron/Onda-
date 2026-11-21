@@ -43,7 +43,8 @@ if(mode==='fixture'){
     write('data/automatic.json',output.automatic);
     write('site/data/events.json',output.publicEvents);
     write('site/data/meta.json',{
-      project:'ONDA',version:'3.0',catalogType:'manual-plus-verified-automated',
+      ...read('site/data/meta.json'),
+      project:'ONDA',version:'3.1 · Biblioteca visual + motor abierto',catalogType:'manual-plus-verified-automated',
       automaticIngestionEnabled:true,activeConnectors:output.report.activeConnectors,
       lastSuccessfulRunAt:output.state.lastSuccessfulRunAt,timezone:'America/Montevideo',
       notice:'ONDA no vende entradas. Confirmá posibles cambios en la fuente original.'
