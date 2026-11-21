@@ -93,21 +93,34 @@ function candidates(e){
   add('onda_naturaleza_caminata_dunas_pasarela_01',92,'formato','Caminata por las dunas');
  return arr.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));
 }
-function fallback(e){return {id:null,src:null,score:0,usage:'evento',scope:'editorial',contextual:false,
- about:'Portada gráfica del evento sin fotografía inventada',
- caption:'Portada editorial de ONDA: no es el afiche oficial ni una fotografía del lugar.'};}
-function select(e){return candidates(e)[0]||fallback(e);}
-function allocate(events){
- const unique=[],seen=new Set();
- for(const e of events){if(!seen.has(e.id)){seen.add(e.id);unique.push(e);}}
- const ordered=unique.map((e,i)=>({e,i,options:candidates(e)}))
-  .sort((a,b)=>(a.options.length||999)-(b.options.length||999)|| (b.options[0]?.score||0)-(a.options[0]?.score||0)||a.i-b.i);
- const result=new Map(),reserved=new Set();
- for(const item of ordered){
-   const chosen=item.options.find(a=>!reserved.has(a.id))||fallback(item.e);
-   result.set(item.e.id,chosen);if(chosen.id)reserved.add(chosen.id);
+
+const BRANDS=Object.freeze([
+ {id:'onda-fallback-01',variant:'fb-01',about:'Azul tinta, naranja y marfil'},
+ {id:'onda-fallback-02',variant:'fb-02',about:'Azul tinta, fucsia y naranja'},
+ {id:'onda-fallback-03',variant:'fb-03',about:'Lima, violeta y naranja'}
+]);
+function stableHash(input){let hash=2166136261;for(const ch of String(input??''))hash=Math.imul(hash^ch.charCodeAt(0),16777619)>>>0;return hash}
+function fallback(e,blocked=new Set()){
+ const shift=stableHash(e.id)%BRANDS.length;
+ const choices=BRANDS.map((_,i)=>BRANDS[(shift+i)%BRANDS.length]);
+ const brand=choices.find(x=>!blocked.has(x.id))||choices[0];
+ return {id:brand.id,src:null,scope:'identidad',usage:'evento',score:0,variant:brand.variant,contextual:false,
+ about:brand.about,caption:'Identidad gráfica ONDA; no representa el evento, el artista ni la sede.'};
+}
+function select(e){return candidates(e)[0]||fallback(e)}
+function allocate(events,{columns=1}={}){
+ // Imágenes reutilizables: prohibición local únicamente para vecinos reales en la grilla.
+ const cols=Number.isInteger(columns)&&columns>0?columns:1;
+ const result=new Map(),placed=[];
+ for(const e of events){
+  if(!e?.id||result.has(e.id))continue;
+  const i=placed.length,blocked=new Set();
+  if(i>0&&i%cols!==0)blocked.add(result.get(placed[i-1].id).id);
+  if(i>=cols)blocked.add(result.get(placed[i-cols].id).id);
+  const visual=candidates(e).find(x=>!blocked.has(x.id))||fallback(e,blocked);
+  result.set(e.id,visual);placed.push(e);
  }
  return result;
 }
-root.ONDAVisual=Object.freeze({usage,candidates,select,allocate});
+root.ONDAVisual=Object.freeze({usage,candidates,select,allocate,fallback});
 })(globalThis);

@@ -111,3 +111,19 @@
 .modal-editorial strong{font:400 clamp(25px,5vw,40px)/1.05 var(--serif);max-width:90%}
 .modal-editorial small{font:800 10px var(--sans)}
 @media(max-width:650px){.event-visual.has-editorial .editorial-symbol{font-size:38px}.editorial-word{font-size:7px}}
+
+/* ONDA Lab: portadas de marca tipográficas con trama serigráfica (respaldo sin escenas engañosas). */
+.brand-cover{--fb-paper:#f4ead9;--fb-ink:#162958;--fb-accent:#f0804f;color:var(--fb-ink);background-color:var(--fb-paper);
+ background-image:repeating-linear-gradient(-8deg,rgba(8,18,35,.08) 0px,rgba(8,18,35,.08) .7px,transparent 1px,transparent 5px),
+ radial-gradient(circle at 85% 16%,var(--fb-accent) 0 22%,transparent 22.5%),linear-gradient(160deg,var(--fb-paper) 0 62%,var(--fb-accent) 62%)}
+.brand-cover.fb-01{--fb-paper:#f4ead9;--fb-ink:#172d64;--fb-accent:#f18a48}
+.brand-cover.fb-02{--fb-paper:#252a62;--fb-ink:#fd9653;--fb-accent:#eb589d}
+.brand-cover.fb-03{--fb-paper:#c4e26b;--fb-ink:#503385;--fb-accent:#f9884d}
+.brand-cover::before{content:"";position:absolute;inset:-20% 34% -20% -30%;border:16px solid var(--fb-ink);border-radius:50%;transform:rotate(-25deg);opacity:.17}
+.brand-cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,rgba(17,25,43,.14) .7px,transparent 1px);background-size:4px 4px;mix-blend-mode:multiply;opacity:.65}
+.brand-echo{position:absolute;top:0;left:-10%;white-space:nowrap;transform:rotate(-12deg);font:900 46px/1.1 var(--sans);letter-spacing:-3px;opacity:.13}
+.brand-lettering{position:relative;z-index:2;font:900 90px/.9 var(--sans);letter-spacing:-.12em;transform:rotate(-9deg);margin-right:.18em;text-shadow:2px 2px 0 var(--fb-accent)}
+.brand-signature{position:absolute;right:6%;bottom:8%;z-index:2;padding:4px 5px;background:var(--fb-ink);color:var(--fb-paper);font:900 9px var(--sans);letter-spacing:1px}
+.event-visual .brand-lettering{font-size:clamp(25px,3.7vw,50px);transform:rotate(-90deg)}
+.event-visual .brand-signature{display:none}
+.rec-poster .brand-lettering{font-size:clamp(55px,8vw,103px)}

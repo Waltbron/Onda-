@@ -51,16 +51,16 @@ function selectRecs(){
  if(out.length<3)for(const item of scored){if(!out.some(e=>e.id===item.e.id)){out.push(item.e);if(out.length===3)break}}
  return out;
 }
-function activeVisualPlan(){
- const seen=new Set(),cards=[];
- for(const e of [...selectRecs(),...agendaItems().slice(0,state.shown)]){
-  if(!seen.has(e.id)){cards.push(e);seen.add(e.id)}
- }
- return VISUALS.allocate(cards);
+function activeVisualPlan(section){
+ const mobile=window.innerWidth<=720;
+ const columns=section==='recommendations'?(mobile?1:3):(mobile?1:window.innerWidth<=1050?2:3);
+ const cards=section==='recommendations'?selectRecs():agendaItems().slice(0,state.shown);
+ return VISUALS.allocate(cards,{columns});
 }
 function editorialCover(e,visual){
  if(visual.src)return '<img class="editorial-art" src="'+escapeHtml(visual.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async"><span class="visual-disclaimer">Ilustración ONDA</span>';
- const symbol={'Cultura':'✳','Música':'♫','Deporte':'◉','Gastronomía':'✺','Fiestas':'✹','Aire libre':'❋','Bienestar':'☀','Encuentros':'✦'}[e.category]||'✦';
+ if(visual.scope==='identidad')return '<span class="editorial-cover brand-cover '+escapeHtml(visual.variant)+'" role="img" aria-label="Portada gráfica ONDA; no representa al evento"><span class="brand-echo" aria-hidden="true">ONDA ONDA ONDA</span><span class="brand-lettering" aria-hidden="true">ONDA</span><span class="brand-signature" aria-hidden="true">EL ESTE TE LLAMA</span></span>';
+  const symbol={'Cultura':'✳','Música':'♫','Deporte':'◉','Gastronomía':'✺','Fiestas':'✹','Aire libre':'❋','Bienestar':'☀','Encuentros':'✦'}[e.category]||'✦';
  return '<span class="editorial-cover" role="img" aria-label="Portada tipográfica editorial del evento: '+escapeHtml(e.title)+'"><span class="editorial-symbol" aria-hidden="true">'+escapeHtml(symbol)+'</span><span class="editorial-word">ONDA / '+escapeHtml(e.category)+'</span></span>';
 }
 function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?'rec-poster has-art':'rec-poster has-editorial';return `<article class="rec-card">
@@ -71,16 +71,16 @@ function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index
   </article>`}
 function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!area)return;
  $('recs-summary').textContent=x.length?`${x.length} ${x.length===1?'idea':'ideas'} reales para tu búsqueda. Elegidas por fecha, zona y categoría.`:'No encontramos propuestas confirmadas con estos filtros.';
- const assigned=activeVisualPlan();
+ const assigned=activeVisualPlan('recommendations');
  area.innerHTML=x.length?x.map((e,i)=>recCard(e,i,assigned.get(e.id))).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
 function eventCard(e,visualOverride){const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?'event-visual has-art':'event-visual has-editorial';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions"><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">Compartir WhatsApp ↗</a></div></div></article>`}
 function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description,e.category,e.sourceName,e.ticketera,e.cost,...(Array.isArray(e.tags)?e.tags:[])].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
-function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; const assigned=activeVisualPlan();$('eventGrid').innerHTML=all.slice(0,state.shown).map(e=>eventCard(e,assigned.get(e.id))).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
+function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; const assigned=activeVisualPlan('agenda');$('eventGrid').innerHTML=all.slice(0,state.shown).map(e=>eventCard(e,assigned.get(e.id))).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
 let focusBefore=null;
 function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.activeElement;state.modal=id;const t=e.ticketUrl?`<a href="${safeUrl(e.ticketUrl)}" class="primary" target="_blank" rel="noopener noreferrer">${e.priceTier==='gratis'?'Reservar':'Ver entradas'} ↗</a>`:'';
- const visual=activeVisualPlan().get(e.id)||VISUALS.forEvent(e);
+ const visual=activeVisualPlan('recommendations').get(e.id)||activeVisualPlan('agenda').get(e.id)||VISUALS.forEvent(e);
  const gmaps=ONDAShare.directions(e);
  const startedNote=ET.timingNote(e);
  $('modalBody').innerHTML=`${visual.src?'<figure class="modal-visual"><img src="'+escapeHtml(visual.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>Ilustración ONDA · no es el afiche del evento</figcaption></figure>':'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>'}<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
@@ -92,7 +92,10 @@ function closeDetail(){if(state.modal===null)return;state.modal=null;$('overlay'
 function initChoices(wrapper,attr,key,callback){$(wrapper).addEventListener('click',ev=>{const b=ev.target.closest(`[${attr}]`);if(!b)return;state[key]=b.dataset[attr==='data-time'?'time':'mood'];$(wrapper).querySelectorAll(`[${attr}]`).forEach(el=>{const a=el===b;el.classList.toggle('active',a);el.setAttribute('aria-pressed',String(a))});callback()})}
 function init(){initChoices('whenChoices','data-time','when',renderRecs);initChoices('moodChoices','data-mood','mood',renderRecs);
  $('zoneSelect').addEventListener('change',ev=>{state.zone=ev.target.value;renderRecs()});$('categorySelect').addEventListener('change',ev=>{state.category=ev.target.value;state.shown=9;renderAgenda()});$('freeOnly').addEventListener('change',ev=>{state.free=ev.target.checked;state.shown=9;renderAgenda()});$('searchInput').addEventListener('input',ev=>{state.query=ev.target.value.trim();state.shown=9;renderAgenda()});$('loadMore').addEventListener('click',()=>{state.shown+=9;renderAgenda()});$('recommendBtn').addEventListener('click',()=>{$('recomendaciones').scrollIntoView({behavior:'smooth',block:'start'});renderRecs()});$('resetFilters').addEventListener('click',()=>{state.category='todos';state.free=false;state.query='';state.shown=9;$('categorySelect').value='todos';$('freeOnly').checked=false;$('searchInput').value='';renderAgenda()});
- document.addEventListener('click',ev=>{const btn=ev.target.closest('.detail-btn');if(btn)openDetail(btn.dataset.id)});$('closeModal').addEventListener('click',closeDetail);$('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))closeDetail()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()})}
+ document.addEventListener('click',ev=>{const btn=ev.target.closest('.detail-btn');if(btn)openDetail(btn.dataset.id)});$('closeModal').addEventListener('click',closeDetail);$('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))closeDetail()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});lastLayout=layoutKey();window.addEventListener('resize',refreshLayout)}
+let lastLayout='';
+function layoutKey(){return window.innerWidth<=720?'movil':window.innerWidth<=1050?'tablet':'escritorio'}
+function refreshLayout(){const k=layoutKey();if(k===lastLayout)return;lastLayout=k;if(state.events.length){renderRecs();renderAgenda()}}
 let lastClockSignature = '';
 function refreshTimeSensitiveUI(){
  if (!state.events.length) return;
