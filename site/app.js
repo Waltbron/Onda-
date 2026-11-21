@@ -252,10 +252,9 @@ function editorialArt(e){
     return './assets/editorial/onda_naturaleza_01.webp';
   }
   if(e.category==='Encuentros')return '';
-  // Categorías con ilustraciones generales: variantes estables.
-  const key=String(e.id||e.title||'');let h=0;
-  for(let i=0;i<key.length;i++)h=(Math.imul(h,31)+key.charCodeAt(i))>>>0;
-  return './assets/editorial/'+imgs[h%imgs.length];
+  // Si no hay coincidencia semántica segura, usar composición gráfica neutra.
+  // Evita mostrar un lugar ilustrado como si fuera otra sede o evento.
+  return '';
 }
 function renderVisualStories(){
   const grid=$('storyGrid'),toggle=$('storiesToggle');
@@ -274,6 +273,8 @@ function colors(e){const a=COLORS[e.category]||['#eae3d8','#182436','#f86959'];r
 function dateLabel(e){return e.kind==='exposicion'&&e.endDate?`Hasta el ${fmtDate(e.endDate)}`:!e.endDate||e.date===e.endDate?fmtCompact(e.date):`${fmtCompact(e.date)} al ${fmtDate(e.endDate)}`}
 function whereLabel(e){return `${e.place} · ${e.city}`}
 function priceLabel(e){return e.priceTier==='gratis'?'Gratis / con reserva si corresponde':e.cost||'Precio a consultar'}
+function freshnessLabel(e){if(!/^\d{4}-\d{2}-\d{2}$/.test(e.checkedAt||''))return 'Sin revisión fechada · confirmar en fuente';const days=Math.floor((Date.parse(uyToday()+'T12:00:00Z')-Date.parse(e.checkedAt+'T12:00:00Z'))/86400000);return days>7?'Revisión anterior a 7 días · confirmar en fuente':'Revisado '+e.checkedAt}
+function ticketLabel(e){return e.ticketera||e.ticketingPlatform||e.sourceName||'Fuente original'}
 const moodCategories={cultura:['Cultura','Encuentros'],musica:['Música'],gastro:['Gastronomía'],aire:['Aire libre','Deporte','Bienestar'],noche:['Fiestas','Música']};
 function matchMood(e){return state.mood==='todos'||(moodCategories[state.mood]||[]).includes(e.category)}
 function relevant(){return state.events.filter(e=>current(e)&&matchTime(e,state.when)&&(state.zone==='todos'||e.city===state.zone)&&matchMood(e))}
@@ -300,8 +301,8 @@ function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!a
  $('recs-summary').textContent=x.length?`${x.length} ${x.length===1?'idea':'ideas'} reales para tu búsqueda. Elegidas por fecha, zona y categoría.`:'No encontramos propuestas confirmadas con estos filtros.';
  area.innerHTML=x.length?x.map(recCard).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
-function eventCard(e){const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'event-visual has-art':'event-visual';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(e.cost||'Consultar detalles')}</div><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles y fuente →</button></div></article>`}
-function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
+function eventCard(e){const art=editorialArt(e);const cover=art?'<img class="editorial-art" src="'+art+'" alt="" loading="lazy" decoding="async">':'';const visualClass=art?'event-visual has-art':'event-visual';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles y fuente →</button></div></article>`}
+function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description,e.category,e.sourceName,e.ticketera,e.cost,...(Array.isArray(e.tags)?e.tags:[])].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
 function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; $('eventGrid').innerHTML=all.slice(0,state.shown).map(eventCard).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
 let focusBefore=null;
@@ -310,7 +311,7 @@ function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.
  const startedNote=ET.timingNote(e);
  $('modalBody').innerHTML=`<div class="overline">${escapeHtml(e.category)} · ${escapeHtml(e.city)}</div><h2 id="modalTitle">${escapeHtml(e.title)}</h2><p>${escapeHtml(e.description)}</p><div class="modal-grid"><div><strong>FECHA</strong>${escapeHtml(dateLabel(e))}</div><div><strong>HORA</strong>${escapeHtml(e.time?e.time+' h'+(e.endTime?' — '+e.endTime+' h':''):'Horario a confirmar')}</div><div><strong>LUGAR</strong>${escapeHtml(whereLabel(e))}</div><div><strong>PRECIO</strong>${escapeHtml(priceLabel(e))}</div></div>
  ${startedNote?`<div class="modal-note"><strong>Horario:</strong> ${escapeHtml(startedNote)}</div>`:''}<div class="modal-note"><strong>Antes de salir:</strong> ${escapeHtml(e.note||'Comprobá posibles cambios de horario y disponibilidad en la fuente.')}${e.weatherSensitive?' · Si es al aire libre, consultá el pronóstico.':''}</div>
- <div class="modal-links">${t}<a target="_blank" rel="noopener noreferrer" href="${safeUrl(e.sourceUrl)}">Ver publicación original ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(gmaps)}">Cómo llegar ↗</a></div><p>Fuente: ${escapeHtml(e.sourceName)} · Revisado: ${escapeHtml(e.checkedAt||'sin fecha')} · Estado: ${escapeHtml(e.status||'a confirmar')}.</p><p><small>La publicación original es la referencia para reprogramaciones, suspensión o cambios de precio. ONDA no vende entradas.</small></p>`;
+ <div class="modal-links">${t}<a target="_blank" rel="noopener noreferrer" href="${safeUrl(e.sourceUrl)}">Ver publicación original ↗</a><a target="_blank" rel="noopener noreferrer" href="${safeUrl(gmaps)}">Cómo llegar ↗</a></div><p>Fuente: ${escapeHtml(e.sourceName)} · Ticketera: ${escapeHtml(e.ticketera||e.ticketingPlatform||'no informada')} · ${escapeHtml(freshnessLabel(e))} · Estado: ${escapeHtml(e.status||'a confirmar')}.</p><p><small>La publicación original es la referencia para reprogramaciones, suspensión o cambios de precio. ONDA no vende entradas.</small></p>`;
  const overlay=$('overlay');overlay.classList.remove('hidden');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('closeModal').focus();
 }
 function closeDetail(){if(state.modal===null)return;state.modal=null;$('overlay').classList.add('hidden');$('overlay').setAttribute('aria-hidden','true');document.body.style.overflow='';if(focusBefore?.focus)focusBefore.focus()}
