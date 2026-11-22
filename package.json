@@ -15,6 +15,7 @@
     "check": "node scripts/check.mjs",
     "radar:review": "node scripts/radar-review.mjs",
     "audit:coverage": "node scripts/coverage-audit.mjs",
-    "sources:plan": "node scripts/source-plan.mjs"
+    "sources:plan": "node scripts/source-plan.mjs",
+    "audit:quality": "node scripts/catalog-health.mjs"
   }
 }

@@ -143,3 +143,18 @@
 .rec-poster.has-brand .visual-disclaimer,.event-visual.has-brand .visual-disclaimer{
  background:rgba(255,247,231,.95);color:#142c42
 }
+
+
+/* ONDA · CTA de entrada/reserva cuando existe URL específica, sin confundir ticketera con fuente. */
+.ticket-cta{display:inline-flex;align-items:center;justify-content:center;min-height:37px;
+ padding:8px 13px!important;color:#fff!important;background:#152846!important;
+ border:1px solid #152846!important;border-radius:999px;font-weight:800;
+ text-align:center;white-space:nowrap;text-decoration:none!important}
+.ticket-cta:hover,.ticket-cta:focus-visible{background:#23519b!important;border-color:#23519b!important}
+.rec-buttons .ticket-cta{order:-1}
+.event-actions .ticket-cta{margin-right:auto}
+@media(max-width:720px){
+ .event-actions{justify-content:flex-start}
+ .event-actions .ticket-cta{margin-right:0}
+ .event-actions .wa-cta{white-space:normal}
+}

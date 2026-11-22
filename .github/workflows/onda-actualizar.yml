@@ -60,6 +60,8 @@ jobs:
         run: npm run radar:review
       - name: Auditoría de cobertura (sin publicación)
         run: npm run audit:coverage
+      - name: Medir frescura y enlaces del catálogo (sin publicación)
+        run: npm run audit:quality
       - name: Ejecución de ejemplo, sin publicación
         if: ${{ (github.event_name == 'workflow_dispatch' && inputs.modo == 'ensayo') || vars.ONDA_AUTOMATION_ENABLED != 'true' }}
         run: npm run preview
@@ -107,4 +109,5 @@ jobs:
             output/fixture-report.json
             data/reports/radar-review.json
             data/reports/coverage-audit.json
+            data/reports/catalog-quality.json
           retention-days: 14

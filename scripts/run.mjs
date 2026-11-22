@@ -44,10 +44,10 @@ if(mode==='fixture'){
     write('site/data/events.json',output.publicEvents);
     write('site/data/meta.json',{
       ...read('site/data/meta.json'),
-      project:'ONDA',version:'3.1 · Biblioteca visual + motor abierto',catalogType:'manual-plus-verified-automated',
+      project:'ONDA',catalogType:'manual-plus-verified-automated',
       automaticIngestionEnabled:true,activeConnectors:output.report.activeConnectors,
-      lastSuccessfulRunAt:output.state.lastSuccessfulRunAt,timezone:'America/Montevideo',
-      notice:'ONDA no vende entradas. Confirmá posibles cambios en la fuente original.'
+      lastSuccessfulRunAt:output.state.lastSuccessfulRunAt,timezone:'America/Montevideo'
+      // Preservar visualManifest, visualDisplayPolicy, version y aviso editorial del Lab.
     });
   } else {
     console.log('FUENTE EN REVISIÓN: informe y salud actualizados, sin publicar cambios de eventos.');
