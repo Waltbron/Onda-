@@ -11,11 +11,15 @@
   const source=parse(e?.sourceUrl),ticket=parse(e?.ticketUrl);
   // Una portada de ticketera NO es un enlace de compra a la ficha.
   const path=ticket?.pathname.replace(/\/+$/,'').toLowerCase()||'';
-  const direct=!!ticket&&!generic.has(path)&&path.length>1;
+  // Dos excepciones constatadas en fuentes oficiales: el sitio identifica de forma unívoca
+  // a GFNY Punta del Este y la página de Recorre inscribe a toda la serie, no a una etapa.
+  const dedicatedGFNY=ticket?.hostname==='puntadeleste.gfny.com'&&path==='/register'&&/\bgfny\b/i.test(e.title||'');
+  const seriesRegistration=ticket?.hostname==='recorremaldonado.com'&&path==='/inscripciones'&&/recorre maldonado/i.test(e.title||'');
+  const direct=!!ticket&&(seriesRegistration||dedicatedGFNY||(!generic.has(path)&&path.length>1));
   const url=direct?ticket.href:source?.href||null;
   const ticketSource=direct ? (ticket.hostname.includes('redtickets')?'RedTickets':ticket.hostname.includes('passline')?'Passline':ticket.hostname==='entradas.macamuseo.org'?'MACA':ticket.hostname.includes('lolograste')?'Lo Lograste':e.ticketera||e.ticketingPlatform||'Sitio oficial') : null;
-  const action=direct ? (e.priceTier==='gratis'?'Reservar':e.category==='Deporte'?'Inscribirme':'Ver entradas') : 'Fuente oficial';
-  return Object.freeze({url,hasDirectTicket:direct,label:action+' ↗',ticketSource,sourceUrl:source?.href||null});
+  const action=seriesRegistration?'Inscribirme a la serie':direct ? (e.priceTier==='gratis'?'Reservar':e.category==='Deporte'?'Inscribirme':'Ver entradas') : 'Fuente oficial';
+  return Object.freeze({url,hasDirectTicket:direct,scope:seriesRegistration?'serie':direct?'evento':'fuente',label:action+' ↗',ticketSource,sourceUrl:source?.href||null});
  }
  root.ONDATickets=Object.freeze({access,parse});
 })(globalThis);

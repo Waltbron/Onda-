@@ -40,3 +40,18 @@ test('la ingesta preserva el manifiesto y versión visual',()=>{
  assert.doesNotMatch(code,/version:'3\.1 · Biblioteca visual/);
  assert.match(code,/\.{3}read\('site\/data\/meta\.json'\)/);
 });
+
+test('registro de GFNY Punta del Este es específico aunque la ruta sea /register',()=>{
+ const e=events.find(x=>x.title==='GFNY Punta del Este');
+ assert.equal(access(e).hasDirectTicket,true);
+ assert.equal(access(e).scope,'evento');
+});
+test('Recorre Maldonado ofrece inscripción a la serie sin confundirla con la etapa',()=>{
+ const e=events.find(x=>x.title.startsWith('Recorre Maldonado,'));
+ assert.equal(access(e).scope,'serie');
+ assert.equal(access(e).label,'Inscribirme a la serie ↗');
+});
+test('una ruta genérica de inscripción de otra organización no se presume directa',()=>{
+ const e={title:'Otro evento',category:'Deporte',ticketUrl:'https://otraorganizacion.uy/inscripciones/',sourceUrl:'https://otraorganizacion.uy/eventos'};
+ assert.equal(access(e).hasDirectTicket,false);
+});

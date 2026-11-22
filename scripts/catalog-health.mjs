@@ -12,7 +12,10 @@ const active=events.filter(x=>(x.endDate||x.date)>=today&&!['cancelado','finaliz
 const generic=new Set(['','/','/evento','/eventos','/inscripciones','/inscripcion','/register','/registro','/reservas','/tickets','/entradas','/checkout','/comprar']);
 const ticketQuality=x=>{
  try{const u=new URL(x.ticketUrl);if(u.protocol!=='https:')return 'invalid';
-  return generic.has(u.pathname.replace(/\/+$/,'').toLowerCase())?'portal':'event';
+  const path=u.pathname.replace(/\/+$/,'').toLowerCase();
+  if(u.hostname==='recorremaldonado.com'&&path==='/inscripciones'&&/recorre maldonado/i.test(x.title||''))return 'series';
+  if(u.hostname==='puntadeleste.gfny.com'&&path==='/register'&&/\bgfny\b/i.test(x.title||''))return 'event';
+  return generic.has(path)?'portal':'event';
  }catch{return x.ticketUrl?'invalid':'none'}
 };
 const future=active.map(e=>({
@@ -25,6 +28,7 @@ const stale=future.filter(x=>x.daysSinceCheck===null||x.daysSinceCheck>7);
 const totals={events:events.length,remainingByDate:future.length,
  freshWithinSevenDays:future.length-stale.length,stale:stale.length,
  withEventTicket:future.filter(x=>x.ticket==='event').length,
+ withSeriesRegistration:future.filter(x=>x.ticket==='series').length,
  withPortalOnly:future.filter(x=>x.ticket==='portal').length,
  withoutTicket:future.filter(x=>x.ticket==='none').length,
  withStartTime:future.filter(x=>x.hasTime).length,
