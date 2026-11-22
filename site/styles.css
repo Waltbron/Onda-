@@ -158,3 +158,9 @@
  .event-actions .ticket-cta{margin-right:0}
  .event-actions .wa-cta{white-space:normal}
 }
+
+
+/* Formato semántico visible: la categoría se mantiene para el filtro general. */
+.format-chip{display:inline-block;vertical-align:baseline;margin-left:5px;padding:2px 6px;
+ border:1px solid #d6dfef;border-radius:6px;background:#f5f7fc;color:#234c8d;
+ font:800 9px/1.4 var(--sans);letter-spacing:.2px;white-space:nowrap}

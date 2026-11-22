@@ -1,5 +1,5 @@
 // ONDA Lab · Asignador visual v5.
-// Uso: 'evento'/'experiencia'/'ambos'; coincidencia de actividad y territorio; unicidad en la selección visible.
+// Uso: 'evento'/'experiencia'/'ambos'; coincidencia de formato y sede; reuso no contiguo.
 (function(root){
 'use strict';
 const normal=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
@@ -31,6 +31,8 @@ function candidates(e){
    const prev=arr.findIndex(x=>x.id===id);
    if(prev<0)arr.push(entry);else if(arr[prev].score<score)arr[prev]=entry;
  }
+ // Imágenes portables declaradas en un registro; permisos y contexto se siguen validando aquí.
+ for(const item of root.ONDAFormats?.candidates(e)||[])add(item.id,item.score,item.scope,item.description);
  // Sede exacta + coincidencia temática: nunca proyectar otra ciudad o escenario.
  if(music&&matches(local,/casapueblo/)&&matches(info,/\b(dj|electronica|techno|house|sunset)\b/))
   add('onda_musica_sunset_casapueblo_publico_01',100,'sede','Sunset electrónico en Casapueblo');
@@ -63,32 +65,23 @@ function candidates(e){
  if(sport&&matches(local,/la barra/)&&matches(info,/\b(skate|skateboard)\b/))
   add('onda_deporte_skate_la_barra_01',100,'sede','Skate en La Barra');
  // Formatos sin identificación de sede.
- if(culture&&matches(info,/\b(cine|cineclub|documental|pelicula|cortos|cortometraje|proyeccion)\b/))
-  add('onda_evento_cine_proyeccion_generica_01',93,'formato','Proyección de cine');
- if(culture&&matches(info,/\b(ballet|danza clasica|masterclass de danza)\b/)&&matches(info,/\b(clase|masterclass|taller|practica)\b/))
-  add('onda_evento_ballet_danza_clase_01',95,'formato','Clase de ballet y danza');
- if(culture&&matches(info,/\b(presentacion (de|del) libro|conversacion con autor|encuentro literario)\b/))
-  add('onda_evento_presentacion_libro_autor_01',95,'formato','Presentación literaria');
- if(culture&&matches(info,/\b(charla|conferencia|conversatorio|debate|panel)\b/))
-  add('onda_evento_charla_conferencia_generica_01',93,'formato','Charla o conferencia');
+
+
+
+
  if(culture&&matches(info,/\b(mosaico|ceramica|taller creativo|taller de arte|taller de dibujo)\b/))
   add('onda_cultura_taller_creativo_mosaicos_01',94,'formato','Taller artístico');
- if(music&&matches(info,/\b(jazz|swing|bebop)\b/))
-  add('onda_evento_jazz_ensamble_vivo_01',96,'formato','Jazz en vivo');
- if(music&&matches(info,/\b(chelo|violonchelo)\b/)&&matches(info,/\b(piano|pianista)\b/))
-  add('onda_evento_musica_camara_chelo_piano_01',96,'formato','Dúo de piano y violonchelo');
+
+
  if(music&&matches(info,/\b(acustico|acustica|cantautor|guitarra acustica)\b/)&&matches(info,/\b(concierto|musica|recital|canciones|show)\b/)&&!matches(info,/\b(orquesta|metal|sinfonica|rock pesado)\b/))
   add('onda_musica_acustico_jardin_01',83,'formato','Concierto acústico conceptual');
- if(sport&&matches(info,/\b(running|maraton|media maraton|5k|10k|recorre|rocha corre|urban race|carrera popular)\b/)&&!matches(info,/\b(triatlon|ironman)\b/))
-  add('onda_evento_running_carrera_popular_01',96,'formato','Carrera a pie');
- if(sport&&matches(info,/\b(tenis)\b/))
-  add('onda_deporte_tenis_ultimo_punto_01',94,'formato','Partido de tenis');
+
+
  if(sport&&matches(info,/\b(surf|surfista|surfear)\b/)&&matches(local,/playa brava|punta del este/))
   add('onda_deporte_surf_playa_brava_01',92,'formato','Surf en Punta del Este');
  if(sport&&matches(info,/\b(gravel|mountain bike|mountain-bike|mtb|ciclismo de sendero)\b/)&&matches(local,/arboretum|lussich/))
   add('onda_naturaleza_bicicleta_sendero_lussich_01',92,'sede','Ciclismo en Lussich');
- if(category==='bienestar'&&matches(info,/\b(yoga|meditacion guiada|asanas)\b/))
-  add('onda_bienestar_yoga_patio_luminoso_01',92,'formato','Práctica de yoga');
+
  if(category==='aire libre'&&matches(info,/\b(dunas|caminata costera|senderismo costero|pasarela de playa)\b/))
   add('onda_naturaleza_caminata_dunas_pasarela_01',92,'formato','Caminata por las dunas');
  return arr.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));

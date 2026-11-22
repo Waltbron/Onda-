@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 const ctx={};ctx.globalThis=ctx;
-for(const f of ['visual-selector.js','visuals.js'])runInNewContext(readFileSync(new URL('../../site/'+f,import.meta.url),'utf8'),ctx);
+for(const f of ['format-registry.js','visual-selector.js','visuals.js'])runInNewContext(readFileSync(new URL('../../site/'+f,import.meta.url),'utf8'),ctx);
 const V=ctx.ONDAVisuals,select=ctx.ONDAVisual.select;
 const events=JSON.parse(readFileSync(new URL('../../site/data/events.json',import.meta.url),'utf8'));
 const e=(title,category='Cultura',place='Museo MACA',tags=[])=>({id:title,title,category,place,city:'Maldonado',tags,description:''});
