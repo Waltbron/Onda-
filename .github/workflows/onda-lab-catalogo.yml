@@ -48,7 +48,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json
           if ! git diff --cached --quiet; then
-            git commit -m 'ONDA Lab: actualización de fuente deportiva abierta [skip ci]'
+            git commit -m 'ONDA Lab: actualizar catálogo verificado para Netlify'
             git push origin HEAD:chore/instalar-motor-v3-1
           else
             echo 'Sin cambios en el catálogo de Lab'
