@@ -1,19 +1,19 @@
 {
   "version": "3.0",
-  "at": "2026-11-21T21:58:04.177Z",
+  "at": "2026-11-22T03:21:38.846Z",
   "mode": "live",
   "status": "ok",
   "activeConnectors": 1,
   "automaticUpdatesEnabled": true,
-  "publishedChanges": 0,
-  "publicItems": 75,
+  "publishedChanges": 3,
+  "publicItems": 82,
   "sources": [
     {
       "sourceId": "events-uy-deportes",
       "name": "events.uy contributors · Deportes (CC BY 4.0)",
       "status": "ok",
-      "found": 15,
-      "new": 0,
+      "found": 16,
+      "new": 3,
       "modified": 0,
       "duplicates": 0,
       "held": 0,
@@ -21,6 +21,22 @@
     }
   ],
   "issues": [],
-  "changes": [],
+  "changes": [
+    {
+      "type": "new",
+      "id": "onda-58e70b8640621f8f",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-e72aa28a719596dd",
+      "sourceId": "events-uy-deportes"
+    },
+    {
+      "type": "new",
+      "id": "onda-cda7024816bea191",
+      "sourceId": "events-uy-deportes"
+    }
+  ],
   "notSeenIsNotCancellation": true
 }

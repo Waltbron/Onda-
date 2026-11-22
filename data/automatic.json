@@ -136,8 +136,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -189,8 +189,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -243,8 +243,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -297,8 +297,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -350,8 +350,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -403,8 +403,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -456,8 +456,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -509,8 +509,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -562,8 +562,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -615,8 +615,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -668,8 +668,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -721,8 +721,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -774,8 +774,8 @@
     "timezone": "America/Montevideo",
     "confidence": "B",
     "status": "verificado",
-    "checkedAt": "2026-11-21",
-    "lastSeenAt": "2026-11-21T21:58:04.177Z",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
     "evidence": [
       {
         "field": "date",
@@ -790,6 +790,177 @@
       {
         "field": "organizer",
         "text": "https://rando.uy/calendario/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-58e70b8640621f8f",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/knock-out-sprint-punta-del-este.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/knock-out-sprint-punta-del-este.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Knock Out Sprint, Travesías Uruguay",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-12-06",
+    "endDate": "2026-12-06",
+    "time": "09:30",
+    "endTime": null,
+    "place": "Playa Mansa, parada 3",
+    "city": "Punta del Este",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "priceAmount": null,
+    "priceCurrency": null,
+    "priceCheckedAt": null,
+    "ticketera": null,
+    "description": "Modalidades/distancias: 1500 m, 1000 m, 500 m. Organiza: Travesías Uruguay.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "natacion"
+    ],
+    "ticketUrl": "https://ticketfacil.uy/event/OPEN-WATER-SERIES-2027--POR-PRIMERA-VEZ-EN-URUGUAY-KNOCK-OUT-SPRINT/info",
+    "organizerUrl": "https://accesofacil.com/event/OPEN-WATER-SERIES-2027--POR-PRIMERA-VEZ-EN-URUGUAY-KNOCK-OUT-SPRINT/info",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-12-06",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Knock Out Sprint, Travesías Uruguay",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://accesofacil.com/event/OPEN-WATER-SERIES-2027--POR-PRIMERA-VEZ-EN-URUGUAY-KNOCK-OUT-SPRINT/info",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-e72aa28a719596dd",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2026/travesias-uruguay-playa-solanas.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2026/travesias-uruguay-playa-solanas.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Travesías Uruguay, Playa Solanas",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2026-12-19",
+    "endDate": "2026-12-19",
+    "time": null,
+    "endTime": null,
+    "place": "Playa Solanas",
+    "city": "Punta Ballena",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "priceAmount": null,
+    "priceCurrency": null,
+    "priceCheckedAt": null,
+    "ticketera": null,
+    "description": "Organiza: Travesías Uruguay.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "natacion"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://www.instagram.com/p/DebwreQzmcP/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2026-12-19",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Travesías Uruguay, Playa Solanas",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.instagram.com/p/DebwreQzmcP/",
+        "origin": "enlace declarado por la fuente"
+      }
+    ],
+    "externalStatus": "",
+    "sourceVerification": "upstream-reviewed-cc-by-4.0"
+  },
+  {
+    "id": "onda-cda7024816bea191",
+    "sourceId": "events-uy-deportes",
+    "sourceItemId": "events/2027/travesias-uruguay-puente-de-la-barra.yaml",
+    "sourceUrl": "https://github.com/suzrik/data.events.uy/blob/main/events/2027/travesias-uruguay-puente-de-la-barra.yaml",
+    "sourceName": "events.uy contributors · Deportes (CC BY 4.0)",
+    "title": "Travesías Uruguay, Puente de La Barra",
+    "kind": "evento",
+    "category": "Deporte",
+    "date": "2027-02-20",
+    "endDate": "2027-02-20",
+    "time": null,
+    "endTime": null,
+    "place": "Puente de La Barra",
+    "city": "La Barra",
+    "address": "",
+    "cost": "Consultar en fuente",
+    "priceTier": "sin-informar",
+    "priceAmount": null,
+    "priceCurrency": null,
+    "priceCheckedAt": null,
+    "ticketera": null,
+    "description": "Organiza: Travesías Uruguay.",
+    "note": "Datos de events.uy contributors (CC BY 4.0), revisados por esa comunidad. Confirmá horarios, inscripciones y cambios con el organizador.",
+    "weatherSensitive": false,
+    "tags": [
+      "deporte",
+      "natacion"
+    ],
+    "ticketUrl": null,
+    "organizerUrl": "https://www.instagram.com/p/DebwreQzmcP/",
+    "imageUrl": null,
+    "timezone": "America/Montevideo",
+    "confidence": "B",
+    "status": "verificado",
+    "checkedAt": "2026-11-22",
+    "lastSeenAt": "2026-11-22T03:21:38.846Z",
+    "evidence": [
+      {
+        "field": "date",
+        "text": "2027-02-20",
+        "origin": "events.uy YAML con licencia CC BY 4.0"
+      },
+      {
+        "field": "title",
+        "text": "Travesías Uruguay, Puente de La Barra",
+        "origin": "events.uy YAML"
+      },
+      {
+        "field": "organizer",
+        "text": "https://www.instagram.com/p/DebwreQzmcP/",
         "origin": "enlace declarado por la fuente"
       }
     ],
