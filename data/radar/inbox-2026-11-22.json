@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-22T12:00:00-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "2026-11-24-maldonado-certificados-emprendedurismo-pedro-figari",
+      "title": "Entrega de certificados de talleres de emprendedurismo",
+      "date": "2026-11-24",
+      "venue": "Parador Pedro Figari",
+      "city": "Maldonado",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Fuente: agenda oficial IDM del 23 al 28/11/2026. Acceso de público general no confirmado; revisión editorial requerida."
+    },
+    {
+      "key": "2026-11-25-punta-del-este-cierre-cursos-desarrollo-social",
+      "title": "Cierre de cursos que brinda Desarrollo Social en Punta del Este",
+      "date": "2026-11-25",
+      "venue": "Municipio de Punta del Este",
+      "city": "Punta del Este",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Fuente: agenda oficial IDM del 23 al 28/11/2026. Acceso de público general no confirmado; revisión editorial requerida."
+    },
+    {
+      "key": "2026-11-27-maldonado-certificados-acompanante-terapeutico",
+      "title": "Entrega de certificados de acompañante terapéutico",
+      "date": "2026-11-27",
+      "venue": "Comunal El Molino",
+      "city": "Maldonado",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Fuente: agenda oficial IDM del 23 al 28/11/2026. Acceso de público general no confirmado; revisión editorial requerida."
+    },
+    {
+      "key": "2026-11-28-maldonado-cierre-cursos-desarrollo-integracion-social",
+      "title": "Cierre de Cursos Municipales del Departamento de Desarrollo e Integración Social en Maldonado",
+      "date": "2026-11-28",
+      "venue": "Plaza San Fernando",
+      "city": "Maldonado",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Fuente: agenda oficial IDM del 23 al 28/11/2026. Acceso de público general no confirmado; revisión editorial requerida."
+    }
+  ]
+}
