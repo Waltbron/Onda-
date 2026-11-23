@@ -33,3 +33,13 @@ No se incluyen descripciones inventadas ni fotografías de eventos. No se descar
 - Una ausencia en un listado no significa cancelación: no se eliminan automáticamente fichas en base a ausencias.
 - Fechas o precios en prosa no se interpretan automáticamente, porque requieren evidencia suficiente.
 - Cambios de último momento fuera de los canales publicados y entradas solo en Stories pueden no detectarse.
+
+## Conectores genéricos (v3.2)
+
+Todos exigen `enabled:true`, `permission:'approved'` y `permissionEvidence`; leen `robots.txt` (falla cerrado), mismo host, HTTPS, sin redirecciones, 1 s entre pedidos y `ONDA_CONTACT_EMAIL`.
+
+- `jsonld-event-html`: una página con Event JSON-LD.
+- `jsonld-crawl-html`: igual, y además sigue enlaces de la agenda al mismo host cuyo path cumpla `detailPattern` (regex), hasta `maxDetailPages` (máx. 40), cada ficha con su chequeo de robots.
+- `ics-feed`: calendario iCalendar publicado por la fuente. Solo eventos con URL de ficha en el host; no expande recurrencias (RRULE se rechaza); rechaza horas sin zona; DTEND de día completo es exclusivo.
+
+Ninguno publica solo: la `publicationPolicy` de la fuente decide. Una fuente nueva se registra siempre con `enabled:false, permission:'pending'` hasta tener evidencia.

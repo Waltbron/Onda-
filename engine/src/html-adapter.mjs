@@ -17,7 +17,7 @@ function parseEventDate(text){
 const isEvent=x=>{const t=x?.['@type'];return typeof t==='string'?t.toLowerCase().split('/').pop().endsWith('event'):Array.isArray(t)&&t.some(v=>String(v).toLowerCase().endsWith('event'));};
 function flatten(doc,arr){if(Array.isArray(doc)){for(const x of doc)flatten(x,arr)}else if(doc&&typeof doc==='object'){if(isEvent(doc))arr.push(doc);if(doc['@graph'])flatten(doc['@graph'],arr);if(doc.mainEntity)flatten(doc.mainEntity,arr)}}
 function getUrl(e,baseUrl){const u=e.url||e.mainEntityOfPage?.['@id']||e['@id'];const p=typeof u==='string'?u:(typeof u?.url==='string'?u.url:null);return canonicalUrl(new URL(p||baseUrl,baseUrl).href)}
-function classify(title){if(/concierto|m[uú]sica|recital|show musical|d[uú]o/i.test(title))return 'Música';if(/feria|gastronom|degustaci[oó]n|vino|cocina/i.test(title))return 'Gastronomía';if(/marat[oó]n|carrera|running|competencia deportiva/i.test(title))return 'Deportes';return 'Cultura'}
+export function classify(title){if(/concierto|m[uú]sica|recital|show musical|d[uú]o/i.test(title))return 'Música';if(/feria|gastronom|degustaci[oó]n|vino|cocina/i.test(title))return 'Gastronomía';if(/marat[oó]n|carrera|running|competencia deportiva/i.test(title))return 'Deportes';return 'Cultura'}
 export function parseJSONLDEvents(html,{sourceId,baseUrl,city='Manantiales',sourceName=sourceId}={}){
   if(typeof html!=='string'||!sourceId||!baseUrl)throw Error('missing HTML or source config');
   const parsed=[],issues=[],seen=new Set();let scripts=0;let match;
