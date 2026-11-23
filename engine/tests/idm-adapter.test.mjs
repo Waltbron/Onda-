@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {parseIdmAgenda} from '../src/idm-adapter.mjs';
+const html=fs.readFileSync(new URL('../fixtures/idm-actividades-listado.html',import.meta.url),'utf8');
+const o={sourceId:'idm-actividades',baseUrl:'https://maldonado.gub.uy/actividades',city:'Maldonado'};
+test('muestra real: 6 actividades sin rechazos',()=>{const r=parseIdmAgenda(html,o);assert.equal(r.candidates.length,6);assert.equal(r.issues.length,0)});
+test('rango de fechas y ficha',()=>{const c=parseIdmAgenda(html,o).candidates[0];assert.equal(c.date,'2026-11-07');assert.equal(c.endDate,'2026-12-04');assert.equal(c.sourceUrl,'https://maldonado.gub.uy/node/62095');assert.equal(c.place,'Museo Regional Francisco Mazzoni');assert.equal(c.category,'Cultura');assert.equal(c.time,null)});
+test('lugar genérico cae a ciudad y detecta ciudad en el texto',()=>{const r=parseIdmAgenda(html,o).candidates;
+  const fest=r.find(c=>/Guitarra/.test(c.title));assert.equal(fest.place,'Maldonado');assert.equal(fest.category,'Música');
+  const mon=r.find(c=>/Monumento/.test(c.title));assert.equal(mon.city,'Piriápolis')});
+test('estructura desconocida falla en vez de devolver vacío',()=>assert.throws(()=>parseIdmAgenda('<html></html>',o)));
+test('fecha inválida se rechaza',()=>{const bad='<div class="agenda__item x"><a href="/node/1"><span class="text__date">31 de Febrero, 2026</span><span class="text__title">Evento roto aquí</span></a></div>';const r=parseIdmAgenda(bad,o);assert.equal(r.candidates.length,0);assert.equal(r.issues.length,1)});
