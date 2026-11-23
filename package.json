@@ -16,6 +16,7 @@
     "radar:review": "node scripts/radar-review.mjs",
     "audit:coverage": "node scripts/coverage-audit.mjs",
     "sources:plan": "node scripts/source-plan.mjs",
-    "audit:quality": "node scripts/catalog-health.mjs"
+    "audit:quality": "node scripts/catalog-health.mjs",
+    "images:discover": "node scripts/image-discovery.mjs --write"
   }
 }

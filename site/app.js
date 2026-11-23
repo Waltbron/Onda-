@@ -7,9 +7,16 @@ const FMT = globalThis.ONDAFormats;
 if (!ET) throw new Error('ONDAEventTime no disponible: cargar event-time.js antes de app.js');
 const ONDAShare = globalThis.ONDAShare;
 if (!ONDAShare) throw new Error('ONDAShare no disponible: cargar share.js antes de app.js');
-const state = {lastDataSync:null,events:[],when:'todos',mood:'todos',zone:'todos',category:'todos',free:false,query:'',shown:9,modal:null};
+const state = {lastDataSync:null,events:[],imageIndex:{},when:'todos',mood:'todos',zone:'todos',category:'todos',free:false,query:'',shown:9,modal:null};
 const escapeHtml = x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = x=>{try{const u=new URL(x);return u.protocol==='https:'?escapeHtml(u.href):'#'}catch{return '#'}};
+// El catálogo visual externo al JSON de eventos sobrevive a la ingesta diaria.
+function attachImages(events){
+ return events.map(e=>{
+  const media=state.imageIndex[e.id];
+  return media&&!e.imageUrl?{...e,...media}:e;
+ });
+}
 const uyToday=()=>ET.uyDate();
 const plusDays=ET.addDays;
 const current=e=>ET.isCurrent(e);
@@ -65,11 +72,11 @@ function visualBackups(e,visual){
  return {curated,final};
 }
 function visualLabel(visual){
- return visual.scope==='foto'?'Fotografía real · filtro ONDA':visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
+ return visual.scope==='foto'?'Imagen del evento · filtro ONDA':visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
 }
 function editorialCover(e,visual){
  const {curated,final}=visualBackups(e,visual);
- const label=visual.scope==='foto'?'Foto real':visual.scope==='identidad'?'':'Ilustración ONDA';
+ const label=visual.scope==='foto'?'Imagen del evento':visual.scope==='identidad'?'':'Ilustración ONDA';
  const badge=label?'<span class="visual-disclaimer'+(visual.scope==='foto'?' photo-label':'')+'">'+label+'</span>':'';
  if(visual.src){
   const typeClass=visual.scope==='foto'?' onda-photo':visual.scope==='identidad'?' brand-fallback':'';
@@ -106,7 +113,7 @@ let focusBefore=null;
 function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.activeElement;state.modal=id;const ticket=TIX.access(e);const t=ticket.hasDirectTicket?`<a href="${safeUrl(ticket.url)}" class="primary" target="_blank" rel="noopener noreferrer">${escapeHtml(ticket.label)}</a>`:'';
  const visual=activeVisualPlan('recommendations').get(e.id)||activeVisualPlan('agenda').get(e.id)||VISUALS.forEvent(e);
  const {curated,final}=visualBackups(e,visual);
- const photoCredit=visual.scope==='foto'?'<a href="'+safeUrl(visual.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Foto: '+escapeHtml(visual.credit)+'</a> · filtro ONDA':escapeHtml(visualLabel(visual));
+ const photoCredit=visual.scope==='foto'?(visual.sourceUrl?'<a href="'+safeUrl(visual.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Imagen: '+escapeHtml(visual.credit)+'</a> · filtro ONDA':'Imagen del evento · filtro ONDA'):escapeHtml(visualLabel(visual));
  const modalCover=visual.src
   ?'<figure class="modal-visual'+(visual.scope==='foto'?' has-photo':'')+'"><img class="event-art-img'+(visual.scope==='foto'?' onda-photo':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+photoCredit+'</figcaption></figure>'
   :'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>';
@@ -154,7 +161,7 @@ async function refreshCatalog() {
   const signature=JSON.stringify(items);
   if(signature===state.lastDataSync)return;
   state.lastDataSync=signature;
-  state.events=items;
+  state.events=attachImages(items);
   const refreshOptions=(selectId,values)=>{
    const el=$(selectId),selected=el.value;
    [...el.options].slice(1).forEach(o=>o.remove());
@@ -167,7 +174,16 @@ async function refreshCatalog() {
   lastClockSignature='';refreshTimeSensitiveUI();
  }catch(error){console.warn('ONDA: no fue posible comprobar actualizaciones; se conserva el último catálogo válido',error)}
 }
-async function start(){init();try{const embedded=document.getElementById('embedded-events');let data;if(embedded){data=JSON.parse(embedded.textContent)}else{const res=await fetch('./data/events.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);data=await res.json()};if(!Array.isArray(data))throw Error('Formato inesperado');state.events=data;const cities=[...new Set(data.map(e=>e.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const city of cities){const o=document.createElement('option');o.value=city;o.textContent=city;$('zoneSelect').append(o)}const cats=[...new Set(data.map(e=>e.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const cat of cats){const o=document.createElement('option');o.value=cat;o.textContent=cat;$('categorySelect').append(o)}refreshTimeSensitiveUI();const linkedPlan=new URLSearchParams(window.location.search).get('plan');if(linkedPlan&&findEvent(linkedPlan))openDetail(linkedPlan);if(embedded){showDataStatus({automaticIngestionEnabled:false})}else{refreshCatalog()}}catch(err){$('recommendations').innerHTML='<div class="loading">No pudimos cargar la agenda. Revisá la conexión e intentá de nuevo.</div>';$('eventGrid').innerHTML='';$('resultCount').textContent='Agenda no disponible';console.error('ONDA: error cargando agenda',err)}}
+async function start(){
+ init();
+ try{
+  const mediaResponse=await fetch('./data/event-images.json',{cache:'no-store'});
+  if(mediaResponse.ok){
+   const media=await mediaResponse.json();
+   if(media&&typeof media==='object'&&!Array.isArray(media))state.imageIndex=media;
+  }
+ }catch(error){console.warn('ONDA: sin catálogo extra de fotos, se usa biblioteca visual',error)}
+ try{const embedded=document.getElementById('embedded-events');let data;if(embedded){data=JSON.parse(embedded.textContent)}else{const res=await fetch('./data/events.json',{cache:'no-store'});if(!res.ok)throw Error('HTTP '+res.status);data=await res.json()};if(!Array.isArray(data))throw Error('Formato inesperado');state.events=attachImages(data);const cities=[...new Set(data.map(e=>e.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const city of cities){const o=document.createElement('option');o.value=city;o.textContent=city;$('zoneSelect').append(o)}const cats=[...new Set(data.map(e=>e.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));for(const cat of cats){const o=document.createElement('option');o.value=cat;o.textContent=cat;$('categorySelect').append(o)}refreshTimeSensitiveUI();const linkedPlan=new URLSearchParams(window.location.search).get('plan');if(linkedPlan&&findEvent(linkedPlan))openDetail(linkedPlan);if(embedded){showDataStatus({automaticIngestionEnabled:false})}else{refreshCatalog()}}catch(err){$('recommendations').innerHTML='<div class="loading">No pudimos cargar la agenda. Revisá la conexión e intentá de nuevo.</div>';$('eventGrid').innerHTML='';$('resultCount').textContent='Agenda no disponible';console.error('ONDA: error cargando agenda',err)}}
 // Recorte móvil/escritorio: si cambia la cantidad de columnas, se recalculan vecinos.
 let visualLayout=window.innerWidth<=720?1:window.innerWidth<=1050?2:3;
 window.addEventListener('resize',()=>{

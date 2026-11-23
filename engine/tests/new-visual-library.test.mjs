@@ -28,7 +28,7 @@ test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, 
  assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
  assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
  assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'formato');
 });
 test('reutilización semántica y separación entre vecinos en vez de exclusividad total',()=>{
  const jazz=i=>({...e('Concierto de jazz','Música'),id:'jazz-'+i});

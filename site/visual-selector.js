@@ -78,6 +78,8 @@ function candidates(e){
  const formatId=root.ONDAFormats?.classify(e)?.id;
  if(culture&&e.kind==='exposicion'&&matches(venue,/museo regional francisco mazzoni|museo mazzoni/)&&matches(info,/\b(pintura|exposicion|muestra)\b/))
    add('onda_cultura_exposicion_pintura_sala_historica_01',103,'sede','Exposición pictórica en espacio cultural patrimonial');
+ if(culture&&(e.kind==='exposicion'||matches(info,/\b(exposicion de pintura|muestra de arte)\b/)))
+   add('onda_cultura_exposicion_pintura_sala_historica_01',40,'formato','Ilustración conceptual de exposición; no retrata esta muestra');
  if(music&&matches(venue,/pueblo narakan/)&&matches(info,/\b(jam|improvisacion|soul|funk|jazz)\b/))
    add('onda_musica_narakan_jam_01',104,'sede','Música en vivo en Pueblo Narakan');
  if(music&&matches(info,/\b(hilda lizarazu|cantante femenina|voz femenina|cantautora)\b/)&&matches(info,/\b(concierto|rock|pop|show|canciones)\b/))
@@ -88,6 +90,8 @@ function candidates(e){
    add('onda_deporte_triatlon_costero_mansa_01',102,'formato','Triatlón costero en Punta del Este');
  if(sport&&formatId==='ciclismo'&&matches(local,/piriapolis/)&&matches(info,/\b(ciclismo|ruta|fondo|bicicleta)\b/))
    add('onda_deporte_ciclismo_ruta_piriapolis_01',102,'sede','Ciclismo de ruta en paisaje de Piriápolis');
+ if(sport&&formatId==='ciclismo')
+   add('onda_deporte_ciclismo_ruta_piriapolis_01',43,'formato','Ciclismo conceptual; no es una foto del recorrido anunciado');
  if(sport&&formatId==='trail_running'&&matches(local,/sierras?|animas|pan de azucar|maldonado|piriapolis/))
    add('onda_deporte_trail_running_sierras_animas_01',95,'formato','Trail running en terreno serrano');
  if(sport&&formatId==='beach_voley'&&matches(local,/playa mansa|punta del este/))
@@ -105,6 +109,8 @@ function candidates(e){
 
  if(music&&matches(info,/\b(acustico|acustica|cantautor|guitarra acustica)\b/)&&matches(info,/\b(concierto|musica|recital|canciones|show)\b/)&&!matches(info,/\b(orquesta|metal|sinfonica|rock pesado)\b/))
   add('onda_musica_acustico_jardin_01',83,'formato','Concierto acústico conceptual');
+ if(music&&matches(info,/\b(canciones desnudas|concierto intimo|guitarra y voz)\b/))
+  add('onda_musica_acustico_jardin_01',57,'formato','Música íntima conceptual, no representa a los artistas');
 
 
  if(sport&&matches(info,/\b(surf|surfista|surfear)\b/)&&matches(local,/playa brava|punta del este/))
@@ -130,17 +136,17 @@ function fallback(e,blocked=new Set()){
  return {id:brand.id,src:'./assets/editorial/'+brand.id+'.webp',scope:'identidad',usage:'evento',score:0,variant:brand.variant,contextual:false,
  about:brand.about,caption:'Identidad gráfica ONDA; no representa el evento, el artista ni la sede.'};
 }
-// Foto real solo con derechos documentados; luego ilustración; luego serigrafía.
-const PHOTO_RIGHTS=new Set(['owned','licensed','authorized']);
+// La URL real de la fuente es suficiente para usar la imagen en esta beta.
+// Crédito, estado de derechos y origen se conservan si están disponibles, sin bloqueo burocrático.
 const remoteHttps=x=>typeof x==='string'&&/^https:\/\/[a-z0-9.-]+(?:\/[^\s<>"']*)?$/i.test(x)&&!x.includes('@');
 const photoAsset=x=>remoteHttps(x)||(typeof x==='string'&&/^\.\/assets\/[a-z0-9/_-]+\.(?:jpe?g|png|webp)$/i.test(x));
 function photo(e){
- if(!e||!PHOTO_RIGHTS.has(e.imageRightsStatus)||!photoAsset(e.imageUrl)||!remoteHttps(e.imageSourceUrl))return null;
- if(e.imageType&&e.imageType!=='photo')return null;
- const alt=String(e.imageAlt||'').trim(),credit=String(e.imageCredit||'').trim();
- if(!alt||!credit)return null;
- return {id:'foto:'+e.imageUrl,src:e.imageUrl,score:200,scope:'foto',usage:'evento',
-   contextual:true,caption:alt,credit,sourceUrl:e.imageSourceUrl};
+ if(!e||!photoAsset(e.imageUrl))return null;
+ const caption=String(e.imageAlt||('Imagen del evento '+(e.title||''))).trim();
+ const credit=String(e.imageCredit||e.sourceName||'Fuente del evento').trim();
+ const sourceUrl=remoteHttps(e.imageSourceUrl)?e.imageSourceUrl:remoteHttps(e.sourceUrl)?e.sourceUrl:null;
+ return {id:'foto:'+e.imageUrl,src:e.imageUrl,scope:'foto',usage:'evento',score:200,
+  contextual:true,caption,credit,sourceUrl,imageType:e.imageType||'photo'};
 }
 function select(e){return photo(e)||candidates(e)[0]||fallback(e)}
 function allocate(events,{columns=1}={}){

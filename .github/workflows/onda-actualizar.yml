@@ -71,6 +71,22 @@ jobs:
           ONDA_AUTOMATION_ENABLED: ${{ vars.ONDA_AUTOMATION_ENABLED }}
           ONDA_CONTACT_EMAIL: ${{ vars.ONDA_CONTACT_EMAIL }}
         run: npm run ingest:publish
+      - name: Descubrir imágenes de fichas desde páginas específicas (solo rama Lab)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/chore/instalar-motor-v3-1' }}
+        continue-on-error: true
+        run: npm run images:discover
+      - name: Guardar imágenes encontradas sin tocar los eventos
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/chore/instalar-motor-v3-1' }}
+        run: |
+          git config user.name 'ONDA media bot'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add site/data/event-images.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'ONDA: enriquecer imágenes con datos de las fuentes'
+            git push
+          else
+            echo 'No se encontraron nuevas imágenes'
+          fi
       - name: Revalidar archivos publicados
         run: npm run check
       - name: Subir cambios si existen y pasan validación

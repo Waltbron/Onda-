@@ -46,11 +46,11 @@ No colocar tokens en archivos ni commits. `scripts/run.mjs` rechaza publicación
 - `data/reports/latest.json`, `data/state.json`: trazabilidad de la última corrida.
 - `site/assets/editorial/`: WebP publicados, distintos de los originales del archivo maestro de Drive.
 
-## ONDA Foto v1: tres niveles visuales
+## ONDA Foto: cada evento tiene un recurso visual
 
-Jerarquía: **foto real autorizada + filtro CSS nativo → ilustración pertinente de la biblioteca aprobada → serigrafía ONDA → tarjeta tipográfica si falla la carga**. No hay dependencias nuevas ni transformación en servidor. Las imágenes remotas pueden fallar por protección anti-hotlink.
+**Prioridad**: imagen real o afiche de la fuente (`imageUrl`) + filtro cromático ONDA → biblioteca editorial de 48 escenas pertinentes → serigrafía ONDA → tarjeta tipográfica si fallan todos los archivos. En esta beta `imageAlt`, `imageCredit`, `imageSourceUrl` y `imageRightsStatus` son opcionales: se preservan cuando existen, pero no bloquean la imagen. Se exige HTTPS o ruta local segura.
 
-Campos opcionales en cada evento (se requieren todos para mostrar foto): `imageType: "photo"`, `imageUrl` (HTTPS o asset local), `imageAlt`, `imageCredit`, `imageSourceUrl` (HTTPS), `imageRightsStatus` (`owned`, `licensed` o `authorized`). El estado declarado nunca reemplaza la verificación efectiva de derechos. Sin foto permitida se usa la biblioteca existente. Tratamiento ajustable en `site/styles.css` por `--onda-foto-*`. No se inventan fotos ni eventos.
+`site/data/event-images.json` mantiene por ID las fotos halladas sin mezclarlas con los datos de los eventos: las ingestas posteriores no las borran. El script `npm run images:discover` revisa enlaces públicos **específicos** de eventos futuros, busca las imágenes de metadatos `og:image` / `twitter:image`, evita portadas genéricas y reutiliza la URL original; si no encuentra imagen, ONDA pasa a la biblioteca. El workflow de desarrollo existente lo ejecuta en pushes de Lab sin crear nuevos cron ni extraer las imágenes en lote a GitHub.
 
 ### Paleta de marca para fotos · v1.2 (23/11/2026)
 

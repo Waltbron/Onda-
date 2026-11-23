@@ -28,7 +28,7 @@ test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, 
  assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
  assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
  assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'formato');
 });
 
 test('reutiliza imágenes pertinentes lejos y separa vecinos inmediatos',()=>{
@@ -118,23 +118,28 @@ test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos
  }
 });
 
-test('orden de imágenes: foto autorizada, ilustración aprobada, fallback',()=>{
+test('una URL HTTPS de imagen por evento tiene prioridad; otros metadatos son opcionales',()=>{
  const x={...e('Concierto de jazz','Música','Medio y Medio'),
-  imageUrl:'https://cdn.example.org/jazz.webp',imageAlt:'Retrato real',
-  imageCredit:'Fotógrafo',imageSourceUrl:'https://example.org/permiso',imageRightsStatus:'authorized',imageType:'photo'};
+ imageUrl:'https://cdn.example.org/concierto.webp'};
  assert.equal(select(x).scope,'foto');
+ assert.equal(select(x).caption,'Imagen del evento Concierto de jazz');
  assert.equal(V.allocate([x]).get(x.id).scope,'foto');
- assert.equal(select({...x,imageRightsStatus:'pending'}).id,'onda_evento_jazz_ensamble_vivo_01');
- assert.equal(select(e('Actividad sin portada','Música','Sede sin escena')).scope,'identidad');
+ assert.equal(select({...x,imageUrl:null}).id,'onda_evento_jazz_ensamble_vivo_01');
+ for(const imageUrl of ['javascript:alert(1)','http://inseguro.test/a.png','https://evil.test/a.png" onerror="alert(1)'])
+  assert.equal(ctx.ONDAVisual.photo({...x,imageUrl}),null);
 });
-test('no se autoriza fotografía sin crédito, origen, permiso o HTTPS',()=>{
- const x={...e('Jazz','Música','Medio y Medio'),imageUrl:'https://cdn.example.org/jazz.webp',
- imageAlt:'Retrato',imageCredit:'Autora',imageSourceUrl:'https://example.org/origen',imageRightsStatus:'licensed'};
- for(const patch of [{imageRightsStatus:'pending'},{imageCredit:''},{imageAlt:''},{imageSourceUrl:''},
-  {imageUrl:'javascript:alert(1)'},{imageUrl:'http://inseguro.test/foto.jpg'},
-  {imageUrl:'https://evil.test/a.jpg" onerror="alert(1)'},{imageType:'poster'}])
-  assert.equal(ctx.ONDAVisual.photo({...x,...patch}),null,JSON.stringify(patch));
- assert.equal(ctx.ONDAVisual.photo(x)?.scope,'foto');
+test('ilustraciones temáticas se usan antes del fallback solo con categoría compatible',()=>{
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'formato');
+ assert.equal(select({...e('Exposición de pintura','Cultura','Museo'),kind:'exposicion'}).scope,'formato');
+ assert.notEqual(select(e('Canciones desnudas','Música','Teatro MACA')).scope,'identidad');
+ assert.equal(select(e('Inauguración de un monumento','Cultura','Piriápolis')).scope,'identidad');
+});
+test('archivo de imágenes vinculado por ID se aplica a cargas y actualizaciones',()=>{
+ const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
+ assert.match(app,/function attachImages/);
+ assert.match(app,/data\/event-images\.json/);
+ assert.match(app,/state\.events=attachImages\(data\)/);
+ assert.match(app,/state\.events=attachImages\(items\)/);
 });
 test('filtro nativo, etiqueta, crédito y respaldo secuencial en tarjetas y modal',()=>{
  const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
