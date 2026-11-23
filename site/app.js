@@ -260,7 +260,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCat
 /* Medición (Google Tag Manager): eventos propios en dataLayer. No se envían datos personales. */
 document.addEventListener('click',ev=>{
  const t=ev.target instanceof Element?ev.target:null;if(!t)return;
- const push=o=>{try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(o)}catch(_){}};
+ const push=o=>{try{const n=o.event;delete o.event;if(typeof gtag==='function')gtag('event',n,o)}catch(_){}};
  const idOf=el=>{const h=el.closest('[data-id]');return h?h.getAttribute('data-id'):''};
  const detail=t.closest('.detail-btn');if(detail){push({event:'onda_ficha_abierta',event_id:idOf(detail)});return}
  const ticket=t.closest('.ticket-cta');if(ticket){let host='';try{host=new URL(ticket.href).hostname}catch(_){}push({event:'onda_clic_entrada',event_id:idOf(ticket),destino:host});return}
