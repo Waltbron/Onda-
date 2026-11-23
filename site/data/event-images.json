@@ -47,5 +47,12 @@
     "imageAlt": "Imagen publicada para IRONMAN 70.3 Punta del Este",
     "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
     "imageSourceUrl": "https://www.ironman.com/races/im703-punta-del-este"
+  },
+  "cordera-caravana-magica-maldonado-20261128": {
+    "imageUrl": "https://www.passline.com/imagenes/eventos/cordera-y-la-caravana-magica-568683-rec.jpg",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Cordera y La Caravana Mágica",
+    "imageCredit": "Passline",
+    "imageSourceUrl": "https://www.passline.com/eventos/cordera-y-la-caravana-magica"
   }
 }
