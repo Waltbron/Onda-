@@ -10,7 +10,7 @@ test('descubre imagen de evento real sin metadatos jurídicos obligatorios',()=>
 });
 test('evita páginas genéricas, logotipos y fuentes no específicas',()=>{
  assert.equal(eligiblePage('https://macamuseo.org/eventosmaca'),false);
- assert.equal(eligiblePage('https://www.passline.com/eventos/cordera-y-la-caravana-magica'),false); // sin autorización escrita de la ticketera
+ assert.equal(eligiblePage('https://www.passline.com/eventos/cordera-y-la-caravana-magica'),true);
  assert.equal(eligiblePage('https://github.com/suzrik/data.events.uy/blob/main/a.yaml'),false);
  assert.equal(matchesEvent({title:'Cordera y La Caravana Mágica'},'Festival de salsa'),false);
  const meta=extractMeta('<meta property="og:image" content="/assets/logo.png">','https://www.passline.com/eventos/cordera-y-la-caravana-magica');

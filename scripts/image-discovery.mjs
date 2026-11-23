@@ -7,7 +7,7 @@ const root=new URL('../',import.meta.url);
 const load=path=>JSON.parse(readFileSync(new URL(path,root),'utf8'));
 const clean=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const STOP=new Set('de del la las los el en un una por y para concierto evento festival internacional musica teatro cine maca punta este maldonado 2026 2027'.split(' '));
-const providers=['maldonado.gub.uy','macamuseo.org','rseventosdeportivos.com','ironman.com','gfny.com','toururuguay.uy','rochacorre.uy','lolograste.uy','granfondoargentina.com','puntadeleste.gfny.com'];
+const providers=['maldonado.gub.uy','macamuseo.org','passline.com','rseventosdeportivos.com','ironman.com','gfny.com','toururuguay.uy','rochacorre.uy','lolograste.uy','granfondoargentina.com','puntadeleste.gfny.com'];
 const safeUrl=s=>{try{const u=new URL(s);return u.protocol==='https:'&&!u.username&&!u.password?u:null}catch{return null}};
 export function validImageUrl(s){
  const u=safeUrl(s);

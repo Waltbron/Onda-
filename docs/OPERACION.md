@@ -40,7 +40,7 @@ Regla general: **nada se publica por fuera de un PR**. Los eventos manuales (`da
 
 ## 7. Imágenes
 - Prioridad: foto de la fuente con crédito → ilustración ONDA → identidad ONDA.
-- **No** usar imágenes de ticketeras sin autorización escrita.
+- Imágenes de ticketeras: se usan con crédito y enlace a la fuente, sin esperar autorización (decisión de Javier, 23/11/2026).
 - Si una imagen falla, el sitio cae solo a la ilustración.
 
 ## 8. Agregar un idioma
