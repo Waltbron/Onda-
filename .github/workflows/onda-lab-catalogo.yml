@@ -40,15 +40,18 @@ jobs:
           ONDA_AUTOMATION_ENABLED: 'true'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run ingest:publish
+      - name: Descubrir imágenes de las fichas nuevas (no bloquea si falla)
+        continue-on-error: true
+        run: npm run images:discover
       - name: Validación posterior
         run: npm run check
       - name: Publicar solo en rama Lab si hubo cambios
         run: |
           git config user.name 'ONDA Lab automation'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json
+          git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json site/data/event-images.json
           if ! git diff --cached --quiet; then
-            git commit -m 'ONDA Lab: actualizar catálogo verificado para Netlify'
+            git commit -m 'ONDA Lab: actualizar catálogo e imágenes verificados para Netlify'
             git push origin HEAD:chore/instalar-motor-v3-1
           else
             echo 'Sin cambios en el catálogo de Lab'
