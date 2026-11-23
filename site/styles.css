@@ -164,3 +164,25 @@
 .format-chip{display:inline-block;vertical-align:baseline;margin-left:5px;padding:2px 6px;
  border:1px solid #d6dfef;border-radius:6px;background:#f5f7fc;color:#234c8d;
  font:800 9px/1.4 var(--sans);letter-spacing:.2px;white-space:nowrap}
+
+/* ONDA Foto v1: filtro nativo sin librerías, aplicado exclusivamente a fotografías. */
+:root{--onda-foto-saturacion:.86;--onda-foto-contraste:1.07;--onda-foto-brillo:.97}
+.rec-poster.has-photo .editorial-art,
+.event-visual.has-photo .editorial-art,
+.modal-visual.has-photo .event-art-img{
+ filter:saturate(var(--onda-foto-saturacion)) contrast(var(--onda-foto-contraste)) brightness(var(--onda-foto-brillo));
+ object-fit:cover;
+}
+.rec-poster.has-photo::after,
+.event-visual.has-photo::after,
+.modal-visual.has-photo::after{
+ content:"";display:block;position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(145deg,rgba(37,89,217,.15),transparent 56%,rgba(247,100,87,.13)),
+            linear-gradient(0deg,rgba(12,21,40,.18),transparent 64%);
+}
+.modal-visual.has-photo::after{z-index:1}
+.modal-visual.has-photo figcaption{z-index:2}
+.modal-visual figcaption a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.rec-poster.has-photo .tag,.rec-poster.has-photo .poster-index,.rec-poster.has-photo .poster-head,
+.event-visual.has-photo .ev-category,.event-visual.has-photo .ev-date{z-index:2}
+.visual-disclaimer.photo-label{background:rgba(250,247,239,.94);color:#172944}

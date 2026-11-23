@@ -46,6 +46,12 @@ No colocar tokens en archivos ni commits. `scripts/run.mjs` rechaza publicación
 - `data/reports/latest.json`, `data/state.json`: trazabilidad de la última corrida.
 - `site/assets/editorial/`: WebP publicados, distintos de los originales del archivo maestro de Drive.
 
+## ONDA Foto v1: tres niveles visuales
+
+Jerarquía: **foto real autorizada + filtro CSS nativo → ilustración pertinente de la biblioteca aprobada → serigrafía ONDA → tarjeta tipográfica si falla la carga**. No hay dependencias nuevas ni transformación en servidor. Las imágenes remotas pueden fallar por protección anti-hotlink.
+
+Campos opcionales en cada evento (se requieren todos para mostrar foto): `imageType: "photo"`, `imageUrl` (HTTPS o asset local), `imageAlt`, `imageCredit`, `imageSourceUrl` (HTTPS), `imageRightsStatus` (`owned`, `licensed` o `authorized`). El estado declarado nunca reemplaza la verificación efectiva de derechos. Sin foto permitida se usa la biblioteca existente. Tratamiento ajustable en `site/styles.css` por `--onda-foto-*`. No se inventan fotos ni eventos.
+
 ## Reglas que permanecen vigentes
 
 **No están habilitadas** las ticketeras RedTickets, CobraTicket, Portal Bosque ni los conectores MACA/IDM. Son candidatas para pilotos separados y requieren revisar condiciones, robots/API o acuerdo correspondiente. No inventar un catálogo ni promocionar automáticamente pistas del radar sin corroborarlas.

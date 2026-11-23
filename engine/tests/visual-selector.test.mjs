@@ -117,3 +117,30 @@ test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos
   }
  }
 });
+
+test('orden de imágenes: foto autorizada, ilustración aprobada, fallback',()=>{
+ const x={...e('Concierto de jazz','Música','Medio y Medio'),
+  imageUrl:'https://cdn.example.org/jazz.webp',imageAlt:'Retrato real',
+  imageCredit:'Fotógrafo',imageSourceUrl:'https://example.org/permiso',imageRightsStatus:'authorized',imageType:'photo'};
+ assert.equal(select(x).scope,'foto');
+ assert.equal(V.allocate([x]).get(x.id).scope,'foto');
+ assert.equal(select({...x,imageRightsStatus:'pending'}).id,'onda_evento_jazz_ensamble_vivo_01');
+ assert.equal(select(e('Actividad sin portada','Música','Sede sin escena')).scope,'identidad');
+});
+test('no se autoriza fotografía sin crédito, origen, permiso o HTTPS',()=>{
+ const x={...e('Jazz','Música','Medio y Medio'),imageUrl:'https://cdn.example.org/jazz.webp',
+ imageAlt:'Retrato',imageCredit:'Autora',imageSourceUrl:'https://example.org/origen',imageRightsStatus:'licensed'};
+ for(const patch of [{imageRightsStatus:'pending'},{imageCredit:''},{imageAlt:''},{imageSourceUrl:''},
+  {imageUrl:'javascript:alert(1)'},{imageUrl:'http://inseguro.test/foto.jpg'},
+  {imageUrl:'https://evil.test/a.jpg" onerror="alert(1)'},{imageType:'poster'}])
+  assert.equal(ctx.ONDAVisual.photo({...x,...patch}),null,JSON.stringify(patch));
+ assert.equal(ctx.ONDAVisual.photo(x)?.scope,'foto');
+});
+test('filtro nativo, etiqueta, crédito y respaldo secuencial en tarjetas y modal',()=>{
+ const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../../site/styles.css',import.meta.url),'utf8');
+ assert.match(app,/data-fallback-src/);assert.match(app,/data-final-src/);
+ assert.match(app,/backupStage/);assert.match(app,/modal-visual.*has-photo/);
+ assert.match(css,/--onda-foto-saturacion/);assert.match(css,/\.rec-poster\.has-photo/);
+ assert.match(css,/\.event-visual\.has-photo/);assert.match(css,/\.modal-visual\.has-photo/);
+});

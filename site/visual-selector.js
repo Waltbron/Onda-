@@ -130,7 +130,19 @@ function fallback(e,blocked=new Set()){
  return {id:brand.id,src:'./assets/editorial/'+brand.id+'.webp',scope:'identidad',usage:'evento',score:0,variant:brand.variant,contextual:false,
  about:brand.about,caption:'Identidad gráfica ONDA; no representa el evento, el artista ni la sede.'};
 }
-function select(e){return candidates(e)[0]||fallback(e)}
+// Foto real solo con derechos documentados; luego ilustración; luego serigrafía.
+const PHOTO_RIGHTS=new Set(['owned','licensed','authorized']);
+const remoteHttps=x=>typeof x==='string'&&/^https:\/\/[a-z0-9.-]+(?:\/[^\s<>"']*)?$/i.test(x)&&!x.includes('@');
+const photoAsset=x=>remoteHttps(x)||(typeof x==='string'&&/^\.\/assets\/[a-z0-9/_-]+\.(?:jpe?g|png|webp)$/i.test(x));
+function photo(e){
+ if(!e||!PHOTO_RIGHTS.has(e.imageRightsStatus)||!photoAsset(e.imageUrl)||!remoteHttps(e.imageSourceUrl))return null;
+ if(e.imageType&&e.imageType!=='photo')return null;
+ const alt=String(e.imageAlt||'').trim(),credit=String(e.imageCredit||'').trim();
+ if(!alt||!credit)return null;
+ return {id:'foto:'+e.imageUrl,src:e.imageUrl,score:200,scope:'foto',usage:'evento',
+   contextual:true,caption:alt,credit,sourceUrl:e.imageSourceUrl};
+}
+function select(e){return photo(e)||candidates(e)[0]||fallback(e)}
 function allocate(events,{columns=1}={}){
  // Imágenes reutilizables: prohibición local únicamente para vecinos reales en la grilla.
  const cols=Number.isInteger(columns)&&columns>0?columns:1;
@@ -140,10 +152,10 @@ function allocate(events,{columns=1}={}){
   const i=placed.length,blocked=new Set();
   if(i>0&&i%cols!==0)blocked.add(result.get(placed[i-1].id).id);
   if(i>=cols)blocked.add(result.get(placed[i-cols].id).id);
-  const visual=candidates(e).find(x=>!blocked.has(x.id))||fallback(e,blocked);
+  const visual=photo(e)||candidates(e).find(x=>!blocked.has(x.id))||fallback(e,blocked);
   result.set(e.id,visual);placed.push(e);
  }
  return result;
 }
-root.ONDAVisual=Object.freeze({usage,candidates,select,allocate,fallback});
+root.ONDAVisual=Object.freeze({usage,candidates,photo,select,allocate,fallback});
 })(globalThis);
