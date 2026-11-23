@@ -144,3 +144,15 @@ test('filtro nativo, etiqueta, crédito y respaldo secuencial en tarjetas y moda
  assert.match(css,/--onda-foto-saturacion/);assert.match(css,/\.rec-poster\.has-photo/);
  assert.match(css,/\.event-visual\.has-photo/);assert.match(css,/\.modal-visual\.has-photo/);
 });
+
+test('ONDA Lab ofrece comparador con foto CC0 original y tratada, sin evento ficticio',()=>{
+ const html=readFileSync(new URL('../../site/index.html',import.meta.url),'utf8');
+ const css=readFileSync(new URL('../../site/styles.css',import.meta.url),'utf8');
+ assert.match(html,/id="onda-foto-lab"/);
+ assert.match(html,/photo-lab-original/);assert.match(html,/photo-lab-filtered/);
+ assert.match(html,/Wikimedia Commons \/ CC0/);
+ assert.match(html,/no es un evento de la agenda/);
+ assert.match(css,/\.photo-lab-filtered img/);assert.match(css,/\.photo-lab-filtered::after/);
+ const urls=[...html.matchAll(/<img src="(https:\/\/upload\.wikimedia\.org\/[^"]+)"/g)].map(x=>x[1]);
+ assert.equal(urls.length,2);assert.equal(urls[0],urls[1]);
+});

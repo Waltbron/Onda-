@@ -52,6 +52,10 @@ Jerarquía: **foto real autorizada + filtro CSS nativo → ilustración pertinen
 
 Campos opcionales en cada evento (se requieren todos para mostrar foto): `imageType: "photo"`, `imageUrl` (HTTPS o asset local), `imageAlt`, `imageCredit`, `imageSourceUrl` (HTTPS), `imageRightsStatus` (`owned`, `licensed` o `authorized`). El estado declarado nunca reemplaza la verificación efectiva de derechos. Sin foto permitida se usa la biblioteca existente. Tratamiento ajustable en `site/styles.css` por `--onda-foto-*`. No se inventan fotos ni eventos.
 
+### Demostración visual verificada por derechos: Foto v1.1
+
+ONDA Lab incluye un [comparador](https://onda-lab-hormiga.netlify.app/#onda-foto-lab) con una fotografía real CC0 de Laura Wielo (Wikimedia Commons), sin filtro y con filtro ONDA. Es un recurso de prueba, no corresponde a Medio y Medio ni a ningún evento de la agenda. Las tarjetas de agenda seguirán mostrando la biblioteca y el fallback mientras no haya fotografías específicas con derechos y procedencia documentados. No activa scraping ni imágenes sintéticas.
+
 ## Reglas que permanecen vigentes
 
 **No están habilitadas** las ticketeras RedTickets, CobraTicket, Portal Bosque ni los conectores MACA/IDM. Son candidatas para pilotos separados y requieren revisar condiciones, robots/API o acuerdo correspondiente. No inventar un catálogo ni promocionar automáticamente pistas del radar sin corroborarlas.
