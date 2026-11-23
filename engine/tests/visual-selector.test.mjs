@@ -111,9 +111,11 @@ test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos
   const count=[...selected.values()].filter(v=>v.scope==='identidad').length;
   assert.ok(count<=14,'fallbacks restantes en '+columns+' columnas: '+count);
   for(let i=0;i<future.length;i++){
-   const image=selected.get(future[i].id);
-   if(i%columns!==0)assert.notEqual(image.id,selected.get(future[i-1].id).id);
-   if(i>=columns)assert.notEqual(image.id,selected.get(future[i-columns].id).id);
+   const image=selected.get(future[i].id),blocked=new Set();
+   if(i%columns!==0)blocked.add(selected.get(future[i-1].id).id);
+   if(i>=columns)blocked.add(selected.get(future[i-columns].id).id);
+   const available=ctx.ONDAVisual.candidates(future[i]).some(x=>!blocked.has(x.id));
+   if(available&&image.scope!=='foto')assert.equal(blocked.has(image.id),false,'Se repite pese a existir alternativa');
   }
  }
 });

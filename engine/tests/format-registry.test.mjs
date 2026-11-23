@@ -27,7 +27,8 @@ test('los formatos diferencian jam, jazz, rock, teatro, cine y literatura',()=>{
 test('triatlón no usa running; formato desconocido no inventa imagen',()=>{
  const tri={id:'t',title:'IRONMAN 70.3 Punta del Este',category:'Deporte',description:'Triatlón running',tags:['running','triatlon']};
  assert.equal(F.classify(tri)?.id,'triatlon');
- assert.equal(V.forEvent(tri).scope,'identidad');
+ assert.equal(V.forEvent(tri).scope,'ambiente');
+ assert.notEqual(V.forEvent(tri).id,'onda_evento_running_carrera_popular_01');
  assert.equal(F.classify({title:'Festival de guitarra',category:'Música',description:'',tags:[]}),null);
 });
 test('format_id explícito validado por categoría tiene prioridad',()=>{
@@ -38,7 +39,8 @@ test('format_id explícito validado por categoría tiene prioridad',()=>{
 test('no se muestra arte de presentación en una feria literaria',()=>{
  const e=find('Euforia del Libro');
  assert.equal(F.classify(e)?.id,'feria_literaria');
- assert.equal(V.forEvent(e).scope,'identidad');
+ assert.equal(V.forEvent(e).scope,'ambiente');
+ assert.notEqual(V.forEvent(e).id,'onda_evento_presentacion_libro_autor_01');
 });
 test('el selector consume registro y la interfaz distingue categoría y formato',()=>{
  const s=readFileSync(new URL('../../site/visual-selector.js',import.meta.url),'utf8');
