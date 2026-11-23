@@ -170,7 +170,7 @@ function photo(e){
  const posterFromMaca=/^https:\/\/entradas\.macamuseo\.org\/evento\/[^?#]+\/og(?:[?#]|$)/i.test(e.imageUrl);
  const imageType=e.imageType==='poster'||e.imageType==='flyer'||posterFromMaca?'poster':e.imageType||'photo';
  return {id:'foto:'+e.imageUrl,src:e.imageUrl,scope:'foto',usage:'evento',score:200,
-  contextual:true,caption,credit,sourceUrl,imageType};
+  contextual:true,caption,credit,sourceUrl,imageType,imageLayout:e.imageLayout||'auto',aspectRatio:e.imageAspectRatio||0};
 }
 function select(e){return photo(e)||candidates(e)[0]||fallback(e)}
 function allocate(events,{columns=1}={}){

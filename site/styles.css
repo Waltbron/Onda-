@@ -228,50 +228,37 @@
 .photo-lab-palette .swatch-coral{background:var(--accent)}
 .photo-lab-palette .swatch-marfil{background:var(--paper);border-color:var(--line)}
 
-/* ONDA · Afiches MACA con texto incorporado (foto normal: cover; afiche: contain).
-   Las piezas OG horizontales se respetan completas y sin superposición cromática. */
-.rec-poster.has-poster,
-.event-visual.has-poster,
-.modal-visual.has-poster{background:var(--ink)}
-.rec-poster.has-poster,
-.event-card.has-poster .event-visual{
- width:100%;height:auto;aspect-ratio:1200/630;min-height:0;
- flex:none;padding:0;position:relative;overflow:hidden;
+/* ONDA - Dos formatos adaptativos: banner o lateral, sin estilos por organizador. */
+.rec-poster.has-poster,.event-visual.has-poster,.modal-visual.has-poster{background:var(--ink)}
+.rec-poster.media-banner,.event-card.media-banner .event-visual{
+ width:100%;height:auto;aspect-ratio:16/9;min-height:0;
+ flex:none;padding:0;position:relative;overflow:hidden
 }
-.event-card.has-poster{display:flex;flex-direction:column;min-height:0}
-.event-card.has-poster .event-content{width:100%;padding:18px}
+.event-card.media-banner{display:flex;flex-direction:column;min-height:0}
+.event-card.media-banner .event-content{width:100%;padding:18px}
+/* Afiches originales: conservar texto, artistas y logos sin recortes ni tintes. */
 .rec-poster.has-poster.has-photo .editorial-art,
 .event-visual.has-poster.has-photo .editorial-art,
 .modal-visual.has-poster.has-photo .event-art-img{
- object-fit:contain;object-position:center;filter:none;
+ object-fit:contain;object-position:center;filter:none
 }
-.rec-poster.has-poster::after,
-.event-visual.has-poster::after,
-.modal-visual.has-poster::after{display:none}
-.rec-poster.has-poster .tag,
-.rec-poster.has-poster .poster-head,
-.rec-poster.has-poster .poster-index,
-.event-visual.has-poster .ev-category,
-.event-visual.has-poster .ev-date{display:none}
-.rec-poster.has-poster .visual-disclaimer,
-.event-visual.has-poster .visual-disclaimer{
- top:auto;bottom:6px;right:6px;max-width:58%;font-size:8px;
+.rec-poster.has-poster::after,.event-visual.has-poster::after,.modal-visual.has-poster::after{display:none}
+.rec-poster.has-poster .tag,.rec-poster.has-poster .poster-head,.rec-poster.has-poster .poster-index,
+.event-visual.has-poster .ev-category,.event-visual.has-poster .ev-date{display:none}
+.rec-poster.has-poster .visual-disclaimer,.event-visual.has-poster .visual-disclaimer{
+ top:auto;bottom:6px;right:6px;max-width:58%;font-size:8px
 }
+.event-visual.media-side.has-poster .editorial-art{object-fit:contain}
 .modal-visual.has-poster{max-height:none;overflow:hidden}
-.modal-visual.has-poster.has-photo .event-art-img{
- display:block;width:100%;height:auto;aspect-ratio:auto;
-}
+.modal-visual.has-poster.has-photo .event-art-img{display:block;width:100%;height:auto;aspect-ratio:auto}
 .modal-visual.has-poster figcaption{
- position:relative;bottom:auto;left:auto;display:block;
- max-width:none;padding:8px 11px;border-radius:0;
- background:var(--paper);color:var(--ink);
- font-size:10px;line-height:1.35;overflow-wrap:anywhere;
+ position:relative;bottom:auto;left:auto;display:block;max-width:none;
+ padding:8px 11px;border-radius:0;background:var(--paper);color:var(--ink);
+ font-size:10px;line-height:1.35;overflow-wrap:anywhere
 }
 @media(max-width:720px){
- .event-card.has-poster .event-visual{width:100%}
- .event-card.has-poster .event-content{padding:18px 15px}
- .rec-poster.has-poster{height:auto}
+ .event-card.media-banner .event-visual{width:100%}
+ .event-card.media-banner .event-content{padding:18px 15px}
+ .rec-poster.media-banner{height:auto}
 }
-@media(max-width:370px){
- .event-card.has-poster .event-visual{width:100%}
-}
+@media(max-width:370px){.event-card.media-banner .event-visual{width:100%}}

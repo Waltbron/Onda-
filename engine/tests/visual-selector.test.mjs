@@ -202,10 +202,10 @@ test('MACA: afiche OG se muestra completo y distinto de fotografías recortables
  assert.equal(V.forEvent({...other,...index[other.id]}).imageType,'photo');
  const css=readFileSync(new URL('../../site/styles.css',import.meta.url),'utf8');
  const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
- for(const piece of ['.event-card.has-poster{display:flex;flex-direction:column',
+ for(const piece of ['.event-card.media-banner{display:flex;flex-direction:column',
   '.rec-poster.has-poster.has-photo .editorial-art',
   '.modal-visual.has-poster.has-photo .event-art-img',
   'object-fit:contain','aspect-ratio:auto'])assert.ok(css.includes(piece),'Falta: '+piece);
  assert.match(app,/visual\.imageType==='poster'/);
- assert.match(app,/closest\('\.event-card'\)\?\.classList\.remove\('has-poster'\)/);
+ assert.match(app,/closest\('\.event-card'\)\?\.classList\.remove\('has-poster','media-banner','media-side'\)/);
 });
