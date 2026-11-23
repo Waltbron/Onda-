@@ -1,0 +1,55 @@
+name: ONDA · Capturar muestra de una fuente (manual)
+
+# Baja el listado y pocas fichas de una fuente YA registrada en sources.json (con evidencia de permiso),
+# respetando robots.txt, y guarda la muestra en la rama Lab para escribir/validar su parser.
+# No publica eventos ni activa fuentes.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL del listado (host registrado en sources.json)'
+        required: true
+        default: 'https://maldonado.gub.uy/actividades'
+      detail:
+        description: 'Regex del path de las fichas (opcional)'
+        required: false
+        default: '^/node/[0-9]+$'
+      max:
+        description: 'Fichas a bajar (max. 5)'
+        required: false
+        default: '3'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: onda-capturar-muestra
+  cancel-in-progress: false
+
+jobs:
+  capturar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chore/instalar-motor-v3-1
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Capturar muestra
+        env:
+          IN_URL: ${{ inputs.url }}
+          IN_DETAIL: ${{ inputs.detail }}
+          IN_MAX: ${{ inputs.max }}
+        run: node scripts/capture-sample.mjs "$IN_URL" "--detail=$IN_DETAIL" "--max=$IN_MAX" | tee "$GITHUB_STEP_SUMMARY"
+      - name: Guardar muestra en Lab
+        run: |
+          git config user.name 'ONDA Lab automation'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/samples
+          if ! git diff --cached --quiet; then
+            git commit -m 'ONDA Lab: muestra de fuente para desarrollo de parser'
+            git push origin HEAD:chore/instalar-motor-v3-1
+          fi
