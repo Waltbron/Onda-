@@ -156,3 +156,16 @@ test('ONDA Lab ofrece comparador con foto CC0 original y tratada, sin evento fic
  const urls=[...html.matchAll(/<img src="(https:\/\/upload\.wikimedia\.org\/[^"]+)"/g)].map(x=>x[1]);
  assert.equal(urls.length,2);assert.equal(urls[0],urls[1]);
 });
+
+test('foto ONDA usa la paleta corporativa y conserva comparador original sin retoque',()=>{
+ const css=readFileSync(new URL('../../site/styles.css',import.meta.url),'utf8');
+ const html=readFileSync(new URL('../../site/index.html',import.meta.url),'utf8');
+ for(const token of ['--onda-foto-tinta:var(--ink)','--onda-foto-cobalto:var(--cobalt)',
+  '--onda-foto-coral:var(--accent)','--onda-foto-marfil:var(--paper)',
+  'color-mix(in srgb,var(--onda-foto-cobalto)','color-mix(in srgb,var(--onda-foto-coral)'])
+  assert.ok(css.includes(token),'Falta '+token);
+ for(const token of ['PALETA ONDA','swatch-tinta','swatch-cobalto','swatch-coral','swatch-marfil'])
+  assert.ok(html.includes(token),'Falta '+token);
+ assert.match(html,/photo-lab-original/);
+ assert.match(html,/photo-lab-filtered/);
+});

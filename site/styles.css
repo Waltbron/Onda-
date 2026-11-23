@@ -166,7 +166,12 @@
  font:800 9px/1.4 var(--sans);letter-spacing:.2px;white-space:nowrap}
 
 /* ONDA Foto v1: filtro nativo sin librerías, aplicado exclusivamente a fotografías. */
-:root{--onda-foto-saturacion:.76;--onda-foto-contraste:1.14;--onda-foto-brillo:.90}
+/* Valores conectados a la paleta de marca del :root principal. */
+:root{
+ --onda-foto-tinta:var(--ink);--onda-foto-cobalto:var(--cobalt);
+ --onda-foto-coral:var(--accent);--onda-foto-marfil:var(--paper);
+ --onda-foto-saturacion:.86;--onda-foto-contraste:1.11;--onda-foto-brillo:.96;
+}
 .rec-poster.has-photo .editorial-art,
 .event-visual.has-photo .editorial-art,
 .modal-visual.has-photo .event-art-img,
@@ -179,15 +184,18 @@
 .modal-visual.has-photo::after,
 .photo-lab-filtered::after{
  content:"";display:block;position:absolute;inset:0;z-index:0;pointer-events:none;
- background:linear-gradient(145deg,rgba(37,89,217,.15),transparent 56%,rgba(247,100,87,.13)),
-            linear-gradient(0deg,rgba(12,21,40,.18),transparent 64%);
+ /* Respaldo RGBA y versión vinculada a variables corporativas con color-mix(). */
+ background:linear-gradient(145deg,rgba(37,89,217,.28),transparent 49%,rgba(247,100,87,.25)),
+            linear-gradient(0deg,rgba(19,27,44,.48),transparent 69%);
+ background:linear-gradient(145deg,color-mix(in srgb,var(--onda-foto-cobalto) 28%,transparent),transparent 49%,color-mix(in srgb,var(--onda-foto-coral) 25%,transparent)),
+            linear-gradient(0deg,color-mix(in srgb,var(--onda-foto-tinta) 48%,transparent),transparent 69%);
 }
 .modal-visual.has-photo::after{z-index:1}
 .modal-visual.has-photo figcaption{z-index:2}
 .modal-visual figcaption a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .rec-poster.has-photo .tag,.rec-poster.has-photo .poster-index,.rec-poster.has-photo .poster-head,
 .event-visual.has-photo .ev-category,.event-visual.has-photo .ev-date{z-index:2}
-.visual-disclaimer.photo-label{background:rgba(250,247,239,.94);color:#172944}
+.visual-disclaimer.photo-label{background:var(--onda-foto-marfil);color:var(--onda-foto-tinta)}
 
 /* ONDA Foto v1.1: comparador visible, no se agregan eventos ficticios. */
 .photo-lab{padding:60px 0 35px;border-bottom:1px solid var(--line);scroll-margin-top:18px}
@@ -196,10 +204,10 @@
 .photo-lab-frame{position:relative;aspect-ratio:16/10;background:#16243b;overflow:hidden;isolation:isolate;border-radius:14px}
 .photo-lab-frame img{display:block;width:100%;height:100%;object-fit:cover}
 .photo-lab-filtered::after{z-index:1}
-.photo-lab-sticker{position:absolute;z-index:3;top:16px;left:16px;padding:6px 10px;background:#faf7ef;color:#183148;border-radius:5px;font:900 10px/1.2 var(--sans);letter-spacing:1px}
-.photo-lab-heading{position:absolute;z-index:3;left:22px;bottom:22px;color:#fbf6e9;text-shadow:0 2px 10px #101524cc;font:400 clamp(38px,5.4vw,76px)/.85 var(--serif);letter-spacing:-2px}
-.photo-lab-heading span{color:#f76457}
-.photo-lab-foot{position:absolute;z-index:3;right:18px;bottom:20px;color:#faf7ef;font:900 10px/1.2 var(--sans);letter-spacing:.7px}
+.photo-lab-sticker{position:absolute;z-index:3;top:16px;left:16px;padding:6px 10px;background:var(--paper);color:var(--ink);border-radius:5px;font:900 10px/1.2 var(--sans);letter-spacing:1px}
+.photo-lab-heading{position:absolute;z-index:3;left:22px;bottom:22px;color:var(--paper);text-shadow:0 2px 10px #101524cc;font:400 clamp(38px,5.4vw,76px)/.85 var(--serif);letter-spacing:-2px}
+.photo-lab-heading span{color:var(--accent)}
+.photo-lab-foot{position:absolute;z-index:3;right:18px;bottom:20px;color:var(--paper);font:900 10px/1.2 var(--sans);letter-spacing:.7px}
 .photo-lab-example figcaption{font:800 12px/1.4 var(--sans);padding:10px 1px;color:var(--quiet)}
 .photo-lab-source{margin:8px 0 0;font-size:11px;line-height:1.6;color:var(--quiet)}
 .photo-lab-source a{color:var(--cobalt);font-weight:800;text-underline-offset:2px}
@@ -211,3 +219,11 @@
  .photo-lab-heading{font-size:clamp(42px,10vw,70px)}
  .photo-lab-foot{font-size:9px}
 }
+
+/* Muestra de paleta editorial: todos los tonos provienen de las variables de marca. */
+.photo-lab-palette{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px;font:700 11px/1.4 var(--sans);color:var(--quiet)}
+.photo-lab-palette .swatch{width:17px;height:17px;border-radius:50%;border:1px solid rgba(19,27,44,.12)}
+.photo-lab-palette .swatch-tinta{background:var(--ink)}
+.photo-lab-palette .swatch-cobalto{background:var(--cobalt)}
+.photo-lab-palette .swatch-coral{background:var(--accent)}
+.photo-lab-palette .swatch-marfil{background:var(--paper);border-color:var(--line)}

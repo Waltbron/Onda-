@@ -52,6 +52,10 @@ Jerarquía: **foto real autorizada + filtro CSS nativo → ilustración pertinen
 
 Campos opcionales en cada evento (se requieren todos para mostrar foto): `imageType: "photo"`, `imageUrl` (HTTPS o asset local), `imageAlt`, `imageCredit`, `imageSourceUrl` (HTTPS), `imageRightsStatus` (`owned`, `licensed` o `authorized`). El estado declarado nunca reemplaza la verificación efectiva de derechos. Sin foto permitida se usa la biblioteca existente. Tratamiento ajustable en `site/styles.css` por `--onda-foto-*`. No se inventan fotos ni eventos.
 
+### Paleta de marca para fotos · v1.2 (23/11/2026)
+
+El filtro utiliza directamente las variables CSS de identidad ONDA (`--ink` azul tinta, `--cobalt` azul cobalto, `--accent` coral y `--paper` marfil) y un overlay de color que permite seguir reconociendo la fotografía. La muestra incluye chips con los cuatro colores. Se modificó el tratamiento visual de fotografías; ilustraciones aprobadas y catálogo de eventos permanecen intactos. La fórmula CSS puede ajustarse sin procesamiento de imágenes, nueva librería ni servicio externo.
+
 ### Demostración visual verificada por derechos: Foto v1.1
 
 ONDA Lab incluye un [comparador](https://onda-lab-hormiga.netlify.app/#onda-foto-lab) con una fotografía real CC0 de Laura Wielo (Wikimedia Commons), sin filtro y con filtro ONDA. Es un recurso de prueba, no corresponde a Medio y Medio ni a ningún evento de la agenda. Las tarjetas de agenda seguirán mostrando la biblioteca y el fallback mientras no haya fotografías específicas con derechos y procedencia documentados. No activa scraping ni imágenes sintéticas.
