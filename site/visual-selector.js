@@ -90,8 +90,6 @@ function candidates(e){
    add('onda_deporte_triatlon_costero_mansa_01',102,'formato','Triatlón costero en Punta del Este');
  if(sport&&formatId==='ciclismo'&&matches(local,/piriapolis/)&&matches(info,/\b(ciclismo|ruta|fondo|bicicleta)\b/))
    add('onda_deporte_ciclismo_ruta_piriapolis_01',102,'sede','Ciclismo de ruta en paisaje de Piriápolis');
- if(sport&&formatId==='ciclismo')
-   add('onda_deporte_ciclismo_ruta_piriapolis_01',43,'formato','Ciclismo conceptual; no es una foto del recorrido anunciado');
  if(sport&&formatId==='trail_running'&&matches(local,/sierras?|animas|pan de azucar|maldonado|piriapolis/))
    add('onda_deporte_trail_running_sierras_animas_01',95,'formato','Trail running en terreno serrano');
  if(sport&&formatId==='beach_voley'&&matches(local,/playa mansa|punta del este/))

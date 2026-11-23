@@ -28,7 +28,7 @@ test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, 
  assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
  assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
  assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'formato');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
 });
 
 test('reutiliza imágenes pertinentes lejos y separa vecinos inmediatos',()=>{
@@ -129,7 +129,7 @@ test('una URL HTTPS de imagen por evento tiene prioridad; otros metadatos son op
   assert.equal(ctx.ONDAVisual.photo({...x,imageUrl}),null);
 });
 test('ilustraciones temáticas se usan antes del fallback solo con categoría compatible',()=>{
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'formato');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
  assert.equal(select({...e('Exposición de pintura','Cultura','Museo'),kind:'exposicion'}).scope,'formato');
  assert.notEqual(select(e('Canciones desnudas','Música','Teatro MACA')).scope,'identidad');
  assert.equal(select(e('Inauguración de un monumento','Cultura','Piriápolis')).scope,'identidad');
