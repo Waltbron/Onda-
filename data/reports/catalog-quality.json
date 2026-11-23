@@ -1,0 +1,146 @@
+{
+  "schema": "onda.catalog-health.v1",
+  "generatedAt": "2026-11-23T21:01:20.256Z",
+  "today": "2026-11-23",
+  "analysis": "static-file-audit",
+  "note": "Son señales de calidad de los archivos. La presencia de URL no confirma disponibilidad en vivo ni existencia de entradas.",
+  "totals": {
+    "events": 82,
+    "remainingByDate": 28,
+    "freshWithinSevenDays": 23,
+    "stale": 5,
+    "withEventTicket": 10,
+    "withSeriesRegistration": 1,
+    "withPortalOnly": 2,
+    "withoutTicket": 15,
+    "withStartTime": 16,
+    "withoutSource": 0,
+    "enabledAuthorizedConnectors": 1
+  },
+  "stale": [
+    {
+      "id": "zeballos-amor-fiado-2026",
+      "title": "Zeballos · Amor Fiado",
+      "date": "2026-12-11",
+      "checkedAt": "2026-10-08",
+      "daysSinceCheck": 46
+    },
+    {
+      "id": "idm-exposicion-la-luz-guillermo-molina-2026",
+      "title": "«La luz» · Guillermo Molina",
+      "date": "2026-11-07",
+      "checkedAt": "2026-11-08",
+      "daysSinceCheck": 15
+    },
+    {
+      "id": "maca-cine-un-dia-los-hijos-20261125",
+      "title": "Cine MACA · Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-25",
+      "checkedAt": "2026-11-08",
+      "daysSinceCheck": 15
+    },
+    {
+      "id": "cordera-caravana-magica-maldonado-20261128",
+      "title": "Cordera y La Caravana Mágica",
+      "date": "2026-11-28",
+      "checkedAt": "2026-11-08",
+      "daysSinceCheck": 15
+    },
+    {
+      "id": "maca-teatro-embutidos-20261126",
+      "title": "Teatro MACA · Embutidos Ibargoyen Varela",
+      "date": "2026-11-26",
+      "checkedAt": "2026-11-11",
+      "daysSinceCheck": 12
+    }
+  ],
+  "genericTicketLinks": [
+    {
+      "id": "maca-teatro-embutidos-20261126",
+      "title": "Teatro MACA · Embutidos Ibargoyen Varela",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "onda-79d5821e92f23bd3",
+      "title": "Gran Fondo Punta del Este",
+      "checkedAt": "2026-11-23"
+    }
+  ],
+  "missingTicketLinks": [
+    {
+      "id": "idm-exposicion-la-luz-guillermo-molina-2026",
+      "title": "«La luz» · Guillermo Molina",
+      "date": "2026-11-07"
+    },
+    {
+      "id": "maca-cine-un-dia-los-hijos-20261125",
+      "title": "Cine MACA · Un día para soñar + Los hijos de la montaña",
+      "date": "2026-11-25"
+    },
+    {
+      "id": "maca-cortos-infancias-20261129",
+      "title": "Cine MACA · Cortos para infancias",
+      "date": "2026-11-29"
+    },
+    {
+      "id": "idm-festival-guitarra-maldonado-20261126",
+      "title": "Festival Internacional de Guitarra de Maldonado",
+      "date": "2026-11-26"
+    },
+    {
+      "id": "idm-feria-turismo-rural-natural-20261124",
+      "title": "Feria de Turismo Rural y Natural · Pueblo Gaucho",
+      "date": "2026-11-24"
+    },
+    {
+      "id": "idm-inauguracion-monumento-paella-20261128",
+      "title": "Inauguración del monumento a Piriápolis, Capital Nacional de la Paella",
+      "date": "2026-11-28"
+    },
+    {
+      "id": "onda-bbe3311eda18b646",
+      "title": "Brevets y Randos Punta del Este",
+      "date": "2027-01-09"
+    },
+    {
+      "id": "onda-ca4ceb9d731bce49",
+      "title": "101k San Carlos",
+      "date": "2027-01-24"
+    },
+    {
+      "id": "onda-8e4ce3fed1ceab93",
+      "title": "Tour de San Carlos",
+      "date": "2027-01-29"
+    },
+    {
+      "id": "onda-04d1e57587a6c2a7",
+      "title": "Rocha Corre, etapa La Paloma",
+      "date": "2027-02-06"
+    },
+    {
+      "id": "onda-10df1fdc7203c9ab",
+      "title": "Campeonato Nacional de Triatlón, fecha Piriápolis",
+      "date": "2027-02-28"
+    },
+    {
+      "id": "onda-1696ef81c9099ed9",
+      "title": "Media Maratón de Piriápolis",
+      "date": "2027-04-11"
+    },
+    {
+      "id": "onda-e21cf01c28645218",
+      "title": "Brevets 200, 300, 400 y 600 km Punta del Este",
+      "date": "2027-05-01"
+    },
+    {
+      "id": "onda-e72aa28a719596dd",
+      "title": "Travesías Uruguay, Playa Solanas",
+      "date": "2026-12-19"
+    },
+    {
+      "id": "onda-cda7024816bea191",
+      "title": "Travesías Uruguay, Puente de La Barra",
+      "date": "2027-02-20"
+    }
+  ]
+}

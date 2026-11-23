@@ -105,7 +105,7 @@ test('ONDA Lab v5: formatos y lugares realmente compatibles',()=>{
 });
 test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos',()=>{
  const future=events.filter(e=>(e.endDate||e.date)>='2026-11-22'&&!['cancelado','finalizado','retirado'].includes(e.status)).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')));
- assert.equal(future.length,32);
+ assert.equal(future.length,40);
  for(const columns of [1,2,3]){
   const selected=V.allocate(future,{columns});
   const count=[...selected.values()].filter(v=>v.scope==='identidad').length;
