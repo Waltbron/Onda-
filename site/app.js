@@ -256,3 +256,13 @@ window.addEventListener('focus',refreshTimeSensitiveUI);
 // Actualizar cambios en fichas sin recargar HTML; no repetir solicitudes excesivas.
 setInterval(refreshCatalog,15*60*1000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCatalog()});
+
+/* Medición (Google Tag Manager): eventos propios en dataLayer. No se envían datos personales. */
+document.addEventListener('click',ev=>{
+ const t=ev.target instanceof Element?ev.target:null;if(!t)return;
+ const push=o=>{try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(o)}catch(_){}};
+ const idOf=el=>{const h=el.closest('[data-id]');return h?h.getAttribute('data-id'):''};
+ const detail=t.closest('.detail-btn');if(detail){push({event:'onda_ficha_abierta',event_id:idOf(detail)});return}
+ const ticket=t.closest('.ticket-cta');if(ticket){let host='';try{host=new URL(ticket.href).hostname}catch(_){}push({event:'onda_clic_entrada',event_id:idOf(ticket),destino:host});return}
+ const wa=t.closest('.wa-cta');if(wa){push({event:'onda_whatsapp_compartir',event_id:idOf(wa)})}
+});
