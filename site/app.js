@@ -74,11 +74,11 @@ function visualBackups(e,visual){
  return {curated,alternate,final};
 }
 function visualLabel(visual){
- return visual.scope==='foto'?(visual.imageType==='reference'?'Imagen de referencia · filtro ONDA':'Imagen del evento · filtro ONDA'):visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
+ return visual.scope==='foto'?(visual.imageType==='poster'?'Afiche completo del organizador':visual.imageType==='reference'?'Imagen de referencia · filtro ONDA':'Imagen del evento · filtro ONDA'):visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
 }
 function editorialCover(e,visual){
  const {curated,alternate,final}=visualBackups(e,visual);
- const label=visual.scope==='foto'?(visual.imageType==='reference'?'Imagen referencial':'Imagen del evento'):visual.scope==='identidad'?'':'Ilustración ONDA';
+ const label=visual.scope==='foto'?(visual.imageType==='poster'?'Afiche original':visual.imageType==='reference'?'Imagen referencial':'Imagen del evento'):visual.scope==='identidad'?'':'Ilustración ONDA';
  const badge=label?'<span class="visual-disclaimer'+(visual.scope==='foto'?' photo-label':'')+'">'+label+'</span>':'';
  if(visual.src){
   const typeClass=visual.scope==='foto'?' onda-photo':visual.scope==='identidad'?' brand-fallback':'';
@@ -96,7 +96,7 @@ function ticketAction(e){
  const link=TIX.access(e);
  return link.hasDirectTicket?'<a class="card-action ticket-cta" target="_blank" rel="noopener noreferrer" href="'+safeUrl(link.url)+'" aria-label="'+escapeHtml(link.label+' para '+e.title)+'">'+escapeHtml(link.label)+'</a>':'';
 }
-function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('rec-poster has-art'+(visual.scope==='identidad'?' has-brand':visual.scope==='foto'?' has-photo':'')):'rec-poster has-editorial';return `<article class="rec-card">
+function recCard(e,i,visualOverride){const title=escapeHtml(e.title);const index=String(i+1).padStart(2,'0');const t=e.category.toUpperCase();const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('rec-poster has-art'+(visual.scope==='identidad'?' has-brand':visual.scope==='foto'?(visual.imageType==='poster'?' has-photo has-poster':' has-photo'):'')):'rec-poster has-editorial';return `<article class="rec-card">
   <div class="${visualClass}" style="${colors(e)}">${cover}<span class="tag">${escapeHtml(t)}</span><span class="poster-head">${escapeHtml(e.city)}</span><span class="poster-index">ONDA / ${index}</span></div>
   <div class="rec-body"><div class="rec-overline">SELECCIÓN ${index} · ${escapeHtml(dateLabel(e))}</div><h3>${title}</h3><div class="rec-meta">⌖ ${escapeHtml(whereLabel(e))} ${formatChip(e)}</div>
   <div class="editor-note"><strong>LA MIRADA DE ONDA</strong>${escapeHtml(reason(e))}</div>
@@ -107,7 +107,7 @@ function renderRecs(){const x=selectRecs();const area=$('recommendations');if(!a
  const assigned=activeVisualPlan('recommendations');
  area.innerHTML=x.length?x.map((e,i)=>recCard(e,i,assigned.get(e.id))).join(''):`<div class="loading"><strong>No encontramos una opción adecuada ahora.</strong><p>Probá «Próximos días» o «Sorprendeme». Nunca inventamos eventos para completar las tres recomendaciones.</p></div>`;
 }
-function eventCard(e,visualOverride){const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('event-visual has-art'+(visual.scope==='identidad'?' has-brand':visual.scope==='foto'?' has-photo':'')):'event-visual has-editorial';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))} ${formatChip(e)}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions">${ticketAction(e)}<button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">WhatsApp ↗</a></div></div></article>`}
+function eventCard(e,visualOverride){const visual=visualOverride||VISUALS.forEvent(e);const cover=editorialCover(e,visual);const visualClass=visual.src?('event-visual has-art'+(visual.scope==='identidad'?' has-brand':visual.scope==='foto'?(visual.imageType==='poster'?' has-photo has-poster':' has-photo'):'')):'event-visual has-editorial';const day=e.kind==='exposicion'?'↗':new Date(e.date+'T12:00:00Z').getUTCDate();return `<article class="event-card${visual.imageType==='poster'?' has-poster':''}"><div class="${visualClass}" style="${colors(e)}">${cover}<div class="ev-category">${escapeHtml(e.category)}</div><div class="ev-date">${day}<small>${escapeHtml(month(e.kind==='exposicion'?e.endDate:e.date))}</small></div></div><div class="event-content"><h3>${escapeHtml(e.title)}</h3><div class="event-meta">⌖ ${escapeHtml(e.city)} · ${escapeHtml(dateLabel(e))} ${formatChip(e)}</div><p>${escapeHtml(e.description)}</p><div class="event-meta">${escapeHtml(priceLabel(e))} · ${escapeHtml(ticketLabel(e))}</div><div class="event-meta">${escapeHtml(freshnessLabel(e))}</div><div class="event-actions">${ticketAction(e)}<button type="button" class="card-action detail-btn" data-id="${escapeHtml(e.id)}">Ver detalles →</button><a class="card-action wa-cta" target="_blank" rel="noopener noreferrer" href="${safeUrl(ONDAShare.whatsapp(e,window.location.href))}" aria-label="Compartir ${escapeHtml(e.title)} por WhatsApp">WhatsApp ↗</a></div></div></article>`}
 function agendaItems(){return state.events.filter(e=>current(e)&&(state.category==='todos'||state.category===e.category)&&(!state.free||e.priceTier==='gratis')&&(!state.query||[e.title,e.city,e.place,e.description,e.category,e.sourceName,e.ticketera,e.cost,FMT?.classify(e)?.label||'',...(Array.isArray(e.tags)?e.tags:[])].join(' ').toLocaleLowerCase('es-UY').includes(state.query.toLocaleLowerCase('es-UY')))).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')))}
 function renderAgenda(){const all=agendaItems();$('resultCount').textContent=`${all.length} ${all.length===1?'propuesta':'propuestas'} próximas`; const assigned=activeVisualPlan('agenda');$('eventGrid').innerHTML=all.slice(0,state.shown).map(e=>eventCard(e,assigned.get(e.id))).join('');$('empty').classList.toggle('hidden',all.length!==0);$('loadMore').classList.toggle('hidden',all.length<=state.shown)}
 function findEvent(id){return state.events.find(e=>e.id===id)}
@@ -117,7 +117,7 @@ function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.
  const {curated,alternate,final}=visualBackups(e,visual);
  const photoCredit=visual.scope==='foto'?(visual.sourceUrl?'<a href="'+safeUrl(visual.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Imagen: '+escapeHtml(visual.credit)+'</a> · filtro ONDA':'Imagen del evento · filtro ONDA'):escapeHtml(visualLabel(visual));
  const modalCover=visual.src
-  ?'<figure class="modal-visual'+(visual.scope==='foto'?' has-photo':'')+'"><img class="event-art-img'+(visual.scope==='foto'?' onda-photo':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-second-src="'+escapeHtml(alternate.src)+'" data-second-kind="'+escapeHtml(alternate.scope)+'" data-second-caption="'+escapeHtml(visualLabel(alternate))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+photoCredit+'</figcaption></figure>'
+  ?'<figure class="modal-visual'+(visual.scope==='foto'?(visual.imageType==='poster'?' has-photo has-poster':' has-photo'):'')+'"><img class="event-art-img'+(visual.scope==='foto'?' onda-photo':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-second-src="'+escapeHtml(alternate.src)+'" data-second-kind="'+escapeHtml(alternate.scope)+'" data-second-caption="'+escapeHtml(visualLabel(alternate))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+photoCredit+'</figcaption></figure>'
   :'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>';
  const gmaps=ONDAShare.directions(e);
  const startedNote=ET.timingNote(e);
@@ -210,7 +210,8 @@ document.addEventListener('error',ev=>{
   if(!next.src||next.src===img.getAttribute('src'))continue;
   img.dataset.backupStage=String(step);
   img.classList.remove('onda-photo');
-  img.parentElement?.classList.remove('has-photo');
+  img.parentElement?.classList.remove('has-photo','has-poster');
+  img.closest('.event-card')?.classList.remove('has-poster');
   img.src=next.src;
   img.alt=next.kind==='identidad'?'Identidad ONDA; no representa el evento.':'Ilustración ONDA, no fotografía del evento.';
   const badge=img.parentElement?.querySelector('.visual-disclaimer');

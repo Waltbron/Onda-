@@ -191,3 +191,21 @@ test('registros válidos y serigrafía residual sobre agenda futura',()=>{
  assert.match(app,/data-second-src/);
  assert.match(app,/JSON.stringify\(\[items,state.imageIndex\]\)/);
 });
+
+test('MACA: afiche OG se muestra completo y distinto de fotografías recortables',()=>{
+ const index=JSON.parse(readFileSync(new URL('../../site/data/event-images.json',import.meta.url),'utf8'));
+ const poster=index['maca-mas-que-jazz-las-rodetts-20261128'];
+ assert.equal(poster.imageType,'poster');
+ const e=events.find(e=>e.id==='maca-mas-que-jazz-las-rodetts-20261128');
+ assert.equal(V.forEvent({...e,...poster}).imageType,'poster');
+ const other=events.find(e=>e.id==='cordera-caravana-magica-maldonado-20261128');
+ assert.equal(V.forEvent({...other,...index[other.id]}).imageType,'photo');
+ const css=readFileSync(new URL('../../site/styles.css',import.meta.url),'utf8');
+ const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
+ for(const piece of ['.event-card.has-poster{display:flex;flex-direction:column',
+  '.rec-poster.has-poster.has-photo .editorial-art',
+  '.modal-visual.has-poster.has-photo .event-art-img',
+  'object-fit:contain','aspect-ratio:auto'])assert.ok(css.includes(piece),'Falta: '+piece);
+ assert.match(app,/visual\.imageType==='poster'/);
+ assert.match(app,/closest\('\.event-card'\)\?\.classList\.remove\('has-poster'\)/);
+});

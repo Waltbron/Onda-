@@ -77,3 +77,7 @@ Registro de avance y decisiones: [Notion · ONDA tablero](https://app.notion.com
 ### Actualización del sistema de imágenes · 23/11/2026
 
 La selección admite imágenes reales/afiches de la fuente y escenas editoriales aproximadas de la misma actividad; una imagen conceptual repetida es preferible a un fallback excesivo. Se agregaron piscinas por formato y categoría, un segundo respaldo visual ante error de carga y refresco independiente de `event-images.json`. Se depuraron tres URL `/undefined`. Imágenes idénticas usadas por varias fichas se etiquetan `reference` y nunca son anunciadas como fotografía específica. El script de descubrimiento y `npm run check` bloquean URL inválidas. No se agregaron servicios ni cron.
+
+### Reglas por fuente: afiches MACA (23/11/2026)
+
+Los endpoints `entradas.macamuseo.org/evento/.../og` entregan piezas compuestas con títulos y artistas impresos. ONDA los clasifica como `imageType: poster` y en las fichas móviles los muestra enteros en un encabezado horizontal, con `object-fit: contain`. En el detalle se muestra el cartel completo, sin los recortes ni las restricciones de alto de una foto normal. No aplica el overlay de color ni repite etiquetas que obstruyan el diseño. El resto de fotografías y la biblioteca editorial no cambian. La regla de fuente se aplica también al descubrimiento futuro. Si falla la imagen remota, la ficha vuelve al diseño de ilustraciones y mantiene la caída editorial existente.

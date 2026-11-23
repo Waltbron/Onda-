@@ -56,7 +56,8 @@ async function inspect(event,url){
   if(!res.ok||!(res.headers.get('content-type')||'').includes('text/html'))return null;
   const html=(await res.text()).slice(0,1800000),meta=extractMeta(html,res.url);
   if(!meta.imageUrl||!matchesEvent(event,meta.title))return null;
-  return {imageUrl:meta.imageUrl,imageType:'photo',imageAlt:'Imagen publicada para '+event.title,
+  const imageType=/^https:\/\/entradas\.macamuseo\.org\/evento\/[^?#]+\/og(?:[?#]|$)/i.test(meta.imageUrl)?'poster':'photo';
+  return {imageUrl:meta.imageUrl,imageType,imageAlt:'Imagen publicada para '+event.title,
    imageCredit:event.sourceName||'Fuente del evento',imageSourceUrl:res.url};
  }catch{return null}finally{clearTimeout(timeout)}
 }

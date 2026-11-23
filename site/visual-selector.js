@@ -167,8 +167,10 @@ function photo(e){
  const caption=String(e.imageAlt||('Imagen del evento '+(e.title||''))).trim();
  const credit=String(e.imageCredit||e.sourceName||'Fuente del evento').trim();
  const sourceUrl=remoteHttps(e.imageSourceUrl)?e.imageSourceUrl:remoteHttps(e.sourceUrl)?e.sourceUrl:null;
+ const posterFromMaca=/^https:\/\/entradas\.macamuseo\.org\/evento\/[^?#]+\/og(?:[?#]|$)/i.test(e.imageUrl);
+ const imageType=e.imageType==='poster'||e.imageType==='flyer'||posterFromMaca?'poster':e.imageType||'photo';
  return {id:'foto:'+e.imageUrl,src:e.imageUrl,scope:'foto',usage:'evento',score:200,
-  contextual:true,caption,credit,sourceUrl,imageType:e.imageType||'photo'};
+  contextual:true,caption,credit,sourceUrl,imageType};
 }
 function select(e){return photo(e)||candidates(e)[0]||fallback(e)}
 function allocate(events,{columns=1}={}){
