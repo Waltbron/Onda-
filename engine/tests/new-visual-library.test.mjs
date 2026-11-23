@@ -7,9 +7,9 @@ for(const f of ['format-registry.js','visual-selector.js','visuals.js'])runInNew
 const V=ctx.ONDAVisuals,select=ctx.ONDAVisual.select;
 const events=JSON.parse(readFileSync(new URL('../../site/data/events.json',import.meta.url),'utf8'));
 const e=(title,category='Cultura',place='Museo MACA',tags=[])=>({id:title,title,category,place,city:'Maldonado',tags,description:''});
-test('37 ilustraciones aprobadas con permisos de uso evento, experiencia o ambos',()=>{
- assert.equal(V.catalog.length,37);
- assert.equal(new Set(Array.from(V.catalog.map(x=>x.id))).size,37);
+test('48 ilustraciones aprobadas con permisos de uso evento, experiencia o ambos',()=>{
+ assert.equal(V.catalog.length,48);
+ assert.equal(new Set(Array.from(V.catalog.map(x=>x.id))).size,48);
  assert.ok(V.catalog.every(x=>['evento','experiencia','ambos'].includes(x.usage)));
  for(const x of V.catalog)assert.ok(existsSync(new URL('../../site/'+x.src.slice(2),import.meta.url)));
 });
@@ -27,7 +27,7 @@ test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
 test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
  assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
  assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
- assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).scope,'identidad');
+ assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
  assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
 });
 test('reutilización semántica y separación entre vecinos en vez de exclusividad total',()=>{

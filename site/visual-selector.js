@@ -10,7 +10,15 @@ const EVENT_ONLY=new Set([
 'onda_evento_musica_camara_chelo_piano_01','onda_musica_sunset_casapueblo_publico_01',
 'onda_musica_recital_plaza_san_carlos_01','onda_cultura_teatro_maca_funcion_01',
 'onda_gastronomia_paella_gigante_piriapolis_01','onda_musica_arboretum_lussich_intimo_01',
-'onda_musica_portal_jam_01','onda_musica_dj_casapueblo_01','onda_musica_acustico_jardin_01'
+'onda_musica_portal_jam_01','onda_musica_dj_casapueblo_01','onda_musica_acustico_jardin_01',
+'onda_deporte_running_costero_brava_01',
+'onda_deporte_triatlon_costero_mansa_01',
+'onda_deporte_trail_running_sierras_animas_01',
+'onda_deporte_natacion_aguas_abiertas_01',
+'onda_musica_narakan_jam_01',
+'onda_musica_concierto_vocal_femenina_01',
+'onda_cultura_exposicion_pintura_sala_historica_01',
+'onda_musica_ensamble_guitarra_clasica_01'
 ]);
 const EXPERIENCE_ONLY=new Set([
 'onda_lifestyle_paseo_jose_ignacio_01','onda_familias_pan_azucar_carpincho_01',
@@ -65,6 +73,28 @@ function candidates(e){
  if(sport&&matches(local,/la barra/)&&matches(info,/\b(skate|skateboard)\b/))
   add('onda_deporte_skate_la_barra_01',100,'sede','Skate en La Barra');
  // Formatos sin identificación de sede.
+
+ // Nuevas escenas aprobadas: compatibilidad de formato, sede y geografía.
+ const formatId=root.ONDAFormats?.classify(e)?.id;
+ if(culture&&e.kind==='exposicion'&&matches(venue,/museo regional francisco mazzoni|museo mazzoni/)&&matches(info,/\b(pintura|exposicion|muestra)\b/))
+   add('onda_cultura_exposicion_pintura_sala_historica_01',103,'sede','Exposición pictórica en espacio cultural patrimonial');
+ if(music&&matches(venue,/pueblo narakan/)&&matches(info,/\b(jam|improvisacion|soul|funk|jazz)\b/))
+   add('onda_musica_narakan_jam_01',104,'sede','Música en vivo en Pueblo Narakan');
+ if(music&&matches(info,/\b(hilda lizarazu|cantante femenina|voz femenina|cantautora)\b/)&&matches(info,/\b(concierto|rock|pop|show|canciones)\b/))
+   add('onda_musica_concierto_vocal_femenina_01',96,'formato','Concierto con cantante femenina en sala');
+ if(sport&&formatId==='running'&&matches(local,/playa brava|punta del este/))
+   add('onda_deporte_running_costero_brava_01',102,'formato','Corrida costera en Punta del Este');
+ if(sport&&formatId==='triatlon'&&matches(local,/punta del este|playa mansa/))
+   add('onda_deporte_triatlon_costero_mansa_01',102,'formato','Triatlón costero en Punta del Este');
+ if(sport&&formatId==='ciclismo'&&matches(local,/piriapolis/)&&matches(info,/\b(ciclismo|ruta|fondo|bicicleta)\b/))
+   add('onda_deporte_ciclismo_ruta_piriapolis_01',102,'sede','Ciclismo de ruta en paisaje de Piriápolis');
+ if(sport&&formatId==='trail_running'&&matches(local,/sierras?|animas|pan de azucar|maldonado|piriapolis/))
+   add('onda_deporte_trail_running_sierras_animas_01',95,'formato','Trail running en terreno serrano');
+ if(sport&&formatId==='beach_voley'&&matches(local,/playa mansa|punta del este/))
+   add('onda_deporte_beach_volley_playa_mansa_01',96,'formato','Vóley de playa entre amigos');
+ if(sport&&matches(info,/\b(surf|surfista|surfear)\b/)&&matches(local,/montoya|la barra/))
+   add('onda_deporte_surf_montoya_maniobra_01',102,'sede','Surf en Playa Montoya o La Barra');
+
 
 
 

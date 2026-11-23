@@ -1,6 +1,6 @@
 {
   "project": "ONDA",
-  "version": "5.2 · Reuso semántico con respaldo serigráfico ONDA",
+  "version": "5.3 · 11 ilustraciones aprobadas y asignación por formato/sede",
   "catalogType": "manual-plus-verified-automated",
   "catalogReviewedAt": "2026-11-21",
   "automaticIngestionEnabled": true,
@@ -8,11 +8,11 @@
   "lastSuccessfulRunAt": "2026-11-22T22:23:34.184Z",
   "timezone": "America/Montevideo",
   "notice": "ONDA Lab reúne registros de origen y fichas editoriales. Confirmá acceso, horarios, precio y cambios en el enlace original; imágenes ilustrativas, no fotografías del evento.",
-  "visualLibraryUpdatedAt": "2026-11-21",
-  "visualLibraryApprovedFiles": 53,
-  "visualLibraryState": "50 WebP históricos/recientes conservados y tres serigrafías de marca aprobadas de fallback (53 en total), sin reutilizar diez descartadas",
-  "visualManifest": "data/visual-assets-v4.json",
-  "editorialUpdate": "2026-11-21: cuatro nuevas fichas oficiales y dos horarios MACA revisados; ruta semi-automática radar → fuente primaria → revisión → Lab",
-  "visualDisplayPolicy": "Prioridad: arte oficial autorizado, ilustración editorial compatible reutilizable sin vecinos idénticos, serigrafía ONDA aprobada cuando falta alternativa. Misma imagen separada sí; imagen engañosa nunca. Al fallar carga, respaldo ONDA.",
+  "visualLibraryUpdatedAt": "2026-11-22",
+  "visualLibraryApprovedFiles": 64,
+  "visualLibraryState": "64 WebP: 48 escenas temáticas registradas, 13 históricos genéricos fuera del selector y 3 fondos serigráficos de fallback",
+  "visualManifest": "data/visual-assets-v5.json",
+  "editorialUpdate": "2026-11-22: integración de 11 imágenes aprobadas en ONDA Lab. Son ilustraciones conceptuales, no carteles ni fotografías oficiales.",
+  "visualDisplayPolicy": "Prioridad de imagen oficial autorizada; formato + sede; ilustración portable sin geografía engañosa; fallback serigráfico ONDA. Evita vecinos idénticos por columnas.",
   "visualFallbackManifest": "data/visual-brand-fallbacks-v1.json"
 }

@@ -1,4 +1,4 @@
-// ONDA Lab · Catálogo de 37 escenas editoriales aprobadas (22 recientes + 15 anteriores).
+// ONDA Lab · Catálogo de 48 escenas editoriales aprobadas (37 anteriores + 11 nuevas).
 // El selector de formatos distingue imagen de la actividad, sede y escena de ambiente.
 (function(root){
   'use strict';
@@ -261,7 +261,84 @@
     "category": "Bienestar",
     "place": "Playa Mansa",
     "src": "./assets/editorial/onda_bienestar_paseo_perro_mansa_01.webp"
-  }
+  },
+{
+  "id": "onda_deporte_running_costero_brava_01",
+  "title": "Corrida costera",
+  "category": "Deporte",
+  "place": "Playa Brava / Punta del Este",
+  "src": "./assets/editorial/onda_deporte_running_costero_brava_01.webp"
+},
+{
+  "id": "onda_deporte_triatlon_costero_mansa_01",
+  "title": "Triatlón costero",
+  "category": "Deporte",
+  "place": "Playa Mansa / Punta del Este",
+  "src": "./assets/editorial/onda_deporte_triatlon_costero_mansa_01.webp"
+},
+{
+  "id": "onda_deporte_ciclismo_ruta_piriapolis_01",
+  "title": "Ciclismo por el cerro",
+  "category": "Deporte",
+  "place": "Piriápolis / Cerro San Antonio",
+  "src": "./assets/editorial/onda_deporte_ciclismo_ruta_piriapolis_01.webp"
+},
+{
+  "id": "onda_deporte_trail_running_sierras_animas_01",
+  "title": "Trail running serrano",
+  "category": "Deporte",
+  "place": "Sierras de las Ánimas / Maldonado",
+  "src": "./assets/editorial/onda_deporte_trail_running_sierras_animas_01.webp"
+},
+{
+  "id": "onda_deporte_surf_montoya_maniobra_01",
+  "title": "Surf en Montoya",
+  "category": "Deporte",
+  "place": "Playa Montoya / La Barra",
+  "src": "./assets/editorial/onda_deporte_surf_montoya_maniobra_01.webp"
+},
+{
+  "id": "onda_deporte_beach_volley_playa_mansa_01",
+  "title": "Beach vóley con amigos",
+  "category": "Deporte",
+  "place": "Playa Mansa / Punta del Este",
+  "src": "./assets/editorial/onda_deporte_beach_volley_playa_mansa_01.webp"
+},
+{
+  "id": "onda_deporte_natacion_aguas_abiertas_01",
+  "title": "Natación en aguas abiertas",
+  "category": "Deporte",
+  "place": "Costa atlántica conceptual",
+  "src": "./assets/editorial/onda_deporte_natacion_aguas_abiertas_01.webp"
+},
+{
+  "id": "onda_musica_narakan_jam_01",
+  "title": "Jam en Pueblo Narakan",
+  "category": "Música",
+  "place": "Pueblo Narakan",
+  "src": "./assets/editorial/onda_musica_narakan_jam_01.webp"
+},
+{
+  "id": "onda_musica_concierto_vocal_femenina_01",
+  "title": "Cantante y banda en sala",
+  "category": "Música",
+  "place": "Escenario íntimo sin marca",
+  "src": "./assets/editorial/onda_musica_concierto_vocal_femenina_01.webp"
+},
+{
+  "id": "onda_cultura_exposicion_pintura_sala_historica_01",
+  "title": "Exposición de pintura en sala histórica",
+  "category": "Cultura",
+  "place": "Museo histórico conceptual / Maldonado",
+  "src": "./assets/editorial/onda_cultura_exposicion_pintura_sala_historica_01.webp"
+},
+{
+  "id": "onda_musica_ensamble_guitarra_clasica_01",
+  "title": "Ensamble de guitarra clásica",
+  "category": "Música",
+  "place": "Sala de cámara conceptual",
+  "src": "./assets/editorial/onda_musica_ensamble_guitarra_clasica_01.webp"
+}
 ].map(x=>Object.freeze(x)));
   if(!root.ONDAVisual)throw Error('Falta cargar visual-selector.js antes de visuals.js');
   const published=Object.freeze(catalog.map(x=>Object.freeze({...x,usage:root.ONDAVisual.usage(x.id)})));

@@ -7,9 +7,9 @@ for(const f of ['format-registry.js','visual-selector.js','visuals.js'])runInNew
 const V=ctx.ONDAVisuals,select=ctx.ONDAVisual.select;
 const events=JSON.parse(readFileSync(new URL('../../site/data/events.json',import.meta.url),'utf8'));
 const e=(title,category='Cultura',place='Museo MACA',tags=[])=>({id:title,title,category,place,city:'Maldonado',tags,description:''});
-test('37 ilustraciones aprobadas con permisos de uso evento, experiencia o ambos',()=>{
- assert.equal(V.catalog.length,37);
- assert.equal(new Set(Array.from(V.catalog.map(x=>x.id))).size,37);
+test('48 ilustraciones aprobadas con permisos de uso evento, experiencia o ambos',()=>{
+ assert.equal(V.catalog.length,48);
+ assert.equal(new Set(Array.from(V.catalog.map(x=>x.id))).size,48);
  assert.ok(V.catalog.every(x=>['evento','experiencia','ambos'].includes(x.usage)));
  for(const x of V.catalog)assert.ok(existsSync(new URL('../../site/'+x.src.slice(2),import.meta.url)));
 });
@@ -27,7 +27,7 @@ test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
 test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
  assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
  assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
- assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).scope,'identidad');
+ assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
  assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
 });
 
@@ -82,4 +82,38 @@ test('las tres identidades serigráficas aprobadas están disponibles como WebP 
   seen.add(img.id);
  }
  assert.equal(seen.size,3);
+});
+
+test('ONDA Lab v5: 11 nuevas aprobadas y archivos WebP en ruta local',()=>{
+ const newIds=["onda_deporte_running_costero_brava_01","onda_deporte_triatlon_costero_mansa_01","onda_deporte_ciclismo_ruta_piriapolis_01","onda_deporte_trail_running_sierras_animas_01","onda_deporte_surf_montoya_maniobra_01","onda_deporte_beach_volley_playa_mansa_01","onda_deporte_natacion_aguas_abiertas_01","onda_musica_narakan_jam_01","onda_musica_concierto_vocal_femenina_01","onda_cultura_exposicion_pintura_sala_historica_01","onda_musica_ensamble_guitarra_clasica_01"];
+ assert.equal(new Set(newIds).size,11);
+ for(const id of newIds){const image=V.catalog.find(x=>x.id===id);assert.ok(image,'Falta '+id);assert.ok(existsSync(new URL('../../site/'+image.src.slice(2),import.meta.url)),id);}
+});
+test('ONDA Lab v5: formatos y lugares realmente compatibles',()=>{
+ const byId=id=>events.find(e=>e.id===id);
+ assert.equal(select(byId('idm-exposicion-la-luz-guillermo-molina-2026')).id,'onda_cultura_exposicion_pintura_sala_historica_01');
+ assert.equal(select(byId('idm-festival-guitarra-maldonado-20261126')).id,'onda_musica_ensamble_guitarra_clasica_01');
+ assert.equal(select(byId('redtickets-narakan-jam-20261122')).id,'onda_musica_narakan_jam_01');
+ assert.equal(select(byId('redtickets-hilda-lizarazu-maldonado-20261122')).id,'onda_musica_concierto_vocal_femenina_01');
+ assert.equal(select(byId('onda-8dc5567306f788a9')).id,'onda_deporte_triatlon_costero_mansa_01');
+ for(const id of ['onda-cda7024816bea191','onda-e72aa28a719596dd','onda-58e70b8640621f8f'])
+  assert.equal(select(byId(id)).id,'onda_deporte_natacion_aguas_abiertas_01');
+ assert.equal(select(byId('onda-10df1fdc7203c9ab')).scope,'identidad','Piriápolis no usa imagen de Punta del Este');
+ assert.equal(select(byId('onda-8e4ce3fed1ceab93')).scope,'identidad','San Carlos no usa imagen del Cerro San Antonio');
+ assert.equal(select(byId('cordera-caravana-magica-maldonado-20261128')).scope,'identidad','No usar cantante femenina para Cordera');
+ assert.equal(select(e('Festival de guitarra eléctrica','Música','Sala Maldonado')).scope,'identidad','No confundir guitarra clásica con eléctrica');
+});
+test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos',()=>{
+ const future=events.filter(e=>(e.endDate||e.date)>='2026-11-22'&&!['cancelado','finalizado','retirado'].includes(e.status)).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')));
+ assert.equal(future.length,32);
+ for(const columns of [1,2,3]){
+  const selected=V.allocate(future,{columns});
+  const count=[...selected.values()].filter(v=>v.scope==='identidad').length;
+  assert.ok(count<=14,'fallbacks restantes en '+columns+' columnas: '+count);
+  for(let i=0;i<future.length;i++){
+   const image=selected.get(future[i].id);
+   if(i%columns!==0)assert.notEqual(image.id,selected.get(future[i-1].id).id);
+   if(i>=columns)assert.notEqual(image.id,selected.get(future[i-columns].id).id);
+  }
+ }
 });
