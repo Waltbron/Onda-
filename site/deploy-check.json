@@ -1,0 +1,8 @@
+{
+  "project": "ONDA Lab",
+  "purpose": "Comprobación de despliegue GitHub → Netlify",
+  "catalogSourceCommit": "601862b64c19a22ada0b8cd55032eb84a1cba7f7",
+  "checkpointDate": "2026-11-22",
+  "scope": "laboratorio",
+  "note": "Este archivo permite comprobar que la versión de Netlify incluye los cambios pendientes; no significa que se añadieron eventos."
+}
