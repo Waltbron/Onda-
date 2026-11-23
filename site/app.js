@@ -76,7 +76,7 @@ function visualBackups(e,visual){
  return {curated,alternate,final};
 }
 function visualLabel(visual){
- return visual.scope==='foto'?(visual.imageType==='poster'?'Afiche completo del organizador':visual.imageType==='reference'?'Imagen de referencia · filtro ONDA':'Imagen del evento · filtro ONDA'):visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
+ return visual.scope==='foto'?(visual.imageType==='poster'?'Afiche completo del organizador':visual.imageType==='reference'?'Imagen de referencia · filtro ONDA':'Imagen del evento · filtro ONDA'):visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Imagen ilustrativa · no es fotografía del evento';
 }
 function mediaClasses(visual){
  const isPhoto=visual.scope==='foto',poster=isPhoto&&visual.imageType==='poster';
@@ -85,7 +85,7 @@ function mediaClasses(visual){
 }
 function editorialCover(e,visual){
  const {curated,alternate,final}=visualBackups(e,visual);
- const label=visual.scope==='foto'?(visual.imageType==='poster'?'Afiche original':visual.imageType==='reference'?'Imagen referencial':'Imagen del evento'):visual.scope==='identidad'?'':'Ilustración ONDA';
+ const label=visual.scope==='foto'?(visual.imageType==='poster'?'Afiche original':visual.imageType==='reference'?'Imagen referencial':'Imagen del evento'):visual.scope==='identidad'?'':'';
  const badge=label?'<span class="visual-disclaimer'+(visual.scope==='foto'?' photo-label':'')+'">'+label+'</span>':'';
  if(visual.src){
   const typeClass=visual.scope==='foto'?' onda-photo':visual.scope==='identidad'?' brand-fallback':'';
@@ -233,9 +233,9 @@ document.addEventListener('error',ev=>{
   img.parentElement?.classList.remove('has-photo','has-poster','media-banner','media-side');
   img.closest('.event-card')?.classList.remove('has-poster','media-banner','media-side');
   img.src=next.src;
-  img.alt=next.kind==='identidad'?'Identidad ONDA; no representa el evento.':'Ilustración ONDA, no fotografía del evento.';
+  img.alt=next.kind==='identidad'?'Identidad ONDA; no representa el evento.':'Imagen ilustrativa, no fotografía del evento.';
   const badge=img.parentElement?.querySelector('.visual-disclaimer');
-  if(badge){if(next.kind==='identidad')badge.remove();else{badge.textContent='Ilustración ONDA';badge.classList.remove('photo-label')}}
+  if(badge)badge.remove();
   const caption=img.parentElement?.querySelector('figcaption');
   if(caption)caption.textContent=next.caption||'Portada ONDA';
   return;
