@@ -75,14 +75,15 @@ test('la interfaz recupera la carga si falla un recurso y recalcula la cantidad 
  const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
  assert.match(app,/data-fallback-src/);
  assert.match(app,/event-art-img/);
- assert.match(app,/backupAttempted/);
+ assert.match(app,/data-final-src/);
+ assert.match(app,/backupStage/);
  assert.match(app,/addEventListener\('resize'/);
 });
 
 test('los fondos ONDA no muestran etiqueta técnica y una imagen recuperada elimina el badge editorial',()=>{
  const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
- assert.match(app,/const badge=visual\.scope==='identidad'\?'':/);
- assert.match(app,/if\(badge\)badge\.remove\(\)/);
+ assert.match(app,/const label=visual\.scope==='foto'/);
+ assert.match(app,/if\(next\.kind==='identidad'\)badge\.remove\(\)/);
  assert.doesNotMatch(app,/badge\.textContent='Identidad ONDA'/);
  assert.match(app,/Ilustración ONDA/);
 });
