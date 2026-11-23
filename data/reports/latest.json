@@ -1,13 +1,24 @@
 {
   "version": "3.0",
-  "at": "2026-11-23T20:15:00.973Z",
+  "at": "2026-11-23T22:49:22.773Z",
   "mode": "live",
   "status": "ok",
   "activeConnectors": 1,
   "automaticUpdatesEnabled": true,
   "publishedChanges": 0,
-  "publicItems": 82,
+  "publicItems": 90,
   "sources": [
+    {
+      "sourceId": "idm-actividades",
+      "name": "IDM · Agenda oficial de actividades",
+      "status": "revisión",
+      "found": 6,
+      "new": 0,
+      "modified": 0,
+      "duplicates": 1,
+      "held": 5,
+      "error": null
+    },
     {
       "sourceId": "events-uy-deportes",
       "name": "events.uy contributors · Deportes (CC BY 4.0)",
@@ -20,7 +31,46 @@
       "error": null
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "type": "pending-review",
+      "sourceId": "idm-actividades",
+      "id": "onda-dea9c648ca766ab5",
+      "why": "publicación no autorizada"
+    },
+    {
+      "type": "pending-review",
+      "sourceId": "idm-actividades",
+      "id": "onda-36475eecb8ef2d70",
+      "why": "publicación no autorizada"
+    },
+    {
+      "type": "pending-review",
+      "sourceId": "idm-actividades",
+      "id": "onda-df78b2aa7ffd5561",
+      "why": "publicación no autorizada"
+    },
+    {
+      "type": "possible-duplicate",
+      "sourceId": "idm-actividades",
+      "sourceUrl": "https://maldonado.gub.uy/node/62170",
+      "candidateId": "onda-cf45c0f63f917dcf",
+      "existingId": "idm-festival-guitarra-maldonado-20261126",
+      "reason": "titulo-fecha-ciudad"
+    },
+    {
+      "type": "pending-review",
+      "sourceId": "idm-actividades",
+      "id": "onda-56d1c4d91ecbcf2a",
+      "why": "publicación no autorizada"
+    },
+    {
+      "type": "pending-review",
+      "sourceId": "idm-actividades",
+      "id": "onda-15dd5b74cef1e128",
+      "why": "publicación no autorizada"
+    }
+  ],
   "changes": [],
   "notSeenIsNotCancellation": true
 }
