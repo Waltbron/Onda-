@@ -1,0 +1,46 @@
+{
+  "capturedAt": "2026-11-23T20:27:44.951Z",
+  "listing": "https://maldonado.gub.uy/actividades",
+  "pages": [
+    {
+      "name": "listado.html",
+      "url": "https://maldonado.gub.uy/actividades",
+      "status": 200,
+      "bytes": 54301,
+      "jsonLdTypes": [],
+      "timeTags": 0,
+      "hasICS": false,
+      "links": 167
+    },
+    {
+      "name": "ficha-1.html",
+      "url": "https://maldonado.gub.uy/node/62095",
+      "status": 200,
+      "bytes": 41413,
+      "jsonLdTypes": [],
+      "timeTags": 0,
+      "hasICS": false,
+      "links": 171
+    },
+    {
+      "name": "ficha-2.html",
+      "url": "https://maldonado.gub.uy/node/62168",
+      "status": 200,
+      "bytes": 40106,
+      "jsonLdTypes": [],
+      "timeTags": 0,
+      "hasICS": false,
+      "links": 169
+    },
+    {
+      "name": "ficha-3.html",
+      "url": "https://maldonado.gub.uy/node/62192",
+      "status": 200,
+      "bytes": 38732,
+      "jsonLdTypes": [],
+      "timeTags": 0,
+      "hasICS": false,
+      "links": 168
+    }
+  ]
+}
