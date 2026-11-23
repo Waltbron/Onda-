@@ -51,7 +51,19 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/automatic.json data/state.json data/reports/latest.json site/data/events.json site/data/meta.json site/data/event-images.json
           if ! git diff --cached --quiet; then
-            git commit -m 'ONDA Lab: actualizar catálogo e imágenes verificados para Netlify'
+            # Ahorro de créditos de Netlify: si solo cambió estado interno (state.json, informe), no se reconstruye el sitio.
+            # meta.json cambia la hora de la última corrida en cada ejecución: solo cuenta si cambia el día o algo más.
+            VISIBLE=0
+            git diff --cached --quiet -- site/ ':!site/data/meta.json' || VISIBLE=1
+            if git diff --cached -U0 -- site/data/meta.json | grep -E '^[+-] ' | grep -v lastSuccessfulRunAt | grep -q .; then VISIBLE=1; fi
+            OLD_DAY=$(git show HEAD:site/data/meta.json | grep -o '"lastSuccessfulRunAt": "[0-9-]\{10\}' || true)
+            NEW_DAY=$(grep -o '"lastSuccessfulRunAt": "[0-9-]\{10\}' site/data/meta.json || true)
+            [ "$OLD_DAY" = "$NEW_DAY" ] || VISIBLE=1
+            if [ "$VISIBLE" = "0" ]; then
+              git commit -m 'ONDA Lab: estado interno del motor (sin cambios visibles) [skip netlify]'
+            else
+              git commit -m 'ONDA Lab: actualizar catálogo e imágenes verificados para Netlify'
+            fi
             git push origin HEAD:chore/instalar-motor-v3-1
           else
             echo 'Sin cambios en el catálogo de Lab'
