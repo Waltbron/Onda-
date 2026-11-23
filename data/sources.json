@@ -39,7 +39,7 @@
     "permissionEvidence": "https://maldonado.gub.uy/terminos-uso",
     "publicationPolicy": "review",
     "expectedHost": "maldonado.gub.uy",
-    "notes": "Fuente prioritaria tras auditoría 8/11/2026: 4 omisiones verificadas. Los términos permiten uso de información con cita y exceptúan obras de terceros, pero faltan prueba de robots, HTML real, parser e identificación de duplicados. No activar ni copiar imágenes/textos íntegros."
+    "notes": "Fuente prioritaria tras auditoría 8/11/2026: 4 omisiones verificadas. Los términos permiten uso de información con cita y exceptúan obras de terceros, pero faltan prueba de robots, HTML real, parser e identificación de duplicados. No activar ni copiar imágenes/textos íntegros. Robots verificado 2026-11-23: /actividades y /node/<id> no están bloqueados (solo admin, search, user, node/add). Fichas en /node/<id>. Pendiente: HTML real para confirmar si hay Event JSON-LD o hay que escribir parser propio."
   },
   {
     "id": "events-uy-deportes",
