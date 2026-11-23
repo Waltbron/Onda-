@@ -1,1 +1,79 @@
-{}
+{
+  "maca-mas-que-jazz-las-rodetts-20261128": {
+    "imageUrl": "https://entradas.macamuseo.org/evento/las-rodetts/og?v=2f0dfcf1be",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Más que jazz · Las Rodetts",
+    "imageCredit": "MACA · agenda oficial",
+    "imageSourceUrl": "https://entradas.macamuseo.org/evento/las-rodetts"
+  },
+  "cordera-caravana-magica-maldonado-20261128": {
+    "imageUrl": "https://www.passline.com/imagenes/eventos/cordera-y-la-caravana-magica-568683-rec.jpg",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Cordera y La Caravana Mágica",
+    "imageCredit": "Passline",
+    "imageSourceUrl": "https://www.passline.com/eventos/cordera-y-la-caravana-magica"
+  },
+  "maca-natalio-ameli-canciones-desnudas-20261127": {
+    "imageUrl": "https://entradas.macamuseo.org/evento/canciones-desnudas-de-la-cordillera-al-mar/og?v=45be4748c7",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Natalio Faingold y Amelí · Canciones desnudas",
+    "imageCredit": "MACA · agenda oficial",
+    "imageSourceUrl": "https://entradas.macamuseo.org/evento/canciones-desnudas-de-la-cordillera-al-mar"
+  },
+  "idm-festival-guitarra-maldonado-20261126": {
+    "imageUrl": "https://www.maldonado.gub.uy/actividades/undefined",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Festival Internacional de Guitarra de Maldonado",
+    "imageCredit": "Intendencia de Maldonado",
+    "imageSourceUrl": "https://www.maldonado.gub.uy/actividades/festival-internacional-guitarra-maldonado"
+  },
+  "maca-danza-clase-masterclass-20261206": {
+    "imageUrl": "https://entradas.macamuseo.org/evento/clase-abierta-y-masterclass-clase-abierta-a-todo-publico/og?v=e8662cf8f7",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Clase abierta y masterclass de danza · MACA",
+    "imageCredit": "MACA · reservas oficiales",
+    "imageSourceUrl": "https://entradas.macamuseo.org/evento/clase-abierta-y-masterclass-clase-abierta-a-todo-publico"
+  },
+  "idm-inauguracion-monumento-paella-20261128": {
+    "imageUrl": "https://maldonado.gub.uy/actividades/undefined",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Inauguración del monumento a Piriápolis, Capital Nacional de la Paella",
+    "imageCredit": "Intendencia de Maldonado",
+    "imageSourceUrl": "https://maldonado.gub.uy/actividades/inauguracion-monumento-piriapolis-capital-nacional-paella"
+  },
+  "idm-feria-turismo-rural-natural-20261124": {
+    "imageUrl": "https://maldonado.gub.uy/actividades/undefined",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Feria de Turismo Rural y Natural · Pueblo Gaucho",
+    "imageCredit": "Intendencia de Maldonado",
+    "imageSourceUrl": "https://maldonado.gub.uy/actividades/feria-turismo-rural-natural"
+  },
+  "onda-851575597b773ff5": {
+    "imageUrl": "https://lolograste-media.nyc3.digitaloceanspaces.com/uploads/1791203833603-tour-peloton.jpg",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Tour Uruguay Gran Fondo Punta del Este",
+    "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
+    "imageSourceUrl": "https://lolograste.uy/gran-fondo-punta-del-este"
+  },
+  "onda-27baf5653b1eb9e9": {
+    "imageUrl": "https://static.wixstatic.com/media/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png/v1/fit/w_2500,h_1330,al_c/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Urban Race",
+    "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
+    "imageSourceUrl": "https://www.rseventosdeportivos.com/urbanrace2026"
+  },
+  "onda-1696ef81c9099ed9": {
+    "imageUrl": "https://static.wixstatic.com/media/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png/v1/fit/w_2500,h_1330,al_c/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para Media Maratón de Piriápolis",
+    "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
+    "imageSourceUrl": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n"
+  },
+  "onda-8dc5567306f788a9": {
+    "imageUrl": "https://www.ironman.com/sites/default/files/styles/og/public/2025-01/EVENTCARD2.jpg?h=bb5434d7&itok=sSCDtvVu",
+    "imageType": "photo",
+    "imageAlt": "Imagen publicada para IRONMAN 70.3 Punta del Este",
+    "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
+    "imageSourceUrl": "https://www.ironman.com/races/im703-punta-del-este"
+  }
+}
