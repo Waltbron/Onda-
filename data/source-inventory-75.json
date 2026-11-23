@@ -1,6 +1,6 @@
 {
   "project": "Pintó / Hormiga",
-  "updatedAt": "2026-10-08",
+  "updatedAt": "2026-11-23",
   "timezone": "America/Montevideo",
   "objective": "Descubrir, estructurar, deduplicar, verificar, actualizar, clasificar, recomendar y distribuir",
   "note": "endpointObserved significa URL examinada, NO permiso de scraping ni automatización activa; toda integración requiere revisión de condiciones y prueba de estabilidad.",
@@ -443,6 +443,21 @@
       "legalReview": "pendiente",
       "frequencySuggestion": "semanal",
       "notes": "",
+      "automaticExtractionEnabled": false
+    },
+    {
+      "id": "medio-y-medio-festival-punta-ballena",
+      "name": "Medio y Medio · Festival Punta Ballena",
+      "layer": 3,
+      "layerName": "Venues",
+      "url": "https://www.medioymedio.com/",
+      "trust": "A",
+      "methodCandidate": "pagina-publica",
+      "priority": "alta",
+      "endpointObserved": true,
+      "legalReview": "pendiente",
+      "frequencySuggestion": "semanal",
+      "notes": "Fuente oficial del festival y del recinto en Portezuelo, Punta Ballena (organizador distinto de ticketera). Enlace a productor RedTickets: https://redtickets.uy/productor/MedioyMedio . El sitio también publica shows en Brasil; validar país, ciudad, recinto, año y fecha antes de crear ficha. Grilla verano 2026-2027 sin confirmar al 23/11/2026. No reutilizar fotografías de artistas sin licencia/autorización ni generar retratos sintéticos como imágenes documentales. Revisión de términos y canal autorizado pendiente.",
       "automaticExtractionEnabled": false
     },
     {
