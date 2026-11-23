@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-23T15:00:00-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "2026-11-28-maca-taller-dibujo-parque-janinne-wolfsohn",
+      "title": "Taller de dibujo: Un parque para dibujar",
+      "date": "2026-11-28",
+      "venue": "Fundación Pablo Atchugarry / Parque de Esculturas MACA",
+      "city": "Manantiales",
+      "category": "Talleres y arte",
+      "sourceUrl": "https://macamuseo.org/eventosmaca/fq7qyk3zhs6j3u164iqrnn0njqf31d",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "10:30–12:30. Artista Janinne Wolfsohn. Inscripción enlazada desde la página oficial MACA; no requiere experiencia previa. Fuente consultada 2026-11-23."
+    },
+    {
+      "key": "2026-11-26-maldonado-muestra-escuela-construccion",
+      "title": "Muestra escuela de la construcción",
+      "date": "2026-11-26",
+      "venue": "Av. Aiguá y Bulevar Artigas",
+      "city": "Maldonado",
+      "category": "Formación y comunidad",
+      "sourceUrl": "https://www.maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "19:00. Agenda IDM 23–28/11. Condiciones de acceso general sin confirmar. Fuente consultada 2026-11-23."
+    },
+    {
+      "key": "2026-11-27-aigua-inauguracion-centro-deportivo-municipal",
+      "title": "Inauguración de obras en el Centro Deportivo Municipal de Aiguá",
+      "date": "2026-11-27",
+      "venue": "Centro Deportivo Municipal de Aiguá",
+      "city": "Aiguá",
+      "category": "Deporte y comunidad",
+      "sourceUrl": "https://www.maldonado.gub.uy/agenda-actividades-idm",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "19:30. Acto de inauguración, no competencia deportiva. Acceso público no confirmado. Fuente consultada 2026-11-23."
+    },
+    {
+      "key": "2026-12-27-my-tribe-opening-narbona",
+      "title": "MY TRIBE Opening - You Are My Tribe",
+      "date": "2026-12-27",
+      "venue": "Narbona PDE",
+      "city": "Manantiales",
+      "category": "Fiestas y electrónica",
+      "sourceUrl": "https://www.passline.com/eventos/2712-my-tribe-opening-you-are-my-tribe",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "18:00, +21. Productora MY TRIBE PDE SAS. Ticketera Passline, URL fuente y compra coinciden. General segunda tanda UYU 3.485 en consulta 2026-11-23; verificar vigencia."
+    },
+    {
+      "key": "2027-01-02-odisea-paradise-2-fancy-set",
+      "title": "PARADISE - 2 FANCY X ODISEA X SET",
+      "date": "2027-01-02",
+      "venue": "Centro de Convenciones de Punta del Este",
+      "city": "Punta del Este",
+      "category": "Fiestas y electrónica",
+      "sourceUrl": "https://www.odiseaoficial.com/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Productora ODÍSEA (sitio oficial). Anuncia desde USD 20; ticketera y enlace de compra individual no comprobados. Fuente consultada 2026-11-23. Revisar horarios."
+    }
+  ]
+}
