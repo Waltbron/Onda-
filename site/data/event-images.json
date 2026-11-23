@@ -20,33 +20,12 @@
     "imageCredit": "MACA · agenda oficial",
     "imageSourceUrl": "https://entradas.macamuseo.org/evento/canciones-desnudas-de-la-cordillera-al-mar"
   },
-  "idm-festival-guitarra-maldonado-20261126": {
-    "imageUrl": "https://www.maldonado.gub.uy/actividades/undefined",
-    "imageType": "photo",
-    "imageAlt": "Imagen publicada para Festival Internacional de Guitarra de Maldonado",
-    "imageCredit": "Intendencia de Maldonado",
-    "imageSourceUrl": "https://www.maldonado.gub.uy/actividades/festival-internacional-guitarra-maldonado"
-  },
   "maca-danza-clase-masterclass-20261206": {
     "imageUrl": "https://entradas.macamuseo.org/evento/clase-abierta-y-masterclass-clase-abierta-a-todo-publico/og?v=e8662cf8f7",
     "imageType": "photo",
     "imageAlt": "Imagen publicada para Clase abierta y masterclass de danza · MACA",
     "imageCredit": "MACA · reservas oficiales",
     "imageSourceUrl": "https://entradas.macamuseo.org/evento/clase-abierta-y-masterclass-clase-abierta-a-todo-publico"
-  },
-  "idm-inauguracion-monumento-paella-20261128": {
-    "imageUrl": "https://maldonado.gub.uy/actividades/undefined",
-    "imageType": "photo",
-    "imageAlt": "Imagen publicada para Inauguración del monumento a Piriápolis, Capital Nacional de la Paella",
-    "imageCredit": "Intendencia de Maldonado",
-    "imageSourceUrl": "https://maldonado.gub.uy/actividades/inauguracion-monumento-piriapolis-capital-nacional-paella"
-  },
-  "idm-feria-turismo-rural-natural-20261124": {
-    "imageUrl": "https://maldonado.gub.uy/actividades/undefined",
-    "imageType": "photo",
-    "imageAlt": "Imagen publicada para Feria de Turismo Rural y Natural · Pueblo Gaucho",
-    "imageCredit": "Intendencia de Maldonado",
-    "imageSourceUrl": "https://maldonado.gub.uy/actividades/feria-turismo-rural-natural"
   },
   "onda-851575597b773ff5": {
     "imageUrl": "https://lolograste-media.nyc3.digitaloceanspaces.com/uploads/1791203833603-tour-peloton.jpg",
@@ -57,15 +36,15 @@
   },
   "onda-27baf5653b1eb9e9": {
     "imageUrl": "https://static.wixstatic.com/media/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png/v1/fit/w_2500,h_1330,al_c/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png",
-    "imageType": "photo",
-    "imageAlt": "Imagen publicada para Urban Race",
+    "imageType": "reference",
+    "imageAlt": "Imagen referencial para onda-27baf5653b1eb9e9",
     "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
     "imageSourceUrl": "https://www.rseventosdeportivos.com/urbanrace2026"
   },
   "onda-1696ef81c9099ed9": {
     "imageUrl": "https://static.wixstatic.com/media/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png/v1/fit/w_2500,h_1330,al_c/956401_3605a4b7d2c34869935feecce538bd3b%7Emv2.png",
-    "imageType": "photo",
-    "imageAlt": "Imagen publicada para Media Maratón de Piriápolis",
+    "imageType": "reference",
+    "imageAlt": "Imagen referencial para onda-1696ef81c9099ed9",
     "imageCredit": "events.uy contributors · Deportes (CC BY 4.0)",
     "imageSourceUrl": "https://www.rseventosdeportivos.com/mediamarat%C3%B3n"
   },

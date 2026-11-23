@@ -16,3 +16,8 @@ test('evita páginas genéricas, logotipos y fuentes no específicas',()=>{
  const meta=extractMeta('<meta property="og:image" content="/assets/logo.png">','https://www.passline.com/eventos/cordera-y-la-caravana-magica');
  assert.equal(meta.imageUrl,null);
 });
+
+test('og:image indefinida no se incorpora al catálogo',()=>{
+ const info=extractMeta('<meta property="og:title" content="Feria Turismo Rural"><meta property="og:image" content="undefined">','https://maldonado.gub.uy/actividades/feria-rural');
+ assert.equal(info.imageUrl,null);
+});

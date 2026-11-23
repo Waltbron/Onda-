@@ -73,3 +73,7 @@ La página principal de Hormiga y la rama `main` del sitio ONDA no se reemplazar
 Ampliar fuentes culturales, música y fiestas con acceso autorizado y parsers comprobados; resolver calidad y frescura por evento, buscar duplicados entre proveedores y comprobar el comportamiento en Android. El programa trilingüe ES/EN/PT está aprobado como dirección de producto, pero **aún no implementado**.
 
 Registro de avance y decisiones: [Notion · ONDA tablero](https://app.notion.com/p/41f2d8c76d5381a5b1ccf055514e5876).
+
+### Actualización del sistema de imágenes · 23/11/2026
+
+La selección admite imágenes reales/afiches de la fuente y escenas editoriales aproximadas de la misma actividad; una imagen conceptual repetida es preferible a un fallback excesivo. Se agregaron piscinas por formato y categoría, un segundo respaldo visual ante error de carga y refresco independiente de `event-images.json`. Se depuraron tres URL `/undefined`. Imágenes idénticas usadas por varias fichas se etiquetan `reference` y nunca son anunciadas como fotografía específica. El script de descubrimiento y `npm run check` bloquean URL inválidas. No se agregaron servicios ni cron.

@@ -67,20 +67,22 @@ function activeVisualPlan(section){
  return VISUALS.allocate(cards,{columns});
 }
 function visualBackups(e,visual){
- const curated=visual.scope==='foto'?(globalThis.ONDAVisual.candidates(e)[0]||globalThis.ONDAVisual.fallback(e,new Set([visual.id]))):globalThis.ONDAVisual.fallback(e,new Set([visual.id]));
- const final=globalThis.ONDAVisual.fallback(e,new Set([visual.id,curated.id]));
- return {curated,final};
+ const options=globalThis.ONDAVisual.candidates(e).filter(x=>x.id!==visual.id);
+ const seen=new Set([visual.id]);
+ const next=()=>{const x=options.find(v=>!seen.has(v.id))||globalThis.ONDAVisual.fallback(e,seen);seen.add(x.id);return x};
+ const curated=next(),alternate=next(),final=globalThis.ONDAVisual.fallback(e,seen);
+ return {curated,alternate,final};
 }
 function visualLabel(visual){
- return visual.scope==='foto'?'Imagen del evento · filtro ONDA':visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
+ return visual.scope==='foto'?(visual.imageType==='reference'?'Imagen de referencia · filtro ONDA':'Imagen del evento · filtro ONDA'):visual.scope==='identidad'?'Portada ONDA · no es el afiche oficial':'Ilustración ONDA · no es fotografía del evento';
 }
 function editorialCover(e,visual){
- const {curated,final}=visualBackups(e,visual);
- const label=visual.scope==='foto'?'Imagen del evento':visual.scope==='identidad'?'':'Ilustración ONDA';
+ const {curated,alternate,final}=visualBackups(e,visual);
+ const label=visual.scope==='foto'?(visual.imageType==='reference'?'Imagen referencial':'Imagen del evento'):visual.scope==='identidad'?'':'Ilustración ONDA';
  const badge=label?'<span class="visual-disclaimer'+(visual.scope==='foto'?' photo-label':'')+'">'+label+'</span>':'';
  if(visual.src){
   const typeClass=visual.scope==='foto'?' onda-photo':visual.scope==='identidad'?' brand-fallback':'';
-  return '<img class="editorial-art event-art-img'+typeClass+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async">'+badge;
+  return '<img class="editorial-art event-art-img'+typeClass+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-second-src="'+escapeHtml(alternate.src)+'" data-second-kind="'+escapeHtml(alternate.scope)+'" data-second-caption="'+escapeHtml(visualLabel(alternate))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" loading="lazy" decoding="async">'+badge;
  }
  if(visual.scope==='identidad')return '<span class="editorial-cover brand-cover '+escapeHtml(visual.variant)+'" role="img" aria-label="Portada gráfica ONDA; no representa al evento"><span class="brand-echo" aria-hidden="true">ONDA ONDA ONDA</span><span class="brand-lettering" aria-hidden="true">ONDA</span><span class="brand-signature" aria-hidden="true">EL ESTE TE LLAMA</span></span>';
  const symbol={'Cultura':'✳','Música':'♫','Deporte':'◉','Gastronomía':'✺','Fiestas':'✹','Aire libre':'❋','Bienestar':'☀','Encuentros':'✦'}[e.category]||'✦';
@@ -112,10 +114,10 @@ function findEvent(id){return state.events.find(e=>e.id===id)}
 let focusBefore=null;
 function openDetail(id){const e=findEvent(id);if(!e)return;focusBefore=document.activeElement;state.modal=id;const ticket=TIX.access(e);const t=ticket.hasDirectTicket?`<a href="${safeUrl(ticket.url)}" class="primary" target="_blank" rel="noopener noreferrer">${escapeHtml(ticket.label)}</a>`:'';
  const visual=activeVisualPlan('recommendations').get(e.id)||activeVisualPlan('agenda').get(e.id)||VISUALS.forEvent(e);
- const {curated,final}=visualBackups(e,visual);
+ const {curated,alternate,final}=visualBackups(e,visual);
  const photoCredit=visual.scope==='foto'?(visual.sourceUrl?'<a href="'+safeUrl(visual.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Imagen: '+escapeHtml(visual.credit)+'</a> · filtro ONDA':'Imagen del evento · filtro ONDA'):escapeHtml(visualLabel(visual));
  const modalCover=visual.src
-  ?'<figure class="modal-visual'+(visual.scope==='foto'?' has-photo':'')+'"><img class="event-art-img'+(visual.scope==='foto'?' onda-photo':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+photoCredit+'</figcaption></figure>'
+  ?'<figure class="modal-visual'+(visual.scope==='foto'?' has-photo':'')+'"><img class="event-art-img'+(visual.scope==='foto'?' onda-photo':'')+'" src="'+escapeHtml(visual.src)+'" data-fallback-src="'+escapeHtml(curated.src)+'" data-fallback-kind="'+escapeHtml(curated.scope)+'" data-fallback-caption="'+escapeHtml(visualLabel(curated))+'" data-second-src="'+escapeHtml(alternate.src)+'" data-second-kind="'+escapeHtml(alternate.scope)+'" data-second-caption="'+escapeHtml(visualLabel(alternate))+'" data-final-src="'+escapeHtml(final.src)+'" alt="'+escapeHtml(visual.caption)+'" decoding="async"><figcaption>'+photoCredit+'</figcaption></figure>'
   :'<div class="modal-visual modal-editorial" style="'+colors(e)+'"><span>ONDA / '+escapeHtml(e.category)+'</span><strong>'+escapeHtml(e.title)+'</strong><small>Portada editorial · no es el afiche oficial</small></div>';
  const gmaps=ONDAShare.directions(e);
  const startedNote=ET.timingNote(e);
@@ -153,12 +155,13 @@ function showDataStatus(meta) {
 async function refreshCatalog() {
  if(document.getElementById('embedded-events'))return;
  try {
-  const [feed,meta]=await Promise.all([fetch('./data/events.json',{cache:'no-store'}),fetch('./data/meta.json',{cache:'no-store'})]);
+  const [feed,meta,media]=await Promise.all([fetch('./data/events.json',{cache:'no-store'}),fetch('./data/meta.json',{cache:'no-store'}),fetch('./data/event-images.json',{cache:'no-store'})]);
   if(!feed.ok||!meta.ok)return;
-  const [items,info]=await Promise.all([feed.json(),meta.json()]);
+  const [items,info,index]=await Promise.all([feed.json(),meta.json(),media.ok?media.json():Promise.resolve(state.imageIndex)]);
+  if(index&&typeof index==='object'&&!Array.isArray(index))state.imageIndex=index;
   if(!Array.isArray(items)||items.some(e=>!e.id||!e.date||!e.sourceUrl))return;
   showDataStatus(info);
-  const signature=JSON.stringify(items);
+  const signature=JSON.stringify([items,state.imageIndex]);
   if(signature===state.lastDataSync)return;
   state.lastDataSync=signature;
   state.events=attachImages(items);
@@ -198,6 +201,7 @@ document.addEventListener('error',ev=>{
  if(!img?.classList?.contains('event-art-img'))return;
  const choices=[
   {src:img.dataset.fallbackSrc,kind:img.dataset.fallbackKind,caption:img.dataset.fallbackCaption},
+  {src:img.dataset.secondSrc,kind:img.dataset.secondKind,caption:img.dataset.secondCaption},
   {src:img.dataset.finalSrc,kind:'identidad',caption:'Portada ONDA · no es el afiche oficial'}
  ];
  let step=Number(img.dataset.backupStage||0);

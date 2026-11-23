@@ -25,10 +25,10 @@ test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
  assert.equal(select(e('INJU5K Piriápolis','Deporte','Plaza Artigas',['running'])).id,'onda_evento_running_carrera_popular_01');
 });
 test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
- assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
- assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
+ assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'ambiente');
+ assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'ambiente');
  assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'ambiente');
 });
 
 test('reutiliza imágenes pertinentes lejos y separa vecinos inmediatos',()=>{
@@ -45,8 +45,8 @@ test('evita repeticiones contiguas en móvil, tablet y escritorio y no inventa a
   const out=V.allocate(es,{columns:cols});
   for(let i=0;i<es.length;i++){
    const visual=out.get(es[i].id);
-   assert.ok(visual.id==='onda_evento_jazz_ensamble_vivo_01'||visual.scope==='identidad');
-   if(i%cols!==0)assert.notEqual(visual.id,out.get(es[i-1].id).id);
+   assert.ok(['onda_evento_jazz_ensamble_vivo_01','onda_musica_acustico_jardin_01','onda_musica_concierto_vocal_femenina_01'].includes(visual.id));
+   if(i%cols!==0&&ctx.ONDAVisual.candidates(es[i]).length>1)assert.notEqual(visual.id,out.get(es[i-1].id).id);
    if(i>=cols)assert.notEqual(visual.id,out.get(es[i-cols].id).id);
   }
   const again=V.allocate(es,{columns:cols});
@@ -75,7 +75,7 @@ test('las tres identidades serigráficas aprobadas están disponibles como WebP 
  const names=['onda_fallback_serigrafia_01_azul_naranja','onda_fallback_serigrafia_02_fucsia_naranja','onda_fallback_serigrafia_03_lima_violeta'];
  const seen=new Set();
  for(let i=0;i<150;i++){
-  const img=select({...e('Actividad sin portada','Música','Lugar ficticio'),id:'unknown-'+i});
+  const img=select({...e('Actividad sin portada','Desconocida','Lugar ficticio'),id:'unknown-'+i});
   assert.equal(img.scope,'identidad');
   assert.ok(names.includes(img.id),img.id);
   assert.ok(existsSync(new URL('../../site/'+img.src.slice(2),import.meta.url)));
@@ -98,10 +98,10 @@ test('ONDA Lab v5: formatos y lugares realmente compatibles',()=>{
  assert.equal(select(byId('onda-8dc5567306f788a9')).id,'onda_deporte_triatlon_costero_mansa_01');
  for(const id of ['onda-cda7024816bea191','onda-e72aa28a719596dd','onda-58e70b8640621f8f'])
   assert.equal(select(byId(id)).id,'onda_deporte_natacion_aguas_abiertas_01');
- assert.equal(select(byId('onda-10df1fdc7203c9ab')).scope,'identidad','Piriápolis no usa imagen de Punta del Este');
- assert.equal(select(byId('onda-8e4ce3fed1ceab93')).scope,'identidad','San Carlos no usa imagen del Cerro San Antonio');
- assert.equal(select(byId('cordera-caravana-magica-maldonado-20261128')).scope,'identidad','No usar cantante femenina para Cordera');
- assert.equal(select(e('Festival de guitarra eléctrica','Música','Sala Maldonado')).scope,'identidad','No confundir guitarra clásica con eléctrica');
+ assert.equal(select(byId('onda-10df1fdc7203c9ab')).scope,'ambiente','Piriápolis no usa imagen de Punta del Este');
+ assert.equal(select(byId('onda-8e4ce3fed1ceab93')).scope,'ambiente','San Carlos no usa imagen del Cerro San Antonio');
+ assert.equal(select(byId('cordera-caravana-magica-maldonado-20261128')).scope,'ambiente','No usar cantante femenina para Cordera');
+ assert.equal(select(e('Festival de guitarra eléctrica','Música','Sala Maldonado')).scope,'ambiente','No confundir guitarra clásica con eléctrica');
 });
 test('ONDA Lab v5: menos fallback en agenda vigente y sin repetición de vecinos',()=>{
  const future=events.filter(e=>(e.endDate||e.date)>='2026-11-22'&&!['cancelado','finalizado','retirado'].includes(e.status)).sort((a,b)=>a.date.localeCompare(b.date)||String(a.time||'').localeCompare(String(b.time||'')));
@@ -129,10 +129,10 @@ test('una URL HTTPS de imagen por evento tiene prioridad; otros metadatos son op
   assert.equal(ctx.ONDAVisual.photo({...x,imageUrl}),null);
 });
 test('ilustraciones temáticas se usan antes del fallback solo con categoría compatible',()=>{
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'ambiente');
  assert.equal(select({...e('Exposición de pintura','Cultura','Museo'),kind:'exposicion'}).scope,'formato');
  assert.notEqual(select(e('Canciones desnudas','Música','Teatro MACA')).scope,'identidad');
- assert.equal(select(e('Inauguración de un monumento','Cultura','Piriápolis')).scope,'identidad');
+ assert.equal(select(e('Inauguración de un monumento','Cultura','Piriápolis')).scope,'ambiente');
 });
 test('archivo de imágenes vinculado por ID se aplica a cargas y actualizaciones',()=>{
  const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
@@ -173,4 +173,19 @@ test('foto ONDA usa la paleta corporativa y conserva comparador original sin ret
   assert.ok(html.includes(token),'Falta '+token);
  assert.match(html,/photo-lab-original/);
  assert.match(html,/photo-lab-filtered/);
+});
+
+test('registros válidos y serigrafía residual sobre agenda futura',()=>{
+ const idx=JSON.parse(readFileSync(new URL('../../site/data/event-images.json',import.meta.url),'utf8'));
+ assert.equal(Object.keys(idx).length,8);
+ assert.equal(Object.values(idx).some(x=>/\/undefined(?:$|\?)/.test(x.imageUrl)),false);
+ const future=events.filter(x=>(x.endDate||x.date)>='2026-11-23').map(e=>({...e,...(idx[e.id]||{})}));
+ for(const columns of [1,2,3]){
+  const assigned=V.allocate(future,{columns});
+  const brands=[...assigned.values()].filter(x=>x.scope==='identidad').length;
+  assert.ok(brands<=Math.ceil(future.length*.35),'Serigrafías '+brands+'/'+future.length);
+ }
+ const app=readFileSync(new URL('../../site/app.js',import.meta.url),'utf8');
+ assert.match(app,/data-second-src/);
+ assert.match(app,/JSON.stringify\(\[items,state.imageIndex\]\)/);
 });

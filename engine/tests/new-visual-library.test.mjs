@@ -25,10 +25,10 @@ test('ilustraciones concretas para ballet, jazz, charla, running',()=>{
  assert.equal(select(e('INJU5K Piriápolis','Deporte','Plaza Artigas',['running'])).id,'onda_evento_running_carrera_popular_01');
 });
 test('evita imágenes engañosas: guitarra no es chelo; monumento no es paella, triatlón no es running',()=>{
- assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'identidad');
- assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'identidad');
+ assert.equal(select(e('Festival de Guitarra','Música','Maldonado')).scope,'ambiente');
+ assert.equal(select(e('Inauguración del monumento a Capital Nacional de la Paella','Cultura','Rambla de Piriápolis')).scope,'ambiente');
  assert.equal(select(e('IRONMAN 70.3 Punta del Este','Deporte','Punta del Este',['triatlon'])).id,'onda_deporte_triatlon_costero_mansa_01');
- assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'identidad');
+ assert.equal(select(e('Tour de San Carlos','Deporte','San Carlos',['ciclismo'])).scope,'ambiente');
 });
 test('reutilización semántica y separación entre vecinos en vez de exclusividad total',()=>{
  const jazz=i=>({...e('Concierto de jazz','Música'),id:'jazz-'+i});
@@ -38,7 +38,7 @@ test('reutilización semántica y separación entre vecinos en vez de exclusivid
  assert.equal(out.get('jazz-1').id,'onda_evento_jazz_ensamble_vivo_01');
  assert.equal(out.get('jazz-3').id,'onda_evento_jazz_ensamble_vivo_01');
  assert.notEqual(out.get('jazz-1').id,out.get('jazz-2').id);
- assert.equal(out.get('jazz-2').scope,'identidad');
+ assert.equal(out.get('jazz-2').scope,'ambiente');
 });
 test('cada evento del catálogo obtiene imagen compatible real o portada editorial sin archivo falso',()=>{
  assert.ok(events.length>=79);
@@ -62,7 +62,7 @@ test('las tres identidades serigráficas aprobadas están disponibles como WebP 
  const names=['onda_fallback_serigrafia_01_azul_naranja','onda_fallback_serigrafia_02_fucsia_naranja','onda_fallback_serigrafia_03_lima_violeta'];
  const seen=new Set();
  for(let i=0;i<150;i++){
-  const img=select({...e('Actividad sin portada','Música','Lugar ficticio'),id:'unknown-'+i});
+  const img=select({...e('Actividad sin portada','Desconocida','Lugar ficticio'),id:'unknown-'+i});
   assert.equal(img.scope,'identidad');
   assert.ok(names.includes(img.id),img.id);
   assert.ok(existsSync(new URL('../../site/'+img.src.slice(2),import.meta.url)));

@@ -118,6 +118,30 @@ function candidates(e){
 
  if(category==='aire libre'&&matches(info,/\b(dunas|caminata costera|senderismo costero|pasarela de playa)\b/))
   add('onda_naturaleza_caminata_dunas_pasarela_01',92,'formato','Caminata por las dunas');
+
+ // Selección flexible: el ambiente ilustra la actividad, no asegura artista, escenario ni fecha.
+ const ambient={
+  musica:['onda_musica_acustico_jardin_01','onda_musica_concierto_vocal_femenina_01','onda_evento_jazz_ensamble_vivo_01'],
+  fiestas:['onda_lifestyle_patio_nocturno_la_barra_01','onda_musica_concierto_vocal_femenina_01'],
+  cultura:['onda_cultura_exposicion_pintura_sala_historica_01','onda_evento_charla_conferencia_generica_01','onda_cultura_taller_creativo_mosaicos_01'],
+  gastronomia:['onda_gastronomia_feria_rambla_piriapolis_01','onda_gastronomia_paella_gigante_piriapolis_01'],
+  'aire libre':['onda_naturaleza_caminata_dunas_pasarela_01'],
+  bienestar:['onda_bienestar_yoga_patio_luminoso_01'],
+  encuentros:['onda_lifestyle_patio_nocturno_la_barra_01']
+ };
+ const sports={
+  ciclismo:['onda_deporte_ciclismo_ruta_piriapolis_01','onda_naturaleza_bicicleta_sendero_lussich_01'],
+  surf:['onda_deporte_surf_playa_brava_01','onda_deporte_surf_montoya_maniobra_01'],
+  beach_voley:['onda_deporte_beach_volley_playa_mansa_01'],
+  trail_running:['onda_deporte_trail_running_sierras_animas_01','onda_evento_running_carrera_popular_01'],
+  running:['onda_evento_running_carrera_popular_01','onda_deporte_running_costero_brava_01'],
+  natacion_aguas_abiertas:['onda_deporte_natacion_aguas_abiertas_01'],
+  triatlon:['onda_deporte_triatlon_costero_mansa_01'],
+  tenis:['onda_deporte_tenis_ultimo_punto_01']
+ };
+ const pool=sport?(sports[formatId]||[]):(ambient[category]||[]);
+ for(const [i,id] of pool.entries())add(id,22-i,'ambiente','Escena conceptual de la actividad; no representa artistas, lugar ni evento concreto');
+
  return arr.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));
 }
 
@@ -136,7 +160,7 @@ function fallback(e,blocked=new Set()){
 }
 // La URL real de la fuente es suficiente para usar la imagen en esta beta.
 // Crédito, estado de derechos y origen se conservan si están disponibles, sin bloqueo burocrático.
-const remoteHttps=x=>typeof x==='string'&&/^https:\/\/[a-z0-9.-]+(?:\/[^\s<>"']*)?$/i.test(x)&&!x.includes('@');
+const remoteHttps=x=>typeof x==='string'&&/^https:\/\/[a-z0-9.-]+(?:\/[^\s<>"']*)?$/i.test(x)&&!x.includes('@')&&!/\/(?:undefined|null|nan)(?:[/?#]|$)/i.test(x);
 const photoAsset=x=>remoteHttps(x)||(typeof x==='string'&&/^\.\/assets\/[a-z0-9/_-]+\.(?:jpe?g|png|webp)$/i.test(x));
 function photo(e){
  if(!e||!photoAsset(e.imageUrl))return null;
@@ -156,7 +180,8 @@ function allocate(events,{columns=1}={}){
   const i=placed.length,blocked=new Set();
   if(i>0&&i%cols!==0)blocked.add(result.get(placed[i-1].id).id);
   if(i>=cols)blocked.add(result.get(placed[i-cols].id).id);
-  const visual=photo(e)||candidates(e).find(x=>!blocked.has(x.id))||fallback(e,blocked);
+  const choices=candidates(e);
+  const visual=photo(e)||choices.find(x=>!blocked.has(x.id))||choices[0]||fallback(e,blocked);
   result.set(e.id,visual);placed.push(e);
  }
  return result;
