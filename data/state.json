@@ -2,23 +2,23 @@
   "schema": 1,
   "sources": {
     "events-uy-deportes": {
-      "successes": 12,
+      "successes": 13,
       "failures": 0,
-      "lastAttemptAt": "2026-11-23T23:39:57.638Z",
-      "lastSuccessAt": "2026-11-23T23:39:57.638Z",
+      "lastAttemptAt": "2026-11-24T01:12:13.754Z",
+      "lastSuccessAt": "2026-11-24T01:12:13.754Z",
       "status": "ok",
       "lastError": null,
       "lastFound": 16
     },
     "idm-actividades": {
-      "successes": 2,
+      "successes": 3,
       "failures": 0,
-      "lastAttemptAt": "2026-11-23T23:39:57.638Z",
-      "lastSuccessAt": "2026-11-23T23:39:57.638Z",
+      "lastAttemptAt": "2026-11-24T01:12:13.754Z",
+      "lastSuccessAt": "2026-11-24T01:12:13.754Z",
       "status": "revisión",
       "lastError": null,
       "lastFound": 6
     }
   },
-  "lastSuccessfulRunAt": "2026-11-23T23:39:57.638Z"
+  "lastSuccessfulRunAt": "2026-11-24T01:12:13.754Z"
 }
