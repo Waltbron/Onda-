@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-24T09:37:30-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "2027-01-06-este-arte-pavilion-vik",
+      "title": "ESTE ARTE 2027",
+      "date": "2027-01-06",
+      "venue": "Pavilion VIK",
+      "city": "José Ignacio",
+      "category": "Arte y ferias",
+      "sourceUrl": "https://es.estearte.com/info",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Feria 5–8/1; 5/1 solo invitación, público 6–8/1 de 17 a 22. Organiza ESTE ARTE. Anticipada USD 35; general USD 40; código HAPPY anunciado 10%. Consulta 24/11/2026, 09:37 Uruguay."
+    },
+    {
+      "key": "2027-01-03-gfny-jose-ignacio-garzon",
+      "title": "GFNY José Ignacio – Uruguay",
+      "date": "2027-01-03",
+      "venue": "Pueblo Garzón (salida y llegada)",
+      "city": "Garzón",
+      "category": "Deporte",
+      "sourceUrl": "https://salinas.gfny.com/gfny-announces-jose-ignacio-race-on-uruguays-atlantic-coast/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Organiza GFNY. Recorridos 130 y 77 km según anuncio oficial GFNY World. Horario y acceso espectadores pendientes. Consulta 24/11/2026, 09:37 Uruguay."
+    },
+    {
+      "key": "2027-01-03-punta-verano-hugel",
+      "title": "PUNTA VERANO 2027 | HUGEL | CLOSING SEASON",
+      "date": "2027-01-03",
+      "venue": "Manantiales Beach",
+      "city": "Manantiales",
+      "category": "Fiestas y electrónica",
+      "sourceUrl": "https://puntaverano.uy/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Productora Punta Verano. Ticketera MI Entrada https://mientrada.com.uy/evento/punta-verano-2027-hugel-closing-season-30286 confirma recinto y +21; discrepancia hora 17:00 productora vs 19:00 ticketera; revisar antes de publicar. Consulta 24/11/2026, 09:37 Uruguay."
+    }
+  ]
+}
