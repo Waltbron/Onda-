@@ -68,6 +68,9 @@ jobs:
           else
             echo 'Sin cambios en el catálogo de Lab'
           fi
+      - name: Alerta ante fuentes degradadas o desactualizadas
+        # Corre DESPUÉS de guardar el estado: la alerta (rojo en Actions) no impide conservar el último catálogo válido.
+        run: node scripts/health.mjs
       - name: Informe en historial de GitHub
         if: always()
         run: |
