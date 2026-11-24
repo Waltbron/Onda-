@@ -79,8 +79,21 @@ export function publicCatalog(manual, automatic, overrides={}) {
   }
   return items;
 }
-export function updatePipeline({manual,automatic=[],state={schema:1,sources:{}},sources=[],results=[],overrides={},suggestedAliases={},now=new Date().toISOString(),mode='live'}) {
+// Decisiones humanas sobre eventos retenidos por una fuente en revisión: {approved:[ids], rejected:[ids]}.
+// Aprobar publica ese evento aunque la fuente no sea automática; rechazar lo saca de la bandeja. Nunca habilita una fuente apagada o sin permiso.
+export function validateDecisions(decisions={}) {
+  const ID=/^onda-[0-9a-f]{16}$/, out={approved:new Set(),rejected:new Set()};
+  for(const k of ['approved','rejected']){
+    const list=decisions[k]??[];
+    if(!Array.isArray(list))throw Error(`decisiones: "${k}" debe ser una lista`);
+    for(const id of list){if(typeof id!=='string'||!ID.test(id))throw Error(`decisiones: identificador inválido en "${k}"`);out[k].add(id)}
+  }
+  for(const id of out.approved)if(out.rejected.has(id))throw Error('decisiones: un evento no puede estar aprobado y rechazado a la vez');
+  return out;
+}
+export function updatePipeline({manual,automatic=[],state={schema:1,sources:{}},sources=[],results=[],overrides={},suggestedAliases={},decisions={},now=new Date().toISOString(),mode='live'}) {
   validateOverrides(overrides);
+  const dec=validateDecisions(decisions);
   const nextAutomatic=automatic.map(e=>({...e})), nextState=structuredClone(state);
   nextState.sources ||= {};
   const issues=[],changes=[],sourceReports=[];
@@ -138,10 +151,12 @@ export function updatePipeline({manual,automatic=[],state={schema:1,sources:{}},
       summary.status='bloqueada';summary.error='cambios masivos inesperados';summary.held=tentative.length;
       issues.push({sourceId:source.id,reason:summary.error});sourceReports.push(summary);continue;
     }
-    const allowedAuto=mode==='live'&&source.enabled===true&&source.permission==='approved'&&source.publicationPolicy==='automatic';
+    const sourceLive=mode==='live'&&source.enabled===true&&source.permission==='approved';
+    const allowedAuto=sourceLive&&source.publicationPolicy==='automatic';
     for(const t of tentative){
       if(t.type==='possible-duplicate'){issues.push(t);continue}
-      if(!allowedAuto) {if(t.type==='new'||t.type==='modified') {summary.held++;issues.push({type:'pending-review',sourceId:source.id,id:t.id,why:'publicación no autorizada'});}continue}
+      const approvedByHand=!allowedAuto&&sourceLive&&(t.type==='new'||t.type==='modified')&&dec.approved.has(t.id);
+      if(!allowedAuto&&!approvedByHand) {if((t.type==='new'||t.type==='modified')&&!dec.rejected.has(t.id)) {summary.held++;issues.push({type:'pending-review',sourceId:source.id,id:t.id,why:'publicación no autorizada'});}continue}
       if(t.type==='new'){
         // Publicar solo fichas futuras verificadas. Candidatos caducados no se acumulan.
         if(t.newEvent.status==='finalizado'||t.newEvent.status==='cancelado'||t.newEvent.status==='dudoso')continue;

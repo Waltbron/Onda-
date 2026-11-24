@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {updatePipeline,validateDecisions} from '../src/pipeline.mjs';
+const now='2026-10-15T13:00:00.000Z';
+const source={id:'test-source',name:'Fuente en revisión',url:'https://test.example.org/eventos',expectedHost:'test.example.org',city:'Maldonado',enabled:true,permission:'approved',publicationPolicy:'review',minItems:1};
+const sample=(id='a',date='2026-11-01')=>({sourceId:source.id,sourceName:source.name,sourceUrl:`https://test.example.org/eventos/${id}`,title:`Actividad de prueba ${id}`,date,endDate:date,time:'19:00',endTime:'21:00',category:'Cultura',city:'Maldonado',place:'Sala Centro',evidence:[{field:'date',text:`${date}T19:00:00-03:00`,origin:'jsonld.startDate'}]});
+const inputs=(more={},src=source)=>({manual:[],automatic:[],state:{schema:1,sources:{}},sources:[src],results:[{sourceId:src.id,ok:true,candidates:[sample('a'),sample('b')]}],now,mode:'live',...more});
+const held=()=>updatePipeline(inputs());
+test('sin decisiones, la fuente en revisión retiene todo',()=>{const p=held();assert.equal(p.publicEvents.length,0);assert.equal(p.report.sources[0].held,2)});
+test('un evento aprobado a mano se publica y el otro sigue retenido',()=>{const [a]=held().report.issues.map(i=>i.id);const p=updatePipeline(inputs({decisions:{approved:[a],rejected:[]}}));assert.equal(p.publicEvents.length,1);assert.equal(p.publicEvents[0].id,a);assert.equal(p.report.sources[0].held,1);assert.equal(p.report.publishedChanges,1);assert.equal(p.report.sources[0].status,'revisión')});
+test('un evento rechazado sale de la bandeja y no se publica',()=>{const [a]=held().report.issues.map(i=>i.id);const p=updatePipeline(inputs({decisions:{approved:[],rejected:[a]}}));assert.equal(p.publicEvents.length,0);assert.equal(p.report.sources[0].held,1);assert.ok(!p.report.issues.some(i=>i.id===a))});
+test('aprobar no habilita una fuente apagada ni sin permiso',()=>{const [a]=held().report.issues.map(i=>i.id);for(const bad of [{...source,enabled:false},{...source,permission:'pending'}]){const p=updatePipeline(inputs({decisions:{approved:[a],rejected:[]}},bad));assert.equal(p.publicEvents.length,0)}});
+test('aprobar no publica en modo ensayo',()=>{const [a]=held().report.issues.map(i=>i.id);const p=updatePipeline(inputs({decisions:{approved:[a],rejected:[]},mode:'fixture'}));assert.equal(p.publicEvents.length,0)});
+test('el evento aprobado se mantiene en las corridas siguientes',()=>{const [a]=held().report.issues.map(i=>i.id);const d={approved:[a],rejected:[]};const p=updatePipeline(inputs({decisions:d}));const q=updatePipeline(inputs({decisions:d,automatic:p.automatic,state:p.state}));assert.equal(q.publicEvents.length,1);assert.equal(q.report.publishedChanges,0)});
+test('decisiones inválidas o contradictorias se rechazan',()=>{assert.throws(()=>validateDecisions({approved:['x']}));assert.throws(()=>validateDecisions({approved:'onda-0123456789abcdef'}));assert.throws(()=>validateDecisions({approved:['onda-0123456789abcdef'],rejected:['onda-0123456789abcdef']}));assert.doesNotThrow(()=>validateDecisions({}))});
