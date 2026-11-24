@@ -23,7 +23,11 @@ if(mode==='fixture'){
   const parsed=parseJSONLDEvents(html,{sourceId:fixtureSource.id,baseUrl:fixtureSource.url,sourceName:fixtureSource.name,city:fixtureSource.city});
   results.push({sourceId:fixtureSource.id,ok:true,candidates:parsed.candidates,issues:parsed.issues});
 } else if(process.env.ONDA_AUTOMATION_ENABLED==='true') {
-  for(const source of sources.filter(s=>s.enabled))results.push(await fetchSource(source));
+  // Aislamiento: una fuente que lanza una excepción inesperada NO debe frenar a las demás ni impedir que se registre la salud.
+  for(const source of sources.filter(s=>s.enabled)){
+    try{results.push(await fetchSource(source))}
+    catch(e){results.push({sourceId:source.id,ok:false,error:'excepción no controlada: '+String((e&&e.message)||e).slice(0,170)})}
+  }
 }
 let runSources=mode==='fixture'?[{...sources[0],enabled:true,permission:'approved',publicationPolicy:'automatic'}]:sources;
 const output=updatePipeline({manual,automatic,state,sources:runSources,results,overrides,suggestedAliases,now,mode});
