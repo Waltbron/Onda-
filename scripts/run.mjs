@@ -12,6 +12,7 @@ const read=p=>JSON.parse(fs.readFileSync(path.join(ROOT,p),'utf8'));
 const write=(relative,value)=>{const p=path.join(ROOT,relative);fs.mkdirSync(path.dirname(p),{recursive:true});const tmp=p+'.tmp-'+process.pid;fs.writeFileSync(tmp,JSON.stringify(value,null,2)+'\n');fs.renameSync(tmp,p)};
 const sources=read('data/sources.json'), manual=read('data/manual.json'),automatic=read('data/automatic.json'),state=read('data/state.json'),overrides=read('data/overrides.json');
 const suggestedAliases=read('data/candidate-aliases.json');
+const decisions=fs.existsSync(path.join(ROOT,'data/review-decisions.json'))?read('data/review-decisions.json'):{};
 const now=new Date().toISOString();
 if(!['fixture','live'].includes(mode))throw Error('Modo inválido: fixture o live');
 if(mode==='fixture'&&publish)throw Error('BLOQUEADO: nunca publicar ejemplos');
@@ -30,7 +31,7 @@ if(mode==='fixture'){
   }
 }
 let runSources=mode==='fixture'?[{...sources[0],enabled:true,permission:'approved',publicationPolicy:'automatic'}]:sources;
-const output=updatePipeline({manual,automatic,state,sources:runSources,results,overrides,suggestedAliases,now,mode});
+const output=updatePipeline({manual,automatic,state,sources:runSources,results,overrides,suggestedAliases,decisions,now,mode});
 console.log(JSON.stringify({mode,publish,runAt:now,activeSources:output.report.activeConnectors,report:output.report},null,2));
 if(mode==='fixture'){
   if(preview){write('output/fixture-report.json',output.report);write('output/fixture-public-preview.json',output.publicEvents)}
