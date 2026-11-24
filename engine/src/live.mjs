@@ -6,7 +6,21 @@ import {parseIdmAgenda} from './idm-adapter.mjs';
 import {fetchOpenSports} from './open-sports.mjs';
 import {fetchPartnerTicketera} from './ticketera-feed.mjs';
 const WAIT=1000;
+const RETRIES=2;
+const NET_CODES=new Set(['ECONNRESET','ETIMEDOUT','ENOTFOUND','EAI_AGAIN','ECONNREFUSED','UND_ERR_CONNECT_TIMEOUT','UND_ERR_SOCKET']);
+// Transitorio = 5xx, 429, timeout o error de red. Nunca 4xx, robots, redirecciones ni contenido inválido.
+export const isTransient=e=>/^HTTP (5\d\d|429)$/.test(String(e&&e.message))||e?.name==='TimeoutError'||e?.name==='AbortError'||(e instanceof TypeError&&NET_CODES.has(e.cause?.code));
 async function read(url, contact, max=2_000_000, accept='text/html,text/plain;q=0.8') {
+  const base=Number(process.env.ONDA_RETRY_DELAY_MS??2000);
+  for(let i=0;;i++){
+    try{return await readOnce(url,contact,max,accept)}
+    catch(e){
+      if(i>=RETRIES||!isTransient(e))throw e;
+      await new Promise(r=>setTimeout(r,base*(i+1)));
+    }
+  }
+}
+async function readOnce(url, contact, max=2_000_000, accept='text/html,text/plain;q=0.8') {
   const res=await fetch(url,{headers:{'User-Agent':contact?`ONDA-Hormiga/1.0 (+mailto:${contact}; https://enonda.app)`:'ONDA-Hormiga/1.0 (+https://enonda.app)','Accept':accept},signal:AbortSignal.timeout(12000),redirect:'error'});
   if(!res.ok)throw Error('HTTP '+res.status);
   if(Number(res.headers.get('content-length')||0)>max)throw Error('archivo demasiado grande');
