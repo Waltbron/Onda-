@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "at": "2026-11-24T21:26:47.863Z",
+  "at": "2026-11-25T05:35:30.232Z",
   "mode": "live",
   "status": "ok",
   "activeConnectors": 1,
@@ -12,11 +12,11 @@
       "sourceId": "idm-actividades",
       "name": "IDM · Agenda oficial de actividades",
       "status": "revisión",
-      "found": 6,
+      "found": 4,
       "new": 0,
       "modified": 0,
       "duplicates": 1,
-      "held": 5,
+      "held": 3,
       "error": null
     },
     {
@@ -36,18 +36,6 @@
       "type": "pending-review",
       "sourceId": "idm-actividades",
       "id": "onda-dea9c648ca766ab5",
-      "why": "publicación no autorizada"
-    },
-    {
-      "type": "pending-review",
-      "sourceId": "idm-actividades",
-      "id": "onda-36475eecb8ef2d70",
-      "why": "publicación no autorizada"
-    },
-    {
-      "type": "pending-review",
-      "sourceId": "idm-actividades",
-      "id": "onda-df78b2aa7ffd5561",
       "why": "publicación no autorizada"
     },
     {
