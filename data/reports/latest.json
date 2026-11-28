@@ -1,6 +1,6 @@
 {
   "version": "3.0",
-  "at": "2026-11-27T20:09:18.386Z",
+  "at": "2026-11-28T04:51:45.016Z",
   "mode": "live",
   "status": "ok",
   "activeConnectors": 1,
@@ -12,11 +12,11 @@
       "sourceId": "idm-actividades",
       "name": "IDM · Agenda oficial de actividades",
       "status": "revisión",
-      "found": 4,
+      "found": 3,
       "new": 0,
       "modified": 0,
       "duplicates": 1,
-      "held": 3,
+      "held": 2,
       "error": null
     },
     {
@@ -45,12 +45,6 @@
       "candidateId": "onda-cf45c0f63f917dcf",
       "existingId": "idm-festival-guitarra-maldonado-20261126",
       "reason": "titulo-fecha-ciudad"
-    },
-    {
-      "type": "pending-review",
-      "sourceId": "idm-actividades",
-      "id": "onda-56d1c4d91ecbcf2a",
-      "why": "publicación no autorizada"
     },
     {
       "type": "pending-review",
