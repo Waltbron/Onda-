@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "project": "ONDA",
+  "generatedAt": "2026-11-28T09:46:31-03:00",
+  "generatedFrom": "radar-onda",
+  "ingestionStatus": "review-only",
+  "published": false,
+  "candidates": [
+    {
+      "key": "paella-gigante-piriapolis-2026-12-12",
+      "title": "27.ª Paella Gigante de Piriápolis",
+      "date": "2026-12-12",
+      "venue": "Puerto de Piriápolis",
+      "city": "Piriápolis",
+      "category": "Gastronomía",
+      "sourceUrl": "https://maldonado.gub.uy/noticias/paella-gigante-sera-puerto",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "19:00. Luana, Gabriel do Prado y Club del Candombe. Fuente IDM. Consulta 2026-11-28, 09:46 UYT."
+    },
+    {
+      "key": "fattoruso-ibarburu-2026-12-27",
+      "title": "H. Fattoruso & N. Ibarburu + La Rueda de Candombe",
+      "date": "2026-12-27",
+      "venue": "Medio y Medio",
+      "city": "Punta Ballena",
+      "category": "Música en vivo",
+      "sourceUrl": "https://www.medioymedio.com/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "21:30. Productor Medio y Medio. RedTickets: https://redtickets.uy/evento/FATTORUSO--IBARBURU---LA-RUEDA-DE-CANDOMBE/35214/ Consulta 2026-11-28, 09:46 UYT."
+    },
+    {
+      "key": "campodonico-supervielle-2026-12-29",
+      "title": "Juan Campodónico & Luciano Supervielle",
+      "date": "2026-12-29",
+      "venue": "Medio y Medio",
+      "city": "Punta Ballena",
+      "category": "Música en vivo",
+      "sourceUrl": "https://www.medioymedio.com/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "21:30. Productor Medio y Medio. RedTickets: https://redtickets.uy/evento/JUAN-CAMPODONICO--LUCIANO-SUPERVIELLE/35215/ Consulta 2026-11-28, 09:46 UYT."
+    },
+    {
+      "key": "fiesta-polenta-2026-12-31",
+      "title": "Fiesta Polenta",
+      "date": "2026-12-31",
+      "venue": "Medio y Medio",
+      "city": "Punta Ballena",
+      "category": "Fiestas",
+      "sourceUrl": "https://www.medioymedio.com/",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "23:55. Productor Medio y Medio. RedTickets: https://redtickets.uy/evento/FIESTA-POLENTA/35216/ Consulta 2026-11-28, 09:46 UYT."
+    },
+    {
+      "key": "michael-bibi-2027-01-02",
+      "title": "Michael Bibi",
+      "date": "2027-01-02",
+      "venue": "Narbona PDE",
+      "city": "Manantiales",
+      "category": "Electrónica",
+      "sourceUrl": "https://linktr.ee/mytribepde",
+      "verificationStatus": "descubierto",
+      "publicationAllowed": false,
+      "notes": "Cartelera MY TRIBE confirma fecha y recinto. Passline: https://www.passline.com/eventos/sabado-201-michael-bibi (cola de acceso, precio y hora no verificados). Consulta 2026-11-28, 09:46 UYT."
+    }
+  ]
+}
